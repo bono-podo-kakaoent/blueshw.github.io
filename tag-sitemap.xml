@@ -640,21 +640,42 @@
 
     <url>
         <loc>http://blueshw.github.io/tags/javascript/</loc>
-        <lastmod>2017-07-01T15:01:12.000Z</lastmod>
+        <lastmod>2017-07-01T15:05:44.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://blueshw.github.io/tags/react/</loc>
-        <lastmod>2017-07-01T15:01:12.000Z</lastmod>
+        <lastmod>2017-07-01T15:05:44.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
         <loc>http://blueshw.github.io/tags/arrow-function/</loc>
-        <lastmod>2017-07-01T15:01:12.000Z</lastmod>
+        <lastmod>2017-07-01T15:05:44.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://blueshw.github.io/tags/es6/</loc>
+        <lastmod>2017-07-01T15:05:44.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://blueshw.github.io/tags/bind/</loc>
+        <lastmod>2017-07-01T15:05:44.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://blueshw.github.io/tags/this/</loc>
+        <lastmod>2017-07-01T15:05:44.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
