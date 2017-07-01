@@ -380,6 +380,13 @@
     </url>
 
     <url>
+        <loc>http://blueshw.github.io/tags/django/</loc>
+        <lastmod>2017-05-15T15:49:19.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
         <loc>http://blueshw.github.io/tags/transaction/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -564,20 +571,6 @@
     <url>
         <loc>http://blueshw.github.io/tags/import/</loc>
         <lastmod>2017-05-16T15:52:44.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://blueshw.github.io/tags/django/</loc>
-        <lastmod>2017-05-31T15:59:39.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://blueshw.github.io/tags/webpack/</loc>
-        <lastmod>2017-05-31T15:59:39.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
