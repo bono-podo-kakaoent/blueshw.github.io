@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://blueshw.github.io/2018/03/21/function-test-with-jest/</loc>
+        <lastmod>2018-03-20T16:18:45.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://blueshw.github.io/2018/02/27/async-await/</loc>
         <lastmod>2018-03-11T16:43:59.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -151,7 +159,7 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/2014/11/01/2014-11-02-from-architect-to-progammer-4/</loc>
+        <loc>http://blueshw.github.io/2014/10/25/2014-10-25-from-architect-to-progammer-3/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -159,7 +167,7 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/2014/10/25/2014-10-25-from-architect-to-progammer-3/</loc>
+        <loc>http://blueshw.github.io/2014/11/01/2014-11-02-from-architect-to-progammer-4/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -183,7 +191,7 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/2015/06/29/2015-06-29-remind-of-knou/</loc>
+        <loc>http://blueshw.github.io/2015/03/28/2015-03-28-from-architect-to-programmer-7/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -191,7 +199,7 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/2015/03/28/2015-03-28-from-architect-to-programmer-7/</loc>
+        <loc>http://blueshw.github.io/2015/06/29/2015-06-29-remind-of-knou/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -271,7 +279,7 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/2016/08/25/2016-08-25-frontend-javascript-framework-angularjs-week2-1/</loc>
+        <loc>http://blueshw.github.io/2016/08/18/2016-08-18-frontend-javascript-framework-angularjs-week1/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -279,7 +287,7 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/2016/08/18/2016-08-18-frontend-javascript-framework-angularjs-week1/</loc>
+        <loc>http://blueshw.github.io/2016/08/25/2016-08-25-frontend-javascript-framework-angularjs-week2-1/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -327,7 +335,7 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/2017/03/28/ES-var-VS-const-VS-let/</loc>
+        <loc>http://blueshw.github.io/2016/11/16/2016-11-16-ionic-install/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -335,7 +343,7 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/2016/11/16/2016-11-16-ionic-install/</loc>
+        <loc>http://blueshw.github.io/2017/03/28/ES-var-VS-const-VS-let/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -399,7 +407,7 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/2016/02/24/python-import-by-class-name/</loc>
+        <loc>http://blueshw.github.io/2016/01/25/python-co-routine-vs-sub-routine/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -407,7 +415,7 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/2016/01/25/python-co-routine-vs-sub-routine/</loc>
+        <loc>http://blueshw.github.io/2016/02/24/python-import-by-class-name/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
