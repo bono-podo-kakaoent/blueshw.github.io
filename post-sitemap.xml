@@ -103,6 +103,14 @@
     </url>
 
     <url>
+        <loc>http://blueshw.github.io/2012/04/19/2012-04-19-think-about-walking/</loc>
+        <lastmod>2017-05-15T15:49:19.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://blueshw.github.io/2012/05/09/2012-05-09-need-conversation/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -111,7 +119,7 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/2012/04/19/2012-04-19-think-about-walking/</loc>
+        <loc>http://blueshw.github.io/2012/05/22/2012-05-22-shaping-memories/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -135,14 +143,6 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/2012/05/22/2012-05-22-shaping-memories/</loc>
-        <lastmod>2017-05-15T15:49:19.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://blueshw.github.io/2014/04/16/2014-04-16-why-did-i-quit-a-job-in-architecture/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -159,14 +159,6 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/2014/10/15/2014-10-15-from-architect-to-progammer-2/</loc>
-        <lastmod>2017-05-15T15:49:19.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://blueshw.github.io/2014/11/01/2014-11-02-from-architect-to-progammer-4/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -175,7 +167,7 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/2014/10/25/2014-10-25-from-architect-to-progammer-3/</loc>
+        <loc>http://blueshw.github.io/2014/10/15/2014-10-15-from-architect-to-progammer-2/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -191,7 +183,7 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/2015/03/28/2015-03-28-from-architect-to-programmer-7/</loc>
+        <loc>http://blueshw.github.io/2015/02/17/2015-02-17-from-architect-to-progammer-6/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -199,7 +191,15 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/2015/02/17/2015-02-17-from-architect-to-progammer-6/</loc>
+        <loc>http://blueshw.github.io/2014/10/25/2014-10-25-from-architect-to-progammer-3/</loc>
+        <lastmod>2017-05-15T15:49:19.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://blueshw.github.io/2015/03/28/2015-03-28-from-architect-to-programmer-7/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -375,14 +375,6 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/2016/03/01/django-virtual-env-setting-for-mac/</loc>
-        <lastmod>2017-05-15T15:49:19.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://blueshw.github.io/2016/03/06/django-unit-test-without-testdb/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -392,6 +384,14 @@
 
     <url>
         <loc>http://blueshw.github.io/2016/03/03/django-using-custom-templatetags/</loc>
+        <lastmod>2017-05-15T15:49:19.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://blueshw.github.io/2016/03/01/django-virtual-env-setting-for-mac/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
