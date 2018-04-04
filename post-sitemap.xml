@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://blueshw.github.io/2018/04/05/react-v16-3-0/</loc>
+        <lastmod>2018-04-04T16:21:34.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://blueshw.github.io/2018/03/25/priority-css-selector/</loc>
         <lastmod>2018-03-26T13:42:18.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -95,7 +103,7 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/2012/04/19/2012-04-19-think-about-walking/</loc>
+        <loc>http://blueshw.github.io/2011/04/13/2011-04-13-learning-from-mountain/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -103,7 +111,7 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/2011/04/13/2011-04-13-learning-from-mountain/</loc>
+        <loc>http://blueshw.github.io/2012/04/19/2012-04-19-think-about-walking/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -127,7 +135,7 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/2014/03/20/2014-03-20-role-of-social-venture/</loc>
+        <loc>http://blueshw.github.io/2014/01/02/2014-01-03-think-about-my-writing/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -143,7 +151,7 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/2014/01/02/2014-01-03-think-about-my-writing/</loc>
+        <loc>http://blueshw.github.io/2014/03/20/2014-03-20-role-of-social-venture/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -151,7 +159,7 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/2014/10/25/2014-10-25-from-architect-to-progammer-3/</loc>
+        <loc>http://blueshw.github.io/2014/10/06/2014-10-06-from-architect-to-progammer-1/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -167,7 +175,7 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/2014/10/06/2014-10-06-from-architect-to-progammer-1/</loc>
+        <loc>http://blueshw.github.io/2014/10/25/2014-10-25-from-architect-to-progammer-3/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -287,7 +295,7 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/2016/08/25/2016-08-25-frontend-javascript-framework-angularjs-week2-1/</loc>
+        <loc>http://blueshw.github.io/2016/08/18/2016-08-18-frontend-javascript-framework-angularjs-week1/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -295,7 +303,7 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/2016/09/02/2016-09-02-frontend-javascript-framework-angularjs-week3-1/</loc>
+        <loc>http://blueshw.github.io/2016/08/25/2016-08-25-frontend-javascript-framework-angularjs-week2-1/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -311,7 +319,7 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/2016/08/18/2016-08-18-frontend-javascript-framework-angularjs-week1/</loc>
+        <loc>http://blueshw.github.io/2016/09/02/2016-09-02-frontend-javascript-framework-angularjs-week3-1/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
