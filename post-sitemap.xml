@@ -143,7 +143,7 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/2014/04/16/2014-04-16-why-did-i-quit-a-job-in-architecture/</loc>
+        <loc>http://blueshw.github.io/2014/03/20/2014-03-20-role-of-social-venture/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -151,7 +151,7 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/2014/03/20/2014-03-20-role-of-social-venture/</loc>
+        <loc>http://blueshw.github.io/2014/04/16/2014-04-16-why-did-i-quit-a-job-in-architecture/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -335,7 +335,7 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/2016/10/02/2016-10-02-frontend-javascript-framework-angularjs-week4/</loc>
+        <loc>http://blueshw.github.io/2016/11/16/2016-11-16-ionic-install/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -343,7 +343,7 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/2016/11/16/2016-11-16-ionic-install/</loc>
+        <loc>http://blueshw.github.io/2016/10/02/2016-10-02-frontend-javascript-framework-angularjs-week4/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -415,6 +415,14 @@
     </url>
 
     <url>
+        <loc>http://blueshw.github.io/2016/02/24/python-import-by-class-name/</loc>
+        <lastmod>2017-05-15T15:49:19.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://blueshw.github.io/2016/02/28/python-about-set/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -424,14 +432,6 @@
 
     <url>
         <loc>http://blueshw.github.io/2016/01/25/python-co-routine-vs-sub-routine/</loc>
-        <lastmod>2017-05-15T15:49:19.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://blueshw.github.io/2016/02/24/python-import-by-class-name/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
