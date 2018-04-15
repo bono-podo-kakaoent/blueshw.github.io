@@ -103,7 +103,7 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/2011/03/11/2011-03-12-where-is-the-your-youth/</loc>
+        <loc>http://blueshw.github.io/2011/04/13/2011-04-13-learning-from-mountain/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -111,7 +111,7 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/2011/04/13/2011-04-13-learning-from-mountain/</loc>
+        <loc>http://blueshw.github.io/2011/03/11/2011-03-12-where-is-the-your-youth/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -135,7 +135,7 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/2012/05/22/2012-05-22-shaping-memories/</loc>
+        <loc>http://blueshw.github.io/2014/01/02/2014-01-03-think-about-my-writing/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -143,7 +143,7 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/2014/01/02/2014-01-03-think-about-my-writing/</loc>
+        <loc>http://blueshw.github.io/2012/05/22/2012-05-22-shaping-memories/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -159,14 +159,6 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/2014/04/16/2014-04-16-why-did-i-quit-a-job-in-architecture/</loc>
-        <lastmod>2017-05-15T15:49:19.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://blueshw.github.io/2014/10/06/2014-10-06-from-architect-to-progammer-1/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -175,7 +167,7 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/2014/10/25/2014-10-25-from-architect-to-progammer-3/</loc>
+        <loc>http://blueshw.github.io/2014/04/16/2014-04-16-why-did-i-quit-a-job-in-architecture/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -184,6 +176,14 @@
 
     <url>
         <loc>http://blueshw.github.io/2014/10/15/2014-10-15-from-architect-to-progammer-2/</loc>
+        <lastmod>2017-05-15T15:49:19.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://blueshw.github.io/2014/10/25/2014-10-25-from-architect-to-progammer-3/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -287,7 +287,7 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/2016/08/18/2016-08-18-frontend-javascript-framework-angularjs-week1/</loc>
+        <loc>http://blueshw.github.io/2016/07/26/2016-07-26-functional-programming-in-scala-week5/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -303,7 +303,7 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/2016/07/26/2016-07-26-functional-programming-in-scala-week5/</loc>
+        <loc>http://blueshw.github.io/2016/08/18/2016-08-18-frontend-javascript-framework-angularjs-week1/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -335,14 +335,6 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/2016/11/16/2016-11-16-ionic-install/</loc>
-        <lastmod>2017-05-15T15:49:19.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
         <loc>http://blueshw.github.io/2016/09/05/2016-09-05-frontend-javascript-framework-angularjs-week3-2/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -352,6 +344,14 @@
 
     <url>
         <loc>http://blueshw.github.io/2016/10/02/2016-10-02-frontend-javascript-framework-angularjs-week4/</loc>
+        <lastmod>2017-05-15T15:49:19.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
+        <loc>http://blueshw.github.io/2016/11/16/2016-11-16-ionic-install/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
@@ -391,6 +391,14 @@
     </url>
 
     <url>
+        <loc>http://blueshw.github.io/2016/03/06/django-unit-test-without-testdb/</loc>
+        <lastmod>2017-05-15T15:49:19.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://blueshw.github.io/2016/03/03/django-using-custom-templatetags/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -408,14 +416,6 @@
 
     <url>
         <loc>http://blueshw.github.io/2017/04/12/javascript-closure/</loc>
-        <lastmod>2017-05-15T15:49:19.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://blueshw.github.io/2016/03/06/django-unit-test-without-testdb/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
