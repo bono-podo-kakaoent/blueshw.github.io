@@ -233,27 +233,6 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/tags/%EA%B0%9C%EB%B0%9C%EC%9E%90/</loc>
-        <lastmod>2017-05-15T15:49:19.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://blueshw.github.io/tags/%EC%82%AC%EC%97%85/</loc>
-        <lastmod>2017-05-15T15:49:19.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
-        <loc>http://blueshw.github.io/tags/%EC%82%AC%ED%9A%8C%EC%A0%81%EA%B8%B0%EC%97%85/</loc>
-        <lastmod>2017-05-15T15:49:19.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://blueshw.github.io/tags/HTML/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -297,6 +276,27 @@
 
     <url>
         <loc>http://blueshw.github.io/tags/%ED%95%99%EC%9B%90/</loc>
+        <lastmod>2017-05-15T15:49:19.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://blueshw.github.io/tags/%EA%B0%9C%EB%B0%9C%EC%9E%90/</loc>
+        <lastmod>2017-05-15T15:49:19.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://blueshw.github.io/tags/%EC%82%AC%EC%97%85/</loc>
+        <lastmod>2017-05-15T15:49:19.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://blueshw.github.io/tags/%EC%82%AC%ED%9A%8C%EC%A0%81%EA%B8%B0%EC%97%85/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -527,13 +527,6 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/tags/module/</loc>
-        <lastmod>2017-05-15T15:49:19.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.2</priority>
-    </url>
-
-    <url>
         <loc>http://blueshw.github.io/tags/set/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -542,6 +535,13 @@
 
     <url>
         <loc>http://blueshw.github.io/tags/co-routine/</loc>
+        <lastmod>2017-05-15T15:49:19.000Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://blueshw.github.io/tags/module/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -737,14 +737,14 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/tags/unit-test/</loc>
+        <loc>http://blueshw.github.io/tags/jest/</loc>
         <lastmod>2018-03-25T03:08:51.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/tags/jest/</loc>
+        <loc>http://blueshw.github.io/tags/unit-test/</loc>
         <lastmod>2018-03-25T03:08:51.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
@@ -800,15 +800,22 @@
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/tags/react/</loc>
+        <loc>http://blueshw.github.io/tags/v16-3-0/</loc>
         <lastmod>2018-04-04T16:21:34.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
 
     <url>
-        <loc>http://blueshw.github.io/tags/v16-3-0/</loc>
-        <lastmod>2018-04-04T16:21:34.000Z</lastmod>
+        <loc>http://blueshw.github.io/tags/react/</loc>
+        <lastmod>2018-04-15T07:33:11.222Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.2</priority>
+    </url>
+
+    <url>
+        <loc>http://blueshw.github.io/tags/nextjs/</loc>
+        <lastmod>2018-04-15T07:33:11.222Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.2</priority>
     </url>
