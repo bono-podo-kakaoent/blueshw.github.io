@@ -7,6 +7,14 @@
     </url>
 
     <url>
+        <loc>http://blueshw.github.io/2016/01/20/2016-01-20-shallow-copy-deep-copy/</loc>
+        <lastmod>2018-09-16T16:07:00.228Z</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.6</priority>
+
+    </url>
+
+    <url>
         <loc>http://blueshw.github.io/2018/09/15/pass-by-reference/</loc>
         <lastmod>2018-09-15T12:18:52.067Z</lastmod>
         <changefreq>weekly</changefreq>
@@ -248,14 +256,6 @@
 
     <url>
         <loc>http://blueshw.github.io/2016/01/16/2016-01-16-django-migration/</loc>
-        <lastmod>2017-05-15T15:49:19.000Z</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.6</priority>
-
-    </url>
-
-    <url>
-        <loc>http://blueshw.github.io/2016/01/20/2016-01-20-shallow-copy-deep-copy/</loc>
         <lastmod>2017-05-15T15:49:19.000Z</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.6</priority>
