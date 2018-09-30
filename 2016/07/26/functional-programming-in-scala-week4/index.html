@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 2.0.0"/><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><link rel="shortcut icon" href="/icons/icon-48x48.png"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#663399"/><title data-react-helmet="true">Functional Programming in Scala week 4 | bono&#x27;s blog</title><meta data-react-helmet="true" name="description" content="4.1 Objects Everywhere 퓨어 object-oriented 언어란 모든 value 가 object 라는 말인데, 그렇다면 스칼라가 퓨어 object-oriented language 인가? 스칼라의 모든 값은 object…"/><style id="typography.js">html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{font:93.75%/1.8 'Noto Sans Light','Malgun Gothic','NanumGothic',sans-serif;box-sizing:border-box;overflow-y:scroll;}*{box-sizing:inherit;}*:before{box-sizing:inherit;}*:after{box-sizing:inherit;}body{color:hsla(0,0%,0%,0.8);font-family:'Noto Sans Light','Malgun Gothic','NanumGothic',sans-serif;font-weight:normal;word-wrap:break-word;font-kerning:normal;-moz-font-feature-settings:"kern", "liga", "clig", "calt";-ms-font-feature-settings:"kern", "liga", "clig", "calt";-webkit-font-feature-settings:"kern", "liga", "clig", "calt";font-feature-settings:"kern", "liga", "clig", "calt";}img{max-width:100%;margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;}h1{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;color:inherit;font-family:'Noto Sans Light','Malgun Gothic','NanumGothic',sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:2rem;line-height:1.1;}h2{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;color:inherit;font-family:'Noto Sans Light','Malgun Gothic','NanumGothic',sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:1.51572rem;line-height:1.1;}h3{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;color:inherit;font-family:'Noto Sans Light','Malgun Gothic','NanumGothic',sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:1.31951rem;line-height:1.1;}h4{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;color:inherit;font-family:'Noto Sans Light','Malgun Gothic','NanumGothic',sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:1rem;line-height:1.1;}h5{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;color:inherit;font-family:'Noto Sans Light','Malgun Gothic','NanumGothic',sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:0.87055rem;line-height:1.1;}h6{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;color:inherit;font-family:'Noto Sans Light','Malgun Gothic','NanumGothic',sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:0.81225rem;line-height:1.1;}hgroup{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;}ul{margin-left:1.8rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;list-style-position:outside;list-style-image:none;}ol{margin-left:1.8rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;list-style-position:outside;list-style-image:none;}dl{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;}dd{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;}p{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;}figure{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;}pre{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;font-size:0.85rem;line-height:1.8rem;}table{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;font-size:1rem;line-height:1.8rem;border-collapse:collapse;width:100%;}fieldset{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;}blockquote{margin-left:1.8rem;margin-right:1.8rem;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;}form{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;}noscript{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;}iframe{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;}hr{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:calc(1.8rem - 1px);background:hsla(0,0%,0%,0.2);border:none;height:1px;}address{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;}b{font-weight:bold;}strong{font-weight:bold;}dt{font-weight:bold;}th{font-weight:bold;}li{margin-bottom:calc(1.8rem / 2);}ol li{padding-left:0;}ul li{padding-left:0;}li > ol{margin-left:1.8rem;margin-bottom:calc(1.8rem / 2);margin-top:calc(1.8rem / 2);}li > ul{margin-left:1.8rem;margin-bottom:calc(1.8rem / 2);margin-top:calc(1.8rem / 2);}blockquote *:last-child{margin-bottom:0;}li *:last-child{margin-bottom:0;}p *:last-child{margin-bottom:0;}li > p{margin-bottom:calc(1.8rem / 2);}code{font-size:0.85rem;line-height:1.8rem;}kbd{font-size:0.85rem;line-height:1.8rem;}samp{font-size:0.85rem;line-height:1.8rem;}abbr{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}acronym{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}abbr[title]{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;text-decoration:none;}thead{text-align:left;}td,th{text-align:left;border-bottom:1px solid hsla(0,0%,0%,0.12);font-feature-settings:"tnum";-moz-font-feature-settings:"tnum";-ms-font-feature-settings:"tnum";-webkit-font-feature-settings:"tnum";padding-left:1.2rem;padding-right:1.2rem;padding-top:0.9rem;padding-bottom:calc(0.9rem - 1px);}th:first-child,td:first-child{padding-left:0;}th:last-child,td:last-child{padding-right:0;}</style><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link as="script" rel="preload" href="/0-874606603115c8432ffa.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-aff8fa85fd71423cca38.js"/><link as="script" rel="preload" href="/app-1b7734746725d5aca08d.js"/><link as="script" rel="preload" href="/webpack-runtime-27fd3376b80812128416.js"/><link rel="preload" href="/static/d/466/path---2016-07-26-functional-programming-in-scala-week-4-467-02f-CunNkIcyD0nFsUy6AHjyYJZ3Jw.json" as="fetch" crossOrigin="use-credentials"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group"><div><div style="height:50px;widht:100%;border-bottom:1px solid #eee;padding:10px"><div style="display:flex;width:100%;margin-bottom:2.7rem"><span style="font-size:1.18921rem;line-height:1.8rem;flex:1 0 auto;color:#bbb;margin-left:20px"><a style="box-shadow:none;text-decoration:none;color:inherit" href="/">bono&#x27;s blog</a></span><span style="font-size:13px;flex:0 0 auto;margin-right:15px;margin-top:3px;font-weight:300;color:#777"><a style="box-shadow:none;text-decoration:none;color:inherit" href="/programming">개발</a></span><span style="font-size:13px;flex:0 0 auto;margin-right:15px;margin-top:3px;font-weight:300;color:#777"><a style="box-shadow:none;text-decoration:none;color:inherit" href="/essay">일기</a></span><span style="font-size:13px;flex:0 0 auto;margin-right:15px;margin-top:3px;font-weight:300;color:#777"><a style="box-shadow:none;text-decoration:none;color:inherit" href="/review">책리뷰</a></span><span style="font-size:13px;flex:0 0 auto;margin-right:15px;margin-top:3px;font-weight:300;color:#777"><a style="box-shadow:none;text-decoration:none;color:inherit" href="/">태그</a></span></div></div><div style="margin-left:auto;margin-right:auto;max-width:43.2rem;padding:2.7rem 1.35rem"><h1>Functional Programming in Scala week 4</h1><p style="font-size:0.87055rem;line-height:1.8rem;display:block;margin-bottom:1.8rem;margin-top:-1.8rem">July 26, 2016</p><div><h2>4.1 Objects Everywhere</h2>
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 2.0.0"/><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><link rel="shortcut icon" href="/icons/icon-48x48.png"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#663399"/><title data-react-helmet="true">Functional Programming in Scala week 4 | bono&#x27;s blog</title><meta data-react-helmet="true" name="description" content="4.1 Objects Everywhere 퓨어 object-oriented 언어란 모든 value 가 object 라는 말인데, 그렇다면 스칼라가 퓨어 object-oriented language 인가? 스칼라의 모든 값은 object…"/><style id="typography.js">html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block}audio:not([controls]){display:none;height:0}progress{vertical-align:baseline}[hidden],template{display:none}a{background-color:transparent;-webkit-text-decoration-skip:objects}a:active,a:hover{outline-width:0}abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}b,strong{font-weight:inherit;font-weight:bolder}dfn{font-style:italic}h1{font-size:2em;margin:.67em 0}mark{background-color:#ff0;color:#000}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}img{border-style:none}svg:not(:root){overflow:hidden}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}figure{margin:1em 40px}hr{box-sizing:content-box;height:0;overflow:visible}button,input,optgroup,select,textarea{font:inherit;margin:0}optgroup{font-weight:700}button,input{overflow:visible}button,select{text-transform:none}[type=reset],[type=submit],button,html [type=button]{-webkit-appearance:button}[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,button::-moz-focus-inner{border-style:none;padding:0}[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring,button:-moz-focusring{outline:1px dotted ButtonText}fieldset{border:1px solid silver;margin:0 2px;padding:.35em .625em .75em}legend{box-sizing:border-box;color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}[type=checkbox],[type=radio]{box-sizing:border-box;padding:0}[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}[type=search]::-webkit-search-cancel-button,[type=search]::-webkit-search-decoration{-webkit-appearance:none}::-webkit-input-placeholder{color:inherit;opacity:.54}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}html{font:93.75%/1.8 'Noto Sans Light','Malgun Gothic','NanumGothic',sans-serif;box-sizing:border-box;overflow-y:scroll;}*{box-sizing:inherit;}*:before{box-sizing:inherit;}*:after{box-sizing:inherit;}body{color:hsla(0,0%,0%,0.8);font-family:'Noto Sans Light','Malgun Gothic','NanumGothic',sans-serif;font-weight:normal;word-wrap:break-word;font-kerning:normal;-moz-font-feature-settings:"kern", "liga", "clig", "calt";-ms-font-feature-settings:"kern", "liga", "clig", "calt";-webkit-font-feature-settings:"kern", "liga", "clig", "calt";font-feature-settings:"kern", "liga", "clig", "calt";}img{max-width:100%;margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;}h1{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;color:inherit;font-family:'Noto Sans Light','Malgun Gothic','NanumGothic',sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:2rem;line-height:1.1;}h2{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;color:inherit;font-family:'Noto Sans Light','Malgun Gothic','NanumGothic',sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:1.51572rem;line-height:1.1;}h3{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;color:inherit;font-family:'Noto Sans Light','Malgun Gothic','NanumGothic',sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:1.31951rem;line-height:1.1;}h4{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;color:inherit;font-family:'Noto Sans Light','Malgun Gothic','NanumGothic',sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:1rem;line-height:1.1;}h5{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;color:inherit;font-family:'Noto Sans Light','Malgun Gothic','NanumGothic',sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:0.87055rem;line-height:1.1;}h6{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;color:inherit;font-family:'Noto Sans Light','Malgun Gothic','NanumGothic',sans-serif;font-weight:bold;text-rendering:optimizeLegibility;font-size:0.81225rem;line-height:1.1;}hgroup{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;}ul{margin-left:1.8rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;list-style-position:outside;list-style-image:none;}ol{margin-left:1.8rem;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;list-style-position:outside;list-style-image:none;}dl{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;}dd{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;}p{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;}figure{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;}pre{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;font-size:0.85rem;line-height:1.8rem;}table{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;font-size:1rem;line-height:1.8rem;border-collapse:collapse;width:100%;}fieldset{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;}blockquote{margin-left:1.8rem;margin-right:1.8rem;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;}form{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;}noscript{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;}iframe{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;}hr{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:calc(1.8rem - 1px);background:hsla(0,0%,0%,0.2);border:none;height:1px;}address{margin-left:0;margin-right:0;margin-top:0;padding-bottom:0;padding-left:0;padding-right:0;padding-top:0;margin-bottom:1.8rem;}b{font-weight:bold;}strong{font-weight:bold;}dt{font-weight:bold;}th{font-weight:bold;}li{margin-bottom:calc(1.8rem / 2);}ol li{padding-left:0;}ul li{padding-left:0;}li > ol{margin-left:1.8rem;margin-bottom:calc(1.8rem / 2);margin-top:calc(1.8rem / 2);}li > ul{margin-left:1.8rem;margin-bottom:calc(1.8rem / 2);margin-top:calc(1.8rem / 2);}blockquote *:last-child{margin-bottom:0;}li *:last-child{margin-bottom:0;}p *:last-child{margin-bottom:0;}li > p{margin-bottom:calc(1.8rem / 2);}code{font-size:0.85rem;line-height:1.8rem;}kbd{font-size:0.85rem;line-height:1.8rem;}samp{font-size:0.85rem;line-height:1.8rem;}abbr{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}acronym{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;}abbr[title]{border-bottom:1px dotted hsla(0,0%,0%,0.5);cursor:help;text-decoration:none;}thead{text-align:left;}td,th{text-align:left;border-bottom:1px solid hsla(0,0%,0%,0.12);font-feature-settings:"tnum";-moz-font-feature-settings:"tnum";-ms-font-feature-settings:"tnum";-webkit-font-feature-settings:"tnum";padding-left:1.2rem;padding-right:1.2rem;padding-top:0.9rem;padding-bottom:calc(0.9rem - 1px);}th:first-child,td:first-child{padding-left:0;}th:last-child,td:last-child{padding-right:0;}</style><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link as="script" rel="preload" href="/0-e9a5367c55f19c02df85.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-7e0ac3c186ca6678dde7.js"/><link as="script" rel="preload" href="/app-1b7734746725d5aca08d.js"/><link as="script" rel="preload" href="/webpack-runtime-590da2bc69dca0284401.js"/><link rel="preload" href="/static/d/191/path---2016-07-26-functional-programming-in-scala-week-4-467-02f-Dv47mVRRi88zMzZfPz2GVJXVw.json" as="fetch" crossOrigin="use-credentials"/></head><body><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group"><div><div style="height:50px;widht:100%;border-bottom:1px solid #eee;padding:10px"><div style="display:flex;width:100%;margin-bottom:2.7rem"><span style="font-size:1.18921rem;line-height:1.8rem;flex:1 0 auto;color:#bbb;margin-left:20px"><a style="box-shadow:none;text-decoration:none;color:inherit" href="/">bono&#x27;s blog</a></span><span style="font-size:13px;flex:0 0 auto;margin-right:15px;margin-top:3px;font-weight:300;color:#777"><a style="box-shadow:none;text-decoration:none;color:inherit" href="/programming">개발</a></span><span style="font-size:13px;flex:0 0 auto;margin-right:15px;margin-top:3px;font-weight:300;color:#777"><a style="box-shadow:none;text-decoration:none;color:inherit" href="/essay">일기</a></span><span style="font-size:13px;flex:0 0 auto;margin-right:15px;margin-top:3px;font-weight:300;color:#777"><a style="box-shadow:none;text-decoration:none;color:inherit" href="/review">책리뷰</a></span><span style="font-size:13px;flex:0 0 auto;margin-right:15px;margin-top:3px;font-weight:300;color:#777"><a style="box-shadow:none;text-decoration:none;color:inherit" href="/">태그</a></span></div></div><div style="margin-left:auto;margin-right:auto;max-width:43.2rem;padding:2.7rem 1.35rem"><h3 style="line-height:1.98rem">Functional Programming in Scala week 4</h3><p style="font-size:0.87055rem;line-height:1.8rem;display:block;margin-bottom:5.4rem;margin-top:-1.8rem;color:#bbb">July 26, 2016</p><div><h2>4.1 Objects Everywhere</h2>
 <blockquote>
 <p>퓨어 object-oriented 언어란 모든 value 가 object 라는 말인데, 그렇다면 스칼라가 퓨어 object-oriented language 인가?</p>
 </blockquote>
@@ -6,68 +6,68 @@
 <p>Boolean 클래스에서는 실제 스칼라 Boolean 으로 사용할 수 있었던 연산을 모두 재정의해준다.
 ifThenElse 는 if(cond) f1 else f2 과 같다(여기서 f1, f2 는 ifThenElse 의 파라미터)
 아래는 ’&#x3C;’ 함수를 정의한 예제이다.</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">claass Boolean {
-  ...
-  def &lt; (x: Boolean): Boolean = ifThenElse(false, x)
- }</code></pre></div>
+<div class="gatsby-highlight" data-language="scala"><pre class="language-scala"><code class="language-scala">claass <span class="token builtin">Boolean</span> <span class="token punctuation">{</span>
+  <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+  <span class="token keyword">def</span> <span class="token operator">&lt;</span> <span class="token punctuation">(</span>x<span class="token operator">:</span> <span class="token builtin">Boolean</span><span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Boolean</span> <span class="token operator">=</span> ifThenElse<span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">,</span> x<span class="token punctuation">)</span>
+ <span class="token punctuation">}</span></code></pre></div>
 <h2>4.2 Functions as Objects</h2>
 <p>스칼라에서는 function values 는 오브젝트로 취급된다. 사실 function type A => B 는 scala.Function1[A, B]의 축약 형태와 같다고 할수 있다.</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">package scala
-trait Function1[A, B] {
-  def aaply(x: A): B
-}</code></pre></div>
+<div class="gatsby-highlight" data-language="scala"><pre class="language-scala"><code class="language-scala"><span class="token keyword">package</span> scala
+<span class="token keyword">trait</span> Function1<span class="token punctuation">[</span>A<span class="token punctuation">,</span> B<span class="token punctuation">]</span> <span class="token punctuation">{</span>
+  <span class="token keyword">def</span> aaply<span class="token punctuation">(</span>x<span class="token operator">:</span> A<span class="token punctuation">)</span><span class="token operator">:</span> B
+<span class="token punctuation">}</span></code></pre></div>
 <p>즉, 함수는 apply 메소드를 가진 오브젝트와 같다.
 익명함수의 경우에는 다음과 같이 확장될 수 있다.</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">(x: Int) =&gt; x * x
+<div class="gatsby-highlight" data-language="scala"><pre class="language-scala"><code class="language-scala"><span class="token punctuation">(</span>x<span class="token operator">:</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token keyword">=></span> x <span class="token operator">*</span> x
 
-// is expanded to
-{ class AnonFun extends Function1[Int, Int] {
-  def apply(x: Int) = x * x
-  }
-  new AnonFun
-}
+<span class="token comment">// is expanded to</span>
+<span class="token punctuation">{</span> <span class="token keyword">class</span> AnonFun <span class="token keyword">extends</span> Function1<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">,</span> <span class="token builtin">Int</span><span class="token punctuation">]</span> <span class="token punctuation">{</span>
+  <span class="token keyword">def</span> apply<span class="token punctuation">(</span>x<span class="token operator">:</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token operator">=</span> x <span class="token operator">*</span> x
+  <span class="token punctuation">}</span>
+  <span class="token keyword">new</span> AnonFun
+<span class="token punctuation">}</span>
 
-// shorter
-new FUnctino1[Int, Int] {
-  def apply(x: Int) = x * x
-}</code></pre></div>
+<span class="token comment">// shorter</span>
+<span class="token keyword">new</span> FUnctino1<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">,</span> <span class="token builtin">Int</span><span class="token punctuation">]</span> <span class="token punctuation">{</span>
+  <span class="token keyword">def</span> apply<span class="token punctuation">(</span>x<span class="token operator">:</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token operator">=</span> x <span class="token operator">*</span> x
+<span class="token punctuation">}</span></code></pre></div>
 <p>그러니까 실제로 f(a, b) 라는 함수를 call 했을 때, f.apply(a, b)가 불리는 것과 같다는 말이다.
 예를 들면,</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">val f = (x: Int) =&gt; x * x
-f(7)
+<div class="gatsby-highlight" data-language="scala"><pre class="language-scala"><code class="language-scala"><span class="token keyword">val</span> f <span class="token operator">=</span> <span class="token punctuation">(</span>x<span class="token operator">:</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token keyword">=></span> x <span class="token operator">*</span> x
+f<span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span>
 
-val f = new Function[Int. Int] {
-  def apply(x: Int) = x * x
-}
-f.apply(7)</code></pre></div>
+<span class="token keyword">val</span> f <span class="token operator">=</span> <span class="token keyword">new</span> Function<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">.</span> <span class="token builtin">Int</span><span class="token punctuation">]</span> <span class="token punctuation">{</span>
+  <span class="token keyword">def</span> apply<span class="token punctuation">(</span>x<span class="token operator">:</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token operator">=</span> x <span class="token operator">*</span> x
+<span class="token punctuation">}</span>
+f<span class="token punctuation">.</span>apply<span class="token punctuation">(</span><span class="token number">7</span><span class="token punctuation">)</span></code></pre></div>
 <p>위에서 본것처럼 apply 메소드는 오브젝트 안에 있을 때 오브젝트 이름 그대로 호출할 수 있다. 지난번에 봤던 List 를 예로 들어보면 아래와 같다.</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">trait List[T] {
-  def isEmpty: Boolean
-  def head: T
-  def tail: List[T]
-}
+<div class="gatsby-highlight" data-language="scala"><pre class="language-scala"><code class="language-scala"><span class="token keyword">trait</span> List<span class="token punctuation">[</span>T<span class="token punctuation">]</span> <span class="token punctuation">{</span>
+  <span class="token keyword">def</span> isEmpty<span class="token operator">:</span> <span class="token builtin">Boolean</span>
+  <span class="token keyword">def</span> head<span class="token operator">:</span> T
+  <span class="token keyword">def</span> tail<span class="token operator">:</span> List<span class="token punctuation">[</span>T<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
 
-class Cons[T](val head: T, val tail: List[T]) extends List[T] {
-  def isEmpty = false
-}
+<span class="token keyword">class</span> Cons<span class="token punctuation">[</span>T<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token keyword">val</span> head<span class="token operator">:</span> T<span class="token punctuation">,</span> <span class="token keyword">val</span> tail<span class="token operator">:</span> List<span class="token punctuation">[</span>T<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">extends</span> List<span class="token punctuation">[</span>T<span class="token punctuation">]</span> <span class="token punctuation">{</span>
+  <span class="token keyword">def</span> isEmpty <span class="token operator">=</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span>
 
-class Nil[T] extends List[T] {
-  def isEmpty: Boolean = true
-  def head: Nothing = throw new NoSuchElementException(&quot;Nil.head&quot;)
-  def tail: Nothing = throw new NoSuchElementException(&quot;Nil.tail&quot;)
-}
+<span class="token keyword">class</span> Nil<span class="token punctuation">[</span>T<span class="token punctuation">]</span> <span class="token keyword">extends</span> List<span class="token punctuation">[</span>T<span class="token punctuation">]</span> <span class="token punctuation">{</span>
+  <span class="token keyword">def</span> isEmpty<span class="token operator">:</span> <span class="token builtin">Boolean</span> <span class="token operator">=</span> <span class="token boolean">true</span>
+  <span class="token keyword">def</span> head<span class="token operator">:</span> <span class="token builtin">Nothing</span> <span class="token operator">=</span> <span class="token keyword">throw</span> <span class="token keyword">new</span> NoSuchElementException<span class="token punctuation">(</span><span class="token string">"Nil.head"</span><span class="token punctuation">)</span>
+  <span class="token keyword">def</span> tail<span class="token operator">:</span> <span class="token builtin">Nothing</span> <span class="token operator">=</span> <span class="token keyword">throw</span> <span class="token keyword">new</span> NoSuchElementException<span class="token punctuation">(</span><span class="token string">"Nil.tail"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
 
-// List()
-object List {
-  def apply[T]: List[T] = new Nil
-  def apply[T](x: T): List[T] = new Cons(x, new Nil)
-  def apply[T](x1: T, x2: T): List[T] = new Cons(x1, new Cons(x2, new Nil))
+<span class="token comment">// List()</span>
+<span class="token keyword">object</span> List <span class="token punctuation">{</span>
+  <span class="token keyword">def</span> apply<span class="token punctuation">[</span>T<span class="token punctuation">]</span><span class="token operator">:</span> List<span class="token punctuation">[</span>T<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> Nil
+  <span class="token keyword">def</span> apply<span class="token punctuation">[</span>T<span class="token punctuation">]</span><span class="token punctuation">(</span>x<span class="token operator">:</span> T<span class="token punctuation">)</span><span class="token operator">:</span> List<span class="token punctuation">[</span>T<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> Cons<span class="token punctuation">(</span>x<span class="token punctuation">,</span> <span class="token keyword">new</span> Nil<span class="token punctuation">)</span>
+  <span class="token keyword">def</span> apply<span class="token punctuation">[</span>T<span class="token punctuation">]</span><span class="token punctuation">(</span>x1<span class="token operator">:</span> T<span class="token punctuation">,</span> x2<span class="token operator">:</span> T<span class="token punctuation">)</span><span class="token operator">:</span> List<span class="token punctuation">[</span>T<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> Cons<span class="token punctuation">(</span>x1<span class="token punctuation">,</span> <span class="token keyword">new</span> Cons<span class="token punctuation">(</span>x2<span class="token punctuation">,</span> <span class="token keyword">new</span> Nil<span class="token punctuation">)</span><span class="token punctuation">)</span>
 
-  // objectd 이름 그대로 호출 가능, 파라미터가 맞는 apply 메소드를 알아서 찾아감
-  val a = List()
-  val b = List(1)
-  val c = List(2, 3)
-}</code></pre></div>
+  <span class="token comment">// objectd 이름 그대로 호출 가능, 파라미터가 맞는 apply 메소드를 알아서 찾아감</span>
+  <span class="token keyword">val</span> a <span class="token operator">=</span> List<span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">val</span> b <span class="token operator">=</span> List<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+  <span class="token keyword">val</span> c <span class="token operator">=</span> List<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
 <h2>4.3 Subtyping and Generics</h2>
 <p>스칼라 언어에서 다형성을 표현하는 두가지 방법은 subtyping 과 generic 이다.</p>
 <h3>Type Bounds</h3>
@@ -77,44 +77,44 @@ returns the IntSet itself if all this elements are positive
 throws an exception otherwise</p>
 </blockquote>
 <p>위의 세가지 조건을 충족시킬 수 있는 함수를 생각해보자.</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">def assertAllPos(s: IntSet): IntSet</code></pre></div>
+<div class="gatsby-highlight" data-language="scala"><pre class="language-scala"><code class="language-scala"><span class="token keyword">def</span> assertAllPos<span class="token punctuation">(</span>s<span class="token operator">:</span> IntSet<span class="token punctuation">)</span><span class="token operator">:</span> IntSet</code></pre></div>
 <p>대부분의 경우는 위의 함수로 충분하지만 정확히 하자면 다음과 같이 쓸수 있다.</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">def assertAllPos[S &lt;: IntSet](r: S): S = ...</code></pre></div>
+<div class="gatsby-highlight" data-language="scala"><pre class="language-scala"><code class="language-scala"><span class="token keyword">def</span> assertAllPos<span class="token punctuation">[</span>S <span class="token operator">&lt;</span><span class="token operator">:</span> IntSet<span class="token punctuation">]</span><span class="token punctuation">(</span>r<span class="token operator">:</span> S<span class="token punctuation">)</span><span class="token operator">:</span> S <span class="token operator">=</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span></code></pre></div>
 <p>“S &#x3C;: IntSet”을 type parameter S 의 upper bound 라고 한다. 이것은 S 가 반드시 IntSet 의 subType(또는 자신)이어야 한다는 말과 같다.
 반대로 “S :> T”는 S 가 T 의 superType 이거나 T 가 S 의 subType 이라는 말이다. 이를 lower Bounds 라고 한다.</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">[S &gt;: NonEmpty]</code></pre></div>
+<div class="gatsby-highlight" data-language="scala"><pre class="language-scala"><code class="language-scala"><span class="token punctuation">[</span>S <span class="token operator">></span><span class="token operator">:</span> NonEmpty<span class="token punctuation">]</span></code></pre></div>
 <p>위에서 말했듯이 위의 의미는 S 가 NonEmpty 클래스의 supertype 인데, S 는 NonEmpty 의 모든 base 클래스(자신 포함)가 해당된다. 여기서 S 는 NonEmpty, IntSet, AnyRef, Any 가 될 수 있다.</p>
 <p>마지막은 Mixed Bound</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">[S &gt;: NonEmpty &lt;: IntSet]</code></pre></div>
+<div class="gatsby-highlight" data-language="scala"><pre class="language-scala"><code class="language-scala"><span class="token punctuation">[</span>S <span class="token operator">></span><span class="token operator">:</span> NonEmpty <span class="token operator">&lt;</span><span class="token operator">:</span> IntSet<span class="token punctuation">]</span></code></pre></div>
 <p>이것의 의미는 S 가 NonEmtpy 와 IntSet 타입 사이의 모든 타입이 될 수 있다는 말과 같다.</p>
 <h3>Covariance</h3>
 <p>서브클래스의 인스턴스 컬렉션을 상위클래스의 컬렉션으로 보내는 것을 Covariance(공변성)라고 한다. 왜냐하면 subtyping 관계가 컬렉션에서도 그대로 적용되었기 때문이다.</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">NonEmpty &lt;: IntSet
-// 위가 성립된다면 아래도 성립
-List[NonEmpty] &lt;: List[IntSet]</code></pre></div>
+<div class="gatsby-highlight" data-language="scala"><pre class="language-scala"><code class="language-scala">NonEmpty <span class="token operator">&lt;</span><span class="token operator">:</span> IntSet
+<span class="token comment">// 위가 성립된다면 아래도 성립</span>
+List<span class="token punctuation">[</span>NonEmpty<span class="token punctuation">]</span> <span class="token operator">&lt;</span><span class="token operator">:</span> List<span class="token punctuation">[</span>IntSet<span class="token punctuation">]</span></code></pre></div>
 <h3>Arrays in Scala</h3>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">T[]     // Java
-Array[T]  // Scala
+<div class="gatsby-highlight" data-language="scala"><pre class="language-scala"><code class="language-scala">T<span class="token punctuation">[</span><span class="token punctuation">]</span>     <span class="token comment">// Java</span>
+Array<span class="token punctuation">[</span>T<span class="token punctuation">]</span>  <span class="token comment">// Scala</span>
 
-// Covariance에 의해 아래가 성립
-NonEmpty[] &lt;: IntSet[]        // Java
-Array[NonEmpty] &lt;: Array[IntSet]  // Scala</code></pre></div>
+<span class="token comment">// Covariance에 의해 아래가 성립</span>
+NonEmpty<span class="token punctuation">[</span><span class="token punctuation">]</span> <span class="token operator">&lt;</span><span class="token operator">:</span> IntSet<span class="token punctuation">[</span><span class="token punctuation">]</span>        <span class="token comment">// Java</span>
+Array<span class="token punctuation">[</span>NonEmpty<span class="token punctuation">]</span> <span class="token operator">&lt;</span><span class="token operator">:</span> Array<span class="token punctuation">[</span>IntSet<span class="token punctuation">]</span>  <span class="token comment">// Scala</span></code></pre></div>
 <p>자바의 Array Typing 에는 타입과 관련된 아래의 문제가 있다.</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">NonEmpty[] a = new NonEmpty[]{new NonEmpty(1, Empty, Empty)}
-IntSet[] b = a
-b[0] = Empty
-NonEmpty s = a[0]</code></pre></div>
+<div class="gatsby-highlight" data-language="scala"><pre class="language-scala"><code class="language-scala">NonEmpty<span class="token punctuation">[</span><span class="token punctuation">]</span> a <span class="token operator">=</span> <span class="token keyword">new</span> NonEmpty<span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">{</span><span class="token keyword">new</span> NonEmpty<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> Empty<span class="token punctuation">,</span> Empty<span class="token punctuation">)</span><span class="token punctuation">}</span>
+IntSet<span class="token punctuation">[</span><span class="token punctuation">]</span> b <span class="token operator">=</span> a
+b<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> Empty
+NonEmpty s <span class="token operator">=</span> a<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span></code></pre></div>
 <p>a 는 NonEmpty 타입의 Array 를 가리키는 포인터이다. 두번째 줄에서 IntSet Array b 에 a 를 대입하였다. b 가 실제로 카리키는 대상은 NonEmpty List 지만, covariance 규칙에 의해 상위 타입의 컬렉션이 하위 타입의 컬렉션을 대신할 수 있다. 세번째 줄에서 b 의 첫번째 item 에 Empty 클래스를 대입하였다. 마지막으로 a 의 첫번째 item 을 NonEmpty 타입의 s 에 대입하였다. b 와 a 는 실제로 가리키는 대상이 같기 때문에 세번째 줄에서 b[0]에 들어간 Empty 는 a[0]에서도 동일하게 작동한다. 그런데 마지막 줄에서 Empty 타입의 item 을 NonEmpty 타입에 할당하기 때문에 런타임 에러가 발생한다.</p>
 <h3>Liskov Substitution Principle</h3>
 <blockquote>
 <p>If A &#x3C;: B, then everything one can to do with a value of type B one should also be able to do with a value of type A
 리스코프 치환원칙은 타입 A 와 B 가 있을때 하나의 타입이 다른 하나의 서브타입이 될 수 있는 조건에 대해 말해준다.</p>
 </blockquote>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">// in scala
-val a: Array[NonEmpty] = Array(new NonEmpty(1, Empty, Empty))
-val b: Array[IntSet] = a
-b(0) = Empty
-val s: NonEmpty = a(0)</code></pre></div>
+<div class="gatsby-highlight" data-language="scala"><pre class="language-scala"><code class="language-scala"><span class="token comment">// in scala</span>
+<span class="token keyword">val</span> a<span class="token operator">:</span> Array<span class="token punctuation">[</span>NonEmpty<span class="token punctuation">]</span> <span class="token operator">=</span> Array<span class="token punctuation">(</span><span class="token keyword">new</span> NonEmpty<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> Empty<span class="token punctuation">,</span> Empty<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">val</span> b<span class="token operator">:</span> Array<span class="token punctuation">[</span>IntSet<span class="token punctuation">]</span> <span class="token operator">=</span> a
+b<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">=</span> Empty
+<span class="token keyword">val</span> s<span class="token operator">:</span> NonEmpty <span class="token operator">=</span> a<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span></code></pre></div>
 <p>스칼라의 경우에는 두번째 줄에서 컴파일 에러가 난다. 그 이유는 스칼라의 Array 는 covariant 하지 않기 때문이다. (NonEmpty )</p>
 <div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">NonEmpty &lt;: IntSet
 not Array[NonEmpty] &lt;: Array[IntSet]</code></pre></div>
@@ -130,8 +130,8 @@ B 가 A 의 수퍼타입이면서 C[B]가 C[A]의 수퍼타입인 경우에는 c
 <p>다음의 두 타입중 어떤 타입이 수퍼타입이고, 어떤 타입이 서브타입인가?
 함수의 파라미터가 더 구체적인(서브타입) 타입이 들어 갔을때는 반드시 그 타입으로 인자가 넘어와야한다. type B 를 보면 파라미터 타입이 IntSet 의 서브타입인 NonEmpty 이므로 인자가 반드시 NonEmpty 타입이어야 한다. 반면에 type A 를 보면, 파라미터 타입이 IntSet 이라 NonEmpty 포함 IntSet 의 모든 서브타입이 들어 올 수 있다. 리턴타입은 NonEmpty 이므로 IntSet 이라 할 수 있다. 즉, A 는 B 의 규칙을 만족시킨다. 게다가 A 는 파라미터에 추가로 Empty 같은 타입이 들어 올 수 있으므로, A 가 B 보다 더 확장된 형태이다.
 그러므로, B 가 A 의 수퍼타입이다. 함수의 파라미터는 contravariant 하고 함수의 리턴값은 covariant 하기 때문에 A &#x3C;: B 가 참이다.</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">type A = IntSet =&gt; NonEmpty
-type B = NonEmpty =&gt; IntSet</code></pre></div>
+<div class="gatsby-highlight" data-language="scala"><pre class="language-scala"><code class="language-scala"><span class="token keyword">type</span> A <span class="token operator">=</span> IntSet <span class="token keyword">=></span> NonEmpty
+<span class="token keyword">type</span> B <span class="token operator">=</span> NonEmpty <span class="token keyword">=></span> IntSet</code></pre></div>
 <p>위의 내용을 요약하면 아래와 같다.</p>
 <div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">If A2 &lt;: A1 and B1 &lt;: B2, then
   A1 =&gt; B1  &lt;:  A2 =&gt; B2</code></pre></div>
@@ -140,94 +140,94 @@ type B = NonEmpty =&gt; IntSet</code></pre></div>
 </blockquote>
 <h3>Variance Checks</h3>
 <p>위에서 Array 는 mutable 한 속성 때문에 covariant 하지 못하다는 문제를 살펴봤었다. mutable 한 속성이라는 것은 update 가능하다는 말과 같은데, Array 클래스에서 update 함수의 파라미터의 타입이 어떤 문제를 가지고 있는지 살펴보자. 앞서서 covariant 타입은 함수의 result 타입에만 나타날 수 있다고 말했다.</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">class Array[+T] {
-  def update(x: T) ...
-}</code></pre></div>
+<div class="gatsby-highlight" data-language="scala"><pre class="language-scala"><code class="language-scala"><span class="token keyword">class</span> Array<span class="token punctuation">[</span><span class="token operator">+</span>T<span class="token punctuation">]</span> <span class="token punctuation">{</span>
+  <span class="token keyword">def</span> update<span class="token punctuation">(</span>x<span class="token operator">:</span> T<span class="token punctuation">)</span> <span class="token punctuation">.</span><span class="token punctuation">.</span><span class="token punctuation">.</span>
+<span class="token punctuation">}</span></code></pre></div>
 <p>그런데 위의 Array 클래스의 update 함수를 보면, covariant 타입 T 가 파라미터에 쓰여졌기 때문에 Array 는 covariant 하지 못
 한 컨테이너라 할 수 있겠다.</p>
 <p>그래서 앞서서 보았던(4.2) Function1 은 사실 아래와 같은 형태이다.</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">package scala
-trait Function1[-T, +U] {
-  def apply(x: T): U
-}</code></pre></div>
+<div class="gatsby-highlight" data-language="scala"><pre class="language-scala"><code class="language-scala"><span class="token keyword">package</span> scala
+<span class="token keyword">trait</span> Function1<span class="token punctuation">[</span><span class="token operator">-</span>T<span class="token punctuation">,</span> <span class="token operator">+</span>U<span class="token punctuation">]</span> <span class="token punctuation">{</span>
+  <span class="token keyword">def</span> apply<span class="token punctuation">(</span>x<span class="token operator">:</span> T<span class="token punctuation">)</span><span class="token operator">:</span> U
+<span class="token punctuation">}</span></code></pre></div>
 <p>그렇다면 List 의 경우는 어떨까?
 Nil, Cons 클래스의 경우로 살펴보자.</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">package week4
+<div class="gatsby-highlight" data-language="scala"><pre class="language-scala"><code class="language-scala"><span class="token keyword">package</span> week4
 
-trait List[+T] {
-  def isEmpty: Boolean
-  def head: T
-  def tail: List[T]
-}
+<span class="token keyword">trait</span> List<span class="token punctuation">[</span><span class="token operator">+</span>T<span class="token punctuation">]</span> <span class="token punctuation">{</span>
+  <span class="token keyword">def</span> isEmpty<span class="token operator">:</span> <span class="token builtin">Boolean</span>
+  <span class="token keyword">def</span> head<span class="token operator">:</span> T
+  <span class="token keyword">def</span> tail<span class="token operator">:</span> List<span class="token punctuation">[</span>T<span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
 
-class Cons[T](val head: T, val tail: List[T]) extends List[T] {
-  def isEmpty = false
-}
+<span class="token keyword">class</span> Cons<span class="token punctuation">[</span>T<span class="token punctuation">]</span><span class="token punctuation">(</span><span class="token keyword">val</span> head<span class="token operator">:</span> T<span class="token punctuation">,</span> <span class="token keyword">val</span> tail<span class="token operator">:</span> List<span class="token punctuation">[</span>T<span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token keyword">extends</span> List<span class="token punctuation">[</span>T<span class="token punctuation">]</span> <span class="token punctuation">{</span>
+  <span class="token keyword">def</span> isEmpty <span class="token operator">=</span> <span class="token boolean">false</span>
+<span class="token punctuation">}</span>
 
-object Nil extends List[Nothing] {
-  def isEmpty: Boolean = true
-  def head: Nothing = throw new NoSuchElementException(&quot;Nil.head&quot;)
-  def tail: Nothing = throw new NoSuchElementException(&quot;Nil.tail&quot;)
-}
+<span class="token keyword">object</span> Nil <span class="token keyword">extends</span> List<span class="token punctuation">[</span><span class="token builtin">Nothing</span><span class="token punctuation">]</span> <span class="token punctuation">{</span>
+  <span class="token keyword">def</span> isEmpty<span class="token operator">:</span> <span class="token builtin">Boolean</span> <span class="token operator">=</span> <span class="token boolean">true</span>
+  <span class="token keyword">def</span> head<span class="token operator">:</span> <span class="token builtin">Nothing</span> <span class="token operator">=</span> <span class="token keyword">throw</span> <span class="token keyword">new</span> NoSuchElementException<span class="token punctuation">(</span><span class="token string">"Nil.head"</span><span class="token punctuation">)</span>
+  <span class="token keyword">def</span> tail<span class="token operator">:</span> <span class="token builtin">Nothing</span> <span class="token operator">=</span> <span class="token keyword">throw</span> <span class="token keyword">new</span> NoSuchElementException<span class="token punctuation">(</span><span class="token string">"Nil.tail"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
 
-// val x의 return 타입이 List[Nothing]을 상속받는 Nil object 이므로,
-// covariant 규칙에 의해 List[String]으로 리턴 타입을 지정할 수 있다.
-// List[Nothing] &lt;: List[String]
-object test {
-  val x: List[String] = Nil
-}</code></pre></div>
+<span class="token comment">// val x의 return 타입이 List[Nothing]을 상속받는 Nil object 이므로,</span>
+<span class="token comment">// covariant 규칙에 의해 List[String]으로 리턴 타입을 지정할 수 있다.</span>
+<span class="token comment">// List[Nothing] &lt;: List[String]</span>
+<span class="token keyword">object</span> test <span class="token punctuation">{</span>
+  <span class="token keyword">val</span> x<span class="token operator">:</span> List<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span> <span class="token operator">=</span> Nil
+<span class="token punctuation">}</span></code></pre></div>
 <p>Nil 이 List[Nothing]을 상속하게 만들면 모든 리스트의 서브타입이 된다. 그리고 trait List[T]를 trait List[+T]로 바꿔서 covariant 하게 만들어 준다. val x: List[String] = Nil 을 입력하게 되면, Nil 이 List[Nothing]을 상속받으므로 covariant 하게 바뀐 List 속성에 의해서 Nothing 보다 상위 클래스인 String 타입으로 리턴 할 수 있게 되었다.</p>
 <p>List 클래스에 다음과 같은 prepend 메서드를 추가해보자.</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">def prepend(elem: T): List[T] = new Cons(eleml, this)</code></pre></div>
+<div class="gatsby-highlight" data-language="scala"><pre class="language-scala"><code class="language-scala"><span class="token keyword">def</span> prepend<span class="token punctuation">(</span>elem<span class="token operator">:</span> T<span class="token punctuation">)</span><span class="token operator">:</span> List<span class="token punctuation">[</span>T<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> Cons<span class="token punctuation">(</span>eleml<span class="token punctuation">,</span> <span class="token keyword">this</span><span class="token punctuation">)</span></code></pre></div>
 <p>컴파일 에러가 난다. 그 이유는 타입 T 가 covariant 하기 때문에 파라미터에 사용하면 안된다. prepend 메서드가 새로운 리스트를 생성함해도 불구하고 문제가 생기는 이유는 prepend 메서드에 elem 의 타입이 T 이기 때문이다. 타입 T 가 covariant 하다면 반드시 result type 에만 사용해야 한다.</p>
 <h3>Prepend Violates LSP</h3>
 <p>prepend 메서드가 왜 Liskov Substitution Principle 을 위반했는지 알아보자
 xs 의 타입이 List[IntSet]인 경우에는 문제가 없다.</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">xs.prepend(Empty)</code></pre></div>
+<div class="gatsby-highlight" data-language="scala"><pre class="language-scala"><code class="language-scala">xs<span class="token punctuation">.</span>prepend<span class="token punctuation">(</span>Empty<span class="token punctuation">)</span></code></pre></div>
 <p>하지만 ys 의 타입이 List[NonEmpty]라고 했을 때는 문제가 있다.</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">ys.prepend(Empty)</code></pre></div>
+<div class="gatsby-highlight" data-language="scala"><pre class="language-scala"><code class="language-scala">ys<span class="token punctuation">.</span>prepend<span class="token punctuation">(</span>Empty<span class="token punctuation">)</span></code></pre></div>
 <p>NonEmpty 타입이 들어와야 할 자리에 Empty 타입이 들어왔으므로 타입에러가 발생한다. 그래서 이 경우에는 List[NonEmpty]는 List[IntSet]의 서브타입이 될 수 없다.</p>
 <p>하지만 prepend 메서드는 immutable list 에 실제로 존재한다. 어떻게 이게 가능할까? 답은 lower bound 에 있다. U >: T 는 U 가 T 의 부모 타입이라는 말이다. 이렇게 되면, elem 이 T 보다 상위 타입이 오더라도 문제가 되지 않는다.</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">def prepend[U &gt;: T](elem: U): List[U] = new Cons(elem, list)</code></pre></div>
+<div class="gatsby-highlight" data-language="scala"><pre class="language-scala"><code class="language-scala"><span class="token keyword">def</span> prepend<span class="token punctuation">[</span>U <span class="token operator">></span><span class="token operator">:</span> T<span class="token punctuation">]</span><span class="token punctuation">(</span>elem<span class="token operator">:</span> U<span class="token punctuation">)</span><span class="token operator">:</span> List<span class="token punctuation">[</span>U<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token keyword">new</span> Cons<span class="token punctuation">(</span>elem<span class="token punctuation">,</span> list<span class="token punctuation">)</span></code></pre></div>
 <h2>4.5 Decomposition</h2>
 <p>다음과 같은 class 구조가 있다고 하자</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">trait Expr {
-  // classification
-  def isNumber: Boolean
-  def isSum: Boolean
-  // accessor
-  def numValue: Int
-  def leftOp: Expr
-  def rightOp: Expr
-}
+<div class="gatsby-highlight" data-language="scala"><pre class="language-scala"><code class="language-scala"><span class="token keyword">trait</span> Expr <span class="token punctuation">{</span>
+  <span class="token comment">// classification</span>
+  <span class="token keyword">def</span> isNumber<span class="token operator">:</span> <span class="token builtin">Boolean</span>
+  <span class="token keyword">def</span> isSum<span class="token operator">:</span> <span class="token builtin">Boolean</span>
+  <span class="token comment">// accessor</span>
+  <span class="token keyword">def</span> numValue<span class="token operator">:</span> <span class="token builtin">Int</span>
+  <span class="token keyword">def</span> leftOp<span class="token operator">:</span> Expr
+  <span class="token keyword">def</span> rightOp<span class="token operator">:</span> Expr
+<span class="token punctuation">}</span>
 
-class Number(n: Int) extends Expr {
-  def isNumber: Boolean = true
-  def isSum: Boolean = false
-  def numValue: Int = n
-  def leftOp: Expr = throw new Error(&quot;Number.leftOp&quot;)
-  def rightOp: Expr = throw new Error(&quot;Number.rightOp&quot;)
-}
+<span class="token keyword">class</span> Number<span class="token punctuation">(</span>n<span class="token operator">:</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token keyword">extends</span> Expr <span class="token punctuation">{</span>
+  <span class="token keyword">def</span> isNumber<span class="token operator">:</span> <span class="token builtin">Boolean</span> <span class="token operator">=</span> <span class="token boolean">true</span>
+  <span class="token keyword">def</span> isSum<span class="token operator">:</span> <span class="token builtin">Boolean</span> <span class="token operator">=</span> <span class="token boolean">false</span>
+  <span class="token keyword">def</span> numValue<span class="token operator">:</span> <span class="token builtin">Int</span> <span class="token operator">=</span> n
+  <span class="token keyword">def</span> leftOp<span class="token operator">:</span> Expr <span class="token operator">=</span> <span class="token keyword">throw</span> <span class="token keyword">new</span> Error<span class="token punctuation">(</span><span class="token string">"Number.leftOp"</span><span class="token punctuation">)</span>
+  <span class="token keyword">def</span> rightOp<span class="token operator">:</span> Expr <span class="token operator">=</span> <span class="token keyword">throw</span> <span class="token keyword">new</span> Error<span class="token punctuation">(</span><span class="token string">"Number.rightOp"</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
 
-class Sum(e1: Expr, e2: Expr) extends Expr {
-  def isNumber: Boolean = false
-  def isSum: Boolean = true
-  def numValue: Int = throw new Error(&quot;Sum.numValue&quot;)
-  def rightOp: Expr = e1
-  def leftOp: Expr = e2
-}</code></pre></div>
+<span class="token keyword">class</span> Sum<span class="token punctuation">(</span>e1<span class="token operator">:</span> Expr<span class="token punctuation">,</span> e2<span class="token operator">:</span> Expr<span class="token punctuation">)</span> <span class="token keyword">extends</span> Expr <span class="token punctuation">{</span>
+  <span class="token keyword">def</span> isNumber<span class="token operator">:</span> <span class="token builtin">Boolean</span> <span class="token operator">=</span> <span class="token boolean">false</span>
+  <span class="token keyword">def</span> isSum<span class="token operator">:</span> <span class="token builtin">Boolean</span> <span class="token operator">=</span> <span class="token boolean">true</span>
+  <span class="token keyword">def</span> numValue<span class="token operator">:</span> <span class="token builtin">Int</span> <span class="token operator">=</span> <span class="token keyword">throw</span> <span class="token keyword">new</span> Error<span class="token punctuation">(</span><span class="token string">"Sum.numValue"</span><span class="token punctuation">)</span>
+  <span class="token keyword">def</span> rightOp<span class="token operator">:</span> Expr <span class="token operator">=</span> e1
+  <span class="token keyword">def</span> leftOp<span class="token operator">:</span> Expr <span class="token operator">=</span> e2
+<span class="token punctuation">}</span></code></pre></div>
 <p>무척 쓸모 없어 보이는 메서드들이 여럿 보인다. 일단은 더 나은 코드를 설명하기 위한 단계이므로 참고 살펴보자.
 그리고 위의 클래스 구조를 evaluation 하는 간단한 인터프리터 함수인 eval 이 다음과 같다</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">def eval(e: Expr): Int = {
-  if (e.isNumber) e.numValue
-  else if (e.isSum) eval(e.leftOp) + eval(e.rightOp)
-  else throw new Error(&quot;Unknown expression &quot; + e)
-}</code></pre></div>
+<div class="gatsby-highlight" data-language="scala"><pre class="language-scala"><code class="language-scala"><span class="token keyword">def</span> eval<span class="token punctuation">(</span>e<span class="token operator">:</span> Expr<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Int</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span>isNumber<span class="token punctuation">)</span> e<span class="token punctuation">.</span>numValue
+  <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span>isSum<span class="token punctuation">)</span> eval<span class="token punctuation">(</span>e<span class="token punctuation">.</span>leftOp<span class="token punctuation">)</span> <span class="token operator">+</span> eval<span class="token punctuation">(</span>e<span class="token punctuation">.</span>rightOp<span class="token punctuation">)</span>
+  <span class="token keyword">else</span> <span class="token keyword">throw</span> <span class="token keyword">new</span> Error<span class="token punctuation">(</span><span class="token string">"Unknown expression "</span> <span class="token operator">+</span> e<span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
 <p>이때 다음과 같은 코드가 있다면, 우선 eval 함수가 실행되면서 e 가 어떤 타입인지 찾기 위해 classification method 인 isSum 으로 Sum 타입인지 찾을 것이다. 그리고 그 안의 두 인자가 각각 Number 이므로 또다시 eval 함수 내에서 isNumber 에 의해 Number 타입인지 찾을 수 있을 것이다. 뭔가 비효율적으로 보인다.</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">eval(Sum(Number(1), Number(2))) = 3</code></pre></div>
+<div class="gatsby-highlight" data-language="scala"><pre class="language-scala"><code class="language-scala">eval<span class="token punctuation">(</span>Sum<span class="token punctuation">(</span>Number<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">,</span> Number<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token number">3</span></code></pre></div>
 <p>여기서 만약에 아래와 같은 두개의 클래스가 추가 된다면 어떨까?</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">class Prod(e1: Expr, e2: Expr) extends Expr   // e1 * e2
-class Var(x: String) extends Expr         // Variable &#39;x&#39;</code></pre></div>
+<div class="gatsby-highlight" data-language="scala"><pre class="language-scala"><code class="language-scala"><span class="token keyword">class</span> Prod<span class="token punctuation">(</span>e1<span class="token operator">:</span> Expr<span class="token punctuation">,</span> e2<span class="token operator">:</span> Expr<span class="token punctuation">)</span> <span class="token keyword">extends</span> Expr   <span class="token comment">// e1 * e2</span>
+<span class="token keyword">class</span> Var<span class="token punctuation">(</span>x<span class="token operator">:</span> <span class="token builtin">String</span><span class="token punctuation">)</span> <span class="token keyword">extends</span> Expr         <span class="token comment">// Variable 'x'</span></code></pre></div>
 <p>위의 두 클래스는 Number 나 Sum 과 마찬가지로 Expr 을 상속받으므로 trait Expr 의 메서드를 모두 구현해야한다. 그리고 isNum, isSum 과 같은 클래스 타입을 찾기 위한 메서드를 2 개(isVar, isProd)더 추가해야 할 것이다. 또 var 값을 가져오기 위한 name 메서드도 추가되서 총 3 개가 추가된다. 위의 구조에서만 15 개의 메서드가 있는데, 단 2 개의 클래스만 추가하더라도 더 필요한 메서드가 25 개(Expr 에 3 개, Number 에 3 개, Sum 에 3 개, 그리고 새로운 클래스에 각각 8 개)나 된다. 이건좀 아닌거 같다.</p>
 <p>메서드를 좀 줄여보자
 자바에서 사용하는 type test, type cast 메서드를 이용한다.</p>
@@ -235,28 +235,28 @@ class Var(x: String) extends Expr         // Variable &#39;x&#39;</code></pre></
 x.isInstanceOf[T]     x instanceof T    // type test
 x.asInstanceOf[T]     (T) x       // type cast</code></pre></div>
 <p>평가함수인 eval 을 조금 고쳐보자.</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">def eval(e: Expr): Int = {
-  if (e.isInstanceOf[Number])
-    e.asInstanceOf[Number].numValue
-  else if (e.isInstanceOf[Sum])
-    eval(e.asInstanceOf[Sum].leftOp) + eval(e.asInstanceOf[Sum].rightOp)
-  else throw new Error(&quot;Unknown expression &quot; + e)
-}</code></pre></div>
+<div class="gatsby-highlight" data-language="scala"><pre class="language-scala"><code class="language-scala"><span class="token keyword">def</span> eval<span class="token punctuation">(</span>e<span class="token operator">:</span> Expr<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Int</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span>isInstanceOf<span class="token punctuation">[</span>Number<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    e<span class="token punctuation">.</span>asInstanceOf<span class="token punctuation">[</span>Number<span class="token punctuation">]</span><span class="token punctuation">.</span>numValue
+  <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>e<span class="token punctuation">.</span>isInstanceOf<span class="token punctuation">[</span>Sum<span class="token punctuation">]</span><span class="token punctuation">)</span>
+    eval<span class="token punctuation">(</span>e<span class="token punctuation">.</span>asInstanceOf<span class="token punctuation">[</span>Sum<span class="token punctuation">]</span><span class="token punctuation">.</span>leftOp<span class="token punctuation">)</span> <span class="token operator">+</span> eval<span class="token punctuation">(</span>e<span class="token punctuation">.</span>asInstanceOf<span class="token punctuation">[</span>Sum<span class="token punctuation">]</span><span class="token punctuation">.</span>rightOp<span class="token punctuation">)</span>
+  <span class="token keyword">else</span> <span class="token keyword">throw</span> <span class="token keyword">new</span> Error<span class="token punctuation">(</span><span class="token string">"Unknown expression "</span> <span class="token operator">+</span> e<span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
 <p>자바에서 사용하는 타입 test 함수인 instanceof 와 타입 캐스팅 하는 방법을 적용하였다. 스칼라에서는 각각의 방법을 함수로 만들어 두었다. 이 방법을 사용하면 위에서 보았던 classification 메서드(isNum, inSum)를 사용할 필요가 없다. 대신에 타입 체크 및 캐스팅 함수가 low-level 함수이기 때문에 불안정한다는 단점이 있다.</p>
 <p>Object-Oriented Decomposition 을 이용한 또다른 해법을 살펴보자</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">trait Expr {
-  def eval: Int
-}
+<div class="gatsby-highlight" data-language="scala"><pre class="language-scala"><code class="language-scala"><span class="token keyword">trait</span> Expr <span class="token punctuation">{</span>
+  <span class="token keyword">def</span> eval<span class="token operator">:</span> <span class="token builtin">Int</span>
+<span class="token punctuation">}</span>
 
-class Number(n: Int) extends Expr {
-  def eval: Int = n
-}
+<span class="token keyword">class</span> Number<span class="token punctuation">(</span>n<span class="token operator">:</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token keyword">extends</span> Expr <span class="token punctuation">{</span>
+  <span class="token keyword">def</span> eval<span class="token operator">:</span> <span class="token builtin">Int</span> <span class="token operator">=</span> n
+<span class="token punctuation">}</span>
 
-class Sum(e1: Expr, e2: Expr) extends Expr {
-  def eval: Int = e1.eval + e2.eval
-}</code></pre></div>
+<span class="token keyword">class</span> Sum<span class="token punctuation">(</span>e1<span class="token operator">:</span> Expr<span class="token punctuation">,</span> e2<span class="token operator">:</span> Expr<span class="token punctuation">)</span> <span class="token keyword">extends</span> Expr <span class="token punctuation">{</span>
+  <span class="token keyword">def</span> eval<span class="token operator">:</span> <span class="token builtin">Int</span> <span class="token operator">=</span> e1<span class="token punctuation">.</span>eval <span class="token operator">+</span> e2<span class="token punctuation">.</span>eval
+<span class="token punctuation">}</span></code></pre></div>
 <p>각각의 클래스에 eval 함수를 구현하였다. 각 클래스에 맞게 구현되기 때문에 accessor 함수들도 불필요하다. 이제 많이 깔끔해졌다. 하지만 문제는 여전히 있다. rait 에 하나의 메서드가 추가된다면, 나머지 클래스에 모두 구현해야한다는 점이다. 또다른 문제가 있다.</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">a * b + a * c = a * (b + 3)</code></pre></div>
+<div class="gatsby-highlight" data-language="scala"><pre class="language-scala"><code class="language-scala">a <span class="token operator">*</span> b <span class="token operator">+</span> a <span class="token operator">*</span> c <span class="token operator">=</span> a <span class="token operator">*</span> <span class="token punctuation">(</span>b <span class="token operator">+</span> <span class="token number">3</span><span class="token punctuation">)</span></code></pre></div>
 <p>위와 같이 축약하기 어렵다. 왜냐하면 이것은 non-local simplification 이기 때문이다. 이것은 single object 의 메서드로 캡슐화 할 수 없다. sub-tree 를 모두 테스트하고 접근해야하는 문제가 있다.</p>
 <h2>4.6 Pattern Matching</h2>
 <p>이전챕터에서 Decomposition 을 시도한 몇가지 방법은 아래와 같다.</p>
@@ -271,27 +271,27 @@ class Sum(e1: Expr, e2: Expr) extends Expr {
 <li>What were the arguments of the constructor?</li>
 </ul>
 <p>보통 사용되는 new Sum(e1, e2)와 같은 형태의 생성자를 스칼라는 case class 라는 문법을 통해서 자동으로 Pattern Matching 시켜준다.</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">// 두개의 case class
-trait Expr
-case class Number(n: Int) extends Expr
-case class Sum(e1:
-Expr, e2: Expr) extends Expr
+<div class="gatsby-highlight" data-language="scala"><pre class="language-scala"><code class="language-scala"><span class="token comment">// 두개의 case class</span>
+<span class="token keyword">trait</span> Expr
+<span class="token keyword">case</span> <span class="token keyword">class</span> Number<span class="token punctuation">(</span>n<span class="token operator">:</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token keyword">extends</span> Expr
+<span class="token keyword">case</span> <span class="token keyword">class</span> Sum<span class="token punctuation">(</span>e1<span class="token operator">:</span>
+Expr<span class="token punctuation">,</span> e2<span class="token operator">:</span> Expr<span class="token punctuation">)</span> <span class="token keyword">extends</span> Expr
 
-// 실제 apply 메서드의 형태
-// Number(1), Sum(2, 3)과 같이 호출될꺼다
-object Number {
-  def apply(n: Int) = new Number(n)
-}
-object Sum {
-  def apply(e1: Expr, e2: Expr) = new Sum(e1, e2)
-}
+<span class="token comment">// 실제 apply 메서드의 형태</span>
+<span class="token comment">// Number(1), Sum(2, 3)과 같이 호출될꺼다</span>
+<span class="token keyword">object</span> Number <span class="token punctuation">{</span>
+  <span class="token keyword">def</span> apply<span class="token punctuation">(</span>n<span class="token operator">:</span> <span class="token builtin">Int</span><span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token keyword">new</span> Number<span class="token punctuation">(</span>n<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">object</span> Sum <span class="token punctuation">{</span>
+  <span class="token keyword">def</span> apply<span class="token punctuation">(</span>e1<span class="token operator">:</span> Expr<span class="token punctuation">,</span> e2<span class="token operator">:</span> Expr<span class="token punctuation">)</span> <span class="token operator">=</span> <span class="token keyword">new</span> Sum<span class="token punctuation">(</span>e1<span class="token punctuation">,</span> e2<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
 
-// eval 함수를 이용해서 패턴매칭,
-// 파라미터 e가 Number냐 Sum이냐에 따라서 자동으로 선택되어 처리
-def eval(e: Expr): Int = e match {
-  case Number(n) =&gt; n
-  case Sum(e1, e2) =&gt; eval(e1) + eval(e2)
-}</code></pre></div>
+<span class="token comment">// eval 함수를 이용해서 패턴매칭,</span>
+<span class="token comment">// 파라미터 e가 Number냐 Sum이냐에 따라서 자동으로 선택되어 처리</span>
+<span class="token keyword">def</span> eval<span class="token punctuation">(</span>e<span class="token operator">:</span> Expr<span class="token punctuation">)</span><span class="token operator">:</span> <span class="token builtin">Int</span> <span class="token operator">=</span> e <span class="token keyword">match</span> <span class="token punctuation">{</span>
+  <span class="token keyword">case</span> Number<span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token keyword">=></span> n
+  <span class="token keyword">case</span> Sum<span class="token punctuation">(</span>e1<span class="token punctuation">,</span> e2<span class="token punctuation">)</span> <span class="token keyword">=></span> eval<span class="token punctuation">(</span>e1<span class="token punctuation">)</span> <span class="token operator">+</span> eval<span class="token punctuation">(</span>e2<span class="token punctuation">)</span>
+<span class="token punctuation">}</span></code></pre></div>
 <h3>Match Syntax rules</h3>
 <ul>
 <li>match is followed by a sequence of cases, pat => expr.</li>
@@ -300,53 +300,53 @@ def eval(e: Expr): Int = e match {
 </ul>
 <p>패턴은 Number, Sum 과 같은 contructor 로 만들어지며, 인자(variables)는 반드시 소문자로 시작해야한다. 그리고 한 pattern 안에 같은 파라미터 문자를 쓰면 안된다. 상수는 null, true, false 를 제외하고는 반드시 대문자로 시작해야한다. 마지막으로 wildcard pattern 인 ’<em>‘은 해당 파라미터를 신경쓰지 않겠다는 것이다. 대체로 해당 case 에서 사용되지 않는 파라미터에 ’</em>‘를 사용한다.</p>
 <p>eval 함수를 trait Expr 에 넣어보자.</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">trait Expr {
-  def eval: Int = this match {
-    case Number(n) =&gt; n
-    case Sum(e1, e2) =&gt; e1.eval + e2.eval
-  }
-}</code></pre></div>
+<div class="gatsby-highlight" data-language="scala"><pre class="language-scala"><code class="language-scala"><span class="token keyword">trait</span> Expr <span class="token punctuation">{</span>
+  <span class="token keyword">def</span> eval<span class="token operator">:</span> <span class="token builtin">Int</span> <span class="token operator">=</span> <span class="token keyword">this</span> <span class="token keyword">match</span> <span class="token punctuation">{</span>
+    <span class="token keyword">case</span> Number<span class="token punctuation">(</span>n<span class="token punctuation">)</span> <span class="token keyword">=></span> n
+    <span class="token keyword">case</span> Sum<span class="token punctuation">(</span>e1<span class="token punctuation">,</span> e2<span class="token punctuation">)</span> <span class="token keyword">=></span> e1<span class="token punctuation">.</span>eval <span class="token operator">+</span> e2<span class="token punctuation">.</span>eval
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div>
 <h2>4.7 Lists</h2>
 <p>가장 기본적인 리스트 형태는 아래와 같이 정의할 수 있다.</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">// List(X1, ..., Xn)
-val fruit: List[String] = List(&quot;Apples&quot;, &quot;oranges&quot;, &quot;pears&quot;)
-val nums: List[Int] = List(1, 2, 3, 4)
-val diag3: List[List[Int]] = List(List(1, 0, 0), List(0, 1, 0), List(0, 0, 1))
-val empty: List[Nothing] = List()</code></pre></div>
+<div class="gatsby-highlight" data-language="scala"><pre class="language-scala"><code class="language-scala"><span class="token comment">// List(X1, ..., Xn)</span>
+<span class="token keyword">val</span> fruit<span class="token operator">:</span> List<span class="token punctuation">[</span><span class="token builtin">String</span><span class="token punctuation">]</span> <span class="token operator">=</span> List<span class="token punctuation">(</span><span class="token string">"Apples"</span><span class="token punctuation">,</span> <span class="token string">"oranges"</span><span class="token punctuation">,</span> <span class="token string">"pears"</span><span class="token punctuation">)</span>
+<span class="token keyword">val</span> nums<span class="token operator">:</span> List<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span> <span class="token operator">=</span> List<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">)</span>
+<span class="token keyword">val</span> diag3<span class="token operator">:</span> List<span class="token punctuation">[</span>List<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span><span class="token punctuation">]</span> <span class="token operator">=</span> List<span class="token punctuation">(</span>List<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> List<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">,</span> List<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">val</span> empty<span class="token operator">:</span> List<span class="token punctuation">[</span><span class="token builtin">Nothing</span><span class="token punctuation">]</span> <span class="token operator">=</span> List<span class="token punctuation">(</span><span class="token punctuation">)</span></code></pre></div>
 <p>스칼라에서 List 와 Array 는 중요한 두가지 차이가 있다.</p>
 <ul>
 <li>List are immutable - the elements of a list cannot be changed</li>
 <li>Lists are recursive, while arrays are flat</li>
 </ul>
 <p>또한 스칼라에서는 construction operation 인 ::(cons 라 부름, 지난주의 prepend 함수랑 동일하다)를 이용하여 좀더 간단하게 리스트를 만들 수 있다. cons 는 right-associative 연산이기 때문에 우측에서부터 왼쪽으로 하나씩 붙여 나간다는 생각으로 사용하면 된다. 위의 리스트 들을 cons 를 이용해서 작성해보면 다음과 같다.</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">fruit = &quot;apples&quot; :: (&quot;oranges&quot; :: (&quot;pears&quot; :: Nil))
-fruit = &quot;apples&quot; :: &quot;oranges&quot; :: &quot;pears&quot; :: Nil
+<div class="gatsby-highlight" data-language="scala"><pre class="language-scala"><code class="language-scala">fruit <span class="token operator">=</span> <span class="token string">"apples"</span> <span class="token operator">:</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token string">"oranges"</span> <span class="token operator">:</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token string">"pears"</span> <span class="token operator">:</span><span class="token operator">:</span> Nil<span class="token punctuation">)</span><span class="token punctuation">)</span>
+fruit <span class="token operator">=</span> <span class="token string">"apples"</span> <span class="token operator">:</span><span class="token operator">:</span> <span class="token string">"oranges"</span> <span class="token operator">:</span><span class="token operator">:</span> <span class="token string">"pears"</span> <span class="token operator">:</span><span class="token operator">:</span> Nil
 
-nums = 1 :: (2 :: (3 :: (4 :: Nil)))
-nums = 1 :: 2 :: 3 :: 4 :: Nil
+nums <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">:</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token number">2</span> <span class="token operator">:</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token number">3</span> <span class="token operator">:</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token number">4</span> <span class="token operator">:</span><span class="token operator">:</span> Nil<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+nums <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">:</span><span class="token operator">:</span> <span class="token number">2</span> <span class="token operator">:</span><span class="token operator">:</span> <span class="token number">3</span> <span class="token operator">:</span><span class="token operator">:</span> <span class="token number">4</span> <span class="token operator">:</span><span class="token operator">:</span> Nil
 
-empty = Nil</code></pre></div>
+empty <span class="token operator">=</span> Nil</code></pre></div>
 <p>right-associative 연산이기 때문에 실제 컴파일러는 위의 연산(nums)을 다음과 같이 해석한다.</p>
 <div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">nums = 1 :: 2 :: 3 :: 4 :: Nil
 Nils.::(4).::(3).::(2).::(1)</code></pre></div>
 <h3>sorting Lists</h3>
 <p>재귀를 이용한 Insertion Sort</p>
-<div class="gatsby-highlight" data-language="text"><pre class="language-text"><code class="language-text">def isort(xs: List[Int]): List[Int] = {
-  xs match {
-    case Nil =&gt; List()
-    case y :: ys =&gt; insert(y, isort(ys))
-  }
-}
+<div class="gatsby-highlight" data-language="scala"><pre class="language-scala"><code class="language-scala"><span class="token keyword">def</span> isort<span class="token punctuation">(</span>xs<span class="token operator">:</span> List<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> List<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  xs <span class="token keyword">match</span> <span class="token punctuation">{</span>
+    <span class="token keyword">case</span> Nil <span class="token keyword">=></span> List<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">case</span> y <span class="token operator">:</span><span class="token operator">:</span> ys <span class="token keyword">=></span> insert<span class="token punctuation">(</span>y<span class="token punctuation">,</span> isort<span class="token punctuation">(</span>ys<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
 
-def insert(x: Int, xs: List[Int]): List[Int] = {
-  xs match {
-    case Nil =&gt; List(x)
-    case y :: ys =&gt; {
-      if (x &lt; y)  x :: xs
-      else y :: insert(x, ys)
-    }
-  }
-}</code></pre></div></div><hr style="margin-bottom:1.8rem"/><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"><li><a rel="prev" href="/2016/07/26/functional-programming-in-scala-week3/">← <!-- -->Functional Programming in Scala week 3</a></li><li><a rel="next" href="/2016/07/26/functional-programming-in-scala-week5/">Functional Programming in Scala week 5<!-- --> →</a></li></ul></div></div></div></div><script>
+<span class="token keyword">def</span> insert<span class="token punctuation">(</span>x<span class="token operator">:</span> <span class="token builtin">Int</span><span class="token punctuation">,</span> xs<span class="token operator">:</span> List<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token operator">:</span> List<span class="token punctuation">[</span><span class="token builtin">Int</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+  xs <span class="token keyword">match</span> <span class="token punctuation">{</span>
+    <span class="token keyword">case</span> Nil <span class="token keyword">=></span> List<span class="token punctuation">(</span>x<span class="token punctuation">)</span>
+    <span class="token keyword">case</span> y <span class="token operator">:</span><span class="token operator">:</span> ys <span class="token keyword">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword">if</span> <span class="token punctuation">(</span>x <span class="token operator">&lt;</span> y<span class="token punctuation">)</span>  x <span class="token operator">:</span><span class="token operator">:</span> xs
+      <span class="token keyword">else</span> y <span class="token operator">:</span><span class="token operator">:</span> insert<span class="token punctuation">(</span>x<span class="token punctuation">,</span> ys<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre></div></div><hr style="margin-bottom:1.8rem"/><ul style="display:flex;flex-wrap:wrap;justify-content:space-between;list-style:none;padding:0"><li><a rel="prev" href="/2016/07/26/functional-programming-in-scala-week3/">← <!-- -->Functional Programming in Scala week 3</a></li><li><a rel="next" href="/2016/07/26/functional-programming-in-scala-week5/">Functional Programming in Scala week 5<!-- --> →</a></li></ul></div></div></div></div><script>
   
   
   if(true) {
@@ -358,4 +358,4 @@ def insert(x: Int, xs: List[Int]): List[Int] = {
   if (typeof ga === "function") {
     ga('create', 'UA-50048807-2', 'auto', {});
       }
-      </script><script id="gatsby-script-loader">/*<![CDATA[*/window.page={"componentChunkName":"component---src-templates-blog-post-js","jsonName":"2016-07-26-functional-programming-in-scala-week-4-467","path":"/2016/07/26/functional-programming-in-scala-week4/"};window.dataPath="466/path---2016-07-26-functional-programming-in-scala-week-4-467-02f-CunNkIcyD0nFsUy6AHjyYJZ3Jw";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-1b7734746725d5aca08d.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-028b19aef758163ddf02.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-aff8fa85fd71423cca38.js"],"component---src-pages-404-js":["/component---src-pages-404-js-bd47a77552aee32af5f8.js"],"component---src-pages-essay-js":["/component---src-pages-essay-js-ef43d9b398ac3ec9c408.js"],"component---src-pages-index-js":["/component---src-pages-index-js-42cb99e9505ec8b453f8.js"],"component---src-pages-programming-js":["/component---src-pages-programming-js-f4e1e57cb5631c4e7911.js"],"component---src-pages-review-js":["/component---src-pages-review-js-983aa32ce235929243e1.js"]};/*]]>*/</script><script src="/webpack-runtime-27fd3376b80812128416.js" async=""></script><script src="/app-1b7734746725d5aca08d.js" async=""></script><script src="/component---src-templates-blog-post-js-aff8fa85fd71423cca38.js" async=""></script><script src="/0-874606603115c8432ffa.js" async=""></script></body></html>
+      </script><script id="gatsby-script-loader">/*<![CDATA[*/window.page={"componentChunkName":"component---src-templates-blog-post-js","jsonName":"2016-07-26-functional-programming-in-scala-week-4-467","path":"/2016/07/26/functional-programming-in-scala-week4/"};window.dataPath="191/path---2016-07-26-functional-programming-in-scala-week-4-467-02f-Dv47mVRRi88zMzZfPz2GVJXVw";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-1b7734746725d5aca08d.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-028b19aef758163ddf02.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-7e0ac3c186ca6678dde7.js"],"component---src-pages-404-js":["/component---src-pages-404-js-bd47a77552aee32af5f8.js"],"component---src-pages-essay-js":["/component---src-pages-essay-js-944a91c3a81903e7055f.js"],"component---src-pages-index-js":["/component---src-pages-index-js.c033accd43d2198c4651.css","/component---src-pages-index-js-b892a0b2bee5208ae9bd.js"],"component---src-pages-programming-js":["/component---src-pages-programming-js-c8f5246da6a1639b445d.js"],"component---src-pages-review-js":["/component---src-pages-review-js-be041abf32e279275b11.js"]};/*]]>*/</script><script src="/webpack-runtime-590da2bc69dca0284401.js" async=""></script><script src="/app-1b7734746725d5aca08d.js" async=""></script><script src="/component---src-templates-blog-post-js-7e0ac3c186ca6678dde7.js" async=""></script><script src="/0-e9a5367c55f19c02df85.js" async=""></script></body></html>
