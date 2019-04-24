@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>https://blueshw.github.io/2019/04/24/prevent-scroll-outside/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/2018/12/31/about-2018/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/2018/11/26/web-component/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/2018/10/31/chuncheon-marathon/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -104,10 +105,17 @@
 <url> <loc>https://blueshw.github.io/2011/04/29/role-of-social-venture/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/2011/04/13/learning-from-mountain/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/2011/03/12/where-is-the-your-youth/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blueshw.github.io/tag/javascript</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blueshw.github.io/tag/react</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blueshw.github.io/tag/react-modal</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blueshw.github.io/tag/modal</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blueshw.github.io/tag/popup</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blueshw.github.io/tag/scroll</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blueshw.github.io/tag/prevent-body-scroll</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blueshw.github.io/tag/momentum-scroll</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/2018</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/2019</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/회고</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://blueshw.github.io/tag/react</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/next</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/gatsby</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/마라톤</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -138,7 +146,6 @@
 <url> <loc>https://blueshw.github.io/tag/blog</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/hexo</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/tistory</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://blueshw.github.io/tag/javascript</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/공병호</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/독서</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/서평</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
