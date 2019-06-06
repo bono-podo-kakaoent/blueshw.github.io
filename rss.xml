@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[bono's blog]]></title><description><![CDATA[about javascript, react, css]]></description><link>https://blueshw.github.io</link><generator>RSS for Node</generator><lastBuildDate>Thu, 06 Jun 2019 15:40:26 GMT</lastBuildDate><item><title><![CDATA[[CSS] javascript없이 css만으로 expandable(collapsible) 리스트 만들기]]></title><description><![CDATA[공지사항이나 FAQ 페이지에는 가 많이 사용된다. 이라고도 하는데, 기본적인 리스트에서 각 항목을 터치(클릭)하면 세부 내용이 확장되는 형태의 UI다. 비교적 간단한 UI기 때문에 css와 javscript를 적절히 조합하면 누구나 손쉽게(feat…]]></description><link>https://blueshw.github.io/2019/06/07/expandable-list-by-pure-css/</link><guid isPermaLink="false">https://blueshw.github.io/2019/06/07/expandable-list-by-pure-css/</guid><pubDate>Fri, 07 Jun 2019 12:26:43 GMT</pubDate><content:encoded>&lt;p&gt;공지사항이나 FAQ 페이지에는 &lt;code class=&quot;language-text&quot;&gt;expandble리스트&lt;/code&gt;가 많이 사용된다. &lt;code class=&quot;language-text&quot;&gt;collapsible&lt;/code&gt;이라고도 하는데, 기본적인 리스트에서 각 항목을 터치(클릭)하면 세부 내용이 확장되는 형태의 UI다. 비교적 간단한 UI기 때문에 css와 javscript를 적절히 조합하면 누구나 손쉽게(feat. google) 만들수 있다. 하지만 간혹 자바스크립트 없는 pure한 HTML(with CSS)이 필요한 경우가 있다. javascript가 잘 동작하지 않는 브라우저거나, 유저가 아예 javascript 기능을 꺼버렸다면(도대체 왜??) pure한 HTML이 빛을 발하게 된다. 사실, 그냥 내가 이전부터 하고 싶었다.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[bono's blog]]></title><description><![CDATA[about javascript, react, css]]></description><link>https://blueshw.github.io</link><generator>RSS for Node</generator><lastBuildDate>Thu, 06 Jun 2019 15:50:31 GMT</lastBuildDate><item><title><![CDATA[[CSS] javascript없이 css만으로 expandable(collapsible) 리스트 만들기]]></title><description><![CDATA[공지사항이나 FAQ 페이지에는 가 많이 사용된다. 이라고도 하는데, 기본적인 리스트에서 각 항목을 터치(클릭)하면 세부 내용이 확장되는 형태의 UI다. 비교적 간단한 UI기 때문에 css와 javscript를 적절히 조합하면 누구나 손쉽게(feat…]]></description><link>https://blueshw.github.io/2019/06/07/expandable-list-by-pure-css/</link><guid isPermaLink="false">https://blueshw.github.io/2019/06/07/expandable-list-by-pure-css/</guid><pubDate>Fri, 07 Jun 2019 12:26:43 GMT</pubDate><content:encoded>&lt;p&gt;공지사항이나 FAQ 페이지에는 &lt;code class=&quot;language-text&quot;&gt;expandble리스트&lt;/code&gt;가 많이 사용된다. &lt;code class=&quot;language-text&quot;&gt;collapsible&lt;/code&gt;이라고도 하는데, 기본적인 리스트에서 각 항목을 터치(클릭)하면 세부 내용이 확장되는 형태의 UI다. 비교적 간단한 UI기 때문에 css와 javscript를 적절히 조합하면 누구나 손쉽게(feat. google) 만들수 있다. 하지만 간혹 자바스크립트 없는 pure한 HTML(with CSS)이 필요한 경우가 있다. javascript가 잘 동작하지 않는 브라우저거나, 유저가 아예 javascript 기능을 꺼버렸다면(도대체 왜??) pure한 HTML이 빛을 발하게 된다. 사실, 그냥 내가 이전부터 하고 싶었다.&lt;/p&gt;
 &lt;p&gt;구글에 expandable(collapsible) list라고 검색을 해보면 2가지 방법이 등장하는데, 대부분은 input태그를 이용한 일종의 꼼수다. 그리고 두번째는 비교적 최신 스펙인 = &lt;code class=&quot;language-text&quot;&gt;details&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;summary&lt;/code&gt; 태그를 이용한 방법이다. 하나씩 살펴보자.&lt;/p&gt;
 &lt;h3&gt;1. input 태그를 이용하자.&lt;/h3&gt;
 &lt;p&gt;input 태그를 이용하는 방법의 핵심은 보이지 않는(display: none) input태그(type=“checkbok” 또는 type=“radio”)와 label을 이용하는 것이다. input에 id를 부여하고 label의 &lt;code class=&quot;language-text&quot;&gt;for&lt;/code&gt; 속성에 input의 id를 동일하게 넣어주면, label을 터치했을때 input의 check 상태를 변경할수 있다. 코드를 보자.&lt;/p&gt;
@@ -102,16 +102,16 @@
     &lt;/p&gt;
 &lt;p&gt;브라우저 호환성 이외에도 transition이나 animation이 제대로 적용되지 않는 문제가 있다. 적용되긴 하더라도 위에서 보여줬던 UI보다도 퀄리티가 한참 떨어져보인다. 우선 간단한 사용법을 알아보자.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;style&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token style language-css&quot;&gt;
-  &lt;span class=&quot;token selector&quot;&gt;.title&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token selector&quot;&gt;.title-summary&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
     &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; purple&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
     &lt;span class=&quot;token property&quot;&gt;font-weight&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; bold&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 &lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;style&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;details&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
-  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;summary&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;desc&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;summary&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;title-summary&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
     제목입니다.
   &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;summary&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
-  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;p&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;desc&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem 
     quam alias veritatis esse deserunt veniam explicabo sunt eligendi,
     eaque perferendis, doloremque omnis delectus distinctio incidunt
@@ -120,16 +120,16 @@
 &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;details&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;div&gt;
   &lt;style&gt;
-    .title {
+    .title-summary {
       color: purple;
       font-weight: bold;
     }
   &lt;/style&gt;
   &lt;details&gt;
-    &lt;summary class=&quot;title&quot;&gt;
+    &lt;summary class=&quot;title-summary&quot;&gt;
       제목입니다.
     &lt;/summary&gt;
-    &lt;p class=&quot;desc&quot;&gt;
+    &lt;p&gt;
       Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem 
       quam alias veritatis esse deserunt veniam explicabo sunt eligendi,
       eaque perferendis, doloremque omnis delectus distinctio incidunt
@@ -174,38 +174,38 @@
 &lt;iframe src=&quot;https://codesandbox.io/embed/p514nlnnvx?fontsize=14&quot; title=&quot;[prevent-scroll] 1. base-modal&quot; style=&quot;width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;&quot; sandbox=&quot;allow-modals allow-forms allow-popups allow-scripts allow-same-origin&quot;&gt;&lt;/iframe&gt;
 &lt;p&gt;외부 영역의 스크롤은 큰 문제가 아닐 수 있다. 하지만, 의도치 않은 동작이기 때문에 가능하면 스크롤을 막는게 좋다. &lt;code class=&quot;language-text&quot;&gt;react-modal&lt;/code&gt; githup 저장소의 &lt;a href=&quot;https://github.com/reactjs/react-modal/issues&quot;&gt;issue&lt;/a&gt;탭에서 &lt;code class=&quot;language-text&quot;&gt;scroll&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;body scroll&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;prevent scroll&lt;/code&gt; 등의 키워드로 검색(closed 포함)해보면 꽤 많은 사람들이 이 문제를 겪고 있음을 알게된다(&lt;a href=&quot;https://github.com/reactjs/react-modal/issues/191&quot;&gt;대표적인 issue&lt;/a&gt;). 가장 많이 등장하는 해결책은 바로 아래 css 코드를 추가하는 것이다.&lt;/p&gt;
 &lt;h3&gt;첫번째 방법: (overflow: hidden;)&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;.ReactModal__Body--open {
-  overflow: hidden;
-}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;.ReactModal__Body--open&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;overflow&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; hidden&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;해보면, 잘된다. 적어도 데스크탑에서는 잘 된다.
 그런데 issue를 조금 더 보면 모바일에서 여전히 스크롤이 발생한다는 보고가 군데군데 보인다.
 모바일에서 테스트해보자. 정말 &lt;code class=&quot;language-text&quot;&gt;안된다!&lt;/code&gt;&lt;/p&gt;
 &lt;h3&gt;두번째 방법: 스타일을 좀 더 추가하자.&lt;/h3&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;.ReactModal__Body--open {
-  overflow: hidden;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;.ReactModal__Body--open&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;overflow&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; hidden&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;position&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; fixed&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 100%&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 100%&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;되는것 같이(?) 보인다. 그런데, 좀더 테스트 해보면 문제가 있음을 알 수 있다. 스크롤을 아래로 내린 상태에서 &lt;code class=&quot;language-text&quot;&gt;modal 열기&lt;/code&gt; 버튼을 클릭하자. 그러면 스크롤이 가장 상위로 올라간다. 이는 확실히 문제가 있다. 예를들어 스크롤 뷰어(웹툰이라고 상상하자)에서 특정 버튼을 눌렀을때 모달뷰가 뜨는 경우가 있다. 중간정도 위치를 보는 중이었는데 갑자기 모달이 뜨면서 스크롤이 가장 위로 올라가면 사용자는 자신이 보던 위치를 잃어버리게 된다. 그러므로 위 방법이 적절한 해결책은 아니다.&lt;/p&gt;
 &lt;h3&gt;세번째 방법: 다른 패키지를 써라&lt;/h3&gt;
 &lt;p&gt;스타일로는 해결이 안되는것 같다(찾지 못했다가 정확하다). 문득 react-modal의 문제일수도 있다는 생각이 들었다. react-modal 대신 react-aria-modal 패키지를 쓰면 해결된다는 글이 있길래 설치하고 테스트 해보았다.
 그러나 마찬가지로 &lt;code class=&quot;language-text&quot;&gt;실패&lt;/code&gt;&lt;/p&gt;
 &lt;h3&gt;네번째 방법: touchmove 이벤트를 이용하자&lt;/h3&gt;
 &lt;p&gt;네번째 방법은 modal이 떠 있을때(isOpen === true 상태) touchmove 이벤트를 아예 차단하는 방법이다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;const [showModal, setShowModal] = useState(false);
-useEffect(() =&amp;gt; {
-  function handleTouchMove(event) {
-    if (showModal) {
-      event.preventDefault(); // 여기가 핵심
-    }
-  }
-  window.addEventListener(&amp;quot;touchmove&amp;quot;, handleTouchMove, {
-    passive: false
-  });
-  return () =&amp;gt;
-    window.removeEventListener(&amp;quot;touchmove&amp;quot;, handleTouchMove);
-}, [showModal]);&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;showModal&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; setShowModal&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useState&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;useEffect&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;handleTouchMove&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;event&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;showModal&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      event&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;preventDefault&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 여기가 핵심&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;touchmove&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; handleTouchMove&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    passive&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt;
+    window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;removeEventListener&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;touchmove&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; handleTouchMove&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;showModal&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;showModal === true일때 &lt;code class=&quot;language-text&quot;&gt;event.preventDefault()&lt;/code&gt;를 호출하고 EventListenerOptions 옵션에 &lt;code class=&quot;language-text&quot;&gt;passive: false&lt;/code&gt;를 설정한다.
 첫째는 modal이 떠있을때 &lt;code class=&quot;language-text&quot;&gt;preventDefault&lt;/code&gt; 함수로 터치 이벤트의 기본 동작인 &lt;code class=&quot;language-text&quot;&gt;scroll&lt;/code&gt;을 막겠다는 의도다. 그리고 두번째 &lt;code class=&quot;language-text&quot;&gt;passive: false&lt;/code&gt;는 touch 이벤트가 발생했을때 preventDefault가 호출된다면 이벤트(scroll) 발생을 막겠다는 것이다. passive가 true일때는 preventDefault 함수를 무시하고 scroll을 하겠다는 의미다. passive의 기본값은 false기 때문에 따로 설정할 필요가 없다. 그럼에도 명시적으로 false를 넣어준것은 특정 브라우저 버전이나 기기에서 기본값이 &lt;code class=&quot;language-text&quot;&gt;true&lt;/code&gt;인 경우가 있기 때문이다.&lt;/p&gt;
 &lt;p&gt;이제 문제가 해결된 것처럼 보인다. 그런데, 만약 모달뷰 내부에 콘텐츠가 길어져서 스크롤이 필요한 경우라면 어떨까? 아래 코드를 테스트해보자 (모바일에서 새 창으로 열어서 테스트해야 정상적으로 확인가능하다.).&lt;/p&gt;
@@ -218,60 +218,59 @@ useEffect(() =&amp;gt; {
 &lt;/blockquote&gt;
 &lt;h3&gt;다섯번째 방법: event 전파를 잘 이용하자.&lt;/h3&gt;
 &lt;p&gt;이벤트 전파 과정을 잘 이용하면 모달뷰 내 스크롤이 막히는 현상을 해결할 수 있다. 이벤트는 기본적으로 부모 노드부터 타겟 노드로 전파(캡쳐링)되고 그다음 타겟 노드에서 다시 부모 노드로 전파(버블링)된다. 이때 노드에 바인딩한 이벤트 핸들러가 언제 호출될지는 capturing과 bubbling을 옵션으로 정할수 있다. 예를들어 &lt;code class=&quot;language-text&quot;&gt;EventListenerOptions&lt;/code&gt; 객체 기준으로 &lt;code class=&quot;language-text&quot;&gt;capture: true&lt;/code&gt;를 넣어주면 capturing시에 이벤트 핸들러가 실행된다. 기본 값은 false기 때문에 기본적으로 event bubbling시에만 이벤트 핸들러가 실행된다.&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;ex) 캡쳐링 이벤트를 감지해서 핸들러 함수(handleClick)를 실행시키고 싶다면..
-window.addEventListener(&amp;#39;click&amp;#39;, handleClick, {capture: true});&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// ex) 캡쳐링 이벤트를 감지해서 핸들러 함수(handleClick)를 실행시키고 싶다면..&lt;/span&gt;
+window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;addEventListener&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;click&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; handleClick&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;capture&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;조금 생각해보자. 네번째 방법에서 window 객체에 &lt;code class=&quot;language-text&quot;&gt;touchmove&lt;/code&gt; 이벤트를 바인딩 했는데, 이때 capture 옵션을 별도로 넣어주지 않았다. 즉, 이벤트가 버블링될때 핸들러 함수가 실행된다. 이벤트 버블링은 타겟 노드부터 부모 노드 방향으로 이벤트가 전파된다. 그래서 window 객체의 &lt;code class=&quot;language-text&quot;&gt;handleTouchMove&lt;/code&gt; 핸들러 함수는 touchmove 이벤트 전파 중 가장 마지막에 호출된다. 만약, 중간에 어떤 부분(예를들어 .modal-body)에서 이벤트 버블링은 막을수 있다면 결과적으로 handleTouchMove 함수의 호출을 막을수 있다. 그말은 즉, 정상적으로 스크롤을 할수 있게 된다는 의미다. modal-body 클래스 노드에 onTouchMove 이벤트 핸들러를 바인딩하고 핸들러에서 &lt;code class=&quot;language-text&quot;&gt;e.stopPropagation()&lt;/code&gt;을 호출하자. &lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;참고로 stopPropagation 함수는 더 이상 이벤트가 전파되지 않도록 막는다. &lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;div className=&amp;quot;modal-body&amp;quot; onTouchMove={e =&amp;gt; e.stopPropagation()}&amp;gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;div className&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;modal-body&quot;&lt;/span&gt; onTouchMove&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;e &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; e&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;stopPropagation&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;내부 영역이 스크롤되면서 외부 영역은 스크롤되지 않는걸 확인할수 있다. 몇번 더 해보자. 이상하다. 간헐적으로 내부 스크롤이 안되고 외부만 스크롤 되는 현상이 발생한다. 좀더 구체적으로 말하자면, 모달뷰가 스크롤 가능할때 가장 위에서 위쪽으로 스크롤을 시도하거나 가장 아래에서 아래쪽으로 스크롤을 시도하면 모달뷰가 아닌 외부의 dimmed 영역이 스크롤 되는 문제(?)가 있다(모바일만..). 심지어 touchmove 이벤트가 dimmed 영역으로 전파되지 않았음에도 말이다. 아마 터치 이벤트가 종료되더라도 계속해서 스크롤이 이어지는 모멘텀(Momentum) 스크롤 때문이 아닐까 조심스레 추측해본다(정말??).&lt;/p&gt;
 &lt;h3&gt;여섯번째 방법: 마지막(?)&lt;/h3&gt;
 &lt;p&gt;마지막 방법이다. 최소한 내가 찾은 마지막 방법이다. 출처를 밝히고 싶은데, 기록은 안해둬서 찾기가 어렵다. 아무튼 다섯번째 방법에서 발생했던 문제를 해결하는 방법은 다음과 같다.  &lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;# css
-.modal-body {
-  overflow-y: auto;
-  overflow-x: hidden;
-  max-height: 300px; &amp;lt;- modal 높이와 동일하게 맞춰준다.
-}
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;css&quot;&gt;&lt;pre class=&quot;language-css&quot;&gt;&lt;code class=&quot;language-css&quot;&gt;&lt;span class=&quot;token selector&quot;&gt;# css
+.modal-body&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;overflow-y&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; auto&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;overflow-x&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; hidden&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;max-height&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 300px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt; &amp;lt;- modal 높이와 동일하게 맞춰준다.
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;# react
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; divRef &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;useRef&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;null&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token function&quot;&gt;useEffect&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;divRef&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;current&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token function&quot;&gt;preventMomentumScroll&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;divRef&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;current&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;divRef&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;div
+    ref&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;divRef&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    className&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;modal-body&quot;&lt;/span&gt;
+    onScroll&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;e &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;preventMomentumScroll&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;e&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;currentTarget&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token comment&quot;&gt;// 이 코드가 없다면 가장 위일때와 가장 아래일때 한번더 touchmove가 발생해야 스크롤이 동작한다.&lt;/span&gt;
+    onTouchMove&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;e &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;preventMomentumScroll&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;e&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;currentTarget&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+        e&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;stopPropagation&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+  &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
 
-# react
-...
-const divRef = useRef(null);
-useEffect(() =&amp;gt; {
-  if (divRef.current) {
-    preventMomentumScroll(divRef.current);
-  }
-}, [divRef]);
-...
-return (
-  ...
-  &amp;lt;div
-    ref={divRef}
-    className=&amp;quot;modal-body&amp;quot;
-    onScroll={e =&amp;gt; preventMomentumScroll(e.currentTarget)} // 이 코드가 없다면 가장 위일때와 가장 아래일때 한번더 touchmove가 발생해야 스크롤이 동작한다.
-    onTouchMove={e =&amp;gt; {
-      if (!preventMomentumScroll(e.currentTarget)) {
-        e.stopPropagation();
-      }
-    }}
-  &amp;gt;
-  ...
-)
-
-// 여기가 핵심이다. 가장 위일때는 +1, 가장 아래일때는 -1
-function preventMomentumScroll(el) {
-  const { scrollTop, offsetHeight, scrollHeight } = el;
-  if (scrollTop === 0) {
-    el.scrollTo(0, 1);
-    return true;
-  }
-  if (scrollTop + offsetHeight &amp;gt;= scrollHeight) {
-    el.scrollTo(0, scrollHeight - offsetHeight - 1);
-    return true;
-  }
-  return false;
-}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;span class=&quot;token comment&quot;&gt;// 여기가 핵심이다. 가장 위일때는 +1, 가장 아래일때는 -1&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;preventMomentumScroll&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;el&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; scrollTop&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; offsetHeight&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; scrollHeight &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; el&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;scrollTop &lt;span class=&quot;token operator&quot;&gt;===&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    el&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;scrollTo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;scrollTop &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; offsetHeight &lt;span class=&quot;token operator&quot;&gt;&gt;=&lt;/span&gt; scrollHeight&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    el&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;scrollTo&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; scrollHeight &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; offsetHeight &lt;span class=&quot;token operator&quot;&gt;-&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;반드시 모바일에서 새창으로 열어서 확인하자.&lt;/p&gt;
 &lt;iframe src=&quot;https://codesandbox.io/embed/xlm05zzzyo?fontsize=14&quot; title=&quot;[prevent-scroll] 7. final&quot; style=&quot;width:100%; height:500px; border:0; border-radius: 4px; overflow:hidden;&quot; sandbox=&quot;allow-modals allow-forms allow-popups allow-scripts allow-same-origin&quot;&gt;&lt;/iframe&gt;
 &lt;p&gt;스크롤의 가장 위와 가장 아래에서 발생하는 문제이기 때문에 해당 위치에서 별도의 처리를 한다. scroll이 가장 위일때는 1px만큼 더해주고, 가장 아래일때는 1px만큼 빼준다. 이때는 위치만 보정해줘야 한다. 버블링을 막지 않기 위해 &lt;code class=&quot;language-text&quot;&gt;stopPropagation&lt;/code&gt;을 호출하지 않고 window로 터치 이벤트를 버블링한다. 그리고 window의 터치 이벤트 핸들러에서 &lt;code class=&quot;language-text&quot;&gt;preventDefault&lt;/code&gt;을 호출해서 외부 스크롤을 막아준다. 여기서 끝이 아니다. 스크롤을 시도했는데 위치만 보정되고 실제로 스크롤이 동작하지 않는다면 이 또한 문제다. &lt;code class=&quot;language-text&quot;&gt;onScroll&lt;/code&gt; 이벤트 핸들러를 &lt;code class=&quot;language-text&quot;&gt;modal-body&lt;/code&gt;에 추가한다. scroll은 touchmove보다 늦게 호출된다. 그렇기 때문에 scroll이 호출될 시점에 이미 스크롤 위치가 보정되어 있다. 그러면 아마도 문제 없이 스크롤이 동작하게 된다. 추가로 최초 로딩(모달이 열렸을때)되었을때는 스크롤 위치가 가장 상단에 위치하므로 useEffect에서 스크롤 위치 보정 함수 &lt;code class=&quot;language-text&quot;&gt;preventMomentumScroll&lt;/code&gt;을 호출해준다.&lt;/p&gt;
