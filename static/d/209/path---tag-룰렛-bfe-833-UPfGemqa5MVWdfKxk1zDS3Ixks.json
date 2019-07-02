@@ -1,0 +1,1 @@
+{"data":{"site":{"siteMetadata":{"title":"bono's blog","description":"about javascript, react, css"}},"allMarkdownRemark":{"totalCount":1,"edges":[{"node":{"excerpt":"…","fields":{"slug":"/2019/06/27/roulette/"},"frontmatter":{"date":"27 June, 2019","title":"[CSS] css로 roulette 만들기"}}}]}},"pageContext":{"isCreatedByStatefulCreatePages":false,"tag":"룰렛"}}
