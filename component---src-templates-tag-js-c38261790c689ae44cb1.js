@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[5],{179:function(n,e,t){"use strict";t.r(e),function(n){t.d(e,"default",function(){return r}),t.d(e,"pageQuery",function(){return u});t(40),t(0);var a=t(206);function r(e){return n.createElement(a.a,Object.assign({},e,{isTagPage:!0}))}var u="3439876404"}.call(this,t(85))}}]);
+//# sourceMappingURL=component---src-templates-tag-js-c38261790c689ae44cb1.js.map
