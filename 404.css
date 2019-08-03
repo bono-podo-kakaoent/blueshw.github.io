@@ -2,6 +2,7 @@ body {
   font-family: Arial;
   height: 500vw;
   -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
 }
 .container-404 {
   display: flex;
