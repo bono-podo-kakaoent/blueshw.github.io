@@ -1,4 +1,210 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[bono's blog]]></title><description><![CDATA[about javascript, react, css]]></description><link>https://blueshw.github.io</link><generator>RSS for Node</generator><lastBuildDate>Sun, 22 Sep 2019 12:21:41 GMT</lastBuildDate><item><title><![CDATA[2019 if kakao 홈페이지 메인 배너를 css로 만들어보자 (feat. svg)]]></title><description><![CDATA[if kakao가 매우 성황리에(?) 마무리되었다. 공식적인 if kakao…]]></description><link>https://blueshw.github.io/2019/09/22/animation-if-kakao-2019/</link><guid isPermaLink="false">https://blueshw.github.io/2019/09/22/animation-if-kakao-2019/</guid><pubDate>Sun, 22 Sep 2019 18:32:20 GMT</pubDate><content:encoded>&lt;p&gt;if kakao가 매우 성황리에(?) 마무리되었다. 공식적인 if kakao 행사가 두번째임에도 불구하고 꽤 완성도 있었다 생각한다. 특히 &lt;code class=&quot;language-text&quot;&gt;카카오페이지(!!!)&lt;/code&gt;의 &lt;a href=&quot;https://mk.kakaocdn.net/dn/if-kakao/conf2019/conf_video_2019/1_104_01_m1.mp4&quot;&gt;리액트: 그것마저 결정해주마&lt;/a&gt;와 &lt;code class=&quot;language-text&quot;&gt;카카오뱅크&lt;/code&gt;의 &lt;a href=&quot;https://mk.kakaocdn.net/dn/if-kakao/conf2019/conf_video_2019/1_104_03_m1.mp4&quot;&gt;프론트엔드 기술로 동료들 삶의 질 높여주기&lt;/a&gt; 세션이 아주 흥미로웠다. 첫번째 리액트 세션은 리액트로 프로젝트를 진행할때 너무 많은 작업 방식과 라이브러리 홍수 속에서 옥석을 골라내는 방법과 코딩 방식을 제안해주었다. 그리고 두번째 카카오 뱅크 세션에서는 동료들의 불편함을 프론트 기술로 해소했던 몇가지 프로젝트를 보여주었는데, 보는내내 감탄사가 절로 나왔다. 특히 직원의 위치와 휴가 여부 등의 정보를 full-3D로 구현한 &lt;code class=&quot;language-text&quot;&gt;floor&lt;/code&gt;가 가장 인상깊었다. &lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[bono's blog]]></title><description><![CDATA[about javascript, react, css]]></description><link>https://blueshw.github.io</link><generator>RSS for Node</generator><lastBuildDate>Sun, 29 Sep 2019 08:50:57 GMT</lastBuildDate><item><title><![CDATA[Gatsby X VSCode 추천 플러그인]]></title><description><![CDATA[요즘 프론트엔드 개발자들은 (Visual Studio Code)를 가장 많이 사용한다. 그렇다보니 버그 수정이나 기능추가가 상당히 빠르다. 또한 Typescript와의 호환성도 훌륭하다. 아마도 MS…]]></description><link>https://blueshw.github.io/2019/09/29/vscode-plugin/</link><guid isPermaLink="false">https://blueshw.github.io/2019/09/29/vscode-plugin/</guid><pubDate>Sun, 29 Sep 2019 17:40:22 GMT</pubDate><content:encoded>&lt;p&gt;요즘 프론트엔드 개발자들은 &lt;code class=&quot;language-text&quot;&gt;VSCode&lt;/code&gt;(Visual Studio Code)를 가장 많이 사용한다. 그렇다보니 버그 수정이나 기능추가가 상당히 빠르다. 또한 Typescript와의 호환성도 훌륭하다. 아마도 MS에서 둘다 만들었기 때문이라 생각한다. 그리고 VSCode의 최고의 장점은 무료라는 점이다. 서버개발자들 사이에서 많이 사용되는 Jetbrain사의 &lt;code class=&quot;language-text&quot;&gt;IntelliJ&lt;/code&gt;도 역시 훌륭한 IDE지만, 개인적으로 구매해서 사용하기에는 좀 많이 비싸편이다.&lt;/p&gt;
+&lt;p&gt;나도 대부분 VSCode로 개발한다. 회사에서도 물론이고, Gatsby로 만든 블로그도 VSCode에서 만든다. 글도 VSCode로 쓴다. 왜냐하면 &lt;code class=&quot;language-text&quot;&gt;markdownlint&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;Markdown Preview Enhanced&lt;/code&gt; 같은 plugin을 쓰면 markdown 문법에러를 바로 체크할 수 있고, 글을 작성하면서 바로 확인할 수 있기 때문에 충분히 편하다. 이 뿐만 아니라 VSCode에는 유용한(어쩌면 필수적인) plugin들이 넘쳐난다. 하지만, 좋은 플러그인이라고 전부 설치하면 자칫 에디터가 무거워질 수 있기 때문에 꼭 필요한 플러그인만 설치해서 사용하길 권장한다.&lt;/p&gt;
+&lt;h3&gt;Prettier - Code formatter&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode&quot;&gt;Prettier(프리티어)&lt;/a&gt;는 거의 필수로 설치해야할 플러그인이다. 물론 혼자 작업할때는 필요성을 못느낄 수 있다. 하지만, 혼자 작업하더라도 일관된 형식의 코드를 짜는게 가독성면에서 훨씬 낫다. Gatsby로 블로그 만들때야 상관없지만, 팀 내에서 공통으로 프로젝트를 진행하는 경우라면(모두 VSCode를 사용한다면) 소스코드로 관리하는것이 낫다. &lt;code class=&quot;language-text&quot;&gt;설정&lt;/code&gt; 화면에서 &lt;code class=&quot;language-text&quot;&gt;작업영역&lt;/code&gt; 탭을 클릭한 다음 필요한 설정을 선택하자. 그러면, 자동으로 &lt;code class=&quot;language-text&quot;&gt;.vscode/settings.json&lt;/code&gt; 파일이 만들어진다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/5b5bac4ead38f1a6bed72efea660a29c/9c15e/0.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 45.09018036072144%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAAA+klEQVQoz32RSa6EMAxEcxMShoR5Ruxgx/1vVD9ltVHrd9OLUoKxy8+OWZYFx3Fg33es64pt20Tv919i3nmeuK4LTdPAhBAwjiO6rkOapsiy7EOM/xJz8jyHcw6mKAoxy2PQxp/DvEjneZ4lXtc1+r5HVVVg82/y3stJU8MPFtokgXUpQizs2laSqCfKp0nEkEQkddYKDeko7oeESkJK5tmY9yTDuUlYlqUEdDQlZFfmUHpPOM3LQO+aY/4H+VKkpPhY0zTJSWI24J588HdDNpfpYu1NqFJCErdxj2pMMaaPRANKzF9NPgyVkAUsVEJqGIZ7jyz+NrLW/wGReQb7RF+oaAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img0&quot;
+        title=&quot;img0&quot;
+        src=&quot;/static/5b5bac4ead38f1a6bed72efea660a29c/b9e4f/0.png&quot;
+        srcset=&quot;/static/5b5bac4ead38f1a6bed72efea660a29c/cf440/0.png 148w,
+/static/5b5bac4ead38f1a6bed72efea660a29c/d2d38/0.png 295w,
+/static/5b5bac4ead38f1a6bed72efea660a29c/b9e4f/0.png 590w,
+/static/5b5bac4ead38f1a6bed72efea660a29c/f9b6a/0.png 885w,
+/static/5b5bac4ead38f1a6bed72efea660a29c/9c15e/0.png 998w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;editor.formatOnSave&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;javascript.format.enable&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;파일을 저장할때마다 formatting하도록 설정하고, 기본 javascript formatter는 비활성화 시켰다. 추가로 아래와 같은 옵션을 지정할 수 있다. &lt;a href=&quot;https://github.com/prettier/prettier-vscode#settings&quot;&gt;옵션목록&lt;/a&gt;을 참고하여 자신(또는 팀)의 입맛에 맞도록 옵션을 조절하자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;prettier.jsxSingleQuote&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;prettier.jsxBracketSameLine&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;prettier.printWidth&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;또한 prettier 모듈을 설치하면 다른 팀원이 VSCode를 쓰지 않더라도 formatting을 강제할수 있다. 우선 prettier 모듈을 설치한다. (참고로 VSCode만 쓴다면 prettier 모듈을 따로 설치할 필요는 없다. plugin에 prettier dependency가 포함되어 있기 때문이다. 그래서 별도의 모듈 설치 없이도 &lt;code class=&quot;language-text&quot;&gt;.prettierrc.json&lt;/code&gt;에 각종 옵션을 적용할 수 있다.)&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; i -D prettier&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그 다음, &lt;code class=&quot;language-text&quot;&gt;.prettierrc.json&lt;/code&gt; 파일을 프로젝트 루트에 생성하고 다음과 같이 입력한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;trailingComma&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;es5&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;tabWidth&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;semi&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;singleQuote&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token boolean&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;ESLint&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint&quot;&gt;ESLint&lt;/a&gt;는 가장 많이 사용하는 JS 문법 체크 도구다. 얼마전까지 Typescript를 사용하려면 TSLint라는 별도의 lint 모듈을 설치해야 했지만, 이제 esLint 하나로 Typescript도 지원한다.&lt;/p&gt;
+&lt;p&gt;ESLint plugin은 eslint dependency를 포함하지 않기 때문에 eslint를 설치해야한다. 그리고 몇가지 모듈을 더 추가한다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;babel-eslint&lt;/code&gt;: babel에서 사용가능한 실험적인 api나 문법을 eslint에게 허용하도록 도와주는 parser다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;eslint-plugin-react&lt;/code&gt;: react 문법을 허용하도록 도와주는 plugin이다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; i -D eslint babel-eslint eslint-plugin-react&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;plugin을 설치했다면 편집기에서 잘못된 코드를 입력해보자. 아래와 같이 에러가 나오는걸 확인할 수 있다.
+&lt;code class=&quot;language-text&quot;&gt;.eslintrc.js&lt;/code&gt;를 만들어 옵션을 설정하자.
+(만약 일일이 rule 설정이 어렵거나 귀찮다면, airbnb의 설정을 가져오자. 방법은 &lt;a href=&quot;https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb&quot;&gt;여기&lt;/a&gt;를 참고)&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;parser&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;babel-eslint&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;rules&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// 내 gatsby blog에 prop-types을 사용하지 않아 이 부분을 비활성화 했다.&lt;/span&gt;
+    &lt;span class=&quot;token comment&quot;&gt;// 참고로 0은 off, 1은 warn, 2는 error를 의마한다.&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;&quot;react/prop-types&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;extends&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;eslint:recommended&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&quot;plugin:react/recommended&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;작업중인 js 파일을 열고, 잘못된 코드를 입력해보자. 화면에서 즉시 에러가 나타남을 확인할 수 있다. Gatsby 프로젝트에서 설치 및 설정은 &lt;a href=&quot;https://www.gatsbyjs.org/packages/gatsby-plugin-eslint/&quot;&gt;여기&lt;/a&gt;를 참고하자.&lt;/p&gt;
+&lt;h4&gt;Prettier X eslint 통합하기&lt;/h4&gt;
+&lt;p&gt;Prettier와 eslint를 통합하면 formatting관련 오류를 eslint 에러로 보여주거나, 서로 충돌하는 부분들이 있을때 eslint로 통합하는 등의 처리를 할 수 있다. 우선 두가지 모듈을 설치하자. 각 모듈은 다음과 같은 기능을 한다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;prettier&lt;/code&gt;: 통합하기 위해서는 VSCode plugin과는 별도로 설치를 해줘야한다.&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;eslint-plugin-prettier&lt;/code&gt;: Prettier를 eslint의 plugin으로 추가해주는 모듈&lt;/li&gt;
+&lt;li&gt;&lt;code class=&quot;language-text&quot;&gt;eslint-config-prettier&lt;/code&gt;: eslint와 Prettier의 format관련 설정이 충돌하면 eslint의 설정을 비활성화 해준다.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;shell&quot;&gt;&lt;pre class=&quot;language-shell&quot;&gt;&lt;code class=&quot;language-shell&quot;&gt;&lt;span class=&quot;token function&quot;&gt;npm&lt;/span&gt; i -D prettier eslint-plugin-prettier eslint-config-prettier&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;다음으로 .eslintrc 설정파일에 prettier 관련 설정을 추가한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;json&quot;&gt;&lt;pre class=&quot;language-json&quot;&gt;&lt;code class=&quot;language-json&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;&quot;extends&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;plugin:prettier/recommended&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이제 format 관련 에러가 발생하면 &lt;code class=&quot;language-text&quot;&gt;eslint(prettier/prettier)&lt;/code&gt;라는 메세지를 확인할 수 있을 것이다.&lt;/p&gt;
+&lt;h3&gt;Code Runnder&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner&quot;&gt;Code Runner&lt;/a&gt;를 사용하면 간단한 코드를 확인할 때 유용하다. 기존에는 간단한 코드를 확인하기 위해서는 js 파일을 만들어 node로 실행하거나, 크롬같은 브라우저의 &lt;code class=&quot;language-text&quot;&gt;console탭&lt;/code&gt;을 이용했었다. 하지만, Code Runner를 사용하면 지금 작업하고 있는 영역에서 간단하게 실행 가능하다. 예를 들어보자.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4e9c28da3cf80acc86218154fc0e0688/6b427/1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 35.5457227138643%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsSAAALEgHS3X78AAABgUlEQVQoz22P3WoTURSF8xiCNnPmTM6cmTnzl0lKrA6YCVYhYtoxMTStP6kEDam0ggr6AAqi4IWoeOWjfp7kolrqxQdrw95rrd2IjSbutDH1W7qz9xQH7+g8fE27PqEzPqU7OSXqliiTopICv30TvyiRKkAIB9d1L9CIY0220yVbfObG8gu3Vl8pXvykvfxNufqFd/QDcfAN/fg70ewTZjAlGYzxwhThNC8bKuWhAonQCdIuSR0hsj6j5QeOzj6yPTpBV3MCS7n3HGfrGs7VK/9ttzFseR5hoPFbHi0p8aRLpBWL+SPevHrJ2WrB/bsVZS9ntyrtkcSVHsIeX0JYQx3GZMV18iwnMSFZbMjTlMl4wuHskLquqarKMuDecIjRPrEtYALfBlsd6s28Jo0CGmFkWJtK2+68YRiwvzdi/vQJD+p9tjsFO70eVb+PVq1z1l8F/8yBr+zLfogfxDZZbVJDZUjCjOl0wrPjY+7s3ibPMwaDiqFtuNVs4gjxF+ei/gOvy+Kvfj9umgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img1&quot;
+        title=&quot;img1&quot;
+        src=&quot;/static/4e9c28da3cf80acc86218154fc0e0688/b9e4f/1.png&quot;
+        srcset=&quot;/static/4e9c28da3cf80acc86218154fc0e0688/cf440/1.png 148w,
+/static/4e9c28da3cf80acc86218154fc0e0688/d2d38/1.png 295w,
+/static/4e9c28da3cf80acc86218154fc0e0688/b9e4f/1.png 590w,
+/static/4e9c28da3cf80acc86218154fc0e0688/6b427/1.png 678w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;작업 중인 &lt;code class=&quot;language-text&quot;&gt;js/jsx&lt;/code&gt; 파일에서 코드 조각을 작성한다. 그리고 코드를 선택하고 마우스 우측 버튼을 클릭하면 가장 위에 &lt;code class=&quot;language-text&quot;&gt;Run Code&lt;/code&gt; 메뉴가 보인다. 클릭하면 아래 &lt;code class=&quot;language-text&quot;&gt;출력&lt;/code&gt; 탭에 결과가 나타나는 걸 확인 할 수 있다.&lt;/p&gt;
+&lt;h3&gt;markdownlint&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint&quot;&gt;markdownlint&lt;/a&gt;는 Gatsby로 글을 쓸 때 유용하다. 특히, 코드 조각을 여러개 작성할때 가끔 &lt;code class=&quot;language-text&quot;&gt;```&lt;/code&gt;를 빠뜨리곤 한다. markdownlint를 사용하면 문제 있는 부분이 바로 눈에 보이므로, 오류가 날 확률이 훨씬 줄어든다.&lt;/p&gt;
+&lt;p&gt;프로젝트 root 폴더에 &lt;code class=&quot;language-text&quot;&gt;.markdownlint.json&lt;/code&gt; 파일을 만들면 사용자가 원하는 옵션을 추가할 수 있다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;{
+  &amp;quot;no-bare-urls&amp;quot;: false,
+  &amp;quot;line-length&amp;quot;: false,
+  &amp;quot;no-inline-html&amp;quot;: false,
+  &amp;quot;fenced-code-language&amp;quot;: false
+}&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;또다른 방법으로 &lt;code class=&quot;language-text&quot;&gt;Prettier&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;gatsby-remark-prettier&lt;/code&gt;를 사용하면, 저장할때마다 자동으로 fommatting하도록 할 수 있다(&lt;a href=&quot;https://www.gatsbyjs.org/packages/gatsby-remark-prettier/?=pretiier&quot;&gt;사용법&lt;/a&gt;). 나도 사용해봤는데, 내 경우에는 좀 맞지 않아서 제거해버렸다. 나는 좀더 자유로운 형식으로 글쓰기를 원하는데, prettier가 생각지도 못한 부분까지 바꿔버리는 경우가 더러 있었기 때문이다.&lt;/p&gt;
+&lt;h3&gt;markdown preview Enhanced&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced&quot;&gt;markdown preview Enhanced&lt;/a&gt;를 사용하면, VSCode에서 작성중인 포스팅을 바로 확인할 수 있다. 물론 각자 블로그의 CSS가 다르기 때문에 실제 렌더링된 모습과는 다르겠지만, 기본적인 요소를 확인하기에는 나쁘지 않은 선택이다. 게다가, 위치에 따라 알아서 스크롤되기 때문에 비교하면서 작업하기에 좋다.&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;
+  &lt;img src=&quot;/2-dd97f609de68530e67ad4a3b057f97bb.gif&quot; alt=&quot;img2&quot;&gt;
+&lt;/p&gt;
+&lt;h3&gt;change-case&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=wmaurer.change-case&quot;&gt;change-case&lt;/a&gt;는 코드를 작성하거나 수정할때 유용하다. 예를들어 변수이름(camelCase)을 상수(CONSTANT)로 바꿔줘야할때 일일이 타이핑하다보면 실수할 때가 있다. 이럴때 change-case를 사용해보자. 실수없이 이름을 바꿀 수 있다. 또다른 예로, 타입스크립트를 사용한다면 snake_case로 넘어온 API 결과 데이터를 한번에 camelCase로 바꾸고 싶을때가 있다. 이때 change-case를 사용하면 한꺼번에 간단히 변경할 수 있다. 사용법을 한번 알아보자. 바꾸고 싶은 이름(들)을 마우스로 드래그해서 선택(selection, 다중 선택도 가능)한다. 그 다음 &lt;code class=&quot;language-text&quot;&gt;ctrl + shift + p&lt;/code&gt;를 눌러 &lt;code class=&quot;language-text&quot;&gt;Change case&lt;/code&gt; 또는 &lt;code class=&quot;language-text&quot;&gt;case&lt;/code&gt;를 쳐보면, 아래와 같은 목록을 확인할 수 있다. 이 중에서 바꾸기 원하는 타입의 case를 클릭하면 한번에 바꿀 수 있다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/5d29e013291f8ab9e5c4e67c7f5d259d/3432a/3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 69.70172684458399%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAAsSAAALEgHS3X78AAABrElEQVQ4y6WSW2/aQBCF90/kLaEYX/eGjYNxMF5fgaAEgvLSNlX7/3/G6XgRUfsQJSQPn8bWHJ2dszssyzJsN2vs7rdUN6iqCnVdoyH6rsN63Vu6tj199z3atrF9y6CvDNqmxiJbgPlJDmf7G97uD7z1T0TtM9zqiOvl45vcFKc6Ko8YN9/htD/gdC+4ni7BeDLHVf2Cq/YXRuYZefeAYG5wIzOM1NvYvs7xjUzG8x5O8YQxj8GE1PDKB3hmD1X0MMs7ZGkKLTgUj94nCiGpainguy7YJFKYUMQxIc0OxbJAGHFwIT8OlxBUXc8D04oMzRMcMhSrLV10gzhOSCSs6D3OuqFKKcGkjjEp93DIVKw2yBcLaD39sOG/pkEQgk1VRBMeTxOW91gVxX+iSwxdlyLHOjxFJiQZmrKEkOpThp7ng7kBh2sO1pAXtNjGIElmXzDkmiY82MicHsVOKNTnI8/SWzjl4TXyXZ4jDKNX4SXYV45ng+He7uKwNnVVI74w8vnwJEnA0mFClcLRt5hQfK00NTl836cIrmW4G4+WdsD3A7se5/8zgy4IAvwFXmuxesp94nkAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img3&quot;
+        title=&quot;img3&quot;
+        src=&quot;/static/5d29e013291f8ab9e5c4e67c7f5d259d/b9e4f/3.png&quot;
+        srcset=&quot;/static/5d29e013291f8ab9e5c4e67c7f5d259d/cf440/3.png 148w,
+/static/5d29e013291f8ab9e5c4e67c7f5d259d/d2d38/3.png 295w,
+/static/5d29e013291f8ab9e5c4e67c7f5d259d/b9e4f/3.png 590w,
+/static/5d29e013291f8ab9e5c4e67c7f5d259d/3432a/3.png 637w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3&gt;GraphQL for VSCode&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=kumar-harsh.graphql-for-vscode&quot;&gt;GraphQL for VSCode&lt;/a&gt;는 Gatsby 프로젝트에서 유용하다. 기본적으로 GraphQL은 하이라이팅을 지원하지 않는다. 안그래도 눈에 잘 안들어오는 GraphQL 문법이 더 난해하게 보일 수 있다. 그러때 이 plugin을 설치하면 가독성이 훨씬 좋아진다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/29cf7dc4c71b6067b9692fed00848b42/91670/4.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 40.76923076923077%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsSAAALEgHS3X78AAABEUlEQVQoz32SXXKDMAyEcwcIbQewJcv8B156sZD7z2xlUVJCO33QCMM3q12Ly/2+onr/wDDeIE0DEUZd13DOPSudAwd0wwzpBsQmgol+caku67rimudYhg6kL8qqMvBYCSTyiCrW6uCqLFGdmL1MsLjmmLoWwoygk1MXJnVF1r33Kkgq2CP2IzgE+0YhwrPoM4M0webw8cBbUeBzngxidUIq4E+VIva3xYqIbYD39MI8I2caedbIjQQT+4ngDpHVscRNMAhqt3HudDWbYJZj1Mh9FIsYA8N/L2MHk8MUtZsWhKY1JrH70vZugrk6jCJq25mQ37d7gDndrwraXaWIp7/gZct5llmkv7Z7FNyY6l/uC5xp4iTjMEK4AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;img4&quot;
+        title=&quot;img4&quot;
+        src=&quot;/static/29cf7dc4c71b6067b9692fed00848b42/b9e4f/4.png&quot;
+        srcset=&quot;/static/29cf7dc4c71b6067b9692fed00848b42/cf440/4.png 148w,
+/static/29cf7dc4c71b6067b9692fed00848b42/d2d38/4.png 295w,
+/static/29cf7dc4c71b6067b9692fed00848b42/b9e4f/4.png 590w,
+/static/29cf7dc4c71b6067b9692fed00848b42/f9b6a/4.png 885w,
+/static/29cf7dc4c71b6067b9692fed00848b42/2d849/4.png 1180w,
+/static/29cf7dc4c71b6067b9692fed00848b42/91670/4.png 1300w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3&gt;결론&lt;/h3&gt;
+&lt;p&gt;이 외에도 react 관련 snippet이나, css 하이라이팅 등 자신이 주로 사용하는 모듈에 적합한 plugin들도 유용하게 사용 가능하다. 어떤 IDE, Editor든 마찬가지겠지만, plugin을 잘 사용하면 생산성이 훨씬 좋아진다. 그렇다고 무분별하게 사용하다가는 프로그램이 무거워져 버벅이는 현상을 겪게될지도 모른다. VSCode는 각 작업환경별로 plugin을 설정할 수 있기 때문에 반드시 필요한 plugin만 활성화해서 사용하도록 하자.&lt;/p&gt;
+&lt;h3&gt;참고자료&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;eslint-config-airbnb github page: &lt;a href=&quot;https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb&quot;&gt;https://github.com/airbnb/javascript/tree/master/packages/eslint-config-airbnb&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;gatsby-plugin-eslint: &lt;a href=&quot;https://www.gatsbyjs.org/packages/gatsby-plugin-eslint/&quot;&gt;https://www.gatsbyjs.org/packages/gatsby-plugin-eslint/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;velopert’s ESLint + Prettier: &lt;a href=&quot;https://velog.io/@velopert/eslint-and-prettier-in-react&quot;&gt;https://velog.io/@velopert/eslint-and-prettier-in-react&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;ID PRAVUS’s ESLint + Prettier: &lt;a href=&quot;https://pravusid.kr/javascript/2019/03/10/eslint-prettier.html&quot;&gt;https://pravusid.kr/javascript/2019/03/10/eslint-prettier.html&lt;/a&gt;  &lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[2019 if kakao 홈페이지 메인 배너를 css로 만들어보자 (feat. svg)]]></title><description><![CDATA[if kakao가 매우 성황리에(?) 마무리되었다. 공식적인 if kakao…]]></description><link>https://blueshw.github.io/2019/09/22/animation-if-kakao-2019/</link><guid isPermaLink="false">https://blueshw.github.io/2019/09/22/animation-if-kakao-2019/</guid><pubDate>Sun, 22 Sep 2019 18:32:20 GMT</pubDate><content:encoded>&lt;p&gt;if kakao가 매우 성황리에(?) 마무리되었다. 공식적인 if kakao 행사가 두번째임에도 불구하고 꽤 완성도 있었다 생각한다. 특히 &lt;code class=&quot;language-text&quot;&gt;카카오페이지(!!!)&lt;/code&gt;의 &lt;a href=&quot;https://mk.kakaocdn.net/dn/if-kakao/conf2019/conf_video_2019/1_104_01_m1.mp4&quot;&gt;리액트: 그것마저 결정해주마&lt;/a&gt;와 &lt;code class=&quot;language-text&quot;&gt;카카오뱅크&lt;/code&gt;의 &lt;a href=&quot;https://mk.kakaocdn.net/dn/if-kakao/conf2019/conf_video_2019/1_104_03_m1.mp4&quot;&gt;프론트엔드 기술로 동료들 삶의 질 높여주기&lt;/a&gt; 세션이 아주 흥미로웠다. 첫번째 리액트 세션은 리액트로 프로젝트를 진행할때 너무 많은 작업 방식과 라이브러리 홍수 속에서 옥석을 골라내는 방법과 코딩 방식을 제안해주었다. 그리고 두번째 카카오 뱅크 세션에서는 동료들의 불편함을 프론트 기술로 해소했던 몇가지 프로젝트를 보여주었는데, 보는내내 감탄사가 절로 나왔다. 특히 직원의 위치와 휴가 여부 등의 정보를 full-3D로 구현한 &lt;code class=&quot;language-text&quot;&gt;floor&lt;/code&gt;가 가장 인상깊었다. &lt;/p&gt;
 &lt;p&gt;훌륭하게 컨퍼런스를 마무리했음에 틀림없지만, 그래도 아쉬운점은 있었다. 2일간 진행했음에도 불구하고 다양성이 너무 부족했다. 1일차 세션은 프론트, 서버, DB 등의 세션으로 구성되었고, 2일차의 세션은 블록체인과 AI 등의 신기술로만 채워졌다. 아무리 블록체인과 AI 기술이 요즘의 트렌드라고 할지라도 너무 한쪽으로 치우쳐 있다는 느낌은 지울수 없었다. 나는 1일차에만 참석했는데, 프론트 개발자로서 들을만한 세션은 손에 꼽을 정도였다(3~4개 정도?). 두번째로 아쉬웠던 점은, 바로 if kakao 홈페이지다. 보통 퀄리티는 디테일로 결정된다. 그런데, if kakao 홈페이지에는 그다지 노력을 기울인 느낌이 없었다. 잠깐 사용할 홈페이지에 뭐 그리 집착하냐 할지 모르지만, 나는 이런게 바로 디테일이라 생각한다. &lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://if.kakao.com/2019/&quot;&gt;if kakao 2019 홈페이지&lt;/a&gt;에 접속해보면 가운데 아래와 같은 메인 배너가 보인다. 홈페이지에 접속해보면 알겠지만, 아래처럼 정지된 이미지는 아니고 몇가지 애니메이션이 동작한다.&lt;/p&gt;
 &lt;p&gt;&lt;span
