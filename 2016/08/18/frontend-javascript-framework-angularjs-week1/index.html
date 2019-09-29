@@ -1,8 +1,407 @@
-<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.0c1a986cf40bd225d9e0.css">abbr,address,article,aside,audio,b,blockquote,body,canvas,cite,code,dd,del,details,dfn,div,dl,dt,em,fieldset,figcaption,figure,footer,form,header,hgroup,html,i,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,p,pre,q,samp,section,small,span,strong,sub,summary,sup,time,ul,var,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}iframe,img{width:100%}iframe{margin:20px 0}nav ul{list-style:none}blockquote,q{quotes:none}blockquote>p>a{display:inline-block}h1,h2,h3,h4,h5,h6{margin-top:.5em;margin-bottom:.5em;padding-top:1em}blockquote:after,blockquote:before,q:after,q:before{content:"";content:none}a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}ins{text-decoration:none}ins,mark{background-color:#fff;color:#000}mark{font-style:italic;font-weight:700}del{text-decoration:line-through}abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}input,select{vertical-align:middle}p{margin-bottom:1.8rem;word-break:break-all}code.language-text{font-size:14px!important}table{margin:40px auto;width:80%;border-spacing:0;border-collapse:collapse}table,table tr{padding:0;border-top:1px solid #ccc}table tr{background-color:#fff;margin:0}table tr:nth-child(2n){background-color:#f8f8f8}table tr th{font-weight:700}table tr td,table tr th{border-bottom:1px solid #ccc;text-align:left;margin:0;padding:6px 13px}table tr td :first-child,table tr th :first-child{margin-top:0}table tr td:not(:first-child),table tr th:not(:first-child){border-left:1px solid #ccc}table tr td :last-child,table tr th :last-child{margin-bottom:0}code[class*=language-],pre[class*=language-]{color:#ccc;background:none;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.block-comment,.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#999}.token.punctuation{color:#ccc}.token.attr-name,.token.deleted,.token.namespace,.token.tag{color:#e2777a}.token.function-name{color:#6196cc}.token.boolean,.token.function,.token.number{color:#f08d49}.token.class-name,.token.constant,.token.property,.token.symbol{color:#f8c555}.token.atrule,.token.builtin,.token.important,.token.keyword,.token.selector{color:#cc99cd}.token.attr-value,.token.char,.token.regex,.token.string,.token.variable{color:#7ec699}.token.entity,.token.operator,.token.url{color:#67cdcc}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.inserted{color:green}.contents a{-webkit-transition:background .5s;transition:background .5s}.contents a:not(.gatsby-resp-image-link){color:#3a3a3a;text-decoration:none;border-bottom:3px solid #d7c3ee}.contents a:active:not(.gatsby-resp-image-link),.contents a:hover:not(.gatsby-resp-image-link){outline-width:0;text-shadow:none;background-color:#e0d6eb}.contents ul{margin-left:15px;word-break:break-all}:not(pre)>code[class*=language-],pre[class*=language-]{background:#2d2d2d;margin-top:.1rem;margin-bottom:1.8rem}:not(pre)>code[class*=language-]{background:#dfdfdf;color:#222;padding:3px 5px;font-weight:600}blockquote{margin:20px 15px 20px 0;padding-left:35px;border-left:5px solid #e5e5e5}.frame-wrap{overflow:auto;width:100%}.frame-wrap,body{-webkit-overflow-scrolling:touch}body{font-family:Arial;height:500vw;overflow-x:hidden}.container-404{display:flex;justify-content:center;align-items:center;position:fixed;left:0;top:0;width:100vw;height:100vh;overflow:hidden;opacity:0;-webkit-transition:opacity 1s;transition:opacity 1s}.container-404>span{padding:1.5vh;font-size:25vh;font-weight:700;color:#333;cursor:default}.container-404>.home{position:fixed;right:3vw;bottom:3vw;margin:0;padding:0;color:#999;cursor:pointer;text-decoration:underline;font-size:13px}</style><meta name="generator" content="Gatsby 2.13.4"/><style id="glamor-styles"></style><script id="glamor-ids">
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.0c1a986cf40bd225d9e0.css">abbr,address,article,aside,audio,b,blockquote,body,canvas,cite,code,dd,del,details,dfn,div,dl,dt,em,fieldset,figcaption,figure,footer,form,header,hgroup,html,i,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,p,pre,q,samp,section,small,span,strong,sub,summary,sup,time,ul,var,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}iframe,img{width:100%}iframe{margin:20px 0}nav ul{list-style:none}blockquote,q{quotes:none}blockquote>p>a{display:inline-block}h1,h2,h3,h4,h5,h6{margin-top:.5em;margin-bottom:.5em;padding-top:1em}blockquote:after,blockquote:before,q:after,q:before{content:"";content:none}a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}ins{text-decoration:none}ins,mark{background-color:#fff;color:#000}mark{font-style:italic;font-weight:700}del{text-decoration:line-through}abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}input,select{vertical-align:middle}p{margin-bottom:1.8rem;word-break:break-all}code.language-text{font-size:14px!important}table{margin:40px auto;width:80%;border-spacing:0;border-collapse:collapse}table,table tr{padding:0;border-top:1px solid #ccc}table tr{background-color:#fff;margin:0}table tr:nth-child(2n){background-color:#f8f8f8}table tr th{font-weight:700}table tr td,table tr th{border-bottom:1px solid #ccc;text-align:left;margin:0;padding:6px 13px}table tr td :first-child,table tr th :first-child{margin-top:0}table tr td:not(:first-child),table tr th:not(:first-child){border-left:1px solid #ccc}table tr td :last-child,table tr th :last-child{margin-bottom:0}code[class*=language-],pre[class*=language-]{color:#ccc;background:none;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.block-comment,.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#999}.token.punctuation{color:#ccc}.token.attr-name,.token.deleted,.token.namespace,.token.tag{color:#e2777a}.token.function-name{color:#6196cc}.token.boolean,.token.function,.token.number{color:#f08d49}.token.class-name,.token.constant,.token.property,.token.symbol{color:#f8c555}.token.atrule,.token.builtin,.token.important,.token.keyword,.token.selector{color:#cc99cd}.token.attr-value,.token.char,.token.regex,.token.string,.token.variable{color:#7ec699}.token.entity,.token.operator,.token.url{color:#67cdcc}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.inserted{color:green}.contents a{-webkit-transition:background .5s;transition:background .5s}.contents a:not(.gatsby-resp-image-link){color:#3a3a3a;text-decoration:none;border-bottom:3px solid #d7c3ee}.contents a:active:not(.gatsby-resp-image-link),.contents a:hover:not(.gatsby-resp-image-link){outline-width:0;text-shadow:none;background-color:#e0d6eb}.contents ul{margin-left:15px;word-break:break-all}:not(pre)>code[class*=language-],pre[class*=language-]{background:#2d2d2d;margin-top:.1rem;margin-bottom:1.8rem}:not(pre)>code[class*=language-]{background:#dfdfdf;color:#222;padding:3px 5px;font-weight:600}blockquote{margin:20px 15px 20px 0;padding-left:35px;border-left:5px solid #e5e5e5}.frame-wrap{overflow:auto;width:100%}.frame-wrap,body{-webkit-overflow-scrolling:touch}body{font-family:Arial;height:500vw;overflow-x:hidden}.container-404{display:flex;justify-content:center;align-items:center;position:fixed;left:0;top:0;width:100vw;height:100vh;overflow:hidden;opacity:0;-webkit-transition:opacity 1s;transition:opacity 1s}.container-404>span{padding:1.5vh;font-size:25vh;font-weight:700;color:#333;cursor:default}.container-404>.home{position:fixed;right:3vw;bottom:3vw;margin:0;padding:0;color:#999;cursor:pointer;text-decoration:underline;font-size:13px}</style><meta name="generator" content="Gatsby 2.13.4"/><style id="glamor-styles"></style><script id="glamor-ids">
         // <![CDATA[
         window._glamor = []
         // ]]>
-        </script><style type="text/css">.gatsby-resp-image-image{width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;color:transparent;}</style><link rel="preconnect dns-prefetch" href="https://www.google-analytics.com"/><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><link rel="shortcut icon" href="/icons/icon-48x48.png?v=008654519ce705ac7bc44303a9014606"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#663399"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=008654519ce705ac7bc44303a9014606"/><title data-react-helmet="true"></title><style data-styled="" data-styled-version="4.3.2"></style><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link as="script" rel="preload" href="/1-6f50826974fe8fe40719.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-ffd1be86d5c2607c68d7.js"/><link as="script" rel="preload" href="/app-04e513db8431d9bd7edd.js"/><link as="script" rel="preload" href="/styles-9e7ec19e2211d24f4e8b.js"/><link as="script" rel="preload" href="/webpack-runtime-43ae62e44a595e8d71c7.js"/><link as="fetch" rel="preload" href="/page-data/2016/08/18/frontend-javascript-framework-angularjs-week1/page-data.json" crossorigin="use-credentials"/></head><body><noscript id="gatsby-noscript">This app works best with JavaScript enabled.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group" id="gatsby-focus-wrapper"></div></div><script>
+        </script><style type="text/css">.gatsby-resp-image-image{width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;color:transparent;}</style><link rel="preconnect dns-prefetch" href="https://www.google-analytics.com"/><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><link rel="shortcut icon" href="/icons/icon-48x48.png?v=008654519ce705ac7bc44303a9014606"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#663399"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=008654519ce705ac7bc44303a9014606"/><title data-react-helmet="true">[coursera] AngularJS week 1 | bono&#x27;s blog</title><meta data-react-helmet="true" name="google-site-verification" content="R3ZeY1PmaJUY9j_cgNABjesJFgHWVCJpb4TsdfXntMA"/><meta data-react-helmet="true" name="naver-site-verification" content="23eddf7267bb527337927baff11fc26157637f30"/><meta data-react-helmet="true" name="description" content="Full-Stack Web Development: The Big PictureThree Tier Architecture보통 웹개발에서 말하는 3-티어 아키텍쳐는 아래의 세 영역으로 나뉜다.Presentaion Layer : HTML, CSS…"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" property="og:url"/><meta data-react-helmet="true" property="og:title" content="[coursera] AngularJS week 1"/><meta data-react-helmet="true" property="og:description" content="Full-Stack Web Development: The Big PictureThree Tier Architecture보통 웹개발에서 말하는 3-티어 아키텍쳐는 아래의 세 영역으로 나뉜다.Presentaion Layer : HTML, CSS…"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creater" content="@blueshw"/><meta data-react-helmet="true" name="twitter:title" content="[coursera] AngularJS week 1"/><meta data-react-helmet="true" name="twitter:description" content="Full-Stack Web Development: The Big PictureThree Tier Architecture보통 웹개발에서 말하는 3-티어 아키텍쳐는 아래의 세 영역으로 나뉜다.Presentaion Layer : HTML, CSS…"/><script data-react-helmet="true" async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script data-react-helmet="true" async="" src="https://static.codepen.io/assets/embed/ei.js"></script><style data-styled="iHZvIS gkRqNh inwzvX iPvBDw lfMCsp gaWkyC jMRudl bCTfZv bWwvzh bZyUGp iMtDsI hXAfHy iEmYcW jDGYoj hTVfqa TbpWH iJLqqc jFaOqE kysVOw jdrydf jEaxjM dzpLHw fPdXYp" data-styled-version="4.3.2">
+/* sc-component-id: sc-bdVaJa */
+.iHZvIS{box-sizing:border-box;}.gkRqNh{box-sizing:border-box;margin-top:50px;}.inwzvX{box-sizing:border-box;margin:10px;}.iPvBDw{box-sizing:border-box;margin-bottom:40px;}.lfMCsp{box-sizing:border-box;margin-bottom:30px;}
+/* sc-component-id: sc-bwzfXH */
+.jDGYoj{box-sizing:border-box;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;}
+/* sc-component-id: sc-htpNat */
+.TbpWH{box-sizing:border-box;margin-top:15px;margin-bottom:15px;width:100vw;font-size:16px;color:#888888;font-weight:400;text-align:center;}.iJLqqc{box-sizing:border-box;font-size:24px;line-height:1.1;}.jFaOqE{box-sizing:border-box;margin-top:7px;margin-bottom:90px;color:#bbb;}
+/* sc-component-id: menu___StyledLink-h1woa4-0 */
+.hTVfqa{box-shadow:none;-webkit-text-decoration:none;text-decoration:none;color:inherit;}
+/* sc-component-id: header___StyledFlex-sc-1h24lom-0 */
+.gaWkyC{box-sizing:border-box;padding:10px;width:100%;background-color:white;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;position:fixed;left:0;top:0;height:50px;border-bottom:1px solid #e8e8e8;z-index:200;}
+/* sc-component-id: header___StyledText-sc-1h24lom-1 */
+.jMRudl{box-sizing:border-box;margin-top:3px;margin-left:20px;margin-right:auto;font-size:22px;color:#888888;-webkit-flex:0 0 auto;-ms-flex:0 0 auto;flex:0 0 auto;cursor:pointer;} @media (max-width:600px){.jMRudl{margin-left:10px;}}
+/* sc-component-id: header___StyledLink-sc-1h24lom-2 */
+.bCTfZv{box-shadow:none;-webkit-text-decoration:none;text-decoration:none;color:inherit;}
+/* sc-component-id: header___StyledBox-sc-1h24lom-3 */
+.bWwvzh{box-sizing:border-box;padding:5px;width:30px;height:28px;cursor:pointer;overflow:hidden;}
+/* sc-component-id: header___StyledBox2-sc-1h24lom-4 */
+.bZyUGp{box-sizing:border-box;margin-bottom:6px;padding-top:2px;width:20px;background-color:#888888;-webkit-transition:all 0.4s;transition:all 0.4s;-webkit-transform:rotateZ(0);-ms-transform:rotateZ(0);transform:rotateZ(0);-webkit-transform-origin:100% 0;-ms-transform-origin:100% 0;transform-origin:100% 0;}
+/* sc-component-id: header___StyledBox3-sc-1h24lom-5 */
+.iMtDsI{box-sizing:border-box;margin-bottom:6px;padding-top:2px;width:20px;background-color:#888888;-webkit-transition:-webkit-transform 0.5s;-webkit-transition:transform 0.5s;transition:transform 0.5s;-webkit-transform:scale(1);-ms-transform:scale(1);transform:scale(1);-webkit-transform-origin:100% 50%;-ms-transform-origin:100% 50%;transform-origin:100% 50%;}
+/* sc-component-id: header___StyledBox4-sc-1h24lom-6 */
+.hXAfHy{box-sizing:border-box;padding-top:2px;width:20px;background-color:#888888;-webkit-transition:all 0.4s;transition:all 0.4s;-webkit-transform:rotateZ(0);-ms-transform:rotateZ(0);transform:rotateZ(0);-webkit-transform-origin:100% 100%;-ms-transform-origin:100% 100%;transform-origin:100% 100%;}
+/* sc-component-id: layout___StyledBox-sc-3234dv-0 */
+.iEmYcW{box-sizing:border-box;width:100%;background-color:white;border-bottom:none;position:fixed;left:0;top:50px;z-index:100;opacity:0.9;max-height:0px;-webkit-transition:max-height 0.5s ease;transition:max-height 0.5s ease;overflow:hidden;}
+/* sc-component-id: layout___StyledBox2-sc-3234dv-1 */
+.kysVOw{box-sizing:border-box;margin-left:auto;margin-right:auto;padding:45px 20px;max-width:800px;}
+/* sc-component-id: blog-post___StyledBox-sc-13kot0y-0 */
+.jdrydf{box-sizing:border-box;color:#333333;line-height:30px;}
+/* sc-component-id: blog-post___StyledFlex-sc-13kot0y-1 */
+.jEaxjM{box-sizing:border-box;margin-bottom:30px;padding-top:30px;font-size:15px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;border-top:1px solid #eee;}
+/* sc-component-id: blog-post___StyledText-sc-13kot0y-2 */
+.dzpLHw{box-sizing:border-box;line-height:1.8;max-width:280px;}
+/* sc-component-id: blog-post___StyledText2-sc-13kot0y-3 */
+.fPdXYp{box-sizing:border-box;line-height:1.8;max-width:280px;}</style><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link as="script" rel="preload" href="/1-6f50826974fe8fe40719.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-c41f3a5636ff2c314a95.js"/><link as="script" rel="preload" href="/app-04e513db8431d9bd7edd.js"/><link as="script" rel="preload" href="/styles-9e7ec19e2211d24f4e8b.js"/><link as="script" rel="preload" href="/webpack-runtime-0c83b68110cbb4cd0549.js"/><link as="fetch" rel="preload" href="/page-data/2016/08/18/frontend-javascript-framework-angularjs-week1/page-data.json" crossorigin="use-credentials"/></head><body><noscript id="gatsby-noscript">This app works best with JavaScript enabled.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group" id="gatsby-focus-wrapper"><div class="sc-bdVaJa iHZvIS"><div class="sc-bdVaJa iHZvIS"><div width="100%" class="sc-bdVaJa sc-bwzfXH header___StyledFlex-sc-1h24lom-0 gaWkyC"><div color="grey01" font-size="22px" class="sc-bdVaJa sc-htpNat header___StyledText-sc-1h24lom-1 jMRudl"><a class="header___StyledLink-sc-1h24lom-2 bCTfZv" href="/">bono&#x27;s blog</a></div><div width="30px" class="sc-bdVaJa header___StyledBox-sc-1h24lom-3 bWwvzh"><div width="20px" class="sc-bdVaJa header___StyledBox2-sc-1h24lom-4 bZyUGp"></div><div width="20px" class="sc-bdVaJa header___StyledBox3-sc-1h24lom-5 iMtDsI"></div><div width="20px" class="sc-bdVaJa header___StyledBox4-sc-1h24lom-6 hXAfHy"></div></div></div></div><div class="sc-bdVaJa gkRqNh"><div width="100%" class="sc-bdVaJa layout___StyledBox-sc-3234dv-0 iEmYcW"><div class="sc-bdVaJa inwzvX"><div class="sc-bdVaJa sc-bwzfXH jDGYoj"><a class="menu___StyledLink-h1woa4-0 hTVfqa" href="/programming"><div width="100vw" font-size="16px" font-weight="400" color="#888888" class="sc-bdVaJa sc-htpNat TbpWH">개발</div></a></div><div class="sc-bdVaJa sc-bwzfXH jDGYoj"><a class="menu___StyledLink-h1woa4-0 hTVfqa" href="/essay"><div width="100vw" font-size="16px" font-weight="400" color="#888888" class="sc-bdVaJa sc-htpNat TbpWH">일기</div></a></div><div class="sc-bdVaJa sc-bwzfXH jDGYoj"><a class="menu___StyledLink-h1woa4-0 hTVfqa" href="/review"><div width="100vw" font-size="16px" font-weight="400" color="#888888" class="sc-bdVaJa sc-htpNat TbpWH">책리뷰</div></a></div><div class="sc-bdVaJa sc-bwzfXH jDGYoj"><a class="menu___StyledLink-h1woa4-0 hTVfqa" href="/tags"><div width="100vw" font-size="16px" font-weight="400" color="#888888" class="sc-bdVaJa sc-htpNat TbpWH">태그</div></a></div></div></div></div><div class="sc-bdVaJa contents layout___StyledBox2-sc-3234dv-1 kysVOw"><div font-size="24px" class="sc-bdVaJa sc-htpNat iJLqqc">[coursera] AngularJS week 1</div><div color="#bbb" class="sc-bdVaJa sc-htpNat jFaOqE">August 18, 2016</div><div class="sc-bdVaJa iPvBDw"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4588610260101909" data-ad-slot="1331884154" data-ad-format="auto" data-full-width-responsive="true"></ins></div><div color="text" class="sc-bdVaJa blog-post___StyledBox-sc-13kot0y-0 jdrydf"><h2>Full-Stack Web Development: The Big Picture</h2>
+<h3>Three Tier Architecture</h3>
+<p>보통 웹개발에서 말하는 3-티어 아키텍쳐는 아래의 세 영역으로 나뉜다.</p>
+<ul>
+<li>Presentaion Layer : HTML, CSS, JS</li>
+<li>Business Layer : Ruby, Python, Java, C++</li>
+<li>Data Access Layer : DBMS</li>
+</ul>
+<p>반면에 Full-Stack 웹 개발은 자바스크립트를 이용하여 위의 세 layer 의 개발을 가능하도록 하는 방법을 말하며, 조금씩 다른 프레임웍을 사용할 수 있겠지만, 이 강의에서는 presentaion layer 에는 자바스크립트 프레임웍인 AngularJS, business layer 에서는 NodeJS, 그리고 Data Access Layer 영역에서는 자바스크립트를 이용한 MongoDB 를 사용하여 개발한다.</p>
+<p>이 세 영역은 모두 자바스크리트 기반으로 만들어져 있기 때문에 서버, 브라우저, 모바일 디바이스 등 모든 영역에서 JSON 형태로 통신이 가능하다.</p>
+<h3>Course Overview</h3>
+<p>이번 강의에서 다루는 주제는 다음과 같다.</p>
+<ul>
+<li>AngularJS : 자바스크립트 프레임워크 (버전: 1.4.2)</li>
+<li>Web Tools : Grunt, Gulp, Yo and Yeoman</li>
+</ul>
+<h2>Introduction to AngularJS</h2>
+<h3>Front-End JavaScript Frameworks OverView</h3>
+<blockquote>
+<p>소프트웨어 라이브러리란 어떤 동작을 실행하는 잘 정의된 인터페이스(or functions or methods)의 집합이라 할 수 있다. 재사용성과 모듈화를 통해서 더 효율적인 개발이 가능하다. 대표적인 예로 jQuery 가 있다.</p>
+</blockquote>
+<blockquote>
+<p>소프트웨어 프레임워크란 라이브러리와는 다소 차이가 있다. 라이브러리는 이미 잘 만들어진 유용한 코드(functions)를 사용한다고 한다면, 프레임워크는 개발자가 작성한 코드가 프레임워크안에서 적절하게 실행할 수 있도록 환경을 제공하는 것이라 할 수 있다. 프레임워크는 일반적인(generic) 함수 셋을 제공하며 개발자가 구체적인 코드를 구현해야한다. 그리고 구현된 코드는 프레임워크가 필요한 경우, 어떤 임무를 완수하기 위해 불려진다. 즉, 라이브러리는 개발자에게 코드를 컨트롤 할 수 있는 권한이 주어지는 반면 프레임워크는 코드의 컨트롤 권한이 프레임워크에게 있는 것과 같다. 이번 강의에서 배울 AngularJS 나 durandal, backbone 등이 대표적이다.</p>
+</blockquote>
+<h4>10 가지 Javascript Framework</h4>
+<ul>
+<li>Angular : one of the three Major JS framework</li>
+<li>Ember : one of the three Major JS framework</li>
+<li>Backbone : one of the three Major JS framework</li>
+<li>React : 프레임웍이라기 보다 라이브러리에 가까움</li>
+<li>Aurelia</li>
+<li>Meteor : 요즘 각광받기 시작</li>
+<li>Polymer</li>
+<li>Knockout</li>
+<li>Vue</li>
+<li>Mercury</li>
+</ul>
+<h4>3 가지 메이저 JS Frameworks 비교 (3 > 2 > 1)</h4>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="center">Ember</th>
+<th align="center">Angular</th>
+<th align="center">Backbone</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Opinionated</td>
+<td align="center">1</td>
+<td align="center">2</td>
+<td align="center">3</td>
+</tr>
+<tr>
+<td align="left">Ease of Use</td>
+<td align="center">3</td>
+<td align="center">2</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="left">Learning Curve</td>
+<td align="center">1</td>
+<td align="center">2</td>
+<td align="center">3</td>
+</tr>
+<tr>
+<td align="left">Popularity</td>
+<td align="center">-</td>
+<td align="center">3</td>
+<td align="center">-</td>
+</tr>
+</tbody>
+</table>
+<h3>Introduction to AngularJS</h3>
+<p>HTML 은 static 한 문서이기 때문에 동적인 웹 어플리케이션을 지원하기에는 HTML 만으로는 한계가 있다. 보통은 자바스크립트의 DOM 객체를 이용해서 HTML 을 동적으로 만들 수 있지만, 자바스크립트 프레임웍인 Angular 를 이용하면 다음과 같은 이점을 가질 수 있다.</p>
+<blockquote>
+<p>Solving the impedance mismatch</p>
+</blockquote>
+<p>back end 데이터와 static content 를 출력하는데 HTML 만으로는 한계가 있기 때문에 이 문제(impedance mismatch)를 해결이 가능하도록 해준다.</p>
+<blockquote>
+<p>Designed with CRUD applications (data-driven) in mind</p>
+</blockquote>
+<p>데이터가 변경되면 변경된 데이터에 맞춰서 동적으로 HTML 이 update 된다. Create, Read, Update, Delete 이 네 가지를 이르는 CRUD 에 대해서는 다음 모듈에서 자세하게 다루기로 한다.</p>
+<blockquote>
+<p>Declarative approach</p>
+</blockquote>
+<p>Angular 는 선언적인 개발방법을 지원하는데, 이는 개발자가 원하는 것을 기술하면 Angluar 가 그에 맞게 처리해내는 것을 뜻한다(무슨 말인지 잘…)</p>
+<h4>Angular Vocabulary</h4>
+<p>앞으로 배울 Angular 의 문법은 아래와 같은 것들이 있다.</p>
+<ul>
+<li>Two-way Data Binding</li>
+<li>Scope</li>
+<li>Directives</li>
+<li>Templates</li>
+<li>Routing</li>
+<li>Testing</li>
+<li>Modules</li>
+<li>Controllers</li>
+<li>Filters</li>
+<li>Factory</li>
+<li>Service</li>
+<li>Provider</li>
+</ul>
+<p>우선은 Two-way Data Binding 과 Directives 에 대해서 먼저 알아보자</p>
+<h4>Directives</h4>
+<p>Angular Directives 는 ng-_ or data-ng-_ 로 시작하는 HTML 속성이다. 다음의 몇가지 예를 살펴보자</p>
+<ul>
+<li>ng-app : Angular 앱을 시작과 끝을 나타낸다. 어떠한 태그에도 붙일 수 있다. 즉, 하나의 HTML 파일에 하나 이상의 Angular 앱이 존재할 수도 있다는 말과 같다.</li>
+<li>ng-init : 자바스크립트 변수를 선언하는것과 같다. Angular expression 을 Evaluation 한다(좀더 매끄러운 한글 표현이 필요할 것 같다). object, array 도 사용가능하다.</li>
+</ul>
+<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span> <span class="token attr-name">ng-init</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>index=1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">ng-init</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>dish={name:'example', ...}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
+<ul>
+<li>ng-model : input value 를 변수로 바인드 한다. (Two-way data binding) ng-model 속성을 부여하면 언제든지 어떤 변수든지 변경이 가능하게 된다.</li>
+</ul>
+<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>Comment: {{dish.comment}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>Type your comment:
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span> <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>text<span class="token punctuation">"</span></span> <span class="token attr-name">ng-model</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>dish.comment<span class="token punctuation">"</span></span> <span class="token punctuation">/></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span></code></pre></div>
+<p>dish object 의 comment 는 위에서 이미 정의를 한 상태다. 이때 아래의 input tag 에서 ng-model 속성을 부여하고 이미 정의된 dish.comment 를 입력하면 Two-way data binding 에 의해 처음 설정된 값이 input 태그의 변경되는 값으로 동적으로 변경된다.</p>
+<p>양 방향에서 바인딩이 가능하기 때문에 아마도 Two-way data binding 이라고 부르는 것 같다.</p>
+<ul>
+<li>ng-repeat : 반복적인 태그를 작성할 필요가 있을때 사용할 수 있다.</li>
+</ul>
+<h4>Angular Expressions</h4>
+<ul>
+<li>Evaluated against an Angular scope object
+Angular 스코프에 맞게 value 가 평가된다.</li>
+<li>No conditionals, loops, or exceptions
+위의 사항들은 expression 으로 사용이 불가하다.</li>
+<li>Expressions enclosed in {{ expression }}
+중괄호 두개를 겹쳐서 사용한다.</li>
+</ul>
+<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>6 + 5 = {{ 6 + 5 }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">></span></span>{{ dish.name }}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span></code></pre></div>
+<h2>Models, Views and Controllers</h2>
+<h3>The Model View Controller Framework</h3>
+<blockquote>
+<p>Design pattern is ell-documented solution to a recurring problem</p>
+</blockquote>
+<p>디자인 패턴은 비슷하고 반복되는 문제를 매번 똑같이 구현하는 것이 아니라 재사용 가능하도록 만들어진 일종의 솔루션을 말한다.</p>
+<h4>MVC</h4>
+<p>MVC 는 소프트웨어 엔지니어링 구조에서 가장 대표적인 디자인 패턴이다. M(Model), V(View), C(Controller) 세가지 영역으로 나누어져있고, 각 영역은 독립적으로 존재한다.</p>
+<ul>
+<li>Model : 애플리케이션에서 도메인의 상태나 도메인 로직을 구현하는 영역이다. 여기서 말하는 도메인은 일반 개발 영역에서 말하는 것과 마찬가지로 소프트웨어가 다루는 특정 활동이나 지식의 범주를 뜻한다(표현이 조금 어렵다). 웹 어플리케이션단에서 보면 model 은 request 요청에 대한 상태 변화에 반응하여 특정 도메인의 행위나 상태를 관리한다고 볼 수 있다. 그리고 대게 모델의 변화는 컨트롤러에 의해 발생한다.</li>
+<li>View : 사용자에게 보여지는 영역이다. view 는 유저와 상호작용을 위해 form 에 모델정보를 redering 한다. 하나의 model 로 서로 다른 목적의 뷰를 만들수도 있다.</li>
+<li>Controller : View 와 모델 사이를 중재하는 역할을 한다. 일반적으로 컨트롤러는 유저의 input 을 받아서 모델의 상태변화를 만들어낸다. 그렇기 때문에 컨트롤러는 결과적으로 모델의 변화를 이끌어 낸다고 할 수 있다.</li>
+</ul>
+<h4>MVVM (Model View View-Model)</h4>
+<p>MVC 패턴의 파생된 형태중 하나인 MVVM 은 Model, View, View-Model 로 구성된다. 컨트롤러에 들어갈 비즈니스 로직이 모델이 있으며 View-Model 과 View 사이에서 데이터 바인딩이 이루어진다.</p>
+<h3>Angular Modules and Controllers</h3>
+<p>일반적으로 Angular 도 MVC 패턴을 따르고 있다고 할 수 있지만, 어떤 사람들은 Angular 가 MVVM 이 적합하다고도 한다. 또한 많은 사람들은 모델(M)과 뷰(V), 그리고 그 사이는 무엇이든 상관없다는 MVW(model-view-whatever)로 간단히 부르기도 한다.</p>
+<h4>Angular Modules</h4>
+<p>Angular Modules 은 다음처럼 스크립트 태그안에 정의한다. angular.module 메서드는 두개의 파라미터를 가지는데, 첫번째는 ngApp 속성에 정의된 이름이고 두번째는 array 인데 나중에 설명할 것이다. 아래같은 경우 ngApp 이 html 태그에 선언되어 있으므로 아래의 모듈에서 현재 페이지 모두를 관리 할 수 있게 된다.</p>
+<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">ngApp</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>confusionApp<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+
+...
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+
+...
+
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+		<span class="token keyword">var</span> app <span class="token operator">=</span> angular<span class="token punctuation">.</span><span class="token function">module</span><span class="token punctuation">(</span><span class="token string">'confusionApp'</span><span class="token punctuation">,</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+	</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></code></pre></div>
+<h4>Angular Controller</h4>
+<p>Angular 컨트롤러는 특정 태그의 ng-controller 속성으로 선언된다.</p>
+<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>row row-content<span class="token punctuation">"</span></span> <span class="token attr-name">ng-controller</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>menuController as menuCtrl<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+<span class="token keyword">var</span> app <span class="token operator">=</span> angular<span class="token punctuation">.</span><span class="token function">module</span><span class="token punctuation">(</span><span class="token string">'confusionApp'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+app<span class="token punctuation">.</span><span class="token function">controller</span><span class="token punctuation">(</span><span class="token string">'menuController'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	<span class="token keyword">var</span> dishes <span class="token operator">=</span> <span class="token punctuation">[</span>item<span class="token punctuation">,</span> <span class="token operator">...</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+	<span class="token keyword">this</span><span class="token punctuation">.</span>dishes <span class="token operator">=</span> dishes<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span></code></pre></div>
+<p>모듈과 컨트롤러는 위와 같이 구현할 수 있다. 이전에 보았던 ng-init directive 는 HTML 속성으로 직접 넣어줘야하지만, 컨트롤러를 사용하면 해당 태그(여기서는 div) 내부의 데이터를 자바스크립트 코드로 컨트롤할 수 있게 된다. 컨트롤러의 두번째 파라미터인 익명함수 마지막에 <strong>this.dishes = dishes</strong> 부분은 아마도 div 태그 내에서 사용가능한 dishes 를 정의해주기 위해 자바스크립트 오브젝트인 dishes 를 this.dishes 에 할당해준게 아닌가 생각된다.</p>
+<h2>Angular Filters</h2>
+<p>필터는 서버사이드 또는 클라이언트에서 만들어진 data 를 end user 에게 잘 표현하기 위한 수단으로 사용된다. 필터는 기반 데이터를 바꿀 수는 없으며 view templates, controllers, services 등에서 사용된다. AngularJS 는 기본적으로 빌트인 필터를 여러개 제공하고 있고, 개발자 필요에 따라 커스텀 필터를 만들어 사용할 수 있다.</p>
+<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>media-body<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>media-headgin<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>{{dish.name}}
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>label label-danger label-xs<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>{{dish.label}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+		<span class="token comment">&lt;!-- currency 필터는 price에 $를 붙여준다.--></span>
+		<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>badge<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>{{dish.price | currency}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span>
+	<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>{{dish.description}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span></code></pre></div>
+<h4>Angluar 의 Built-in Filters</h4>
+<ul>
+<li>uppercase / lowercase : converts the text</li>
+<li>currency : $를 붙여준다.</li>
+<li>date : 날짜 포맷을 변경한다.</li>
+<li>filter : 특정 조건에 맞게 array 의 서브셋을 리턴한다.</li>
+<li>orderBy : 조건에 맞게 정렬한다.</li>
+<li>json, limitTo 등도 있다.</li>
+</ul>
+<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html"><span class="token comment">&lt;!-- filter 예제, HTML 코드 --></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>media<span class="token punctuation">"</span></span> <span class="token attr-name">ng-repeat</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>dish in menuCtrl.dishes | filter:menuCtrl.filtText<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>...<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+
+<span class="token comment">&lt;!-- javascript 코드 --></span>
+var filtText = "";
+
+this.select = function(setTab) {
+	this.tab = setTab;
+	if (setTab === 2)
+		this.filtText = "appetizer"
+	else if (setTab === 3)
+		this.filtText = "mains"
+	else if (setTab === 4)
+		this.filtText = "dessert"
+	else
+		this.filtText = ""
+}</code></pre></div>
+<p>위와 같이 HTML 과 javascript 코드를 작성한다.
+그리고 특정 탭을 만들어 각 탭에 번호를 부여한다(setTab).
+그럼 각 탭 을 눌렀을때 filtText 가 특정 문자열로 변경된다.
+미리 적용해놓은 filter 에 따라서 각 li 태그가 보여지기도 하고 가려지기도 할 것이다.</p>
+<h2>Excercise Code</h2>
+<div class="gatsby-highlight" data-language="html"><pre class="language-html"><code class="language-html"><span class="token doctype">&lt;!DOCTYPE html></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span> <span class="token attr-name">lang</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>en<span class="token punctuation">"</span></span> <span class="token attr-name">ng-app</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>confusionApp<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">></span></span>
+     <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">charset</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>utf-8<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">http-equiv</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>X-UA-Compatible<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>IE=edge<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>meta</span> <span class="token attr-name">name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>viewport<span class="token punctuation">"</span></span> <span class="token attr-name">content</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>width=device-width, initial-scale=1<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token comment">&lt;!-- The above 3 meta tags *must* come first in the head; any other head
+         content must come *after* these tags --></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">></span></span>Ristorante Con Fusion: Menu<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">></span></span>
+        <span class="token comment">&lt;!-- Bootstrap --></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>../bower_components/bootstrap/dist/css/bootstrap.min.css<span class="token punctuation">"</span></span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>../bower_components/bootstrap/dist/css/bootstrap-theme.min.css<span class="token punctuation">"</span></span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>../bower_components/font-awesome/css/font-awesome.min.css<span class="token punctuation">"</span></span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>styles/bootstrap-social.css<span class="token punctuation">"</span></span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>link</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>styles/mystyles.css<span class="token punctuation">"</span></span> <span class="token attr-name">rel</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>stylesheet<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+
+    <span class="token comment">&lt;!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries --></span>
+    <span class="token comment">&lt;!-- WARNING: Respond.js doesn't work if you view the page via file:// --></span>
+    <span class="token comment">&lt;!--[if lt IE 9]>
+      &lt;script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js">&lt;/script>
+      &lt;script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js">&lt;/script>
+    &lt;![endif]--></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">></span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>container<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>row row-content<span class="token punctuation">"</span></span> <span class="token attr-name">ng-controller</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>menuController as menuCtrl<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>col-xs-12<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>nav nav-tabs<span class="token punctuation">"</span></span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tablist<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>presentation<span class="token punctuation">"</span></span> <span class="token attr-name">ng-class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>{active:menuCtrl.isSelected(1)}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">ng-click</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>menuCtrl.select(1)<span class="token punctuation">"</span></span> <span class="token attr-name">aria-controls</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>all menu<span class="token punctuation">"</span></span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tab<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>The Menu<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>presentation<span class="token punctuation">"</span></span> <span class="token attr-name">ng-class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>{active:menuCtrl.isSelected(2)}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">ng-click</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>menuCtrl.select(2)<span class="token punctuation">"</span></span> <span class="token attr-name">aria-controls</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>appetizers<span class="token punctuation">"</span></span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tab<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Appetizers<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>presentation<span class="token punctuation">"</span></span> <span class="token attr-name">ng-class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>{active:menuCtrl.isSelected(3)}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">ng-click</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>menuCtrl.select(3)<span class="token punctuation">"</span></span> <span class="token attr-name">aria-controls</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>mains<span class="token punctuation">"</span></span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tab<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Mains<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>presentation<span class="token punctuation">"</span></span> <span class="token attr-name">ng-class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>{active:menuCtrl.isSelected(4)}<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">ng-click</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>menuCtrl.select(4)<span class="token punctuation">"</span></span> <span class="token attr-name">aria-controls</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>desserts<span class="token punctuation">"</span></span> <span class="token attr-name">role</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tab<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>Desserts<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>tab-content<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>ul</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>media-list tab-pane fade in active<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>li</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>media<span class="token punctuation">"</span></span> <span class="token attr-name">ng-repeat</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>dish in menuCtrl.dishes | filter:menuCtrl.filtText<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>media-left media-middle<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+                                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>a</span> <span class="token attr-name">href</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>#<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+                                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>media-object img-thumbnail<span class="token punctuation">"</span></span> <span class="token attr-name">ng-src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>{{dish.image}}<span class="token punctuation">"</span></span> <span class="token attr-name">alt</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>Uthapizza<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+                                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>a</span><span class="token punctuation">></span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>media-body<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>
+                                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>media-heading<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>{{dish.name}}
+                                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>label label-danger<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>{{dish.label}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+                                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>span</span> <span class="token attr-name">class</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>badge<span class="token punctuation">"</span></span><span class="token punctuation">></span></span>{{dish.price | currency}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>span</span><span class="token punctuation">></span></span>
+                                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span>
+                                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span>{{dish.description}}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+                                <span class="token comment">&lt;!-- &lt;p>Comment: {{dish.comment}}&lt;/p> --></span>
+                                <span class="token comment">&lt;!-- &lt;p>Type your comment: --></span>
+                                    <span class="token comment">&lt;!-- &lt;input type="text" ng-model="dish.comment"> --></span>
+                                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span>
+                            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+                        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>li</span><span class="token punctuation">></span></span>
+                    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>ul</span><span class="token punctuation">></span></span>
+                <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+            <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>../bower_components/angular/angular.min.js<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token script"></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span><span class="token punctuation">></span></span><span class="token script"><span class="token language-javascript">
+        <span class="token keyword">var</span> app <span class="token operator">=</span> angular<span class="token punctuation">.</span><span class="token function">module</span><span class="token punctuation">(</span><span class="token string">'confusionApp'</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        app<span class="token punctuation">.</span><span class="token function">controller</span><span class="token punctuation">(</span><span class="token string">'menuController'</span><span class="token punctuation">,</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+
+            <span class="token keyword">this</span><span class="token punctuation">.</span>tab <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>filtText <span class="token operator">=</span> <span class="token string">''</span><span class="token punctuation">;</span>
+
+            <span class="token keyword">var</span> dished <span class="token operator">=</span> <span class="token punctuation">[</span>
+                              <span class="token punctuation">{</span>
+                                name<span class="token punctuation">:</span> <span class="token string">'Uthapizza'</span><span class="token punctuation">,</span>
+                                image<span class="token punctuation">:</span> <span class="token string">'images/uthapizza.png'</span><span class="token punctuation">,</span>
+                                category<span class="token punctuation">:</span> <span class="token string">'mains'</span><span class="token punctuation">,</span>
+                                label<span class="token punctuation">:</span> <span class="token string">'Hot'</span><span class="token punctuation">,</span>
+                                price<span class="token punctuation">:</span> <span class="token string">'4.99'</span><span class="token punctuation">,</span>
+                                description<span class="token punctuation">:</span><span class="token string">'A unique combination of Indizan Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer'</span><span class="token punctuation">,</span>
+                                comment<span class="token punctuation">:</span> <span class="token string">'aaaaaaa'</span>
+                              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                              <span class="token punctuation">{</span>
+                                name<span class="token punctuation">:</span> <span class="token string">'Uthapizza2'</span><span class="token punctuation">,</span>
+                                image<span class="token punctuation">:</span> <span class="token string">'images/zucchipakoda.png'</span><span class="token punctuation">,</span>
+                                category<span class="token punctuation">:</span> <span class="token string">'mains'</span><span class="token punctuation">,</span>
+                                label<span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+                                price<span class="token punctuation">:</span> <span class="token string">'4.99'</span><span class="token punctuation">,</span>
+                                description<span class="token punctuation">:</span><span class="token string">'A unique combination of Indizan Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer'</span><span class="token punctuation">,</span>
+                                comment<span class="token punctuation">:</span> <span class="token string">''</span>
+                              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                              <span class="token punctuation">{</span>
+                                name<span class="token punctuation">:</span> <span class="token string">'Uthapizza3'</span><span class="token punctuation">,</span>
+                                image<span class="token punctuation">:</span> <span class="token string">'images/vadonut.png'</span><span class="token punctuation">,</span>
+                                category<span class="token punctuation">:</span> <span class="token string">'appetizer'</span><span class="token punctuation">,</span>
+                                label<span class="token punctuation">:</span> <span class="token string">'New'</span><span class="token punctuation">,</span>
+                                price<span class="token punctuation">:</span> <span class="token string">'4.99'</span><span class="token punctuation">,</span>
+                                description<span class="token punctuation">:</span><span class="token string">'A unique combination of Indizan Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer'</span><span class="token punctuation">,</span>
+                                comment<span class="token punctuation">:</span> <span class="token string">''</span>
+                              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                              <span class="token punctuation">{</span>
+                                name<span class="token punctuation">:</span> <span class="token string">'Uthapizza4'</span><span class="token punctuation">,</span>
+                                image<span class="token punctuation">:</span> <span class="token string">'images/elaicheesecake.png'</span><span class="token punctuation">,</span>
+                                category<span class="token punctuation">:</span> <span class="token string">'dessert'</span><span class="token punctuation">,</span>
+                                label<span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">,</span>
+                                price<span class="token punctuation">:</span> <span class="token string">'4.99'</span><span class="token punctuation">,</span>
+                                description<span class="token punctuation">:</span><span class="token string">'A unique combination of Indizan Uthappam (pancake) and Italian pizza, topped with Cerignola olives, ripe vine cherry tomatoes, Vidalia onion, Guntur chillies and Buffalo Paneer'</span><span class="token punctuation">,</span>
+                                comment<span class="token punctuation">:</span> <span class="token string">''</span>
+                              <span class="token punctuation">}</span><span class="token punctuation">,</span>
+                            <span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>dishes <span class="token operator">=</span> dished<span class="token punctuation">;</span>
+
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function-variable function">select</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">setTab</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">this</span><span class="token punctuation">.</span>tab <span class="token operator">=</span> setTab<span class="token punctuation">;</span>
+
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>setTab <span class="token operator">===</span> <span class="token number">2</span><span class="token punctuation">)</span>
+                    <span class="token keyword">this</span><span class="token punctuation">.</span>filtText <span class="token operator">=</span> <span class="token string">"appetizer"</span><span class="token punctuation">;</span>
+                <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>setTab <span class="token operator">===</span> <span class="token number">3</span><span class="token punctuation">)</span>
+                    <span class="token keyword">this</span><span class="token punctuation">.</span>filtText <span class="token operator">=</span> <span class="token string">"mains"</span>
+                <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>setTab <span class="token operator">===</span> <span class="token number">4</span><span class="token punctuation">)</span>
+                    <span class="token keyword">this</span><span class="token punctuation">.</span>filtText <span class="token operator">=</span> <span class="token string">"dessert"</span>
+                <span class="token keyword">else</span>
+                    <span class="token keyword">this</span><span class="token punctuation">.</span>filtText <span class="token operator">=</span> <span class="token string">""</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function-variable function">isSelected</span> <span class="token operator">=</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">checkTab</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">return</span> <span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>tab <span class="token operator">===</span> checkTab<span class="token punctuation">)</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    </span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">></span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">></span></span>
+
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">></span></span></code></pre></div></div><div class="sc-bdVaJa lfMCsp"></div><div font-size="15px" class="sc-bdVaJa sc-bwzfXH blog-post___StyledFlex-sc-13kot0y-1 jEaxjM"><div class="sc-bdVaJa sc-htpNat blog-post___StyledText-sc-13kot0y-2 dzpLHw"><a rel="prev" href="/2016/07/26/functional-programming-in-scala-week6/">Functional Programming in Scala week 6</a></div><div class="sc-bdVaJa sc-htpNat blog-post___StyledText2-sc-13kot0y-3 fPdXYp"><a rel="next" href="/2016/08/25/frontend-javascript-framework-angularjs-week2-1/">[coursera] AngularJS week 2-1</a></div></div><div class="sc-bdVaJa iPvBDw"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4588610260101909" data-ad-slot="5306007932" data-ad-format="auto" data-full-width-responsive="true"></ins></div><div id="disqus_thread"></div></div></div></div></div><script>
   
   
   if(true) {
@@ -17,4 +416,4 @@
       
       
       }
-      </script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/2016/08/18/frontend-javascript-framework-angularjs-week1/";window.webpackCompilationHash="68f0debe511ee6808513";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-04e513db8431d9bd7edd.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-2e28a76ec399a8e2ac52.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-ffd1be86d5c2607c68d7.js"],"component---src-templates-tag-js":["/component---src-templates-tag-js-50b5a46fcb3a159ddad9.js"],"component---src-pages-404-js":["/component---src-pages-404-js-2de78cd3d32524f3edd9.js"],"component---src-pages-essay-js":["/component---src-pages-essay-js-8551e97a74761ead83e0.js"],"component---src-pages-index-js":["/component---src-pages-index-js-12b3f7e9e25651ba205f.js"],"component---src-pages-programming-js":["/component---src-pages-programming-js-1ed339e57f15e86d1e0a.js"],"component---src-pages-review-js":["/component---src-pages-review-js-3702e609085f7132f483.js"],"component---src-pages-tags-js":["/component---src-pages-tags-js-259bb202f9eba80d1d50.js"]};/*]]>*/</script><script src="/webpack-runtime-43ae62e44a595e8d71c7.js" async=""></script><script src="/styles-9e7ec19e2211d24f4e8b.js" async=""></script><script src="/app-04e513db8431d9bd7edd.js" async=""></script><script src="/component---src-templates-blog-post-js-ffd1be86d5c2607c68d7.js" async=""></script><script src="/1-6f50826974fe8fe40719.js" async=""></script></body></html>
+      </script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/2016/08/18/frontend-javascript-framework-angularjs-week1/";window.webpackCompilationHash="87495452be8d1c66dc6a";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-04e513db8431d9bd7edd.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-2e28a76ec399a8e2ac52.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-c41f3a5636ff2c314a95.js"],"component---src-templates-tag-js":["/component---src-templates-tag-js-50b5a46fcb3a159ddad9.js"],"component---src-pages-404-js":["/component---src-pages-404-js-2ab9c55248de426ba254.js"],"component---src-pages-essay-js":["/component---src-pages-essay-js-8551e97a74761ead83e0.js"],"component---src-pages-index-js":["/component---src-pages-index-js-12b3f7e9e25651ba205f.js"],"component---src-pages-programming-js":["/component---src-pages-programming-js-1ed339e57f15e86d1e0a.js"],"component---src-pages-review-js":["/component---src-pages-review-js-3702e609085f7132f483.js"],"component---src-pages-tags-js":["/component---src-pages-tags-js-259bb202f9eba80d1d50.js"]};/*]]>*/</script><script src="/webpack-runtime-0c83b68110cbb4cd0549.js" async=""></script><script src="/styles-9e7ec19e2211d24f4e8b.js" async=""></script><script src="/app-04e513db8431d9bd7edd.js" async=""></script><script src="/component---src-templates-blog-post-js-c41f3a5636ff2c314a95.js" async=""></script><script src="/1-6f50826974fe8fe40719.js" async=""></script></body></html>

@@ -1,8 +1,178 @@
-<!DOCTYPE html><html><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.0c1a986cf40bd225d9e0.css">abbr,address,article,aside,audio,b,blockquote,body,canvas,cite,code,dd,del,details,dfn,div,dl,dt,em,fieldset,figcaption,figure,footer,form,header,hgroup,html,i,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,p,pre,q,samp,section,small,span,strong,sub,summary,sup,time,ul,var,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}iframe,img{width:100%}iframe{margin:20px 0}nav ul{list-style:none}blockquote,q{quotes:none}blockquote>p>a{display:inline-block}h1,h2,h3,h4,h5,h6{margin-top:.5em;margin-bottom:.5em;padding-top:1em}blockquote:after,blockquote:before,q:after,q:before{content:"";content:none}a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}ins{text-decoration:none}ins,mark{background-color:#fff;color:#000}mark{font-style:italic;font-weight:700}del{text-decoration:line-through}abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}input,select{vertical-align:middle}p{margin-bottom:1.8rem;word-break:break-all}code.language-text{font-size:14px!important}table{margin:40px auto;width:80%;border-spacing:0;border-collapse:collapse}table,table tr{padding:0;border-top:1px solid #ccc}table tr{background-color:#fff;margin:0}table tr:nth-child(2n){background-color:#f8f8f8}table tr th{font-weight:700}table tr td,table tr th{border-bottom:1px solid #ccc;text-align:left;margin:0;padding:6px 13px}table tr td :first-child,table tr th :first-child{margin-top:0}table tr td:not(:first-child),table tr th:not(:first-child){border-left:1px solid #ccc}table tr td :last-child,table tr th :last-child{margin-bottom:0}code[class*=language-],pre[class*=language-]{color:#ccc;background:none;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.block-comment,.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#999}.token.punctuation{color:#ccc}.token.attr-name,.token.deleted,.token.namespace,.token.tag{color:#e2777a}.token.function-name{color:#6196cc}.token.boolean,.token.function,.token.number{color:#f08d49}.token.class-name,.token.constant,.token.property,.token.symbol{color:#f8c555}.token.atrule,.token.builtin,.token.important,.token.keyword,.token.selector{color:#cc99cd}.token.attr-value,.token.char,.token.regex,.token.string,.token.variable{color:#7ec699}.token.entity,.token.operator,.token.url{color:#67cdcc}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.inserted{color:green}.contents a{-webkit-transition:background .5s;transition:background .5s}.contents a:not(.gatsby-resp-image-link){color:#3a3a3a;text-decoration:none;border-bottom:3px solid #d7c3ee}.contents a:active:not(.gatsby-resp-image-link),.contents a:hover:not(.gatsby-resp-image-link){outline-width:0;text-shadow:none;background-color:#e0d6eb}.contents ul{margin-left:15px;word-break:break-all}:not(pre)>code[class*=language-],pre[class*=language-]{background:#2d2d2d;margin-top:.1rem;margin-bottom:1.8rem}:not(pre)>code[class*=language-]{background:#dfdfdf;color:#222;padding:3px 5px;font-weight:600}blockquote{margin:20px 15px 20px 0;padding-left:35px;border-left:5px solid #e5e5e5}.frame-wrap{overflow:auto;width:100%}.frame-wrap,body{-webkit-overflow-scrolling:touch}body{font-family:Arial;height:500vw;overflow-x:hidden}.container-404{display:flex;justify-content:center;align-items:center;position:fixed;left:0;top:0;width:100vw;height:100vh;overflow:hidden;opacity:0;-webkit-transition:opacity 1s;transition:opacity 1s}.container-404>span{padding:1.5vh;font-size:25vh;font-weight:700;color:#333;cursor:default}.container-404>.home{position:fixed;right:3vw;bottom:3vw;margin:0;padding:0;color:#999;cursor:pointer;text-decoration:underline;font-size:13px}</style><meta name="generator" content="Gatsby 2.13.4"/><style id="glamor-styles"></style><script id="glamor-ids">
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><style data-href="/styles.0c1a986cf40bd225d9e0.css">abbr,address,article,aside,audio,b,blockquote,body,canvas,cite,code,dd,del,details,dfn,div,dl,dt,em,fieldset,figcaption,figure,footer,form,header,hgroup,html,i,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,p,pre,q,samp,section,small,span,strong,sub,summary,sup,time,ul,var,video{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}iframe,img{width:100%}iframe{margin:20px 0}nav ul{list-style:none}blockquote,q{quotes:none}blockquote>p>a{display:inline-block}h1,h2,h3,h4,h5,h6{margin-top:.5em;margin-bottom:.5em;padding-top:1em}blockquote:after,blockquote:before,q:after,q:before{content:"";content:none}a{margin:0;padding:0;font-size:100%;vertical-align:baseline;background:transparent}ins{text-decoration:none}ins,mark{background-color:#fff;color:#000}mark{font-style:italic;font-weight:700}del{text-decoration:line-through}abbr[title],dfn[title]{border-bottom:1px dotted;cursor:help}hr{display:block;height:1px;border:0;border-top:1px solid #ccc;margin:1em 0;padding:0}input,select{vertical-align:middle}p{margin-bottom:1.8rem;word-break:break-all}code.language-text{font-size:14px!important}table{margin:40px auto;width:80%;border-spacing:0;border-collapse:collapse}table,table tr{padding:0;border-top:1px solid #ccc}table tr{background-color:#fff;margin:0}table tr:nth-child(2n){background-color:#f8f8f8}table tr th{font-weight:700}table tr td,table tr th{border-bottom:1px solid #ccc;text-align:left;margin:0;padding:6px 13px}table tr td :first-child,table tr th :first-child{margin-top:0}table tr td:not(:first-child),table tr th:not(:first-child){border-left:1px solid #ccc}table tr td :last-child,table tr th :last-child{margin-bottom:0}code[class*=language-],pre[class*=language-]{color:#ccc;background:none;font-family:Consolas,Monaco,Andale Mono,Ubuntu Mono,monospace;font-size:1em;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.5;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:1em;margin:.5em 0;overflow:auto}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal}.token.block-comment,.token.cdata,.token.comment,.token.doctype,.token.prolog{color:#999}.token.punctuation{color:#ccc}.token.attr-name,.token.deleted,.token.namespace,.token.tag{color:#e2777a}.token.function-name{color:#6196cc}.token.boolean,.token.function,.token.number{color:#f08d49}.token.class-name,.token.constant,.token.property,.token.symbol{color:#f8c555}.token.atrule,.token.builtin,.token.important,.token.keyword,.token.selector{color:#cc99cd}.token.attr-value,.token.char,.token.regex,.token.string,.token.variable{color:#7ec699}.token.entity,.token.operator,.token.url{color:#67cdcc}.token.bold,.token.important{font-weight:700}.token.italic{font-style:italic}.token.entity{cursor:help}.token.inserted{color:green}.contents a{-webkit-transition:background .5s;transition:background .5s}.contents a:not(.gatsby-resp-image-link){color:#3a3a3a;text-decoration:none;border-bottom:3px solid #d7c3ee}.contents a:active:not(.gatsby-resp-image-link),.contents a:hover:not(.gatsby-resp-image-link){outline-width:0;text-shadow:none;background-color:#e0d6eb}.contents ul{margin-left:15px;word-break:break-all}:not(pre)>code[class*=language-],pre[class*=language-]{background:#2d2d2d;margin-top:.1rem;margin-bottom:1.8rem}:not(pre)>code[class*=language-]{background:#dfdfdf;color:#222;padding:3px 5px;font-weight:600}blockquote{margin:20px 15px 20px 0;padding-left:35px;border-left:5px solid #e5e5e5}.frame-wrap{overflow:auto;width:100%}.frame-wrap,body{-webkit-overflow-scrolling:touch}body{font-family:Arial;height:500vw;overflow-x:hidden}.container-404{display:flex;justify-content:center;align-items:center;position:fixed;left:0;top:0;width:100vw;height:100vh;overflow:hidden;opacity:0;-webkit-transition:opacity 1s;transition:opacity 1s}.container-404>span{padding:1.5vh;font-size:25vh;font-weight:700;color:#333;cursor:default}.container-404>.home{position:fixed;right:3vw;bottom:3vw;margin:0;padding:0;color:#999;cursor:pointer;text-decoration:underline;font-size:13px}</style><meta name="generator" content="Gatsby 2.13.4"/><style id="glamor-styles"></style><script id="glamor-ids">
         // <![CDATA[
         window._glamor = []
         // ]]>
-        </script><style type="text/css">.gatsby-resp-image-image{width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;color:transparent;}</style><link rel="preconnect dns-prefetch" href="https://www.google-analytics.com"/><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><link rel="shortcut icon" href="/icons/icon-48x48.png?v=008654519ce705ac7bc44303a9014606"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#663399"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=008654519ce705ac7bc44303a9014606"/><title data-react-helmet="true"></title><style data-styled="" data-styled-version="4.3.2"></style><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link as="script" rel="preload" href="/1-6f50826974fe8fe40719.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-ffd1be86d5c2607c68d7.js"/><link as="script" rel="preload" href="/app-04e513db8431d9bd7edd.js"/><link as="script" rel="preload" href="/styles-9e7ec19e2211d24f4e8b.js"/><link as="script" rel="preload" href="/webpack-runtime-43ae62e44a595e8d71c7.js"/><link as="fetch" rel="preload" href="/page-data/2019/08/18/ten-ideas/page-data.json" crossorigin="use-credentials"/></head><body><noscript id="gatsby-noscript">This app works best with JavaScript enabled.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group" id="gatsby-focus-wrapper"></div></div><script>
+        </script><style type="text/css">.gatsby-resp-image-image{width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;color:transparent;}</style><link rel="preconnect dns-prefetch" href="https://www.google-analytics.com"/><link rel="alternate" type="application/rss+xml" href="/rss.xml"/><link rel="shortcut icon" href="/icons/icon-48x48.png?v=008654519ce705ac7bc44303a9014606"/><link rel="manifest" href="/manifest.webmanifest"/><meta name="theme-color" content="#663399"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=008654519ce705ac7bc44303a9014606"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=008654519ce705ac7bc44303a9014606"/><title data-react-helmet="true">매일 10개 아이디어 만들기 연습 by 타이탄의 도구들 | bono&#x27;s blog</title><meta data-react-helmet="true" name="google-site-verification" content="R3ZeY1PmaJUY9j_cgNABjesJFgHWVCJpb4TsdfXntMA"/><meta data-react-helmet="true" name="naver-site-verification" content="23eddf7267bb527337927baff11fc26157637f30"/><meta data-react-helmet="true" name="description" content="…"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" property="og:url"/><meta data-react-helmet="true" property="og:title" content="매일 10개 아이디어 만들기 연습 by 타이탄의 도구들"/><meta data-react-helmet="true" property="og:description" content="…"/><meta data-react-helmet="true" name="twitter:card" content="summary"/><meta data-react-helmet="true" name="twitter:creater" content="@blueshw"/><meta data-react-helmet="true" name="twitter:title" content="매일 10개 아이디어 만들기 연습 by 타이탄의 도구들"/><meta data-react-helmet="true" name="twitter:description" content="…"/><script data-react-helmet="true" async="" src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script data-react-helmet="true" async="" src="https://static.codepen.io/assets/embed/ei.js"></script><style data-styled="iHZvIS gkRqNh inwzvX iPvBDw lfMCsp gaWkyC jMRudl bCTfZv bWwvzh bZyUGp iMtDsI hXAfHy iEmYcW jDGYoj hTVfqa TbpWH iJLqqc jFaOqE kysVOw jdrydf jEaxjM dzpLHw fPdXYp" data-styled-version="4.3.2">
+/* sc-component-id: sc-bdVaJa */
+.iHZvIS{box-sizing:border-box;}.gkRqNh{box-sizing:border-box;margin-top:50px;}.inwzvX{box-sizing:border-box;margin:10px;}.iPvBDw{box-sizing:border-box;margin-bottom:40px;}.lfMCsp{box-sizing:border-box;margin-bottom:30px;}
+/* sc-component-id: sc-bwzfXH */
+.jDGYoj{box-sizing:border-box;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;}
+/* sc-component-id: sc-htpNat */
+.TbpWH{box-sizing:border-box;margin-top:15px;margin-bottom:15px;width:100vw;font-size:16px;color:#888888;font-weight:400;text-align:center;}.iJLqqc{box-sizing:border-box;font-size:24px;line-height:1.1;}.jFaOqE{box-sizing:border-box;margin-top:7px;margin-bottom:90px;color:#bbb;}
+/* sc-component-id: menu___StyledLink-h1woa4-0 */
+.hTVfqa{box-shadow:none;-webkit-text-decoration:none;text-decoration:none;color:inherit;}
+/* sc-component-id: header___StyledFlex-sc-1h24lom-0 */
+.gaWkyC{box-sizing:border-box;padding:10px;width:100%;background-color:white;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;position:fixed;left:0;top:0;height:50px;border-bottom:1px solid #e8e8e8;z-index:200;}
+/* sc-component-id: header___StyledText-sc-1h24lom-1 */
+.jMRudl{box-sizing:border-box;margin-top:3px;margin-left:20px;margin-right:auto;font-size:22px;color:#888888;-webkit-flex:0 0 auto;-ms-flex:0 0 auto;flex:0 0 auto;cursor:pointer;} @media (max-width:600px){.jMRudl{margin-left:10px;}}
+/* sc-component-id: header___StyledLink-sc-1h24lom-2 */
+.bCTfZv{box-shadow:none;-webkit-text-decoration:none;text-decoration:none;color:inherit;}
+/* sc-component-id: header___StyledBox-sc-1h24lom-3 */
+.bWwvzh{box-sizing:border-box;padding:5px;width:30px;height:28px;cursor:pointer;overflow:hidden;}
+/* sc-component-id: header___StyledBox2-sc-1h24lom-4 */
+.bZyUGp{box-sizing:border-box;margin-bottom:6px;padding-top:2px;width:20px;background-color:#888888;-webkit-transition:all 0.4s;transition:all 0.4s;-webkit-transform:rotateZ(0);-ms-transform:rotateZ(0);transform:rotateZ(0);-webkit-transform-origin:100% 0;-ms-transform-origin:100% 0;transform-origin:100% 0;}
+/* sc-component-id: header___StyledBox3-sc-1h24lom-5 */
+.iMtDsI{box-sizing:border-box;margin-bottom:6px;padding-top:2px;width:20px;background-color:#888888;-webkit-transition:-webkit-transform 0.5s;-webkit-transition:transform 0.5s;transition:transform 0.5s;-webkit-transform:scale(1);-ms-transform:scale(1);transform:scale(1);-webkit-transform-origin:100% 50%;-ms-transform-origin:100% 50%;transform-origin:100% 50%;}
+/* sc-component-id: header___StyledBox4-sc-1h24lom-6 */
+.hXAfHy{box-sizing:border-box;padding-top:2px;width:20px;background-color:#888888;-webkit-transition:all 0.4s;transition:all 0.4s;-webkit-transform:rotateZ(0);-ms-transform:rotateZ(0);transform:rotateZ(0);-webkit-transform-origin:100% 100%;-ms-transform-origin:100% 100%;transform-origin:100% 100%;}
+/* sc-component-id: layout___StyledBox-sc-3234dv-0 */
+.iEmYcW{box-sizing:border-box;width:100%;background-color:white;border-bottom:none;position:fixed;left:0;top:50px;z-index:100;opacity:0.9;max-height:0px;-webkit-transition:max-height 0.5s ease;transition:max-height 0.5s ease;overflow:hidden;}
+/* sc-component-id: layout___StyledBox2-sc-3234dv-1 */
+.kysVOw{box-sizing:border-box;margin-left:auto;margin-right:auto;padding:45px 20px;max-width:800px;}
+/* sc-component-id: blog-post___StyledBox-sc-13kot0y-0 */
+.jdrydf{box-sizing:border-box;color:#333333;line-height:30px;}
+/* sc-component-id: blog-post___StyledFlex-sc-13kot0y-1 */
+.jEaxjM{box-sizing:border-box;margin-bottom:30px;padding-top:30px;font-size:15px;display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-wrap:wrap;-ms-flex-wrap:wrap;flex-wrap:wrap;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;border-top:1px solid #eee;}
+/* sc-component-id: blog-post___StyledText-sc-13kot0y-2 */
+.dzpLHw{box-sizing:border-box;line-height:1.8;max-width:280px;}
+/* sc-component-id: blog-post___StyledText2-sc-13kot0y-3 */
+.fPdXYp{box-sizing:border-box;line-height:1.8;max-width:280px;}</style><link rel="sitemap" type="application/xml" href="/sitemap.xml"/><link as="script" rel="preload" href="/1-6f50826974fe8fe40719.js"/><link as="script" rel="preload" href="/component---src-templates-blog-post-js-c41f3a5636ff2c314a95.js"/><link as="script" rel="preload" href="/app-04e513db8431d9bd7edd.js"/><link as="script" rel="preload" href="/styles-9e7ec19e2211d24f4e8b.js"/><link as="script" rel="preload" href="/webpack-runtime-0c83b68110cbb4cd0549.js"/><link as="fetch" rel="preload" href="/page-data/2019/08/18/ten-ideas/page-data.json" crossorigin="use-credentials"/></head><body><noscript id="gatsby-noscript">This app works best with JavaScript enabled.</noscript><div id="___gatsby"><div style="outline:none" tabindex="-1" role="group" id="gatsby-focus-wrapper"><div class="sc-bdVaJa iHZvIS"><div class="sc-bdVaJa iHZvIS"><div width="100%" class="sc-bdVaJa sc-bwzfXH header___StyledFlex-sc-1h24lom-0 gaWkyC"><div color="grey01" font-size="22px" class="sc-bdVaJa sc-htpNat header___StyledText-sc-1h24lom-1 jMRudl"><a class="header___StyledLink-sc-1h24lom-2 bCTfZv" href="/">bono&#x27;s blog</a></div><div width="30px" class="sc-bdVaJa header___StyledBox-sc-1h24lom-3 bWwvzh"><div width="20px" class="sc-bdVaJa header___StyledBox2-sc-1h24lom-4 bZyUGp"></div><div width="20px" class="sc-bdVaJa header___StyledBox3-sc-1h24lom-5 iMtDsI"></div><div width="20px" class="sc-bdVaJa header___StyledBox4-sc-1h24lom-6 hXAfHy"></div></div></div></div><div class="sc-bdVaJa gkRqNh"><div width="100%" class="sc-bdVaJa layout___StyledBox-sc-3234dv-0 iEmYcW"><div class="sc-bdVaJa inwzvX"><div class="sc-bdVaJa sc-bwzfXH jDGYoj"><a class="menu___StyledLink-h1woa4-0 hTVfqa" href="/programming"><div width="100vw" font-size="16px" font-weight="400" color="#888888" class="sc-bdVaJa sc-htpNat TbpWH">개발</div></a></div><div class="sc-bdVaJa sc-bwzfXH jDGYoj"><a class="menu___StyledLink-h1woa4-0 hTVfqa" href="/essay"><div width="100vw" font-size="16px" font-weight="400" color="#888888" class="sc-bdVaJa sc-htpNat TbpWH">일기</div></a></div><div class="sc-bdVaJa sc-bwzfXH jDGYoj"><a class="menu___StyledLink-h1woa4-0 hTVfqa" href="/review"><div width="100vw" font-size="16px" font-weight="400" color="#888888" class="sc-bdVaJa sc-htpNat TbpWH">책리뷰</div></a></div><div class="sc-bdVaJa sc-bwzfXH jDGYoj"><a class="menu___StyledLink-h1woa4-0 hTVfqa" href="/tags"><div width="100vw" font-size="16px" font-weight="400" color="#888888" class="sc-bdVaJa sc-htpNat TbpWH">태그</div></a></div></div></div></div><div class="sc-bdVaJa contents layout___StyledBox2-sc-3234dv-1 kysVOw"><div font-size="24px" class="sc-bdVaJa sc-htpNat iJLqqc">매일 10개 아이디어 만들기 연습 by 타이탄의 도구들</div><div color="#bbb" class="sc-bdVaJa sc-htpNat jFaOqE">August 18, 2019</div><div class="sc-bdVaJa iPvBDw"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4588610260101909" data-ad-slot="1331884154" data-ad-format="auto" data-full-width-responsive="true"></ins></div><div color="text" class="sc-bdVaJa blog-post___StyledBox-sc-13kot0y-0 jdrydf"><p>좋은 아이디어라는건 아르키메데스처럼 어느 순간에 ‘유레카’를 외치듯이 한순간에 나타나지 않는다. 아이디어도 근육과 같아서 수많은 연습이 필요하다. 익히 알고 있는 성공한 사업가들(타이탄)의 사업 아이템도 한순간에 만들어진게 아니다. 그들 역시 수많은 아이디어를 생각해내고 다듬으면서 비로소 성공의 문턱을 넘은 것이다. 하지만 우리같은 범인들은 오로지 결과만 본다. 그래서 그들이 성공에 도달한 과정이 얼마나 치열하고 고통스러웠는지는 전혀 관심없다. 그들은 우리와 다르게 타고난 <code class="language-text">무언가</code>를 가지고 태어났을거라 생각한다. 그래서 그들이 성공한거라 생각한다. </p>
+<p>팀 페리스의 <code class="language-text">타이탄의 도구들</code>에는 <code class="language-text">매일 10개 아이디어 만들기 연습</code>이라는 챕터에는 타이탄들이 추천하는 아이디어 작성목록이 13가지 등장한다. 13가지 목록에서 각각 10가지 아이디어를 내야하는데 총 130개의 아이디어가 필요하다. 과연 아이디어를 130개 내는게 가능한가? 그것도 매일 말이다. 책을 보면 알겠지만 도무지 매일 다른 아이디어를 낼 수 없을것 같은 목록도 있다. 예를들어, <code class="language-text">중간 상인을 없앨 수 있는 업계 10곳</code>이라던가 <code class="language-text">시간을 절약할 수 있는 10가지 방법</code> 같은 것들이다. 반대로 <code class="language-text">어제 배운 것 10가지</code>나 <code class="language-text">오늘 평소와 다르게 할 수 있는 일 10가지</code> 정도는 어느정도 매일 가능하다고 보여진다. 아무튼 조금 의구심이 들었지만 그동안 나도 생각해왔던 것들도 정리해볼겸 아이디어 목록을 만들어봤다. 그동안 생각해온것도 일부 있지만 대부분은 가볍고 즉흥적으로 만든 항목이 많다. 그리고 책에는 13가지만 등장하지만, 나는 9가지로 축약해서 작성하였다.</p>
+<h3>새롭게 만들수 있는 낡은(또는 우스꽝스러운) 아이디어(또는 물건) 10가지</h3>
+<blockquote>
+<ul>
+<li>피는 사람에게만 연기가 흡입되는 구조의 담배</li>
+<li>스마트폰에 장착 가능한 미세먼지 측정기</li>
+<li>외부에서 측정 가능한 가정용 미세먼지 측정기</li>
+<li>영어학습 어플리케이션(내 학습 방법에 맞도록)</li>
+<li>인공지능 고양이 장남감 쥐 (고양이 움직임에 반응함, 혼자 노는게 불쌍해서…)</li>
+<li>부동산에 팔수 있는 부동산 정보 웹서비스 (지역별 통계 등)</li>
+<li>레고 부품 찾아주는 로봇</li>
+<li>치아 매핑이 가능한 칫솔 (잘 안 닦는 부분을 찾아준다던가…)</li>
+<li>층간소음 줄여주는 마루바닥 (구조적으로 조금만 바꿔도 될것 같은데…)</li>
+<li>아파트 입주와 관련된 서비스를 묶어놓은 플랫폼 (이사, 입주청소, 가전, 가구, 커튼, 각종 코팅, 붙박이장 등)</li>
+</ul>
+</blockquote>
+<h3>내가 쓸수 있는 책 10권 (진짜??)</h3>
+<blockquote>
+<ul>
+<li>비전공자에서 프로그래머가 되는 과정에 관한 에세이</li>
+<li>아이와 놀아주는 방법에 대한 책</li>
+<li>인터랙티브 웹에 관한 책 (CSS, JS)</li>
+<li>IT 현실을 보여주는 소설</li>
+<li>SF 소설</li>
+<li>부동산과 데이터를 접목한 책</li>
+<li>부동산 심리학</li>
+<li>여행기</li>
+<li>사진 에세이</li>
+<li>아이폰, 맥북 사용법</li>
+</ul>
+</blockquote>
+<h3>구글, 아마존, 트위터, SNS 등을 이용한 사업 아이디어 10가지</h3>
+<blockquote>
+<ul>
+<li>아마존 셀러 (뭘 팔지는 모르겠지만 현지 생산업체와 협력)</li>
+<li>Git을 이용한 소설 플랫폼 (만들어 볼 생각)</li>
+<li>유명인 트위터 대행 </li>
+<li>알리바바에서 물건을 대량으로 구입후 한국에서 재판매</li>
+<li>구글 드라이브로 문서 정리하기 강좌</li>
+<li>나이드신 분들을 위한 SNS 강좌</li>
+<li>ebay를 통해 국내 상품을 전세계로 판매한다.</li>
+<li>인스타그램 의류 판매자들을 위한 플랫폼</li>
+<li>SNS, 구글 트렌드 등의 데이터를 이용한 부동산 가격 변동 예측 서비스</li>
+<li>유명인들에 대한 악의적 SNS 메세지를 찾아주는 서비스</li>
+</ul>
+</blockquote>
+<h3>내가 촬영할수 있는 유튜브 아이디어</h3>
+<blockquote>
+<ul>
+<li>종이접기</li>
+<li>아이와 함께 에버랜드 소개하기</li>
+<li>아빠 육아 (머리묶기, 반찬만들기 등 아빠들이 어려워하는 육아 팁)</li>
+<li>레고 창작</li>
+<li>CSS JS를 이용한 인터랙티브 웹 아트</li>
+<li>장난감 소개</li>
+<li>미드 영어 쉐도잉</li>
+<li>등산</li>
+<li>달리기</li>
+<li>기초 경제 공부 (나도 잘 모르지만 배우면서 정리하면 좋을것 같다)</li>
+</ul>
+</blockquote>
+<h3>중간 상인을 없앨 수 있는 업계 10곳</h3>
+<blockquote>
+<ul>
+<li>과일 및 야채</li>
+<li>출판 (출판사에서 직접 팔수 있는 방법이 없을까??)</li>
+<li>커피 (공정무역 커피 등이 늘어나야한다)</li>
+<li>과자 (대기업들이 중소기업 제품을 브랜딩해서 판매)</li>
+<li>수입차</li>
+<li>보험 (다이렉트로 쉽게 가입할 수 있게 해야 한다)</li>
+<li>부동산 거래 (직거래가 좀더 안전하다면 부동산 중개업은 필요 없을것이다)</li>
+<li>와인 등의 수입 술</li>
+<li>가전제품 (도대체 왜 아직도 비싼 오프라인 매장들이 많은건지 모르겠다)</li>
+<li>침대 (생산자와 판매자가 거의 다르다, 원가에 비해 터무니 비쌈)</li>
+</ul>
+</blockquote>
+<h3>다른 사람들는 종교처럼 떠받들지만 나는 동의하지 않는 10가지 물건이나 가치</h3>
+<blockquote>
+<ul>
+<li>명문대학</li>
+<li>공무원</li>
+<li>대기업 취업</li>
+<li>‘사’자 직업 (의사, 변호사 등)</li>
+<li>아이돌 연예인</li>
+<li>유튜버 (한순간에 무너지기 쉽다)</li>
+<li>진짜 종교</li>
+<li>SNS 맛집 (실제로 가보면 기다리기만 하고 맛없는 경우가 많다)</li>
+<li>유명한 학원 (또는 강사)</li>
+<li>삼성</li>
+</ul>
+</blockquote>
+<h3>친구가 되고 싶은 전혀 모르는 사람 10명</h3>
+<blockquote>
+<ul>
+<li>문재인 대통령</li>
+<li>나영석 PD</li>
+<li>이나영 </li>
+<li>팀 페리스</li>
+<li>무라카미 하루키</li>
+<li>래리 페이지</li>
+<li>빌 게이츠</li>
+<li>인터랙티브 디벨로퍼 저자 김종민</li>
+<li>렘 콜하스 (건축가)</li>
+<li>주윤발</li>
+</ul>
+</blockquote>
+<h3>내일 평소와 다르게 할 수 있는 일 10가지</h3>
+<blockquote>
+<ul>
+<li>아침 일찍 일어나서 명상하고 글쓰기</li>
+<li>아침 운동하기</li>
+<li>책 한권 다 읽기</li>
+<li>영어로만 생각하기</li>
+<li>컴퓨터와 스마트폰을 단 1분도 보지 않기</li>
+<li>커피 한잔도 안마시기</li>
+<li>하루종일 잠자기</li>
+<li>헬스장 등록하기</li>
+<li>대청소</li>
+<li>유튜브 영상 찍기</li>
+</ul>
+</blockquote>
+<h3>시간을 절약할 수 있는 방법</h3>
+<blockquote>
+<ul>
+<li>15분 또는 30분 단위로 하루를 계획한다.</li>
+<li>출퇴근중 할수 있는 것들을 추려서 한두가지만 꾸준히 한다. (영어공부 등)</li>
+<li>정해진 시간에 정해진 일을 한다.</li>
+<li>중고 직거래는 가급적 피한다. (돈보다 시간이 더 아까울때가 있다)</li>
+<li>싫어하는것부터 먼저 처리한다. (좋아하는걸 먼저하면 싫어하는건 진짜 하기 싫어져서 더 많은 시간이 필요할지도 모른다)</li>
+<li>하기 싫은것들을 빠르게 할 수 있는 방법을 연구한다.</li>
+<li>아침에 명상하면서 산발적인 생각을 정리한다. (생각이 정리되면 생각이 이리저리 튀지 않고 하나에 집중할 수 있다)</li>
+<li>일찍 잔다. (같은 시간을 자도 일찍 자고 일찍 일어나면 덜 피곤하기 때문에 효율이 높다)</li>
+<li>회사 근처로 이사간다 (ㅠㅠ, 슬프지만 가장 현실적인 방법이다)</li>
+<li>회사를 그만둔다 (불필요한 출퇴근 시간, 하고 싶지 않은 일들에 시간을 쏟을 필요가 없다)</li>
+</ul>
+</blockquote></div><div class="sc-bdVaJa lfMCsp"></div><div font-size="15px" class="sc-bdVaJa sc-bwzfXH blog-post___StyledFlex-sc-13kot0y-1 jEaxjM"><div class="sc-bdVaJa sc-htpNat blog-post___StyledText-sc-13kot0y-2 dzpLHw"><a rel="prev" href="/2019/08/12/about-self-help-books/">자기계발서를 위한 변명</a></div><div class="sc-bdVaJa sc-htpNat blog-post___StyledText2-sc-13kot0y-3 fPdXYp"><a rel="next" href="/2019/08/25/again-haruki/">다시, 하루키 &lt;직업으로서의 소설가&gt;</a></div></div><div class="sc-bdVaJa iPvBDw"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-4588610260101909" data-ad-slot="5306007932" data-ad-format="auto" data-full-width-responsive="true"></ins></div><div id="disqus_thread"></div></div></div></div></div><script>
   
   
   if(true) {
@@ -17,4 +187,4 @@
       
       
       }
-      </script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/2019/08/18/ten-ideas/";window.webpackCompilationHash="68f0debe511ee6808513";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-04e513db8431d9bd7edd.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-2e28a76ec399a8e2ac52.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-ffd1be86d5c2607c68d7.js"],"component---src-templates-tag-js":["/component---src-templates-tag-js-50b5a46fcb3a159ddad9.js"],"component---src-pages-404-js":["/component---src-pages-404-js-2de78cd3d32524f3edd9.js"],"component---src-pages-essay-js":["/component---src-pages-essay-js-8551e97a74761ead83e0.js"],"component---src-pages-index-js":["/component---src-pages-index-js-12b3f7e9e25651ba205f.js"],"component---src-pages-programming-js":["/component---src-pages-programming-js-1ed339e57f15e86d1e0a.js"],"component---src-pages-review-js":["/component---src-pages-review-js-3702e609085f7132f483.js"],"component---src-pages-tags-js":["/component---src-pages-tags-js-259bb202f9eba80d1d50.js"]};/*]]>*/</script><script src="/webpack-runtime-43ae62e44a595e8d71c7.js" async=""></script><script src="/styles-9e7ec19e2211d24f4e8b.js" async=""></script><script src="/app-04e513db8431d9bd7edd.js" async=""></script><script src="/component---src-templates-blog-post-js-ffd1be86d5c2607c68d7.js" async=""></script><script src="/1-6f50826974fe8fe40719.js" async=""></script></body></html>
+      </script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/2019/08/18/ten-ideas/";window.webpackCompilationHash="87495452be8d1c66dc6a";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"app":["/app-04e513db8431d9bd7edd.js"],"component---node-modules-gatsby-plugin-offline-app-shell-js":["/component---node-modules-gatsby-plugin-offline-app-shell-js-2e28a76ec399a8e2ac52.js"],"component---src-templates-blog-post-js":["/component---src-templates-blog-post-js-c41f3a5636ff2c314a95.js"],"component---src-templates-tag-js":["/component---src-templates-tag-js-50b5a46fcb3a159ddad9.js"],"component---src-pages-404-js":["/component---src-pages-404-js-2ab9c55248de426ba254.js"],"component---src-pages-essay-js":["/component---src-pages-essay-js-8551e97a74761ead83e0.js"],"component---src-pages-index-js":["/component---src-pages-index-js-12b3f7e9e25651ba205f.js"],"component---src-pages-programming-js":["/component---src-pages-programming-js-1ed339e57f15e86d1e0a.js"],"component---src-pages-review-js":["/component---src-pages-review-js-3702e609085f7132f483.js"],"component---src-pages-tags-js":["/component---src-pages-tags-js-259bb202f9eba80d1d50.js"]};/*]]>*/</script><script src="/webpack-runtime-0c83b68110cbb4cd0549.js" async=""></script><script src="/styles-9e7ec19e2211d24f4e8b.js" async=""></script><script src="/app-04e513db8431d9bd7edd.js" async=""></script><script src="/component---src-templates-blog-post-js-c41f3a5636ff2c314a95.js" async=""></script><script src="/1-6f50826974fe8fe40719.js" async=""></script></body></html>
