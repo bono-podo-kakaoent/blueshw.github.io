@@ -124,6 +124,13 @@
 <url> <loc>https://blueshw.github.io/2011/04/29/role-of-social-venture/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/2011/04/13/learning-from-mountain/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/2011/03/12/where-is-the-your-youth/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blueshw.github.io/tag/css</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blueshw.github.io/tag/javascript</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blueshw.github.io/tag/scroll</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blueshw.github.io/tag/interactive-web</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blueshw.github.io/tag/웹</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blueshw.github.io/tag/애플</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blueshw.github.io/tag/sticky</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/타이탄의-도구들</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/팀-페리스</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/좌절</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -136,7 +143,6 @@
 <url> <loc>https://blueshw.github.io/tag/markdownlint</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/if-kakao</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/카카오-컨퍼런스</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://blueshw.github.io/tag/css</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/gif</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/svg</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/clip-path</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -165,7 +171,6 @@
 <url> <loc>https://blueshw.github.io/tag/자기개발서</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/시크릿</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/독서천재-홍대리</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://blueshw.github.io/tag/javascript</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/page-not-found</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/interactive-design</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/인터랙티브웹</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -207,7 +212,6 @@
 <url> <loc>https://blueshw.github.io/tag/book</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/kakaopage</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/web</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://blueshw.github.io/tag/웹</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/frontend</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/프론트엔드</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/일상</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -216,7 +220,6 @@
 <url> <loc>https://blueshw.github.io/tag/react-modal</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/modal</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/popup</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://blueshw.github.io/tag/scroll</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/prevent-body-scroll</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/momentum-scroll</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/2018</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
