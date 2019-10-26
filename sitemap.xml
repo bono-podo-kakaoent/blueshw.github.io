@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>https://blueshw.github.io/2019/10/27/scss-module-system/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/2019/10/20/start-drawing/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/2019/10/13/show-items-on-scroll/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/2019/10/06/frustration-by-failure/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -125,6 +126,16 @@
 <url> <loc>https://blueshw.github.io/2011/04/29/role-of-social-venture/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/2011/04/13/learning-from-mountain/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/2011/03/12/where-is-the-your-youth/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blueshw.github.io/tag/css</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blueshw.github.io/tag/scss</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blueshw.github.io/tag/sass</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blueshw.github.io/tag/사스</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blueshw.github.io/tag/at-rules</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blueshw.github.io/tag/use</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blueshw.github.io/tag/forward</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blueshw.github.io/tag/import</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blueshw.github.io/tag/모듈</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blueshw.github.io/tag/module-system</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/drawing</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/i-pad</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/아이패드-그림그리기</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -134,7 +145,6 @@
 <url> <loc>https://blueshw.github.io/tag/사각사각-드로잉</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/우울할땐-그림을-그리자</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/건축</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://blueshw.github.io/tag/css</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/javascript</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/scroll</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/interactive-web</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -423,7 +433,6 @@
 <url> <loc>https://blueshw.github.io/tag/js</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/create-react-app</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/require</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://blueshw.github.io/tag/import</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/closure</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/var</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/const</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
