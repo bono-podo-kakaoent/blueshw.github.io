@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[bono's blog]]></title><description><![CDATA[글을 씁니다.]]></description><link>https://blueshw.github.io</link><generator>RSS for Node</generator><lastBuildDate>Sat, 26 Oct 2019 15:02:11 GMT</lastBuildDate><item><title><![CDATA[[CSS] SCSS에 새로 추가된 Module System (@use, @forward)]]></title><description><![CDATA[이 글은 Introducing Sass Module)를 참고하여 정리하였다.최근, SCSS(사스, Sass)에 모듈 시스템(Module System)을 지원하기 위한 새로운 feature들이 몇가지 승인(accepted)되었다. 그 중에 at…]]></description><link>https://blueshw.github.io/2019/10/27/scss-module-system/</link><guid isPermaLink="false">https://blueshw.github.io/2019/10/27/scss-module-system/</guid><pubDate>Sun, 27 Oct 2019 00:02:33 GMT</pubDate><content:encoded>&lt;blockquote&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[bono's blog]]></title><description><![CDATA[글을 씁니다.]]></description><link>https://blueshw.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 02 Nov 2019 14:27:26 GMT</lastBuildDate><item><title><![CDATA[계속해서 글을 쓴다는 것]]></title><link>https://blueshw.github.io/2019/11/02/weekly-blogging/</link><guid isPermaLink="false">https://blueshw.github.io/2019/11/02/weekly-blogging/</guid><pubDate>Sat, 02 Nov 2019 15:00:00 GMT</pubDate><content:encoded></content:encoded></item><item><title><![CDATA[[CSS] SCSS에 새로 추가된 Module System (@use, @forward)]]></title><description><![CDATA[이 글은 Introducing Sass Module)를 참고하여 정리하였다. 최근, SCSS(사스, Sass)에 모듈 시스템(Module System)을 지원하기 위한 새로운 feature들이 몇가지 승인(accepted)되었다. 그 중에 at…]]></description><link>https://blueshw.github.io/2019/10/27/scss-module-system/</link><guid isPermaLink="false">https://blueshw.github.io/2019/10/27/scss-module-system/</guid><pubDate>Sun, 27 Oct 2019 00:02:33 GMT</pubDate><content:encoded>&lt;blockquote&gt;
 &lt;p&gt;이 글은 &lt;a href=&quot;https://css-tricks.com/introducing-sass-modules/&quot;&gt;Introducing Sass Module&lt;/a&gt;)를 참고하여 정리하였다.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;최근, SCSS(사스, Sass)에 모듈 시스템(Module System)을 지원하기 위한 새로운 feature들이 몇가지 승인(accepted)되었다. 그 중에 at-rules에 두개의 feature가 추가되었는데 하나는 &lt;code class=&quot;language-text&quot;&gt;@use&lt;/code&gt;, 하나는 &lt;code class=&quot;language-text&quot;&gt;@forward&lt;/code&gt;다. @use는 이전부터 존재하던 feature인 @import와 유사하다. 하지만, 기존에 @import가 가진 문제점을 보완한다. SCSS 커뮤니티에서는 점진적으로 import를 deprecated 하고 @use만 사용하도록 할 계획이다. 아직, 정식 &lt;code class=&quot;language-text&quot;&gt;spec&lt;/code&gt;은 아니고 얼마전 &lt;code class=&quot;language-text&quot;&gt;accepted&lt;/code&gt; 되었기 때문에 &lt;a href=&quot;https://github.com/sass/libsass&quot;&gt;libsass&lt;/a&gt;와 같은 Sass 컴파일러에서는 아직 사용할 수 없다. 대신 Ruby로 만들어진 Original &lt;a href=&quot;https://github.com/sass/sass&quot;&gt;Sass&lt;/a&gt; 패키지를 설치해서 테스트 해보자.&lt;/p&gt;
@@ -218,7 +218,7 @@ section&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAECAwQF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAv/aAAwDAQACEAMQAAAB7DwzKpGI/wD/xAAZEAEBAQADAAAAAAAAAAAAAAABAgADERL/2gAIAQEAAQUCK1PmXktRSl7zv//EABURAQEAAAAAAAAAAAAAAAAAABAR/9oACAEDAQE/AYf/xAAVEQEBAAAAAAAAAAAAAAAAAAAQEv/aAAgBAgEBPwGj/8QAGBAAAwEBAAAAAAAAAAAAAAAAAAERMRD/2gAIAQEABj8CjGzTb3//xAAbEAADAAMBAQAAAAAAAAAAAAAAARExQXFRYf/aAAgBAQABPyGvoRhVrVLi18RvQs0v6Zrh/9oADAMBAAIAAwAAABCgD//EABYRAQEBAAAAAAAAAAAAAAAAAAEQIf/aAAgBAwEBPxBbpP/EABYRAQEBAAAAAAAAAAAAAAAAAAEQEf/aAAgBAgEBPxBA4z//xAAaEAEBAQEBAQEAAAAAAAAAAAABEQAhMUFh/9oACAEBAAE/ELAlQxMcgFF6yJX/AEgZ9H6g4fgburaryRk3NC5//9k=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAGQAAAgMBAAAAAAAAAAAAAAAAAAECAwQF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAv/aAAwDAQACEAMQAAAB7DwzKpGI/wD/xAAZEAEBAQADAAAAAAAAAAAAAAABAgADERL/2gAIAQEAAQUCK1PmXktRSl7zv//EABURAQEAAAAAAAAAAAAAAAAAABAR/9oACAEDAQE/AYf/xAAVEQEBAAAAAAAAAAAAAAAAAAAQEv/aAAgBAgEBPwGj/8QAGBAAAwEBAAAAAAAAAAAAAAAAAAERMRD/2gAIAQEABj8CjGzTb3//xAAbEAADAAIDAAAAAAAAAAAAAAAAARExQVFhcf/aAAgBAQABPyGr2EYVa1S4tdI3oWaX80zXh//aAAwDAQACAAMAAAAQoA//xAAWEQEBAQAAAAAAAAAAAAAAAAABECH/2gAIAQMBAT8QW6T/xAAWEQEBAQAAAAAAAAAAAAAAAAABEBH/2gAIAQIBAT8QQOM//8QAGhABAQEBAQEBAAAAAAAAAAAAAREAITFBYf/aAAgBAQABPxCQSoYmOQCi9ZEr/pAz6P1Bw/A3dXpXkjJuaFz/2Q==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -232,6 +232,7 @@ section&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&
 /static/3a74c8d1e7c169f6a4a1f3af0ae403ab/4efde/1.jpg 1180w,
 /static/3a74c8d1e7c169f6a4a1f3af0ae403ab/2b40c/1.jpg 2048w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -253,7 +254,7 @@ section&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIDBP/EABYBAQEBAAAAAAAAAAAAAAAAAAMBAv/aAAwDAQACEAMQAAABczxNFIE1/8QAGxAAAgIDAQAAAAAAAAAAAAAAAQIAAwQREyH/2gAIAQEAAQUCrqBrAd4fGTICzsVhbZ//xAAWEQEBAQAAAAAAAAAAAAAAAAAAEQH/2gAIAQMBAT8Buq//xAAWEQEBAQAAAAAAAAAAAAAAAAAAEQH/2gAIAQIBAT8BmI//xAAaEAACAwEBAAAAAAAAAAAAAAAAAQIRUTES/9oACAEBAAY/Ak9JKEVSddGsIrCXmTVu+F6f/8QAGRABAQEBAQEAAAAAAAAAAAAAAREAITFR/9oACAEBAAE/Ie26LgEbqZc6BFT7hHOGPMOgE8NWXVVd/9oADAMBAAIAAwAAABBDz//EABgRAAMBAQAAAAAAAAAAAAAAAAABESEx/9oACAEDAQE/EK8E00//xAAXEQEBAQEAAAAAAAAAAAAAAAABABEh/9oACAECAQE/EAJG8v/EABsQAQEBAAIDAAAAAAAAAAAAAAERACFhMXGx/9oACAEBAAE/EKRFiPGQzh8Yl4neUvQQP1lbjkKepruHAS33qOUEEq7/2Q==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIDBP/EABUBAQEAAAAAAAAAAAAAAAAAAAID/9oADAMBAAIQAxAAAAFzPGdFIBX/xAAbEAACAgMBAAAAAAAAAAAAAAABAgADBBETIf/aAAgBAQABBQKuoGsB3h8ZMgLOxWFtn//EABYRAQEBAAAAAAAAAAAAAAAAAAARAf/aAAgBAwEBPwG6r//EABYRAQEBAAAAAAAAAAAAAAAAAAARAf/aAAgBAgEBPwGYj//EABoQAAIDAQEAAAAAAAAAAAAAAAABAhFRMRL/2gAIAQEABj8CT0koRVJ10awisJeZNW74Xp//xAAZEAEBAQEBAQAAAAAAAAAAAAABEQAhMVH/2gAIAQEAAT8h7bouARuplzoEVPuEc4Y8w6ATw1ZdVV3/2gAMAwEAAgADAAAAEEPv/8QAGBEAAwEBAAAAAAAAAAAAAAAAAAERITH/2gAIAQMBAT8QrwTTT//EABcRAQEBAQAAAAAAAAAAAAAAAAEAESH/2gAIAQIBAT8QAkby/8QAHBABAQEAAQUAAAAAAAAAAAAAAREAITFRYXGR/9oACAEBAAE/EKRFiPGQzh6Yl4nnKXoIGPuVuOQpe013DgJb71HKCCVd/9k=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -266,6 +267,7 @@ section&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&
 /static/bd5d7766d165b16b1595359dd6145286/5413e/0.jpg 885w,
 /static/bd5d7766d165b16b1595359dd6145286/1f853/0.jpg 1024w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -387,7 +389,7 @@ window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 45.09018036072144%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAAA+klEQVQoz32RSa6EMAxEcxMShoR5Ruxgx/1vVD9ltVHrd9OLUoKxy8+OWZYFx3Fg33es64pt20Tv919i3nmeuK4LTdPAhBAwjiO6rkOapsiy7EOM/xJz8jyHcw6mKAoxy2PQxp/DvEjneZ4lXtc1+r5HVVVg82/y3stJU8MPFtokgXUpQizs2laSqCfKp0nEkEQkddYKDeko7oeESkJK5tmY9yTDuUlYlqUEdDQlZFfmUHpPOM3LQO+aY/4H+VKkpPhY0zTJSWI24J588HdDNpfpYu1NqFJCErdxj2pMMaaPRANKzF9NPgyVkAUsVEJqGIZ7jyz+NrLW/wGReQb7RF+oaAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 45.09018036072144%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAJCAYAAAAywQxIAAAACXBIWXMAAAsSAAALEgHS3X78AAAA/UlEQVQoz32RSXaEMAxEfRNsJjOPJp0V7Lj/japdSouXl26yqGcjpNKXbNZ1xb7veHw/ELaAbdtEv++3+vrJO44D53mibVsY7z2maULf90jTFFmWvYnx/8ScPM/hnIMpikLM8hi08ee4rNJ9WRaJN02DYRhQ1zXY/JPKspSTpoYfLLRJAutS+FjYd50kUXeUd5OIIYlI6qwVGtJRIQQhVBJSMs/GvDsZzk3CqqokoKMpIbsyh9J7wmleBnrXHPM3yJciJcXHmudZThKzAfdU+vJqyOYyXay9CFVKSOIu7lGNKcb0kWhAifmryZuhErKAhUpIjeN47ZHFn0bW+iefBAcANYxFewAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -400,6 +402,7 @@ window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
 /static/5b5bac4ead38f1a6bed72efea660a29c/f9b6a/0.png 885w,
 /static/5b5bac4ead38f1a6bed72efea660a29c/9c15e/0.png 998w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -487,6 +490,7 @@ window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
 /static/4e9c28da3cf80acc86218154fc0e0688/b9e4f/1.png 590w,
 /static/4e9c28da3cf80acc86218154fc0e0688/6b427/1.png 678w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -504,7 +508,7 @@ window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
 &lt;h3&gt;markdown preview Enhanced&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=shd101wyy.markdown-preview-enhanced&quot;&gt;markdown preview Enhanced&lt;/a&gt;를 사용하면, VSCode에서 작성중인 포스팅을 바로 확인할 수 있다. 물론 각자 블로그의 CSS가 다르기 때문에 실제 렌더링된 모습과는 다르겠지만, 기본적인 요소를 확인하기에는 나쁘지 않은 선택이다. 게다가, 위치에 따라 알아서 스크롤되기 때문에 비교하면서 작업하기에 좋다.&lt;/p&gt;
 &lt;p align=&quot;center&quot;&gt;
-  &lt;img src=&quot;/2-dd97f609de68530e67ad4a3b057f97bb.gif&quot; alt=&quot;img2&quot;&gt;
+  &lt;img src=&quot;/dd97f609de68530e67ad4a3b057f97bb/2.gif&quot; alt=&quot;img2&quot;&gt;
 &lt;/p&gt;
 &lt;h3&gt;change-case&lt;/h3&gt;
 &lt;p&gt;&lt;a href=&quot;https://marketplace.visualstudio.com/items?itemName=wmaurer.change-case&quot;&gt;change-case&lt;/a&gt;는 코드를 작성하거나 수정할때 유용하다. 예를들어 변수이름(camelCase)을 상수(CONSTANT)로 바꿔줘야할때 일일이 타이핑하다보면 실수할 때가 있다. 이럴때 change-case를 사용해보자. 실수없이 이름을 바꿀 수 있다. 또다른 예로, 타입스크립트를 사용한다면 snake_case로 넘어온 API 결과 데이터를 한번에 camelCase로 바꾸고 싶을때가 있다. 이때 change-case를 사용하면 한꺼번에 간단히 변경할 수 있다. 사용법을 한번 알아보자. 바꾸고 싶은 이름(들)을 마우스로 드래그해서 선택(selection, 다중 선택도 가능)한다. 그 다음 &lt;code class=&quot;language-text&quot;&gt;ctrl + shift + p&lt;/code&gt;를 눌러 &lt;code class=&quot;language-text&quot;&gt;Change case&lt;/code&gt; 또는 &lt;code class=&quot;language-text&quot;&gt;case&lt;/code&gt;를 쳐보면, 아래와 같은 목록을 확인할 수 있다. 이 중에서 바꾸기 원하는 타입의 case를 클릭하면 한번에 바꿀 수 있다.&lt;/p&gt;
@@ -521,7 +525,7 @@ window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 69.70172684458399%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAAsSAAALEgHS3X78AAABrElEQVQ4y6WSW2/aQBCF90/kLaEYX/eGjYNxMF5fgaAEgvLSNlX7/3/G6XgRUfsQJSQPn8bWHJ2dszssyzJsN2vs7rdUN6iqCnVdoyH6rsN63Vu6tj199z3atrF9y6CvDNqmxiJbgPlJDmf7G97uD7z1T0TtM9zqiOvl45vcFKc6Ko8YN9/htD/gdC+4ni7BeDLHVf2Cq/YXRuYZefeAYG5wIzOM1NvYvs7xjUzG8x5O8YQxj8GE1PDKB3hmD1X0MMs7ZGkKLTgUj94nCiGpainguy7YJFKYUMQxIc0OxbJAGHFwIT8OlxBUXc8D04oMzRMcMhSrLV10gzhOSCSs6D3OuqFKKcGkjjEp93DIVKw2yBcLaD39sOG/pkEQgk1VRBMeTxOW91gVxX+iSwxdlyLHOjxFJiQZmrKEkOpThp7ng7kBh2sO1pAXtNjGIElmXzDkmiY82MicHsVOKNTnI8/SWzjl4TXyXZ4jDKNX4SXYV45ng+He7uKwNnVVI74w8vnwJEnA0mFClcLRt5hQfK00NTl836cIrmW4G4+WdsD3A7se5/8zgy4IAvwFXmuxesp94nkAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 69.70172684458399%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAOCAYAAAAvxDzwAAAACXBIWXMAAAsSAAALEgHS3X78AAABsElEQVQ4y6WS3W7iMBCF/RK9oywhv7ZjEkJDSojJH6SohaLebNvV9v0f43RiBNpdadXSXnwaOz46mWMPS9MUXbfGdttR3WBVrlBWJSqibRus162haerzuq4rc27o9aWmbyXm8zmYG2ewut9wtm9wNi8ImifYqwMGiwcM8odj/Wd9nR/3w+KAUf0TVv0Mq3nFYLIA4/ENrspXXFW/MNRPyJp7eDca1zLFMPw/5lxl+EEmo1kLK3/EiEdgQio4xT0cvUOYt9CLW6RJAiU4Qh58TOBDUlVSwLVtsHEQYkwRR4TUW+SLHH7AwYX8PFxCULUdB0yFZKgfYZGhWHZ0yRWiKCaRMKKPOOn6KqUEkyrCuNjBIlOx3CCjl1Jq8mnDP009zwebhAF1eDh2WNxhmed/iS4xtG2KHCn/GJmQZKiLAkKGXzJ0HBfM9jhsvTeGPKfB1hpxPP2GIVfU4d5E5vQopkMRfj3yNJnBKvbnyLdZBt8PzsJLMK8cTXvDnZnFfmzKVYnowsinn8dxDJb0HYYJLDXDmOIrpeiQw3VdimAb+rtxaGh7XNcz43Han+h1nufhHa8ssY7AlWtYAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -533,6 +537,7 @@ window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
 /static/5d29e013291f8ab9e5c4e67c7f5d259d/b9e4f/3.png 590w,
 /static/5d29e013291f8ab9e5c4e67c7f5d259d/3432a/3.png 637w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -565,6 +570,7 @@ window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
 /static/29cf7dc4c71b6067b9692fed00848b42/2d849/4.png 1180w,
 /static/29cf7dc4c71b6067b9692fed00848b42/91670/4.png 1300w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -599,6 +605,7 @@ window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
 /static/5d1e8b791d1c66f7f37b1c53f7ee8bb1/2d849/0.png 1180w,
 /static/5d1e8b791d1c66f7f37b1c53f7ee8bb1/112e3/0.png 2060w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;처음에 이 이미지를 보고, 어떻게 만들었는지 조금 궁금했다(그리 어렵지도 않을것 같았지만..). 그런데, 개발자 모드를 켜고 소스를 살펴본 순간, 좀 놀랐다. css와 javascript로 애니메이션을 구현한게 아니라, 그냥 &lt;code class=&quot;language-text&quot;&gt;gif&lt;/code&gt;였다!!! 명색이 &lt;code class=&quot;language-text&quot;&gt;개발자&lt;/code&gt; 컨퍼런스의 홈페이지를 구축하면서 크게 복잡하지도 않은 애니메이션을 만드는데, gif를 쓰다니. 실망스러웠다. 물론 시간이 부족하고 인력이 부족했겠지만(?), 그렇다 하더라도 맨 처음 보이는 화면에 조금더 신경 썼어야 하지 않았을까.. 요즘 &lt;a href=&quot;https://www.apple.com/kr/&quot;&gt;애플 홈페이지&lt;/a&gt;를 보면서 프론트 기술을 정말 잘 이용했다 생각하고 있던터라, 실망이 더 컸는지도 모르겠다. 그래서.. 한번, 직접 만들어 보기로 했다. &lt;/p&gt;
@@ -613,7 +620,7 @@ window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
 &lt;h3&gt;SVG&lt;/h3&gt;
 &lt;p&gt;SVG는 &lt;code class=&quot;language-text&quot;&gt;Scalable Vector Graphics&lt;/code&gt;로, 번역하자면 &lt;code class=&quot;language-text&quot;&gt;확장 가능한 벡터 그래픽&lt;/code&gt;이다. 래스터 그래픽(Raster Graphics)이 아닌 벡터기 때문에 이미지가 커져도 퀄리티는 그대로 유지된다. 또한 path로 이미지를 그리기 때문에 이미지가 커져도 용량이 늘지 않는다. 요즘은 회사 프로젝트에도 작은 이미지는 대부분 SVG를 사용한다. 훨씬 용량이 작기 때문이다(단순할수록 용량이 작다). 회사에서 SVG를 사용하고 있지만, 사실 SVG를 잘 활용하는 수준은 아니다. 디자이너가 생성한 이미지 소스에서 SVG를 다운받는게 전부기 때문이다. SVG를 이용한 애니메이션 같은게 (아직은) 없기 때문에 직접 SVG를 다루지 않는다.&lt;/p&gt;
 &lt;p align=&quot;center&quot;&gt;
-  &lt;img src=&quot;/1-1beea5cecc4264f1025d7a80754b83c4.gif&quot; alt=&quot;img1&quot; style=&quot;width:300px;height:300px;&quot;&gt;
+  &lt;img src=&quot;/1beea5cecc4264f1025d7a80754b83c4/1.gif&quot; alt=&quot;img1&quot; style=&quot;width:300px;height:300px;&quot;&gt;
 &lt;/p&gt;
 &lt;p&gt;처음에는 위처럼 &lt;code class=&quot;language-text&quot;&gt;자전하는 지구&lt;/code&gt; 이미지를 보고 쉽게 만들 수 있을거라 생각했다. 딱히 어떤 방식으로 작업할지 고민한건 아니었지만, 웬지 모르게 어렵지 않을것 같은 느낌이었다(단순해서 그런듯). 그런데, 막상 작업을 시작하니까 어떻게 시작해야 할지 감을 잡기 너무 어려웠다. 몇가지 시도 끝에 결국 SVG를 사용했는데, 다음과 같은 과정을 거쳤다. &lt;/p&gt;
 &lt;p&gt;첫번째로 &lt;code class=&quot;language-text&quot;&gt;border&lt;/code&gt;를 사용했다. top, left, bottom border를 잘 이용하면 좌측면에 다양한 곡율이 적용된 도형을 만들 수 있다. 하지만, 애니메이션을 구현할때 문제가 발생했다. 좌측면은 크게 문제가 없었는데, 좌측에서 우측으로 넘어가는 순간, left border를 right로 바꿀때가 문제였다. 전혀 자연스럽게 동작하지 않았다. 몇번 시도해 보았지만 border로 만드는건 결국 포기.&lt;/p&gt;
@@ -640,7 +647,7 @@ window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
 &lt;/blockquote&gt;
 &lt;h3&gt;clip-path&lt;/h3&gt;
 &lt;p align=&quot;center&quot;&gt;
-  &lt;img src=&quot;/2-de87b3fa0ed4b682eb7abebfb6e0b2a6.gif&quot; alt=&quot;img2&quot; style=&quot;width:300px;height:300px;&quot;&gt;
+  &lt;img src=&quot;/de87b3fa0ed4b682eb7abebfb6e0b2a6/2.gif&quot; alt=&quot;img2&quot; style=&quot;width:300px;height:300px;&quot;&gt;
 &lt;/p&gt;
 &lt;p&gt;지난번에 &lt;a href=&quot;https://blueshw.github.io/2019/06/27/roulette/&quot;&gt;룰렛 만들기&lt;/a&gt;를 하면서 사용했던 &lt;code class=&quot;language-text&quot;&gt;clip&lt;/code&gt;은 &lt;code class=&quot;language-text&quot;&gt;deprecated&lt;/code&gt;된 CSS 요소다. 아직까지 사용하는데 문제는 없지만, 두가지 단점이 있다. clip을 쓰기 위해서는 반드시 &lt;code class=&quot;language-text&quot;&gt;position: absolute&lt;/code&gt;를 넣어줘야 하고, 직사각형 형태밖에 사용하지 못한다. 그래서 활용도가 떨어진다. 룰렛 만들기 포스팅을 보면 알겠지만, 피자 조각 모양의 도형을 만들기 위해 &lt;code class=&quot;language-text&quot;&gt;border-radius: 50%&lt;/code&gt;를 적용한 두 직사각형을 rotate한 다음 겹치는 부분의 색을 칠한다. 이 과정을 6번 반복하고 각 조각의 rotate를 다르게 설정한다. 살짝 복잡하다. 그런데, &lt;code class=&quot;language-text&quot;&gt;clip-path&lt;/code&gt;를 사용하면 훨씬 쉽게 만들수 있다. clip-path를 사용할때 path를 직접 만들어줄 수도 있다(SVG와 원리는 거의 같다). 하지만, &lt;a href=&quot;https://bennettfeely.com/clippy/&quot;&gt;CSS clip-path maker&lt;/a&gt; 사이트를 이용하면 필요한 clip-path를 손쉽게 만들 수 있다. &lt;/p&gt;
 &lt;p&gt;눈이 깜빡이는 애니메이션을 만들기 위해서 clip-path 속성의 &lt;code class=&quot;language-text&quot;&gt;ellipse&lt;/code&gt; 메서드를 이용하였다. 코드를 살펴보자. css는 clip-path를 사용한 부분만 살펴보자. 나머지 css는 길어질것 같으니 &lt;a href=&quot;https://codepen.io/blueshw/pen/OJLaNMM&quot;&gt;codepen&lt;/a&gt;에서 직접 확인하자.&lt;/p&gt;
@@ -749,6 +756,7 @@ window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
 /static/b2625ea569f466ad5f33b8664781337a/b9e4f/0.png 590w,
 /static/b2625ea569f466ad5f33b8664781337a/8ff1e/0.png 800w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -1025,7 +1033,7 @@ window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;handleScroll&lt;/code&gt;에서 스크롤 비율(0~1)을 구한다음 이 비율을 바탕으로 &lt;code class=&quot;language-text&quot;&gt;fontSize&lt;/code&gt;를 구한다. 내 경우에는 스크롤에 따라 &lt;code class=&quot;language-text&quot;&gt;25vh&lt;/code&gt;에서 &lt;code class=&quot;language-text&quot;&gt;10vh&lt;/code&gt;까지 크기가 변하도록 하였다. 테스트해보면서 각자가 원하는 적절한 값을 설정하면 된다. 추가로 &lt;code class=&quot;language-text&quot;&gt;resize&lt;/code&gt; 이벤트 핸들러도 만들어 주었는데, 이는 &lt;code class=&quot;language-text&quot;&gt;maxScrollValue&lt;/code&gt;를 구하기 위함이다. 사실 maxScrollValue은 handleScroll에서 항상 계산해도 된다. 아마 속도에도 크게 영향을 주진 않을것이다(조금 차이 나겠지..). 하지만 window size가 변하지 않았는데 매번 maxScrollValue를 구하는건 불필요한 연산이다. 그렇기 때문에, window size가 변할때만 &lt;code class=&quot;language-text&quot;&gt;handleResize&lt;/code&gt;함수에서 maxScrollValue을 값을 갱신한다.&lt;/p&gt;
 &lt;p&gt;요즘은 스크롤 이벤트를 이용하여 다양한 효과를 만드는 웹사이트가 많다. 예를들어 스크롤을 내리고 특정 위치에 도달했을때 애니메이션이 동작한다던가, 여러 이미지를 스크롤에 따라 다르게(방향또는 스크롤 정도) 움직여 마치 하나의 영상처럼 보이도록 만든다. 어려운 로직이나 복잡한 계산이 전혀 없기 때문에 아이디어만 있다면 아주 간단하게 웹 사이트를 interactive하게 만들 수 있다.&lt;/p&gt;
 &lt;h3&gt;결론&lt;/h3&gt;
-&lt;p&gt;요즘 interactive 웹에 관심이 많아졌다. 블로그 전체에 다양한 효과를 내는것도 좋지만, 404페이지처럼 독립된 페이지를 만들어 보는것이 좋다고 생각했다. 왜냐하면 제약이 없으므로 다양한 실험이 가능하기 때문이다. interactive 웹은 사실 거창한것이 아니다. 알고보면 대부분은 mouse, scroll 등 기본적인 이벤트를 기반으로 만들어지기 때문이다. 그래서 기본적인 몇가지 기법만 익혀도 충분히 아름다운 웹을 만들 수 있다. &lt;/p&gt;</content:encoded></item><item><title><![CDATA[[CSS] flexbox를 사용하며 배운것들 (중급)]]></title><description><![CDATA[그 동안 로 작업하면서 배운것들에 대해 알아보자. flexbox의 기초flexbox의 기초를 다룬 좋은 글이 많기 때문에 여기서 다시 다룰 필요는 없을것 같다. 만약 flexbox…]]></description><link>https://blueshw.github.io/2019/07/28/advanced-flexbox/</link><guid isPermaLink="false">https://blueshw.github.io/2019/07/28/advanced-flexbox/</guid><pubDate>Sun, 28 Jul 2019 00:50:28 GMT</pubDate><content:encoded>&lt;p&gt;그 동안 &lt;code class=&quot;language-text&quot;&gt;flexbox&lt;/code&gt;로 작업하면서 배운것들에 대해 알아보자. &lt;/p&gt;
+&lt;p&gt;요즘 interactive 웹에 관심이 많아졌다. 블로그 전체에 다양한 효과를 내는것도 좋지만, 404페이지처럼 독립된 페이지를 만들어 보는것이 좋다고 생각했다. 왜냐하면 제약이 없으므로 다양한 실험이 가능하기 때문이다. interactive 웹은 사실 거창한것이 아니다. 알고보면 대부분은 mouse, scroll 등 기본적인 이벤트를 기반으로 만들어지기 때문이다. 그래서 기본적인 몇가지 기법만 익혀도 충분히 아름다운 웹을 만들 수 있다. &lt;/p&gt;</content:encoded></item><item><title><![CDATA[[CSS] flexbox를 사용하며 배운것들 (중급)]]></title><description><![CDATA[그 동안 로 작업하면서 배운것들에 대해 알아보자.  flexbox의 기초 flexbox의 기초를 다룬 좋은 글이 많기 때문에 여기서 다시 다룰 필요는 없을것 같다. 만약 flexbox…]]></description><link>https://blueshw.github.io/2019/07/28/advanced-flexbox/</link><guid isPermaLink="false">https://blueshw.github.io/2019/07/28/advanced-flexbox/</guid><pubDate>Sun, 28 Jul 2019 00:50:28 GMT</pubDate><content:encoded>&lt;p&gt;그 동안 &lt;code class=&quot;language-text&quot;&gt;flexbox&lt;/code&gt;로 작업하면서 배운것들에 대해 알아보자. &lt;/p&gt;
 &lt;h2&gt;flexbox의 기초&lt;/h2&gt;
 &lt;p&gt;flexbox의 기초를 다룬 좋은 글이 많기 때문에 여기서 다시 다룰 필요는 없을것 같다. 만약 flexbox에 대해 잘모르거나 잘 생각나지 않는분들이라면 아래 링크를 한번씩 읽어보기 바란다.&lt;/p&gt;
 &lt;blockquote&gt;
@@ -1059,6 +1067,7 @@ window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
 /static/65a90d61964ca0d95593f8ae74acc09f/2d849/0.png 1180w,
 /static/65a90d61964ca0d95593f8ae74acc09f/e3e30/0.png 1271w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot;&gt;
@@ -1117,9 +1126,9 @@ window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
 &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;이 코드는 정상적인 경우와 IE10에서 각각 아래처럼 동작한다.&lt;/p&gt;
 &lt;h4&gt;정상적인 상황&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&quot;/1-e4c6b3a9cc7c4cee6b0f202307276187.gif&quot; alt=&quot;img1&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/e4c6b3a9cc7c4cee6b0f202307276187/1.gif&quot; alt=&quot;img1&quot;&gt;&lt;/p&gt;
 &lt;h4&gt;IE10&lt;/h4&gt;
-&lt;p&gt;&lt;img src=&quot;/2-11d4b5d7d076a58be50efc0cf869c007.gif&quot; alt=&quot;img2&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/11d4b5d7d076a58be50efc0cf869c007/2.gif&quot; alt=&quot;img2&quot;&gt;&lt;/p&gt;
 &lt;p&gt;이 버그 외에도 flexbugs 프로젝트를 보면 너무도 많은 버그들이 존재함을 알 수 있다. 그러니 괜히 어설프게 flexbox로 IE를 지원하려고 했다가는 오히려 프로젝트를 다시 만들어야하는(flexbox가 아닌 방식으로) 상황이 생길 수 있으니 주의해야한다.&lt;/p&gt;
 &lt;h2&gt;ilnine-flex&lt;/h2&gt;
 &lt;p&gt;일을 하면서 &lt;code class=&quot;language-text&quot;&gt;display: inline-flex&lt;/code&gt;를 사용한적은 거의 없다. 왜냐하면 굳이 inline-flex가 아니더라도 &lt;code class=&quot;language-text&quot;&gt;display: flex&lt;/code&gt; 하나면 웬만한 레이아웃은 충분히 만들수 있기 때문이다. inline-flex는 이름에서도 알 수 있듯이 flex 를 inline 요소로 다루겠다는 의미다. 주의할점은, inline으로 다루는 대상이 flex container지 item이 아니다. 상식적으로 inline(inline-block에 더 가깝다)이라는 속성이 block 요소를 수평으로 쌓기 위함인데, flex item은 direction으로 수평 쌓기가 가능하므로 inline 속성이 굳이 필요없다. &lt;/p&gt;
@@ -1189,6 +1198,7 @@ window&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cla
 /static/215fbdc8b99548170181c3b079ae2649/2d849/0.png 1180w,
 /static/215fbdc8b99548170181c3b079ae2649/24442/0.png 1944w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -1253,6 +1263,7 @@ A: 거의 2배로 늘었다. B: 거의 같다. C: 거의 절반으로 줄었다.
 /static/97d086440bbd620ad7c03c4de3ca986f/ebbe7/fill.jpg 295w,
 /static/97d086440bbd620ad7c03c4de3ca986f/fdc3a/fill.jpg 457w&quot;
         sizes=&quot;(max-width: 457px) 100vw, 457px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -1460,6 +1471,7 @@ A: 거의 2배로 늘었다. B: 거의 같다. C: 거의 절반으로 줄었다.
 /static/55c316929e99c351cc247e841b4ea0d1/2d849/0.png 1180w,
 /static/55c316929e99c351cc247e841b4ea0d1/70e11/0.png 1268w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;p align=&quot;center&quot;&gt;
@@ -1763,6 +1775,7 @@ window.appendDOM(data);&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 /static/89268965c9fa33eb32cef67a73d84989/5413e/0.jpg 885w,
 /static/89268965c9fa33eb32cef67a73d84989/8a809/0.jpg 1049w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -1780,7 +1793,7 @@ window.appendDOM(data);&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 61.105815061963774%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAIBBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAe5UjQf/xAAXEAADAQAAAAAAAAAAAAAAAAAAEBEh/9oACAEBAAEFAtI6v//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABQQAQAAAAAAAAAAAAAAAAAAACD/2gAIAQEABj8CX//EABkQAAMAAwAAAAAAAAAAAAAAAAABESExcf/aAAgBAQABPyGVTpmisoWT/9oADAMBAAIAAwAAABAzz//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABwQAQACAgMBAAAAAAAAAAAAAAEAESFhMVGBof/aAAgBAQABPxAuAKXuGh7EtyxJQcE2fJitcz//2Q==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 61.105815061963774%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAIBBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAe5UjQf/xAAXEAADAQAAAAAAAAAAAAAAAAAAEBEh/9oACAEBAAEFAtI6v//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABQQAQAAAAAAAAAAAAAAAAAAACD/2gAIAQEABj8CX//EABkQAAMAAwAAAAAAAAAAAAAAAAABESExcf/aAAgBAQABPyGVTpmisoWT/9oADAMBAAIAAwAAABA7z//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABwQAQACAgMBAAAAAAAAAAAAAAEAESFhMVGBof/aAAgBAQABPxAuAKXuGh7EtyxJQcE2fJitcz//2Q==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -1793,6 +1806,7 @@ window.appendDOM(data);&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 /static/aafe778d061bd397cc5c3c696f6cc8c2/5413e/1.jpg 885w,
 /static/aafe778d061bd397cc5c3c696f6cc8c2/8a809/1.jpg 1049w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -1836,6 +1850,7 @@ window.appendDOM(data);&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 /static/8b76cfd36e226f892ee4652196412128/5413e/2.jpg 885w,
 /static/8b76cfd36e226f892ee4652196412128/8a809/2.jpg 1049w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -1853,7 +1868,7 @@ window.appendDOM(data);&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 46.58703071672355%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAJABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAECBf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHbbpJLD//EABYQAQEBAAAAAAAAAAAAAAAAACEAIP/aAAgBAQABBQJmcf/EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABYQAQEBAAAAAAAAAAAAAAAAADEAIP/aAAgBAQAGPwIiMf/EABoQAAEFAQAAAAAAAAAAAAAAAAABETFRkRD/2gAIAQEAAT8hlDR6tHq0We//2gAMAwEAAgADAAAAEPw//8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQMBAT8QiP/EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAECAQE/EKr/xAAcEAABAwUAAAAAAAAAAAAAAAABADHREBFR4fH/2gAIAQEAAT8QJF/fBQhucLs4Ttf/2Q==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 46.58703071672355%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAJABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAECBf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHbbpJLD//EABYQAQEBAAAAAAAAAAAAAAAAACEAIP/aAAgBAQABBQJmcf/EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABYQAQEBAAAAAAAAAAAAAAAAADEAIP/aAAgBAQAGPwIiMf/EABoQAAEFAQAAAAAAAAAAAAAAAAAQETFRkUH/2gAIAQEAAT8hlDR6tHq06v8A/9oADAMBAAIAAwAAABD8P//EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAEDAQE/EIj/xAAVEQEBAAAAAAAAAAAAAAAAAAAAEf/aAAgBAgEBPxCq/8QAHBAAAQMFAAAAAAAAAAAAAAAAAQAx0RARUeHx/9oACAEBAAE/ECRf3wUIbnC7OEX1/9k=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -1864,6 +1879,7 @@ window.appendDOM(data);&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 /static/2af9d37c1f79b5968e4a865c7daac98b/ebbe7/3.jpg 295w,
 /static/2af9d37c1f79b5968e4a865c7daac98b/3d555/3.jpg 586w&quot;
         sizes=&quot;(max-width: 586px) 100vw, 586px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -2040,7 +2056,7 @@ tags:
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 150%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAeABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIEAwX/xAAYAQACAwAAAAAAAAAAAAAAAAACBAABA//aAAwDAQACEAMQAAABtZ1sIhgl6X5u4s4khMv/xAAdEAADAAICAwAAAAAAAAAAAAABAgMEEgATESMz/9oACAEBAAEFAknPQJPlwEdFBig2OV9F8dRYEZbe2NNWOVyr9rf/xAAZEQADAQEBAAAAAAAAAAAAAAAAAQIRAzH/2gAIAQMBAT8BXPVpXpNSNLT/xAAVEQEBAAAAAAAAAAAAAAAAAAARIP/aAAgBAgEBPwFj/8QAIRAAAgEDAwUAAAAAAAAAAAAAAAERAiExA1FxEiIyYbH/2gAIAQEABj8Cpby0X+kU7FLalwd+lHuRcGnM4FmwuC21zxOqIP/EAB0QAAMBAQACAwAAAAAAAAAAAAABETEhQYFhcZH/2gAIAQEAAT8hZcvo0+G/QmUjoVpRyOxYQlLJGi9BGUfoJ9ErQ4+F8iVy8uiYMIf/2gAMAwEAAgADAAAAEDDAT//EABkRAQADAQEAAAAAAAAAAAAAAAEAEfAhsf/aAAgBAwEBPxBqAc2qGmEpBvIxM//EABcRAQEBAQAAAAAAAAAAAAAAAAEAETH/2gAIAQIBAT8QcORydhcv/8QAIBABAQACAAYDAAAAAAAAAAAAAREAITFBYXGRoVGB0f/aAAgBAQABPxAwQC33gV0HKKvWHxE3bxXAgJhZemQ8Iorj5uGAAAPtwcEpm7zrBRlpq766ZoivS75SpNXSOZrXbKQqup5F+MBoAYW8L+5//9k=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 150%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAeABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIEAwX/xAAYAQACAwAAAAAAAAAAAAAAAAACBAABA//aAAwDAQACEAMQAAABtZ1sIhgl6X5u4s4khMv/xAAdEAADAAICAwAAAAAAAAAAAAABAgMEEgATESMz/9oACAEBAAEFAknPQJPlwEdFBig2OV9F8dRYEZbe2NNWOVyr9rf/xAAZEQADAQEBAAAAAAAAAAAAAAAAAQIRAzH/2gAIAQMBAT8BXPVpXpNTg0tP/8QAFREBAQAAAAAAAAAAAAAAAAAAESD/2gAIAQIBAT8BY//EACEQAAIBAwMFAAAAAAAAAAAAAAABEQIhMQNRcRIiMmGx/9oACAEBAAY/AqW8tF/pFOxS2pcHfpR7kXBpzOBZsLgttc8TqiD/xAAdEAADAQEAAgMAAAAAAAAAAAAAARExIUGBYXGR/9oACAEBAAE/IWXL6NPhv0JlI6FaUcjsWEJSyRovQRlH6CfRK0OPhfIlcvLolCYQ/9oADAMBAAIAAwAAABAwwE//xAAYEQEAAwEAAAAAAAAAAAAAAAABABHwsf/aAAgBAwEBPxBqAUbVCDJSG5GJn//EABgRAQADAQAAAAAAAAAAAAAAAAEAEBEx/9oACAECAQE/EHDkOULk/8QAIBABAQACAAYDAAAAAAAAAAAAAREAITFBYXGRoVGB0f/aAAgBAQABPxAwQC33gV0HKKvWHxE3bxXAgJhZemQ8Ioq35uGAAAPtwcEpm7zrBRlpq766ZqivS75SpNXSOZrXbKRqup5F+MRgAwt4X9z/2Q==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -2051,10 +2067,11 @@ tags:
 /static/07959ea3469b0d5fb4c3027a23a31c6d/ebbe7/0.jpg 295w,
 /static/07959ea3469b0d5fb4c3027a23a31c6d/41689/0.jpg 400w&quot;
         sizes=&quot;(max-width: 400px) 100vw, 400px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;정말 재밌었다. 이게 마라톤인가 싶었다. 두 시간 정도밖에 안되는 짧은 시간이었지만 긍정적인 젊은 에너지도 많이 받았다. 이 맛에 다들 마라톤하는구나 싶었다. 이제 한번 끝났다. 그리고 고작 10Km 한번이다. 아직 최종 목표를 확실하게 정하지는 않았지만, 몇년 안에 풀코스에 도전해보고 싶다는 생각이 들었다. 지금은 마음뿐이지만 대회에 한번씩 참가하고 완주할 때 마다 도전은 현실이 될것이다. 다음 마라톤(아마도 춘천)이 기다려진다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[javascript] call by value]]></title><description><![CDATA[의문은 아래와 같은 코드에서 시작되었습니다.객체를 매개변수로 받는  함수에 새롭게 만든 객체를 인자로 전달하였습니다. 그리고  함수에서 obj 변수에 새로운 객체를 할당하였습니다. 과연 는 어떤 값이 출력될까요?Call By Value…]]></description><link>https://blueshw.github.io/2018/09/15/pass-by-reference/</link><guid isPermaLink="false">https://blueshw.github.io/2018/09/15/pass-by-reference/</guid><pubDate>Sat, 15 Sep 2018 20:18:08 GMT</pubDate><content:encoded>&lt;p&gt;의문은 아래와 같은 코드에서 시작되었습니다.&lt;/p&gt;
+&lt;p&gt;정말 재밌었다. 이게 마라톤인가 싶었다. 두 시간 정도밖에 안되는 짧은 시간이었지만 긍정적인 젊은 에너지도 많이 받았다. 이 맛에 다들 마라톤하는구나 싶었다. 이제 한번 끝났다. 그리고 고작 10Km 한번이다. 아직 최종 목표를 확실하게 정하지는 않았지만, 몇년 안에 풀코스에 도전해보고 싶다는 생각이 들었다. 지금은 마음뿐이지만 대회에 한번씩 참가하고 완주할 때 마다 도전은 현실이 될것이다. 다음 마라톤(아마도 춘천)이 기다려진다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[javascript] call by value]]></title><description><![CDATA[의문은 아래와 같은 코드에서 시작되었습니다. 객체를 매개변수로 받는  함수에 새롭게 만든 객체를 인자로 전달하였습니다. 그리고  함수에서 obj 변수에 새로운 객체를 할당하였습니다. 과연 는 어떤 값이 출력될까요? Call By Value…]]></description><link>https://blueshw.github.io/2018/09/15/pass-by-reference/</link><guid isPermaLink="false">https://blueshw.github.io/2018/09/15/pass-by-reference/</guid><pubDate>Sat, 15 Sep 2018 20:18:08 GMT</pubDate><content:encoded>&lt;p&gt;의문은 아래와 같은 코드에서 시작되었습니다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;javascript&quot;&gt;&lt;pre class=&quot;language-javascript&quot;&gt;&lt;code class=&quot;language-javascript&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;change&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token parameter&quot;&gt;obj&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
   obj &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; p1&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;100&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
@@ -2312,14 +2329,14 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;h3&gt;참고자료&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://codeburst.io/explaining-value-vs-reference-in-javascript-647a975e12a0&quot;&gt;https://codeburst.io/explaining-value-vs-reference-in-javascript-647a975e12a0&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[추리소설 작가의 힐링 소설 <나미야 잡화점의 기적 : 히가시노 게이고>]]></title><description><![CDATA[“아래 글에는 스포일러가 존재합니다”히가시노 게이고 작품 네번째, ‘나미야 잡화점의 기적’(이하 ‘나미야’)을 완독했다. 일본에서는 잘 모르겠지만, 한국에서는 48 쇄를 찍을 정도로 출간이후부터 꾸준히 팔리고 있다. 출간되고도…]]></description><link>https://blueshw.github.io/2018/09/04/healing_mystery/</link><guid isPermaLink="false">https://blueshw.github.io/2018/09/04/healing_mystery/</guid><pubDate>Tue, 04 Sep 2018 01:38:09 GMT</pubDate><content:encoded>&lt;p&gt;&lt;em&gt;“아래 글에는 스포일러가 존재합니다”&lt;/em&gt;&lt;/p&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[추리소설 작가의 힐링 소설 <나미야 잡화점의 기적 : 히가시노 게이고>]]></title><description><![CDATA[“아래 글에는 스포일러가 존재합니다” 히가시노 게이고 작품 네번째, ‘나미야 잡화점의 기적’(이하 ‘나미야’)을 완독했다. 일본에서는 잘 모르겠지만, 한국에서는 48 쇄를 찍을 정도로 출간이후부터 꾸준히 팔리고 있다. 출간되고도…]]></description><link>https://blueshw.github.io/2018/09/04/healing_mystery/</link><guid isPermaLink="false">https://blueshw.github.io/2018/09/04/healing_mystery/</guid><pubDate>Tue, 04 Sep 2018 01:38:09 GMT</pubDate><content:encoded>&lt;p&gt;&lt;em&gt;“아래 글에는 스포일러가 존재합니다”&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;히가시노 게이고 작품 네번째, ‘나미야 잡화점의 기적’(이하 ‘나미야’)을 완독했다. 일본에서는 잘 모르겠지만, 한국에서는 48 쇄를 찍을 정도로 출간이후부터 꾸준히 팔리고 있다. 출간되고도 2 쇄를 찍지 못하는 책들이 수두룩한 출판시장에서 &lt;em&gt;48 쇄&lt;/em&gt; 는 정말 경이로운 수치가 아닐 수 없다. 이전에 나왔던 ‘용의자 X 의 헌신’, ‘비밀’ 등 유명한 작품이 있었지만, 국내에서는 ‘나미야’를 통해 비로소 베스트셀러 작가에 이름을 올릴 수 있었다. 도대체 어떤 내용이길래 48 쇄나 되도록 꾸준함을 유지할 수 있었을까? 비로소 궁금함이 생겼다.&lt;/p&gt;
 &lt;p&gt;‘나미야’는 추리소설이 아니다. 굳이 장르를 따지자면, 판타지 힐링소설쯤 되겠다. 대부분의 작품이 추리소설인 전문 추리소설 작가가 판타지라니? 게다가 힐링? 도대체 잡화점이라는 소재로 어떤 이야기를 만들어 나갈지 추측할 수 없었다.&lt;/p&gt;
 &lt;p&gt;이야기의 시작은 세명의 루저(?) 청년들로 시작한다. 쇼타, 고헤이, 아쓰야 세사람은 아동복지시설 &lt;em&gt;‘환광원’&lt;/em&gt; 출신이다. 어렸을 때부터 부모의 사랑을 받지 못하고 자라온 이들은 어른이 되어도 사회에서 환영받지 못한다. 한명은 회사에서 잘렸고, 다른 한명은 회사가 망해서 실업자가 되었다. 또 다른 한명은 누명을 쓰고 쫓기는 중이다. 그렇게 도망다니던 3 인조는 우연히 낡고 오래된 ‘나미야 잡화점’에 숨어들게 된다. 잠시만 밤이슬을 피하려던 그들에게 갑자기 편지가 한통 도착하고 이 편지로 인해 그들의 인생은 완전히 뒤바껴 버린다. 분명히 아무도 살지 않는곳인데, 편지가 온걸 의아하게 여긴다. 밖으로 나가봐도 사람이 다녀간 흔적은 찾아볼 수 없다. 이상하게 생각한 이들은 편지를 뜯게되고, 이 편지가 상담편지임을 알게된다. 답장을 쓸 처지는 아니었지만, 시간도 때울겸 장난 반 진심 반으로 편지에 답장을 하기 시작한다.&lt;/p&gt;
 &lt;p&gt;30 여년전, 나미야 잡화점은 사람들의 ‘상담창구’였다. 처음에는 아이들의 장난스런 상담에 진심어린 답변을 해주던게 점점 커졌다. 나중에는 잠지에 실릴만큼 유명세를 타게된다. 어떤 상담에도 진심어린 답을 해주던 나미야 할아버지는 숨을 거두기 전, 아들에게 더이상 운영하지 않던 ‘나미야 잡화점’에 다시 한번 가자고 한다. 거기에서 미래에서 온 편지(그렇다. 나미야 잡화점은 시간을 초월하는 공간이다)를 읽은 나미야씨는 죽기전 아들에게 기묘한 유언을 전한다. 자신이 죽은뒤 30 주기가 되는 날, 단 하루만 ‘나미야 잡화점’을 다시 열어달라는 것이다. 아버지의 유언이 이상했지만, 잡화점에서 가지고 나온 편지들이 미래에서 온 것임을 알게된 아들은 아버지의 유지에 따라 정확히 30 년 후 ‘나미야 잡화점’을 연다. 그런데 우연히도 이날이 세명의 청년들이 잡화점에 숨어든 날이었다.&lt;/p&gt;
 &lt;p&gt;30 여년 간의 시간을 오가며 나미야 할아버지와 3 인조의 상담 내용이 교차된다. 수십년간 상담 전문가(?)로 활동한 나미야 할아버지는 모르겠지만, 상담과는 전혀 거리가 먼 3 인조의 상담 내용은 정말 형편없다. 하지만, 그 답장을 읽은 사람들은 이상하게도 스스로 답을 얻는다. 상담을 통해 점점 진실에 접근하던 3 인조는 모든 이의 상담이 자신들이 어린시절을 보냈던 ‘환광원’과 연결됨을 깨닫는다. 사실 ‘환광원’은 나미야 할아버지가 젊은 시절 사랑에 빠졌던 여인이 설립한 복지 재단이다. 무슨 이유에선지 모르겠지만 어떤 인연의 끈을 통해 ‘환광원’출신 사람들의 고민을 나미야 할아버지가 들어주게 된 것 같다. 결국 모든 사실을 알게된 3 인조는 스스로 잘못을 뉘우치고 새로운 삶을 살기로 결심하고 이야기는 막을 내린다.&lt;/p&gt;
 &lt;p&gt;‘나미야’는 정말 재미있는 소설임에는 틀림없다. 추리소설이라고 할 수는 없지만, 충분히 재미있는 요소를 갖추고 있다. 이야기의 중심 흐름은 모두 다르지만, 결국에는 ‘환광원’으로 연결된다. 30 년의 세월을 오가면서 오갔던 상담이나 잡화점에 들어오기 전 3 인조가 겪은 사건, 그리고 그들의 상담내용 모든 것들이 아우러져 하나의 거대한 이야기를 만들어낸다. 가히 수십년간 추리소설을 써온 작가의 내공이 느껴지는 부분이다.&lt;/p&gt;
-&lt;p&gt;그렇다고 완벽하지는 않다. 판타지며 SF 기 때문에 모른척 넘어갈 수 있는 부분이지만, 30 년의 시간이 어떤한 방식으로 연결되는지 그 인과관계는 명확히 드러나지 않는다. 또한 어째서 30 년 전의 편지 일부가 30 년 후의 3 인조에게 전달되는지도 아이러니하다. 아마도 나미야 할아버지가 죽고나서일듯 한데 정확히는 알수 없다. 또한 ‘환광원’을 설립한 여인과 나미야 할아버지가 젊은 시절 사랑하는 사이었다고 해서 ‘환광원’과 관계된 사람들의 고민을 들어준다는 설정 또한 당위성이 부족해보인다. 히가시노 게이고가 추리 작가가 아니었다면 그다지 아쉽다고 생각하지 않았을것 같다. 하지만, 치밀한 추리소설을 그렇게나 많이 집필한 히가시노 게이고기 때문에 아쉬운 마음은 어쩔수 없는것 같다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[롤모델이 독이 될지도 모른다.]]></title><description><![CDATA[‘롤모델’ 또는 ‘역할모델’은 위키피디아에 다음과 같이 정의되어 있다.” 역할 모델(Role model)은 어떤 한 사람을 정해, 그 사람을 표본으로 정하여 성숙할때까지 모델로 삼는 것을 말한다. 이 용어는 로버트 K. 머튼(Robert K…]]></description><link>https://blueshw.github.io/2018/08/31/disadvantages_role_model/</link><guid isPermaLink="false">https://blueshw.github.io/2018/08/31/disadvantages_role_model/</guid><pubDate>Fri, 31 Aug 2018 01:07:28 GMT</pubDate><content:encoded>&lt;p&gt;‘롤모델’ 또는 ‘역할모델’은 위키피디아에 다음과 같이 정의되어 있다.&lt;/p&gt;
+&lt;p&gt;그렇다고 완벽하지는 않다. 판타지며 SF 기 때문에 모른척 넘어갈 수 있는 부분이지만, 30 년의 시간이 어떤한 방식으로 연결되는지 그 인과관계는 명확히 드러나지 않는다. 또한 어째서 30 년 전의 편지 일부가 30 년 후의 3 인조에게 전달되는지도 아이러니하다. 아마도 나미야 할아버지가 죽고나서일듯 한데 정확히는 알수 없다. 또한 ‘환광원’을 설립한 여인과 나미야 할아버지가 젊은 시절 사랑하는 사이었다고 해서 ‘환광원’과 관계된 사람들의 고민을 들어준다는 설정 또한 당위성이 부족해보인다. 히가시노 게이고가 추리 작가가 아니었다면 그다지 아쉽다고 생각하지 않았을것 같다. 하지만, 치밀한 추리소설을 그렇게나 많이 집필한 히가시노 게이고기 때문에 아쉬운 마음은 어쩔수 없는것 같다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[롤모델이 독이 될지도 모른다.]]></title><description><![CDATA[‘롤모델’ 또는 ‘역할모델’은 위키피디아에 다음과 같이 정의되어 있다. ” 역할 모델(Role model)은 어떤 한 사람을 정해, 그 사람을 표본으로 정하여 성숙할때까지 모델로 삼는 것을 말한다. 이 용어는 로버트 K. 머튼(Robert K…]]></description><link>https://blueshw.github.io/2018/08/31/disadvantages_role_model/</link><guid isPermaLink="false">https://blueshw.github.io/2018/08/31/disadvantages_role_model/</guid><pubDate>Fri, 31 Aug 2018 01:07:28 GMT</pubDate><content:encoded>&lt;p&gt;‘롤모델’ 또는 ‘역할모델’은 위키피디아에 다음과 같이 정의되어 있다.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;” 역할 모델(Role model)은 어떤 한 사람을 정해, 그 사람을 표본으로 정하여 성숙할때까지 모델로 삼는 것을 말한다. 이 용어는 로버트 K. 머튼(Robert K. Merton)이 처음으로 사용하였다.”&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;쉽게 말해 &lt;em&gt;롤모델&lt;/em&gt; 은 내가 본받고 싶은 사람이다. 아직은 많이 부족하지만 미래에는 ‘저 사람처럼 살고싶다’고 느껴진다면, 그(녀)는 당신에게 롤모델이 될 수 있다. 롤모델이라는 말이 최근 십수년내에 많이 퍼졌지만, 우리는 이미 어렸을적부터 롤모델이 무언지 알고 있었다. 누구나 어렸을적에 한번쯤 위인전을 읽어보았거라 생각한다. 우리가 어렸을적에는 집집마다 위인전이 있었고, 학교에서도 가장 존경하는 인물이 누구냐는 질문을 수도 없이 들어왔다. 그게 바로 롤모델이다. 롤모델을 선정하는 것은 자신의 성장을 위해 가장 효과적인 방법중의 하나다. 롤모델의 생애와 업적를 따라가면서 그의 인생관이나 철학, 행동 등을 배울 수 있다.&lt;/p&gt;
 &lt;p&gt;우리가 어떤 문제에 직면했을때 본인의 판단으로 해결책을 선택할 수 있다. 하지만, 만약 자신의 롤모델이 있다면 그 사람은 이 상황에서 어떻게 행동하고 결정했을까를 상상해볼 수도 있다. 어떤 해결책이 더 낫다고 할 수 없지만, 적어도 내가 본받고 싶어하는 사람의&lt;/p&gt;
@@ -2349,7 +2366,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 177.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAkABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAECAwX/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAQL/2gAMAwEAAhADEAAAAfeTjNdRc6lRlpVgAf/EABsQAAIBBQAAAAAAAAAAAAAAAAABEBESMDFB/9oACAEBAAEFAlFEctFrD//EABURAQEAAAAAAAAAAAAAAAAAAAEg/9oACAEDAQE/AQr/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/AV//xAAWEAADAAAAAAAAAAAAAAAAAAAQMDH/2gAIAQEABj8CEb//xAAeEAADAAEEAwAAAAAAAAAAAAAAAREhEDFBYVFx8P/aAAgBAQABPyH0hNx8iD4leWYQydjswx2uIWOC9H22iyQ//9oADAMBAAIAAwAAABBT1cDzz//EABgRAQADAQAAAAAAAAAAAAAAAAEAICEx/9oACAEDAQE/EBescZtP/8QAFREBAQAAAAAAAAAAAAAAAAAAASD/2gAIAQIBAT8QWv/EAB0QAQACAgMBAQAAAAAAAAAAAAEAESExQWFxUfH/2gAIAQEAAT8QwExGu4E+rbbi3Z7qbTlSp+5GllTllrvCA7DZv2HGE4uUulBZe8rqY4EitRcp6Z//2Q==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 177.5%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAkABQDASIAAhEBAxEB/8QAGAABAQEBAQAAAAAAAAAAAAAAAAECAwX/xAAWAQEBAQAAAAAAAAAAAAAAAAAAAQL/2gAMAwEAAhADEAAAAfeTjNdRc6lRlpVgAf/EABsQAAIBBQAAAAAAAAAAAAAAAAABEBESMDFB/9oACAEBAAEFAlFEctFrD//EABURAQEAAAAAAAAAAAAAAAAAAAEg/9oACAEDAQE/AQr/xAAUEQEAAAAAAAAAAAAAAAAAAAAg/9oACAECAQE/AV//xAAWEAADAAAAAAAAAAAAAAAAAAAQMDH/2gAIAQEABj8CEb//xAAeEAADAAEEAwAAAAAAAAAAAAAAAREhEDFBYVFx8P/aAAgBAQABPyH0hNx8iD4leWYQydjswx2uIWOC9H22iyQ//9oADAMBAAIAAwAAABBT1cDzz//EABgRAQADAQAAAAAAAAAAAAAAAAEAICEx/9oACAEDAQE/EBesca//xAAVEQEBAAAAAAAAAAAAAAAAAAABIP/aAAgBAgEBPxBa/8QAHRABAAICAwEBAAAAAAAAAAAAAQARITFBYXFR8f/aAAgBAQABPxDATEa7gT6ttuLdnuptOVKn7kaWVOWWu8IDsNm/YcYTi5S6UFl7yupjgSK1Fynpn//Z&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -2360,6 +2377,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 /static/3d56012f3b75c49334ef2fb00494355c/ebbe7/0.jpg 295w,
 /static/3d56012f3b75c49334ef2fb00494355c/f562b/0.jpg 320w&quot;
         sizes=&quot;(max-width: 320px) 100vw, 320px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -2390,6 +2408,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 /static/f4d1ccd660d017151c56f0d014a37a12/ebbe7/1.jpg 295w,
 /static/f4d1ccd660d017151c56f0d014a37a12/f562b/1.jpg 320w&quot;
         sizes=&quot;(max-width: 320px) 100vw, 320px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -2422,7 +2441,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 58.29268292682927%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAwACBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAcu6BXQj/8QAGRAAAwEBAQAAAAAAAAAAAAAAAQIDABIE/9oACAEBAAEFAkl2CJ6CoyTmOR51ORAg/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAHRAAAQQCAwAAAAAAAAAAAAAAAAECIVEREiIxkf/aAAgBAQAGPwLLozQvFvguzG90RQsuIP/EABoQAQEBAQEBAQAAAAAAAAAAAAERACFRMUH/2gAIAQEAAT8hACKW+MYjmXuLjXgT6MUHHr9x1NWrcoK61u//2gAMAwEAAgADAAAAEEMP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAGhABAQADAQEAAAAAAAAAAAAAAREAIVFBMf/aAAgBAQABPxDY4DAlPnMl0bkdcw88YE0Efe4GSygx+h9y8RaCrbzGuV2RVfuf/9k=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 58.29268292682927%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAwACBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAcu6BXQj/8QAGRAAAwEBAQAAAAAAAAAAAAAAAQIDABIE/9oACAEBAAEFAkl2CJ6CoyTmOR51ORAg/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAHRAAAQQCAwAAAAAAAAAAAAAAAAECIVEREiIxkf/aAAgBAQAGPwLLozQvFvguzG90RQsuIP/EABoQAQEBAQEBAQAAAAAAAAAAAAERACFRMUH/2gAIAQEAAT8hACKW+MYjmXuLjXgT6MUHHr9x1NWrcoK61u//2gAMAwEAAgADAAAAEEMP/8QAFREBAQAAAAAAAAAAAAAAAAAAEDH/2gAIAQMBAT8Qh//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABoQAQEAAwEBAAAAAAAAAAAAAAERACFRQTH/2gAIAQEAAT8Q2OAwJT5zJdG5HXMPPGBNBH3uBksoMfofcvEWgq28xrldkVX7n//Z&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -2434,6 +2453,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 /static/83a55258757893f89c739e837d3472e2/c739e/0.jpg 590w,
 /static/83a55258757893f89c739e837d3472e2/1b844/0.jpg 820w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -2469,7 +2489,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAgX/xAAVAQEBAAAAAAAAAAAAAAAAAAACA//aAAwDAQACEAMQAAAB68O4Zp4gK//EABkQAAIDAQAAAAAAAAAAAAAAAAIDAAESE//aAAgBAQABBQJp81m2+rW0Jt0Y4Obn/8QAFhEBAQEAAAAAAAAAAAAAAAAAABEB/9oACAEDAQE/AYmP/8QAFhEBAQEAAAAAAAAAAAAAAAAAABIB/9oACAECAQE/AaVr/8QAGxAAAgMAAwAAAAAAAAAAAAAAAAECESEDMTL/2gAIAQEABj8CcqujjS8tFFYR6w1M/8QAGxABAAIDAQEAAAAAAAAAAAAAAQARMVFhQYH/2gAIAQEAAT8h8jGJugvsdoia7GpQu+uoi8/jP//aAAwDAQACAAMAAAAQQ8//xAAWEQEBAQAAAAAAAAAAAAAAAAAAEWH/2gAIAQMBAT8Qts//xAAXEQEAAwAAAAAAAAAAAAAAAAAAARFh/9oACAECAQE/EKSwf//EABwQAQACAgMBAAAAAAAAAAAAAAEAESExQVFhof/aAAgBAQABPxDMAMoauGurqrF0rfnUaIoGhl1s6Jf2LwyCtqdVzGpEs8L7uf/Z&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAgX/xAAVAQEBAAAAAAAAAAAAAAAAAAACA//aAAwDAQACEAMQAAAB68O4Zp4gK//EABkQAAIDAQAAAAAAAAAAAAAAAAIDAAESE//aAAgBAQABBQJp81m2+rW0Jt0Y4Obn/8QAFhEBAQEAAAAAAAAAAAAAAAAAABEB/9oACAEDAQE/AYmP/8QAFhEBAQEAAAAAAAAAAAAAAAAAABIB/9oACAECAQE/AaVr/8QAGxAAAgMAAwAAAAAAAAAAAAAAAAECESEDMTL/2gAIAQEABj8CcqujjS8tFFYR6w1M/8QAGxABAAIDAQEAAAAAAAAAAAAAAQARMVFhQYH/2gAIAQEAAT8h8jGJugvsdoia7GqlC766iLz+M//aAAwDAQACAAMAAAAQQ8//xAAWEQEBAQAAAAAAAAAAAAAAAAAAEWH/2gAIAQMBAT8Qts//xAAXEQEAAwAAAAAAAAAAAAAAAAAAARFh/9oACAECAQE/EKSwf//EABwQAQACAgMBAAAAAAAAAAAAAAEAETFRIUFhof/aAAgBAQABPxDmBaUNWYhrq6q4ulZ81GiKBgZdbNhf2LwyCtGq7jUiXPS+5n//2Q==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -2481,6 +2501,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 /static/ebfca6c43f7006ff5747b3b0c82343bc/c739e/0.jpg 590w,
 /static/ebfca6c43f7006ff5747b3b0c82343bc/1b844/0.jpg 820w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -2547,7 +2568,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMFAv/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAGjCciGgbB//8QAGhAAAwADAQAAAAAAAAAAAAAAAQIDABMUBP/aAAgBAQABBQK9dcpu1ac9Rj+gsInUekZ//8QAFREBAQAAAAAAAAAAAAAAAAAAABH/2gAIAQMBAT8BiP/EABYRAQEBAAAAAAAAAAAAAAAAAAARAf/aAAgBAgEBPwGrr//EABwQAAEFAAMAAAAAAAAAAAAAAAABAhESIRAxof/aAAgBAQAGPwJXQVzTHeitiS3fH//EABsQAQACAwEBAAAAAAAAAAAAAAEAETFBUSFh/9oACAEBAAE/IaGs4LhVttuTAIPkeRBIlss75Cqf/9oADAMBAAIAAwAAABAvz//EABcRAQADAAAAAAAAAAAAAAAAAAEQESH/2gAIAQMBAT8QReR//8QAGBEAAgMAAAAAAAAAAAAAAAAAARARITH/2gAIAQIBAT8QBReq/8QAGxABAQEBAQADAAAAAAAAAAAAAREhAEFRgdH/2gAIAQEAAT8QUmOBoqzet4KiIQWZ5+8Wpm6HQeZo5nz09gSHR70TF+nv/9k=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAMFAv/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAGjCciGgbB//8QAGxAAAgIDAQAAAAAAAAAAAAAAAQMAAgQTFBL/2gAIAQEAAQUCe3Wpd7NZztEvkegk6j0if//EABURAQEAAAAAAAAAAAAAAAAAAAAR/9oACAEDAQE/AYj/xAAWEQEBAQAAAAAAAAAAAAAAAAAAEQH/2gAIAQIBAT8Bq6//xAAcEAABBQADAAAAAAAAAAAAAAAAAQIREiEQMaH/2gAIAQEABj8CV0Fc0x3orYkt3x//xAAbEAEAAgMBAQAAAAAAAAAAAAABABExQVEhYf/aAAgBAQABPyGhrOC4VbbbkwCD5DeIJEtlnfIVT//aAAwDAQACAAMAAAAQL8//xAAWEQEBAQAAAAAAAAAAAAAAAAABEBH/2gAIAQMBAT8QRs//xAAXEQEAAwAAAAAAAAAAAAAAAAABEBEh/9oACAECAQE/EBVsX//EABoQAQEBAQEBAQAAAAAAAAAAAAERIQBBUYH/2gAIAQEAAT8QUnOBoqzet4KiIQWZ5xambocHwzRzPvTyBIdHvRMX87//2Q==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -2559,6 +2580,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 /static/d3869296d081b84a13e40d98934be686/c739e/0.jpg 590w,
 /static/d3869296d081b84a13e40d98934be686/e2ef7/0.jpg 728w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -2686,7 +2708,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABAACA//EABYBAQEBAAAAAAAAAAAAAAAAAAACA//aAAwDAQACEAMQAAAB4qOzG0W4/8QAGhABAAIDAQAAAAAAAAAAAAAAAQADAhITEf/aAAgBAQABBQJvBrNnlgTkSnI2T2f/xAAWEQEBAQAAAAAAAAAAAAAAAAABADH/2gAIAQMBAT8ByAv/xAAYEQADAQEAAAAAAAAAAAAAAAAAATECEf/aAAgBAgEBPwGwen0//8QAGhAAAgIDAAAAAAAAAAAAAAAAAAEQIRESUf/aAAgBAQAGPwKlkW0Uccf/xAAaEAADAAMBAAAAAAAAAAAAAAAAARExQWGh/9oACAEBAAE/IZSQVmHsxF6K9TsKaV2plx//2gAMAwEAAgADAAAAEIj/AP/EABcRAAMBAAAAAAAAAAAAAAAAAAARITH/2gAIAQMBAT8QuhKn/8QAFREBAQAAAAAAAAAAAAAAAAAAAQD/2gAIAQIBAT8QEZDIL//EAB4QAQEAAgICAwAAAAAAAAAAAAERACExQVFhcZHB/9oACAEBAAE/ENUQRjrR159uBgeYxslk6ziGvgv3MhrEYrS9YRcskq+d8b/MCqHEz//Z&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 75%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAPABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAABAACA//EABYBAQEBAAAAAAAAAAAAAAAAAAACA//aAAwDAQACEAMQAAAB4qOzG0W4/8QAGhABAAIDAQAAAAAAAAAAAAAAAQADAhITEf/aAAgBAQABBQJvCVmzywJyJTkbJ7P/xAAWEQEBAQAAAAAAAAAAAAAAAAABADH/2gAIAQMBAT8ByAv/xAAYEQADAQEAAAAAAAAAAAAAAAAAATECEf/aAAgBAgEBPwGwen0//8QAGhAAAgIDAAAAAAAAAAAAAAAAAAEQIRESUf/aAAgBAQAGPwKlkW0Uccf/xAAaEAADAAMBAAAAAAAAAAAAAAAAARExQWGh/9oACAEBAAE/IXUkFZh7MReivU7KU0rtTLj/2gAMAwEAAgADAAAAEIj/AP/EABcRAAMBAAAAAAAAAAAAAAAAAAARITH/2gAIAQMBAT8QuhKn/8QAFREBAQAAAAAAAAAAAAAAAAAAAQD/2gAIAQIBAT8QEcMgv//EAB4QAQEAAgICAwAAAAAAAAAAAAERACExQVFhcZHx/9oACAEBAAE/ENVQIx1o68+3AwPMY3iydZxDXwX7mQ1iMcC9YRcskq+d8fmBVCyZ/9k=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -2698,6 +2720,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 /static/a34310960988f4db3d16c1bba87a02e5/c739e/0.jpg 590w,
 /static/a34310960988f4db3d16c1bba87a02e5/1b844/0.jpg 820w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -2720,7 +2743,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 &lt;p&gt;내 삶을 개선하기 위해서 매일 글을 쓰기로 다짐했지만(주 5 일이면 좋겠다), 이것 역시 위에서 소개한 글쓰기 책에서 소개한 방법이다. 그럼에도 이를 선택하기로 한것은 ‘쓰기’라는 행위에 대한 믿음 때문이다. 쓰기, 특히 나에대한 쓰기는 반드시 자아성찰을 동반한다. 나의 과거, 현재, 미래, 내가 좋아하는것, 내가 싫어하는것, 나의 신념, 이런 주제들로 글을 쓰다보면 자연스럽게 내 자신에게 되물을수 밖에 없다. 처음에는 작가들의 에세이 처럼 잘 쓸 필요도 없다. 일기를 쓰듯 자연스럽고 부담없이 쓰면된다.&lt;/p&gt;
 &lt;p&gt;꾸준한 글쓰기를 시도하는게 처음은 아니다. 이전에도 블로그를 통해 몇번이고 시도했지만 번번히 실패하고 말았다. how(방법)가 잘못된것은 아니었다. what(무엇)이 잘못되어서 실패한것이라 생각한다. 블로그를 시작할때 언제나 어떤 분야의 전문적인 글을 쓰기를 원했다. 그리고 이미 성공한 사람들처럼 되고 싶었고, 그들의 수준만큼 쓰고 싶었다. 하나의 글을 쓰기위해 여러 책을 읽고 자료를 찾고 분석하는 작업에
 몇시간을 투자했다. 하나의 글이 완성되기까지 많은 시간이 소요 되었고, 글쓰는 습관이 들기는 커녕 점점 지쳐서 포기하기 일수였다.&lt;/p&gt;
-&lt;p&gt;조금 내려놓고 생각하기로 했다. 글을 잘쓰고 싶은 욕구는 더 커졌지만, 급하게 생각하지 않기로 했다. 3 년간만 써볼 생각이다. 우선은 자신에대한 글을 쓰면서 자기다움을 찾는게 먼저다. 남들이 이뤄논 멋있어 보이는 삶이 아니라 내가 정말 좋아하는 일로 가득한 삶이면 좋겠다. 지금의 쓰기가 그런 삶으로 이끌어주길 바란다. 나도 언제든 지독한 병에 걸려 시한부 선고를 받을 수 있다. 내 인생에서 남은 시간이 얼마나 될지는 아무도 모른다. 그래서 더더욱 남을 모방하는 삶을 살고 싶지는 않다. 오롯이 나를 위한 삶을 살고 싶다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[리액트(react)에서 이벤트 버블링(bubbling)과 캡쳐링(capturing) 사용하기]]></title><description><![CDATA[이벤트 버블링 / 캡쳐링특정 DOM 노드에서 발생한 이벤트는 부모 또는 자식으로 전파됩니다. 자기자신(currentTarget)에서 부모로 전파되면 이벤트 버블링(event bubbling…]]></description><link>https://blueshw.github.io/2018/04/23/event-bubbling-capturing/</link><guid isPermaLink="false">https://blueshw.github.io/2018/04/23/event-bubbling-capturing/</guid><pubDate>Mon, 23 Apr 2018 01:38:51 GMT</pubDate><content:encoded>&lt;h3&gt;이벤트 버블링 / 캡쳐링&lt;/h3&gt;
+&lt;p&gt;조금 내려놓고 생각하기로 했다. 글을 잘쓰고 싶은 욕구는 더 커졌지만, 급하게 생각하지 않기로 했다. 3 년간만 써볼 생각이다. 우선은 자신에대한 글을 쓰면서 자기다움을 찾는게 먼저다. 남들이 이뤄논 멋있어 보이는 삶이 아니라 내가 정말 좋아하는 일로 가득한 삶이면 좋겠다. 지금의 쓰기가 그런 삶으로 이끌어주길 바란다. 나도 언제든 지독한 병에 걸려 시한부 선고를 받을 수 있다. 내 인생에서 남은 시간이 얼마나 될지는 아무도 모른다. 그래서 더더욱 남을 모방하는 삶을 살고 싶지는 않다. 오롯이 나를 위한 삶을 살고 싶다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[리액트(react)에서 이벤트 버블링(bubbling)과 캡쳐링(capturing) 사용하기]]></title><description><![CDATA[이벤트 버블링 / 캡쳐링 특정 DOM 노드에서 발생한 이벤트는 부모 또는 자식으로 전파됩니다. 자기자신(currentTarget)에서 부모로 전파되면 이벤트 버블링(event bubbling…]]></description><link>https://blueshw.github.io/2018/04/23/event-bubbling-capturing/</link><guid isPermaLink="false">https://blueshw.github.io/2018/04/23/event-bubbling-capturing/</guid><pubDate>Mon, 23 Apr 2018 01:38:51 GMT</pubDate><content:encoded>&lt;h3&gt;이벤트 버블링 / 캡쳐링&lt;/h3&gt;
 &lt;p&gt;특정 DOM 노드에서 발생한 이벤트는 부모 또는 자식으로 전파됩니다. 자기자신(currentTarget)에서 부모로 전파되면 이벤트 버블링(event bubbling)이라 하고, 부모에서 자기 자신으로 전파되면 이벤트 캡쳐링(event capturing)이라 합니다. 이벤트가 발생하면 우선 window 부터 target node 까지 이벤트 캡쳐링합니다&lt;code class=&quot;language-text&quot;&gt;(capture phase(1))&lt;/code&gt;. 그 다음 타켓 노드에 이벤트가 발생&lt;code class=&quot;language-text&quot;&gt;(target phase(2))&lt;/code&gt;하고 마지막으로 이벤트를 한단계씩 상위로 버블링&lt;code class=&quot;language-text&quot;&gt;(bubbling phase(3))&lt;/code&gt;합니다. (이미지 출처: www.w3.org)&lt;/p&gt;
 &lt;p&gt;&lt;span
       class=&quot;gatsby-resp-image-wrapper&quot;
@@ -2740,6 +2763,7 @@ console&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 /static/137b0f890dd0d1d21a6c40b0aeafe49a/b9e4f/event.png 590w,
 /static/137b0f890dd0d1d21a6c40b0aeafe49a/840a7/event.png 661w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;이벤트 발생 시점이 다르기 때문에 이벤트 핸들러를 &lt;code class=&quot;language-text&quot;&gt;binding&lt;/code&gt;할때 주의가 필요합니다. 보통은 아래처럼 작성합니다. 세번째 인자가 없거나 &lt;code class=&quot;language-text&quot;&gt;false&lt;/code&gt;면 버블링, &lt;code class=&quot;language-text&quot;&gt;true&lt;/code&gt;면 캡쳐링시에 이벤트가 발생합니다. target 노드는 바인딩 방식과는 상관없이 캡쳐링이 끝나면 이벤트가 발생합니다.&lt;/p&gt;
@@ -2767,6 +2791,7 @@ element&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 /static/df1f9994100d0a8207c624d44049ed75/b9e4f/mobile.png 590w,
 /static/df1f9994100d0a8207c624d44049ed75/4a38b/mobile.png 770w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
     &lt;/span&gt;&lt;/p&gt;
 &lt;p&gt;가운데 영역을 터치해서 메뉴가 오픈된 상태에서 왼쪽 버튼을 터치합니다. 이 영역은 페이지를 좌측으로 이동하는 영역과 겹쳐있습니다. 터치이벤트가 발생하면 좌측 페이지로 이동하는 이벤트와 &lt;code class=&quot;language-text&quot;&gt;홈&lt;/code&gt; 버튼의 터치 이벤트가 발생합니다. 일반적으로 전체 영역(window or document)은 홈버튼의 부모 노드입니다. 이 때 전체영역과 홈버튼의 이벤트를 어떻게 바인딩(캡쳐링 or 버블링)했냐에 따라 이벤트 발생 순서는 완전히 바뀝니다. 일반적으로 세번째 인자를 쓰지 않고(or false) 바인딩하면, &lt;code class=&quot;language-text&quot;&gt;bubbling&lt;/code&gt; 시점에 이벤트가 발생합니다. target 노드인 leftButton 의 이벤트가 먼저 발생합니다. 그 후에 이벤트가 부모로 버블링되면서 window 의 click 이벤트가 발생합니다.&lt;/p&gt;
@@ -2874,6 +2899,7 @@ npm run build &amp;amp;&amp;amp; npm start (production 환경)&lt;/code&gt;&lt;/
         srcset=&quot;/static/faa3f167219e54017debe5dac62c1eb6/cf440/index.png 148w,
 /static/faa3f167219e54017debe5dac62c1eb6/b100d/index.png 264w&quot;
         sizes=&quot;(max-width: 264px) 100vw, 264px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -2905,6 +2931,7 @@ npm run build &amp;amp;&amp;amp; npm start (production 환경)&lt;/code&gt;&lt;/
 /static/cd5af43df60eb4c52cbab1e9cf87d71a/d2d38/ssr.png 295w,
 /static/cd5af43df60eb4c52cbab1e9cf87d71a/a9e6e/ssr.png 570w&quot;
         sizes=&quot;(max-width: 570px) 100vw, 570px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -3056,6 +3083,7 @@ npm run build &amp;amp;&amp;amp; npm start (production 환경)&lt;/code&gt;&lt;/
 /static/916e1dc1af2887386c004b096a5ee574/d2d38/context.png 295w,
 /static/916e1dc1af2887386c004b096a5ee574/90a59/context.png 307w&quot;
         sizes=&quot;(max-width: 307px) 100vw, 307px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -3117,7 +3145,7 @@ npm run build &amp;amp;&amp;amp; npm start (production 환경)&lt;/code&gt;&lt;/
 &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=WhWqy-vxKS8&amp;#x26;t=204s&quot;&gt;https://www.youtube.com/watch?v=WhWqy-vxKS8&amp;#x26;t=204s&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://velopert.com/3606&quot;&gt;https://velopert.com/3606&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=v6iR3Zk4oDY&quot;&gt;https://www.youtube.com/watch?v=v6iR3Zk4oDY&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[[CSS] styled-jsx 버그 보고 경험기 (사실은 stylis js 버그)]]></title><description><![CDATA[CSS 는 일련의 가중치에 따라서 어떤 속성을 우선적으로 적용할 것인지 결정합니다. 우선순위에 대한 정보는 조금만 검색해보면 나오므로 간단히 링크로 대체합니다.현재 회사에서는 nextjs((https://github.com/zeit/next.js…]]></description><link>https://blueshw.github.io/2018/03/25/priority-css-selector/</link><guid isPermaLink="false">https://blueshw.github.io/2018/03/25/priority-css-selector/</guid><pubDate>Sun, 25 Mar 2018 12:09:41 GMT</pubDate><content:encoded>&lt;p&gt;CSS 는 일련의 가중치에 따라서 어떤 속성을 우선적으로 적용할 것인지 결정합니다. 우선순위에 대한 정보는 조금만 검색해보면 나오므로 간단히 &lt;a href=&quot;https://gist.github.com/mjj2000/5873872&quot;&gt;링크&lt;/a&gt;로 대체합니다.&lt;/p&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[[CSS] styled-jsx 버그 보고 경험기 (사실은 stylis js 버그)]]></title><description><![CDATA[CSS 는 일련의 가중치에 따라서 어떤 속성을 우선적으로 적용할 것인지 결정합니다. 우선순위에 대한 정보는 조금만 검색해보면 나오므로 간단히 링크로 대체합니다. 현재 회사에서는 nextjs((https://github.com/zeit/next.js…]]></description><link>https://blueshw.github.io/2018/03/25/priority-css-selector/</link><guid isPermaLink="false">https://blueshw.github.io/2018/03/25/priority-css-selector/</guid><pubDate>Sun, 25 Mar 2018 12:09:41 GMT</pubDate><content:encoded>&lt;p&gt;CSS 는 일련의 가중치에 따라서 어떤 속성을 우선적으로 적용할 것인지 결정합니다. 우선순위에 대한 정보는 조금만 검색해보면 나오므로 간단히 &lt;a href=&quot;https://gist.github.com/mjj2000/5873872&quot;&gt;링크&lt;/a&gt;로 대체합니다.&lt;/p&gt;
 &lt;p&gt;현재 회사에서는 [nextjs]((&lt;a href=&quot;https://github.com/zeit/next.js/&quot;&gt;https://github.com/zeit/next.js/&lt;/a&gt;)를 사용한 프로젝트를 진행하고 있습니다. nextjs 는 서버사이드렌더링(SSR)을 지원하는 리액트 전용 프레임워크입니다. &lt;a href=&quot;https://github.com/facebook/create-react-app&quot;&gt;create-react-app&lt;/a&gt;처럼 &lt;code class=&quot;language-text&quot;&gt;non-configuration&lt;/code&gt;을 지향하며 create-react-app 과는 다르게 일부 설정을 수정할 수 있습니다. nextjs 는 내부적으로 다양한 라이브러리들이 사용되고 있는데, react 컴포넌트(jsx)에서 CSS 코드를 작성하기 위해서 &lt;a href=&quot;https://github.com/zeit/styled-jsx&quot;&gt;styled-jsx&lt;/a&gt;를 사용합니다.&lt;/p&gt;
 &lt;p&gt;styled-jsx 는 서버와 클라이언트에서 모두 사용가능하고, 컴포넌트별 scope 를 지원합니다. 컴포넌트 scope 를 지원하기 위한 방법으로 &lt;code class=&quot;language-text&quot;&gt;.jsx-xxxxxxxx&lt;/code&gt;과 같은 클래스를 css 정의 요소에 붙여주는데요. 덕분에 대체로 아주 편리하게 사용하고 있었지만, 최근 한 가지 문제점을 발견했습니다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
@@ -3200,6 +3228,7 @@ npm run build &amp;amp;&amp;amp; npm start (production 환경)&lt;/code&gt;&lt;/
 /static/d4e3eac6221aaeadf7e575630b53c238/d2d38/bug.png 295w,
 /static/d4e3eac6221aaeadf7e575630b53c238/24b80/bug.png 371w&quot;
         sizes=&quot;(max-width: 371px) 100vw, 371px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -3268,6 +3297,7 @@ npm run build &amp;amp;&amp;amp; npm start (production 환경)&lt;/code&gt;&lt;/
 /static/740aab954b6686ffd971cc5e8e72ce9d/b9e4f/answer.png 590w,
 /static/740aab954b6686ffd971cc5e8e72ce9d/5d21f/answer.png 689w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -3393,7 +3423,7 @@ exports&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;returnFirst
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://facebook.github.io/jest/docs/en/mock-functions.html&quot;&gt;https://facebook.github.io/jest/docs/en/mock-functions.html&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://medium.com/@deanslamajr/jest-fn-all-the-things-d26f3b929986&quot;&gt;https://medium.com/@deanslamajr/jest-fn-all-the-things-d26f3b929986&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[[javascript] this는 어렵지 않습니다.]]></title><description><![CDATA[this 는 어렵지 않습니다.this 를 어렴풋이 알고는 있지만, 누가 물어봤을때 제대로 대답해 줄수 있도록 정리해보겠습니다. 많은 개발자들이 javascript 의 this…]]></description><link>https://blueshw.github.io/2018/03/12/this/</link><guid isPermaLink="false">https://blueshw.github.io/2018/03/12/this/</guid><pubDate>Mon, 12 Mar 2018 01:42:51 GMT</pubDate><content:encoded>&lt;p&gt;this 는 어렵지 않습니다.&lt;/p&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[[javascript] this는 어렵지 않습니다.]]></title><description><![CDATA[this 는 어렵지 않습니다. this 를 어렴풋이 알고는 있지만, 누가 물어봤을때 제대로 대답해 줄수 있도록 정리해보겠습니다. 많은 개발자들이 javascript 의 this…]]></description><link>https://blueshw.github.io/2018/03/12/this/</link><guid isPermaLink="false">https://blueshw.github.io/2018/03/12/this/</guid><pubDate>Mon, 12 Mar 2018 01:42:51 GMT</pubDate><content:encoded>&lt;p&gt;this 는 어렵지 않습니다.&lt;/p&gt;
 &lt;p&gt;this 를 어렴풋이 알고는 있지만, 누가 물어봤을때 제대로 대답해 줄수 있도록 정리해보겠습니다. 많은 개발자들이 javascript 의 this 를 혼란스러워합니다. 사실 개념 자체가 어렵진 않습니다. 다만, 다른 프로그래밍 언어들과 사용법에 차이가 있을 뿐이죠. 언어마다 조금은 차이가 있겠지만 대표적으로 JAVA 같은 객체지향 언어에서의 this 는 클래스 인스턴스의 레퍼런스 변수입니다. 하지만 javascript 에서 this 는 전혀 다른 의미를 가집니다. 개발을 시작하고 처음으로 javascript 를 접한 개발자라면 조금 덜 혼란스러울지도 모르겠지만, 많은 개발자들이 C, C++, Java, python 등의 언어를 먼저 배운 뒤 javascript 를 접하는 케이스가 많습니다. 또한, Jquery 등의 라이브러리에 의존하는 경향 때문에 언어 자체의 문법이나 특성의 이해보다는 사용법만 습득하기도 하죠. 이런 경우, javascript 의 this 가 충분히 혼란스러울수 있을것 같습니다.&lt;/p&gt;
 &lt;h3&gt;this 는 현재 실행 문맥이다&lt;/h3&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;실행문맥&lt;/code&gt;이란 말은 호출자가 누구냐는 것과 같습니다.&lt;/p&gt;
@@ -3945,7 +3975,7 @@ click - click - mutate - timeout - promise - timeout - promise&lt;/code&gt;&lt;/
 (mutate 가 한번만 출력되는 이유는 하나의 mutation microtask 가 등록되어 있으면 다른 mutation task 를 등록할 수 없기 때문)&lt;/p&gt;
 &lt;p&gt;결론은 역시(?) 크롬이 제대로된 결과를 출력한다는 것.&lt;/p&gt;
 &lt;p&gt;위에서 언급했던것 처럼 리스너 콜백이 호출된 후 자바스크립트 실행 스택이 비어있는 경우에만 microtask 체크를 수행하기 때문에 &lt;code class=&quot;language-text&quot;&gt;inner.click()&lt;/code&gt;으로 메서드가 호출중인 상태에서는 microtask 체크가 진행되지 않는다.&lt;/p&gt;
-&lt;p&gt;이전에 보았던 예제에서는 microtask 가 리스너 콜백 사이에서 실행되었지만(사용자에 의해 클릭 동작이 처리되었으므로) &lt;code class=&quot;language-text&quot;&gt;.click()&lt;/code&gt;은 동기적으로 이벤트가 전달되므로 &lt;code class=&quot;language-text&quot;&gt;.click()&lt;/code&gt;을 호출하는 스크립트는 여전히 콜백 사이의 스택에 남아있게 된다. 이 규칙은 자바스크립트가 실행중일 때는 microtask 가 끼어들지 못한다는 것을 보장한다. 이는 우리가 리스너 콜백 사이에서 microtask 를 처리하지 못하고 모든 리스너가 실행된 후에 처리된다는 것을 의미한다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[ES6, react] 리액트에서 화살표 함수(arrow function)는 선택이 아닌 필수]]></title><description><![CDATA[리액트를 개발하다보면 이런 코드를 본적 있을것입니다.this(아마도 react 클래스 객체)에 속한 어떤 메서드를 다시 this 에 bind…]]></description><link>https://blueshw.github.io/2017/07/01/arrow-function/</link><guid isPermaLink="false">https://blueshw.github.io/2017/07/01/arrow-function/</guid><pubDate>Sat, 01 Jul 2017 13:00:01 GMT</pubDate><content:encoded>&lt;p&gt;리액트를 개발하다보면 이런 코드를 본적 있을것입니다.&lt;/p&gt;
+&lt;p&gt;이전에 보았던 예제에서는 microtask 가 리스너 콜백 사이에서 실행되었지만(사용자에 의해 클릭 동작이 처리되었으므로) &lt;code class=&quot;language-text&quot;&gt;.click()&lt;/code&gt;은 동기적으로 이벤트가 전달되므로 &lt;code class=&quot;language-text&quot;&gt;.click()&lt;/code&gt;을 호출하는 스크립트는 여전히 콜백 사이의 스택에 남아있게 된다. 이 규칙은 자바스크립트가 실행중일 때는 microtask 가 끼어들지 못한다는 것을 보장한다. 이는 우리가 리스너 콜백 사이에서 microtask 를 처리하지 못하고 모든 리스너가 실행된 후에 처리된다는 것을 의미한다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[ES6, react] 리액트에서 화살표 함수(arrow function)는 선택이 아닌 필수]]></title><description><![CDATA[리액트를 개발하다보면 이런 코드를 본적 있을것입니다. this(아마도 react 클래스 객체)에 속한 어떤 메서드를 다시 this 에 bind…]]></description><link>https://blueshw.github.io/2017/07/01/arrow-function/</link><guid isPermaLink="false">https://blueshw.github.io/2017/07/01/arrow-function/</guid><pubDate>Sat, 01 Jul 2017 13:00:01 GMT</pubDate><content:encoded>&lt;p&gt;리액트를 개발하다보면 이런 코드를 본적 있을것입니다.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;jsx&quot;&gt;&lt;pre class=&quot;language-jsx&quot;&gt;&lt;code class=&quot;language-jsx&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;someFunction&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;bind&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token keyword&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;this(아마도 react 클래스 객체)에 속한 어떤 메서드를 다시 this 에 bind 한다라?? 굳이 왜 이런짓을 해야하는지 의문이 들만합니다.&lt;/p&gt;
 &lt;p&gt;리액트에서 이러한 코드가 빈번하게 작성되는 이유를 알기 위해서 우선 &lt;code class=&quot;language-text&quot;&gt;bind()&lt;/code&gt;가 무슨 역할을 하는지부터 알아보겠습니다.&lt;/p&gt;
@@ -4018,6 +4048,7 @@ objA&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class
 /static/dd9e929e444a704bee081d20bb5eec3f/f9b6a/bind.png 885w,
 /static/dd9e929e444a704bee081d20bb5eec3f/356ef/bind.png 929w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -4064,6 +4095,7 @@ objA&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class
 /static/926c1336fb351d657eafc19b76819691/f9b6a/withoutbind.png 885w,
 /static/926c1336fb351d657eafc19b76819691/356ef/withoutbind.png 929w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -4414,6 +4446,7 @@ ReactDOM&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span c
 /static/fb1092558d8f5b50a2ba2af3b262bc43/2d849/result.png 1180w,
 /static/fb1092558d8f5b50a2ba2af3b262bc43/f3d76/result.png 1852w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -4572,6 +4605,7 @@ v4 에서는 라우트 컴포넌트 내에 직접 다른 컴포넌트를 붙여�
 /static/fb1092558d8f5b50a2ba2af3b262bc43/2d849/result.png 1180w,
 /static/fb1092558d8f5b50a2ba2af3b262bc43/f3d76/result.png 1852w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -4627,7 +4661,7 @@ cd react-test&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;참고자료&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;a href=&quot;https://github.com/facebookincubator/create-react-app&quot;&gt;create-react-app github&lt;/a&gt; &gt; &lt;a href=&quot;https://github.com/facebookincubator/create-react-app/tree/master/packages/react-scripts/template&quot;&gt;craete-react-app 가이드 문서&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[[javascript] require vs import (CommonJs와 ES6)]]></title><description><![CDATA[CommonJs, AMD, ES6 Modulerequire 와 import 에 대해서 비교해 보기 위해서는 우선 CommonJs와 AMD(Asynchronous Module Definition), ES…]]></description><link>https://blueshw.github.io/2017/05/16/ES-require-vs-import/</link><guid isPermaLink="false">https://blueshw.github.io/2017/05/16/ES-require-vs-import/</guid><pubDate>Tue, 16 May 2017 23:59:31 GMT</pubDate><content:encoded>&lt;h2&gt;CommonJs, AMD, ES6 Module&lt;/h2&gt;
+&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[[javascript] require vs import (CommonJs와 ES6)]]></title><description><![CDATA[CommonJs, AMD, ES6 Module require 와 import 에 대해서 비교해 보기 위해서는 우선 CommonJs와 AMD(Asynchronous Module Definition), ES…]]></description><link>https://blueshw.github.io/2017/05/16/ES-require-vs-import/</link><guid isPermaLink="false">https://blueshw.github.io/2017/05/16/ES-require-vs-import/</guid><pubDate>Tue, 16 May 2017 23:59:31 GMT</pubDate><content:encoded>&lt;h2&gt;CommonJs, AMD, ES6 Module&lt;/h2&gt;
 &lt;p&gt;require 와 import 에 대해서 비교해 보기 위해서는 우선 &lt;a href=&quot;http://www.commonjs.org/&quot;&gt;CommonJs&lt;/a&gt;와 &lt;a href=&quot;https://github.com/amdjs/amdjs-api/wiki/AMD&quot;&gt;AMD(Asynchronous Module Definition)&lt;/a&gt;, ES6 내장모듈과 같은 자바스크립트의 모듈 시스템에 대해 알고 있어야 합니다. 모듈에 대한 본격적인 포스팅이 아니기 때문에 깊게 다루진 않겠습니다(사실 자세히 모르게도 합니다ㅠ).&lt;/p&gt;
 &lt;p&gt;기존의 자바스크립트(ES5, 현재 대부분의 브라우저에서 지원하는 자바스크립트 문법)는 모듈이라는 개념이 부족하여 각 모듈(또는 파일)간의 의존성 처리에 제한이 있었습니다. 고전적인 웹 프로젝트에서 자바스크립트를 사용하는 방법을 살펴보면, HTML 파일내부에 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;script&amp;gt;&lt;/code&gt; 태그를 삽입하여 모듈을 로드하고 있습니다. 하지만 이런 방식은 한가지 문제가 있는데, 자바스크립트 파일(또는 모듈)끼리 서로 모듈을 공유하는데 제약이 없다는점입니다. 그 이유는 script 태그로 로드된 모듈은 모두 window 객체의 속성이기 때문에 서로 다른 파일에 위치하면서도 모든 객체를 공유할 수 있기 때문입니다. 이처럼 각 자바스크립트 파일이 독립적으로 존재하지 못해 발생하는 여러 문제들(예를들어 다른 파일에서 같은 이름의 변수를 사용하는 경우) 때문에 하나의 모듈로 관리하기위한 다양한 패턴(모듈패턴, 즉시실행함수 등)을 사용하여 의존성을 관리할 수 밖에 없었습니다.&lt;/p&gt;
 &lt;p&gt;이를 해결하기 위한 수단으로 모듈이라는 개념을 도입하여 정의한 방법(또는 표준)이 CommonJs 와 AMD 입니다. 이 둘은 내부적으로 모듈 서로 간의 의존성(로드)이 지원되지 않는 상태로 만들어졌는데, ES6 에 이르러 언어 내부적으로 자바스크립트 모듈 의존성을 지원하게 되었습니다(import, export).&lt;/p&gt;
@@ -4879,6 +4913,7 @@ ln -s ~/Dropbox/Sublime/User&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 /static/cac0ac739ec96de3e33ed95d29be7269/f9b6a/sublime-before.png 885w,
 /static/cac0ac739ec96de3e33ed95d29be7269/943a9/sublime-before.png 1061w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -4909,6 +4944,7 @@ ln -s ~/Dropbox/Sublime/User&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 /static/0bc4e2c7a1ff2099e80f4510acc810ec/f9b6a/sublime-after.png 885w,
 /static/0bc4e2c7a1ff2099e80f4510acc810ec/943a9/sublime-after.png 1061w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -4920,7 +4956,7 @@ ln -s ~/Dropbox/Sublime/User&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;blockquote&gt;
 &lt;p&gt;패키지 정보가 들어있는 User 정보를 dropbox 로 이동하고 해당 폴더를 simbolic link 로 바라보게 만든다.
 이렇게 되면 내 sublime 정보가 dropbox 에만 존재하므로, 어느 기기에서 사용하더라도 동일한 환경으로 설정이 가능하다.&lt;/p&gt;
-&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[[ionic] ionic 개발에 필요한 것들]]></title><description><![CDATA[ionic 개발에 필요한 것들기본적으로 ionic, nodejs, cordova 등만 있어도 개발은 가능하겠지만, 안드로이드 에뮬레이터 실행을 위해서는 jdk 설치가 필요하겠고, ios 에뮬레이터 실행을 위해서는 xcode…]]></description><link>https://blueshw.github.io/2016/11/16/ionic-install/</link><guid isPermaLink="false">https://blueshw.github.io/2016/11/16/ionic-install/</guid><pubDate>Wed, 16 Nov 2016 01:14:00 GMT</pubDate><content:encoded>&lt;h2&gt;ionic 개발에 필요한 것들&lt;/h2&gt;
+&lt;/blockquote&gt;</content:encoded></item><item><title><![CDATA[[ionic] ionic 개발에 필요한 것들]]></title><description><![CDATA[ionic 개발에 필요한 것들 기본적으로 ionic, nodejs, cordova 등만 있어도 개발은 가능하겠지만, 안드로이드 에뮬레이터 실행을 위해서는 jdk 설치가 필요하겠고, ios 에뮬레이터 실행을 위해서는 xcode…]]></description><link>https://blueshw.github.io/2016/11/16/ionic-install/</link><guid isPermaLink="false">https://blueshw.github.io/2016/11/16/ionic-install/</guid><pubDate>Wed, 16 Nov 2016 01:14:00 GMT</pubDate><content:encoded>&lt;h2&gt;ionic 개발에 필요한 것들&lt;/h2&gt;
 &lt;p&gt;기본적으로 ionic, nodejs, cordova 등만 있어도 개발은 가능하겠지만, 안드로이드 에뮬레이터 실행을 위해서는 jdk 설치가 필요하겠고, ios 에뮬레이터 실행을 위해서는 xcode 설치도 필수가 되겠다(아래에선 생략한다). 그리고 ionic 과 관련해서 설치해두면 편리하게 사용할 수 있는 모듈들을 몇개 추려봤다.&lt;/p&gt;
 &lt;p&gt;참고로 아직 ionic 파악이 덜 끝난 상태이므로 해당 리스트는 추가되거나 삭제될 수 있다.&lt;/p&gt;
 &lt;h4&gt;JAVA&lt;/h4&gt;
@@ -5006,7 +5042,7 @@ ionic run ios
 
 # android 추가
 ionic platform add android&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;참고자료 : &lt;a href=&quot;http://blog.saltfactory.net/ionic/start-ionic-edge-book.html&quot;&gt;http://blog.saltfactory.net/ionic/start-ionic-edge-book.html&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[coursera] AngularJS week 4]]></title><description><![CDATA[Client-Server Communication and Angular TestingNetworking Essentials이번 챕터에서는 클라이언트 서버 구조에서 AngularJS…]]></description><link>https://blueshw.github.io/2016/10/02/frontend-javascript-framework-angularjs-week4/</link><guid isPermaLink="false">https://blueshw.github.io/2016/10/02/frontend-javascript-framework-angularjs-week4/</guid><pubDate>Sun, 02 Oct 2016 17:38:30 GMT</pubDate><content:encoded>&lt;h2&gt;Client-Server Communication and Angular Testing&lt;/h2&gt;
+&lt;p&gt;참고자료 : &lt;a href=&quot;http://blog.saltfactory.net/ionic/start-ionic-edge-book.html&quot;&gt;http://blog.saltfactory.net/ionic/start-ionic-edge-book.html&lt;/a&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[coursera] AngularJS week 4]]></title><description><![CDATA[Client-Server Communication and Angular Testing Networking Essentials 이번 챕터에서는 클라이언트 서버 구조에서 AngularJS…]]></description><link>https://blueshw.github.io/2016/10/02/frontend-javascript-framework-angularjs-week4/</link><guid isPermaLink="false">https://blueshw.github.io/2016/10/02/frontend-javascript-framework-angularjs-week4/</guid><pubDate>Sun, 02 Oct 2016 17:38:30 GMT</pubDate><content:encoded>&lt;h2&gt;Client-Server Communication and Angular Testing&lt;/h2&gt;
 &lt;h3&gt;Networking Essentials&lt;/h3&gt;
 &lt;p&gt;이번 챕터에서는 클라이언트 서버 구조에서 AngularJS 가 어떻게 동작하는지 살펴볼것이다.
 요즘 가장 많이 사용되는 Client-Server 관계는 HTTP 프로토콜과 REST API 를 이용한 백엔드(서버)와 브라우저(클라이언트)간의 통신으로 이뤄진다. 이전 강의까지 보았던 방식은 브라우저에 출력되는 데이터가 services.js 파일의 자바스크립트 오브젝트로 존재했었다. 하지만, Client-Server 구조에서는 거의 모든 데이터를 서버사이드에서 클라이언트 사이드로 제공해준다. HTTP 와 REST API 에 대한 내용은 자세히 다루지는 않겠다(강의 보세요).&lt;/p&gt;
@@ -5208,7 +5244,7 @@ bower install angular-mocks -S&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
     concurrency&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;Infinity&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;conFusion/test/unit/menucontroller.js 파일을 생성해서 unit 테스트를 실행한다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[coursera] AngularJS week 3-2]]></title><description><![CDATA[Single Page ApplicationsAngular ngRoute and Single Page ApplicationsSingle Page Applications(SPA)Single Page Application…]]></description><link>https://blueshw.github.io/2016/09/05/frontend-javascript-framework-angularjs-week3-2/</link><guid isPermaLink="false">https://blueshw.github.io/2016/09/05/frontend-javascript-framework-angularjs-week3-2/</guid><pubDate>Mon, 05 Sep 2016 23:10:10 GMT</pubDate><content:encoded>&lt;h2&gt;Single Page Applications&lt;/h2&gt;
+&lt;p&gt;conFusion/test/unit/menucontroller.js 파일을 생성해서 unit 테스트를 실행한다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[coursera] AngularJS week 3-2]]></title><description><![CDATA[Single Page Applications Angular ngRoute and Single Page Applications Single Page Applications(SPA) Single Page Application…]]></description><link>https://blueshw.github.io/2016/09/05/frontend-javascript-framework-angularjs-week3-2/</link><guid isPermaLink="false">https://blueshw.github.io/2016/09/05/frontend-javascript-framework-angularjs-week3-2/</guid><pubDate>Mon, 05 Sep 2016 23:10:10 GMT</pubDate><content:encoded>&lt;h2&gt;Single Page Applications&lt;/h2&gt;
 &lt;h3&gt;Angular ngRoute and Single Page Applications&lt;/h3&gt;
 &lt;h4&gt;Single Page Applications(SPA)&lt;/h4&gt;
 &lt;p&gt;Single Page Application 이란, 말그대로 하나의 페이지에서 동작하는 어플리케인션을 말한다. 기존의 웹사이트를 보면, 어떤 페이지를 서버에 요청하면 서버가 요청 받은 페이지를 브라우저에 보내는 방식이 반복되는 형태였다. 그래서 어떤 페이지로 이동하려면 서버에 해당 페이지 전부를 요청해야만 했다. 이런방법은 사실 header 나 footer, js, css 파일 등과 같이 모든 페이지에서 필요로하는 것들을 매번 요청해야하는 문제가 따른다(물론 캐싱이 된다).
@@ -5342,7 +5378,7 @@ angular&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 		&lt;span class=&quot;token keyword&quot;&gt;var&lt;/span&gt; dish &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; menuFactory&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;getDish&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;parseInt&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;parseInt&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;$stateParams&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;id&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token number&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 		$scope&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;dish &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; dish&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
 	&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[[coursera] AngularJS week 3-1]]></title><description><![CDATA[Single Page ApplicationsAngular Factory, Service and Dependency InjectionDependency InjectionDependency Injection(DI…]]></description><link>https://blueshw.github.io/2016/09/02/frontend-javascript-framework-angularjs-week3-1/</link><guid isPermaLink="false">https://blueshw.github.io/2016/09/02/frontend-javascript-framework-angularjs-week3-1/</guid><pubDate>Fri, 02 Sep 2016 20:46:10 GMT</pubDate><content:encoded>&lt;h2&gt;Single Page Applications&lt;/h2&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[[coursera] AngularJS week 3-1]]></title><description><![CDATA[Single Page Applications Angular Factory, Service and Dependency Injection Dependency Injection Dependency Injection(DI…]]></description><link>https://blueshw.github.io/2016/09/02/frontend-javascript-framework-angularjs-week3-1/</link><guid isPermaLink="false">https://blueshw.github.io/2016/09/02/frontend-javascript-framework-angularjs-week3-1/</guid><pubDate>Fri, 02 Sep 2016 20:46:10 GMT</pubDate><content:encoded>&lt;h2&gt;Single Page Applications&lt;/h2&gt;
 &lt;h3&gt;Angular Factory, Service and Dependency Injection&lt;/h3&gt;
 &lt;h4&gt;Dependency Injection&lt;/h4&gt;
 &lt;p&gt;Dependency Injection(DI)이란 의존성을 해결하기 위한 Inversino of Control(IoC)을 구현한 소프트웨어 디자인 패턴이다. IoC(제어의 역전)와 DI(의존성 주입)는 여전히 영어로든, 한글로 번역해서든 이해하기 힘든건 마찬가지다. 우선, Ioc 라는건 내가 짜놓은 것을 무언가 대신 해주는 개념으로 받아들이면 되겠다. 스프링 같은 프레임웍에서는 컨테이너라는 녀석이 바로 IoC 에 해당한다. IoC 개념을 이해하고 다시 DI 를 살펴보자. DI 는 구성 요소간의 의존관계를 무언가 대신 처리해주는(IoC, 설정 or 객체 or 무엇이든) 디자인 패턴이라 말할 수 있다. 여전히 조금 모호하다.&lt;/p&gt;
@@ -5532,8 +5568,8 @@ angular&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span cl
 
 &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;body&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;html&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;single page application 을 구현하기 위해서는 데이터가 변함에 따라서 ng-include 를 이용하여 동적으로 뷰를 전환할 필요가 있다. 다음 강의를 통해서 각 html 페이지끼리 이동하는 방법에 대해서 배워보도록 하자.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[coursera] AngularJS week 2-2]]></title><description><![CDATA[Task Runners, Angular Scope, Forms and Form Validation-2Angular Scope스코프는 다음과 같이 정의된다.스코프는 application model 과 관련된 object 다.
-This is at the…]]></description><link>https://blueshw.github.io/2016/08/28/frontend-javascript-framework-angularjs-week2-2/</link><guid isPermaLink="false">https://blueshw.github.io/2016/08/28/frontend-javascript-framework-angularjs-week2-2/</guid><pubDate>Sun, 28 Aug 2016 01:46:10 GMT</pubDate><content:encoded>&lt;h2&gt;Task Runners, Angular Scope, Forms and Form Validation-2&lt;/h2&gt;
+&lt;p&gt;single page application 을 구현하기 위해서는 데이터가 변함에 따라서 ng-include 를 이용하여 동적으로 뷰를 전환할 필요가 있다. 다음 강의를 통해서 각 html 페이지끼리 이동하는 방법에 대해서 배워보도록 하자.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[coursera] AngularJS week 2-2]]></title><description><![CDATA[Task Runners, Angular Scope, Forms and Form Validation-2 Angular Scope 스코프는 다음과 같이 정의된다. 스코프는 application model 과 관련된 object 다.
+This is at…]]></description><link>https://blueshw.github.io/2016/08/28/frontend-javascript-framework-angularjs-week2-2/</link><guid isPermaLink="false">https://blueshw.github.io/2016/08/28/frontend-javascript-framework-angularjs-week2-2/</guid><pubDate>Sun, 28 Aug 2016 01:46:10 GMT</pubDate><content:encoded>&lt;h2&gt;Task Runners, Angular Scope, Forms and Form Validation-2&lt;/h2&gt;
 &lt;h3&gt;Angular Scope&lt;/h3&gt;
 &lt;p&gt;스코프는 다음과 같이 정의된다.&lt;/p&gt;
 &lt;blockquote&gt;
@@ -5826,7 +5862,7 @@ ng-model 의 개념이 약간 모호해서 한번 찾아봤다.&lt;/p&gt;
             &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
        &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
     &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
-&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;body&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;html&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[[coursera] AngularJS week 2-1]]></title><description><![CDATA[Task Runners, Angular Scope, Forms and Form Validation-1Web Tools: Grunt and GulpTask-Runners웹개발을 하다보면 반복적으로 처리해야하는 태스크가 많이 있다. DRY(do not…]]></description><link>https://blueshw.github.io/2016/08/25/frontend-javascript-framework-angularjs-week2-1/</link><guid isPermaLink="false">https://blueshw.github.io/2016/08/25/frontend-javascript-framework-angularjs-week2-1/</guid><pubDate>Thu, 25 Aug 2016 02:30:10 GMT</pubDate><content:encoded>&lt;h2&gt;Task Runners, Angular Scope, Forms and Form Validation-1&lt;/h2&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;body&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;html&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[[coursera] AngularJS week 2-1]]></title><description><![CDATA[Task Runners, Angular Scope, Forms and Form Validation-1 Web Tools: Grunt and Gulp Task-Runners 웹개발을 하다보면 반복적으로 처리해야하는 태스크가 많이 있다. DRY(do…]]></description><link>https://blueshw.github.io/2016/08/25/frontend-javascript-framework-angularjs-week2-1/</link><guid isPermaLink="false">https://blueshw.github.io/2016/08/25/frontend-javascript-framework-angularjs-week2-1/</guid><pubDate>Thu, 25 Aug 2016 02:30:10 GMT</pubDate><content:encoded>&lt;h2&gt;Task Runners, Angular Scope, Forms and Form Validation-1&lt;/h2&gt;
 &lt;h3&gt;Web Tools: Grunt and Gulp&lt;/h3&gt;
 &lt;h4&gt;Task-Runners&lt;/h4&gt;
 &lt;p&gt;웹개발을 하다보면 반복적으로 처리해야하는 태스크가 많이 있다. DRY(do not repeat yourself) 원칙에 따라 태스크를 자동화하기 빌드툴을 사용할 필요가 있다.&lt;/p&gt;
@@ -6216,7 +6252,7 @@ gulp&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class
 
 gulp&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;task&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;default&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;clean&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
   gulp&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;token function&quot;&gt;start&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;usemin&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;imagemin&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;copyfonts&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[[coursera] AngularJS week 1]]></title><description><![CDATA[Full-Stack Web Development: The Big PictureThree Tier Architecture보통 웹개발에서 말하는 3-티어 아키텍쳐는 아래의 세 영역으로 나뉜다.Presentaion Layer : HTML, CSS…]]></description><link>https://blueshw.github.io/2016/08/18/frontend-javascript-framework-angularjs-week1/</link><guid isPermaLink="false">https://blueshw.github.io/2016/08/18/frontend-javascript-framework-angularjs-week1/</guid><pubDate>Thu, 18 Aug 2016 23:10:50 GMT</pubDate><content:encoded>&lt;h2&gt;Full-Stack Web Development: The Big Picture&lt;/h2&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[[coursera] AngularJS week 1]]></title><description><![CDATA[Full-Stack Web Development: The Big Picture Three Tier Architecture 보통 웹개발에서 말하는 3-티어 아키텍쳐는 아래의 세 영역으로 나뉜다. Presentaion Layer : HTML, CSS…]]></description><link>https://blueshw.github.io/2016/08/18/frontend-javascript-framework-angularjs-week1/</link><guid isPermaLink="false">https://blueshw.github.io/2016/08/18/frontend-javascript-framework-angularjs-week1/</guid><pubDate>Thu, 18 Aug 2016 23:10:50 GMT</pubDate><content:encoded>&lt;h2&gt;Full-Stack Web Development: The Big Picture&lt;/h2&gt;
 &lt;h3&gt;Three Tier Architecture&lt;/h3&gt;
 &lt;p&gt;보통 웹개발에서 말하는 3-티어 아키텍쳐는 아래의 세 영역으로 나뉜다.&lt;/p&gt;
 &lt;ul&gt;
@@ -6581,7 +6617,7 @@ this.select = function(setTab) {
     &lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;script&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
 &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;body&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
 
-&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;html&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Functional Programming in Scala week 6]]></title><description><![CDATA[6.1 Other Collections이제껏 리스트에 대해서 알아보았다. 이번 챕터에서는 리스트 외에도 스칼라의 기본적인 컬렉션(Seq, Set, Map)에 대해 알아보도록 하자.Vector리스트의 경우에는 첫번째 element…]]></description><link>https://blueshw.github.io/2016/07/26/functional-programming-in-scala-week6/</link><guid isPermaLink="false">https://blueshw.github.io/2016/07/26/functional-programming-in-scala-week6/</guid><pubDate>Tue, 26 Jul 2016 23:29:50 GMT</pubDate><content:encoded>&lt;h2&gt;6.1 Other Collections&lt;/h2&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;html&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Functional Programming in Scala week 6]]></title><description><![CDATA[6.1 Other Collections 이제껏 리스트에 대해서 알아보았다. 이번 챕터에서는 리스트 외에도 스칼라의 기본적인 컬렉션(Seq, Set, Map)에 대해 알아보도록 하자. Vector 리스트의 경우에는 첫번째 element…]]></description><link>https://blueshw.github.io/2016/07/26/functional-programming-in-scala-week6/</link><guid isPermaLink="false">https://blueshw.github.io/2016/07/26/functional-programming-in-scala-week6/</guid><pubDate>Tue, 26 Jul 2016 23:29:50 GMT</pubDate><content:encoded>&lt;h2&gt;6.1 Other Collections&lt;/h2&gt;
 &lt;p&gt;이제껏 리스트에 대해서 알아보았다. 이번 챕터에서는 리스트 외에도 스칼라의 기본적인 컬렉션(Seq, Set, Map)에 대해 알아보도록 하자.&lt;/p&gt;
 &lt;h3&gt;Vector&lt;/h3&gt;
 &lt;p&gt;리스트의 경우에는 첫번째 element 에 접근하는게 마지막 element 에 접근하는 것보다 훨씬 빠르다. 리스트의 구조가 트리 형태로 구성되어 있고 우측으로 갈수록 트리의 깊이가 깊어지기 때문에 그렇다. 이에 반해 Vector 는 리스트 보다 access pattern 이 훨씬 균형잡혀 있다.&lt;/p&gt;
@@ -6953,8 +6989,8 @@ translate&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span 
 &lt;li&gt;safe: type checker is really good at catching errors.&lt;/li&gt;
 &lt;li&gt;fast: collection ops art tuned, can be parallelized.&lt;/li&gt;
 &lt;li&gt;universal: one vocabulary to work on all kinds of collections.&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Functional Programming in Scala week 5]]></title><description><![CDATA[5.1 More Functions on Lists이번 챕터에서는 스칼라 List 의 다른 메서드 들을 알아본다.
-xs 는 list 의 object 를 뜻한다.Sublists and element accessxs.length xs 의 길이xs.last…]]></description><link>https://blueshw.github.io/2016/07/26/functional-programming-in-scala-week5/</link><guid isPermaLink="false">https://blueshw.github.io/2016/07/26/functional-programming-in-scala-week5/</guid><pubDate>Tue, 26 Jul 2016 23:28:50 GMT</pubDate><content:encoded>&lt;h2&gt;5.1 More Functions on Lists&lt;/h2&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Functional Programming in Scala week 5]]></title><description><![CDATA[5.1 More Functions on Lists 이번 챕터에서는 스칼라 List 의 다른 메서드 들을 알아본다.
+xs 는 list 의 object 를 뜻한다. Sublists and element access xs.length xs 의 길이 xs…]]></description><link>https://blueshw.github.io/2016/07/26/functional-programming-in-scala-week5/</link><guid isPermaLink="false">https://blueshw.github.io/2016/07/26/functional-programming-in-scala-week5/</guid><pubDate>Tue, 26 Jul 2016 23:28:50 GMT</pubDate><content:encoded>&lt;h2&gt;5.1 More Functions on Lists&lt;/h2&gt;
 &lt;p&gt;이번 챕터에서는 스칼라 List 의 다른 메서드 들을 알아본다.
 xs 는 list 의 object 를 뜻한다.&lt;/p&gt;
 &lt;h3&gt;Sublists and element access&lt;/h3&gt;
@@ -7368,7 +7404,7 @@ Nil map f &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; Nil
 &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; xs&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; map f&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;ys map f&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;f&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;xs map f&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;ys map f&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
 &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; f&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;xs map f&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;++&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;ys map f&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-&lt;p&gt;base case, reduction step 모두 좌변과 우변이 같으므로 같음이 증명되었다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Functional Programming in Scala week 4]]></title><description><![CDATA[4.1 Objects Everywhere퓨어 object-oriented 언어란 모든 value 가 object 라는 말인데, 그렇다면 스칼라가 퓨어 object-oriented language 인가?스칼라의 모든 값은 object…]]></description><link>https://blueshw.github.io/2016/07/26/functional-programming-in-scala-week4/</link><guid isPermaLink="false">https://blueshw.github.io/2016/07/26/functional-programming-in-scala-week4/</guid><pubDate>Tue, 26 Jul 2016 23:27:50 GMT</pubDate><content:encoded>&lt;h2&gt;4.1 Objects Everywhere&lt;/h2&gt;
+&lt;p&gt;base case, reduction step 모두 좌변과 우변이 같으므로 같음이 증명되었다.&lt;/p&gt;</content:encoded></item><item><title><![CDATA[Functional Programming in Scala week 4]]></title><description><![CDATA[4.1 Objects Everywhere 퓨어 object-oriented 언어란 모든 value 가 object 라는 말인데, 그렇다면 스칼라가 퓨어 object-oriented language 인가? 스칼라의 모든 값은 object…]]></description><link>https://blueshw.github.io/2016/07/26/functional-programming-in-scala-week4/</link><guid isPermaLink="false">https://blueshw.github.io/2016/07/26/functional-programming-in-scala-week4/</guid><pubDate>Tue, 26 Jul 2016 23:27:50 GMT</pubDate><content:encoded>&lt;h2&gt;4.1 Objects Everywhere&lt;/h2&gt;
 &lt;blockquote&gt;
 &lt;p&gt;퓨어 object-oriented 언어란 모든 value 가 object 라는 말인데, 그렇다면 스칼라가 퓨어 object-oriented language 인가?&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -7716,7 +7752,7 @@ Nils.::(4).::(3).::(2).::(1)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
       &lt;span class=&quot;token keyword&quot;&gt;else&lt;/span&gt; y &lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; insert&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;x&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; ys&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
     &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
   &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
-&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Functional Programming in Scala week 3]]></title><description><![CDATA[3.1 Class Hierachiesabstract class (추상 클래스)추상 클래스는 abstract 키워드를 class 앞에 붙임으로써 정의할 수 있다. 추상 클래스는 구현체가 없는 추상함수를…]]></description><link>https://blueshw.github.io/2016/07/26/functional-programming-in-scala-week3/</link><guid isPermaLink="false">https://blueshw.github.io/2016/07/26/functional-programming-in-scala-week3/</guid><pubDate>Tue, 26 Jul 2016 23:26:50 GMT</pubDate><content:encoded>&lt;h2&gt;3.1 Class Hierachies&lt;/h2&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Functional Programming in Scala week 3]]></title><description><![CDATA[3.1 Class Hierachies abstract class (추상 클래스) 추상 클래스는 abstract 키워드를 class 앞에 붙임으로써 정의할 수 있다. 추상 클래스는 구현체가 없는 추상함수를…]]></description><link>https://blueshw.github.io/2016/07/26/functional-programming-in-scala-week3/</link><guid isPermaLink="false">https://blueshw.github.io/2016/07/26/functional-programming-in-scala-week3/</guid><pubDate>Tue, 26 Jul 2016 23:26:50 GMT</pubDate><content:encoded>&lt;h2&gt;3.1 Class Hierachies&lt;/h2&gt;
 &lt;h3&gt;abstract class (추상 클래스)&lt;/h3&gt;
 &lt;p&gt;추상 클래스는 abstract 키워드를 class 앞에 붙임으로써 정의할 수 있다. 추상 클래스는 구현체가 없는 추상함수를 1 개 이상 멤버로 가진다. 스칼라의 추상클래스는 자바의 그것과는 달리 new 로 선언할 수가 없다(자바의 추상클래스는 new 할당 가능, 대신 인터페이스는 new 할당이 불가함).&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;scala&quot;&gt;&lt;pre class=&quot;language-scala&quot;&gt;&lt;code class=&quot;language-scala&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;abstract&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;class&lt;/span&gt; IntSet &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
@@ -7890,7 +7926,7 @@ singleton&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span 
 &lt;ul&gt;
 &lt;li&gt;subtyping : instance of a subclass can be passed to a base class&lt;/li&gt;
 &lt;li&gt;generics : instances of a function or class are created by type parameterization&lt;/li&gt;
-&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Functional Programming in Scala week 2]]></title><description><![CDATA[2.1 Higher-Order Functions함수형 언어에서는 function 이 first-class value 이다. 이 말은 특정 함수가 다른 함수의 파라미터나 결과로써 return 될 수 있다는 것이다(higher order functions…]]></description><link>https://blueshw.github.io/2016/07/26/functional-programming-in-scala-week2/</link><guid isPermaLink="false">https://blueshw.github.io/2016/07/26/functional-programming-in-scala-week2/</guid><pubDate>Tue, 26 Jul 2016 23:25:50 GMT</pubDate><content:encoded>&lt;h2&gt;2.1 Higher-Order Functions&lt;/h2&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Functional Programming in Scala week 2]]></title><description><![CDATA[2.1 Higher-Order Functions 함수형 언어에서는 function 이 first-class value 이다. 이 말은 특정 함수가 다른 함수의 파라미터나 결과로써 return 될 수 있다는 것이다(higher order…]]></description><link>https://blueshw.github.io/2016/07/26/functional-programming-in-scala-week2/</link><guid isPermaLink="false">https://blueshw.github.io/2016/07/26/functional-programming-in-scala-week2/</guid><pubDate>Tue, 26 Jul 2016 23:25:50 GMT</pubDate><content:encoded>&lt;h2&gt;2.1 Higher-Order Functions&lt;/h2&gt;
 &lt;p&gt;함수형 언어에서는 function 이 first-class value 이다. 이 말은 특정 함수가 다른 함수의 파라미터나 결과로써 return 될 수 있다는 것이다(higher order functions).&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;scala&quot;&gt;&lt;pre class=&quot;language-scala&quot;&gt;&lt;code class=&quot;language-scala&quot;&gt;&lt;span class=&quot;token keyword&quot;&gt;def&lt;/span&gt; sum&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;f&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;Int&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; a&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; b&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;Int&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;token builtin&quot;&gt;Int&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;
   &lt;span class=&quot;token keyword&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;a &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt; b&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;0&lt;/span&gt;
@@ -8132,7 +8168,7 @@ x&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;sub&lt;span class
 :
 + -
 * / %
-(all other special characters)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Functional Programming in Scala week 1]]></title><description><![CDATA[1.1 Programming Paradigms세 가지 프로그래밍 언어 패러다임Inperative Programming Language (절차지향 프로그래밍 언어)Functional Programming Language…]]></description><link>https://blueshw.github.io/2016/07/26/functional-programming-in-scala-week1/</link><guid isPermaLink="false">https://blueshw.github.io/2016/07/26/functional-programming-in-scala-week1/</guid><pubDate>Tue, 26 Jul 2016 00:43:50 GMT</pubDate><content:encoded>&lt;h2&gt;1.1 Programming Paradigms&lt;/h2&gt;
+(all other special characters)&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content:encoded></item><item><title><![CDATA[Functional Programming in Scala week 1]]></title><description><![CDATA[1.1 Programming Paradigms 세 가지 프로그래밍 언어 패러다임 Inperative Programming Language (절차지향 프로그래밍 언어) Functional Programming Language…]]></description><link>https://blueshw.github.io/2016/07/26/functional-programming-in-scala-week1/</link><guid isPermaLink="false">https://blueshw.github.io/2016/07/26/functional-programming-in-scala-week1/</guid><pubDate>Tue, 26 Jul 2016 00:43:50 GMT</pubDate><content:encoded>&lt;h2&gt;1.1 Programming Paradigms&lt;/h2&gt;
 &lt;p&gt;세 가지 프로그래밍 언어 패러다임&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Inperative Programming Language (절차지향 프로그래밍 언어)&lt;/li&gt;
@@ -8455,6 +8491,7 @@ ListView 같은 View 들은 TemplateView 보다 다양하고 복잡한 믹스인
 /static/8c7e393cf5d050c3e995b37c984ac4ec/c739e/1.jpg 590w,
 /static/8c7e393cf5d050c3e995b37c984ac4ec/26f73/1.jpg 860w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -8488,7 +8525,7 @@ ListView 같은 View 들은 TemplateView 보다 다양하고 복잡한 믹스인
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 63.53658536585366%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAMBBAX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAFCNNRJaD//xAAbEAACAgMBAAAAAAAAAAAAAAACAwAEARITFP/aAAgBAQABBQJrDwzqcrmWQOrsXjiq+g//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAeEAABAwQDAAAAAAAAAAAAAAAAAQIxERIyUSKRof/aAAgBAQAGPwJ3N07M3di1csirfK6M/Clx/8QAGxAAAwACAwAAAAAAAAAAAAAAAAERITFhofH/2gAIAQEAAT8hQCQq7HrBsN8ma2UYkrGTN0f/2gAMAwEAAgADAAAAEAAP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAHBABAAIDAAMAAAAAAAAAAAAAAQARIUFhUXHw/9oACAEBAAE/EDlAwFRl2OoIJwRlq6IFswDKrb8zo++4Izvmx0d5P//Z&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 63.53658536585366%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAMBBAX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAFCNNRJaD//xAAbEAACAgMBAAAAAAAAAAAAAAACAwAEARITFP/aAAgBAQABBQJrDwzqcrmWQOrsXjiq+g//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAeEAABAwQDAAAAAAAAAAAAAAAAAQIxERIyUSKRof/aAAgBAQAGPwJ3N07M3di1csirfK6M/Clx/8QAGxAAAwACAwAAAAAAAAAAAAAAAAERITFhofH/2gAIAQEAAT8hQCQq7HrBsN8ma2UYkrGTN0f/2gAMAwEAAgADAAAAEAAP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAHBABAAIDAAMAAAAAAAAAAAAAAQARIUFhUXHw/9oACAEBAAE/EDlAwFRl2OqAnBGWrogWzAMqtvzOj77gjO+bHR3k/9k=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -8500,6 +8537,7 @@ ListView 같은 View 들은 TemplateView 보다 다양하고 복잡한 믹스인
 /static/7a10b14d88622d75bc71e924b3869a63/c739e/2.jpg 590w,
 /static/7a10b14d88622d75bc71e924b3869a63/1b844/2.jpg 820w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -8520,7 +8558,7 @@ TestRunner 클래스가 상속받는 DiscoverRunner 클래스가 바로 테스�
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 63.53658536585366%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAQX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAGdHUUaVB//xAAbEAACAgMBAAAAAAAAAAAAAAACAwAEARITFP/aAAgBAQABBQJrDwfVkrmWQOrsXjiq+g//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAeEAACAAYDAAAAAAAAAAAAAAAAAQIREjEyUSKRof/aAAgBAQAGPwKLk77M4uxzidxuu70Z+Eqj/8QAGxAAAwACAwAAAAAAAAAAAAAAAAERITFhofH/2gAIAQEAAT8hmS8ux7AbDPJmtlGJKxkzdH//2gAMAwEAAgADAAAAEIAP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAHRABAAICAgMAAAAAAAAAAAAAAQARIWFB8FFxwf/aAAgBAQABPxALODAdGW52r7H4oy1eCBbMAyq2/M2O/cEZ3zY8G9T/2Q==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 63.53658536585366%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAMEAQX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAGdHUUaVB//xAAbEAACAgMBAAAAAAAAAAAAAAACAwAEARITFP/aAAgBAQABBQJrDwfVkrmWQOrsXjiq+g//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/AT//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/AT//xAAeEAACAAYDAAAAAAAAAAAAAAAAAQIREjEyUSKRof/aAAgBAQAGPwKLk77M4uxzidxuu70Z+Eqj/8QAGxAAAwACAwAAAAAAAAAAAAAAAAERITFhofH/2gAIAQEAAT8hmS8ux7AbDPJmtlGJKxkzdH//2gAMAwEAAgADAAAAEIAP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAHRABAAICAgMAAAAAAAAAAAAAAQARIWFB8FFxwf/aAAgBAQABPxALODAdGW52r7H5oy1eCBbMAyq2/M2O/cEZ3zY8G9T/2Q==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -8532,6 +8570,7 @@ TestRunner 클래스가 상속받는 DiscoverRunner 클래스가 바로 테스�
 /static/05d951d17fa93cb459312a3b45a6c37b/c739e/3.jpg 590w,
 /static/05d951d17fa93cb459312a3b45a6c37b/1b844/3.jpg 820w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -8557,7 +8596,7 @@ test&lt;/em&gt;runner.py 파일에서 정의한 TestRunner 클래스를 테스�
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 15.055079559363524%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAADABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAIF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAABwpAD/8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQABBQJ//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQAGPwJ//8QAGBABAQEBAQAAAAAAAAAAAAAAAQARMVH/2gAIAQEAAT8hZXe2vt//2gAMAwEAAgADAAAAEPAP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAGxAAAQQDAAAAAAAAAAAAAAAAAAERMZEhUWH/2gAIAQEAAT8Qc8rOxwys6LP/2Q==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 15.055079559363524%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAADABQDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAIF/8QAFAEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEAMQAAABwpAD/8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQABBQJ//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFBABAAAAAAAAAAAAAAAAAAAAEP/aAAgBAQAGPwJ//8QAGBABAQEBAQAAAAAAAAAAAAAAAQARMVH/2gAIAQEAAT8hZXe2vt//2gAMAwEAAgADAAAAEPAP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAGhAAAgMBAQAAAAAAAAAAAAAAABEBMZFRYf/aAAgBAQABPxBnc30YQ2no0//Z&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -8569,6 +8608,7 @@ test&lt;/em&gt;runner.py 파일에서 정의한 TestRunner 클래스를 테스�
 /static/95615a44bce73342a5a28cfe20460940/c739e/4.jpg 590w,
 /static/95615a44bce73342a5a28cfe20460940/aa06f/4.jpg 817w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -8589,7 +8629,7 @@ test&lt;/em&gt;runner.py 파일에서 정의한 TestRunner 클래스를 테스�
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 63.53658536585366%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAMBBAX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAFCNNZJZD//xAAcEAACAgIDAAAAAAAAAAAAAAACAwAEARMREhT/2gAIAQEAAQUCaw9mxkrmWQOryfkiq/Qf/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAHxAAAQMDBQAAAAAAAAAAAAAAAAECERIyUSExQZGh/9oACAEBAAY/AnQ9d8l7uxZcq6irXzgv8IqP/8QAHBAAAgICAwAAAAAAAAAAAAAAAAERIRAxQVFx/9oACAEBAAE/IUEI25djKMj0BopLPDTFlzo//9oADAMBAAIAAwAAABBIz//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABwQAQADAAMBAQAAAAAAAAAAAAEAESFBYXGB8P/aAAgBAQABPxAfEGAVagnB+4vGuCt4IVuxGqt9iXl++wBHfbPB31P/2Q==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 63.53658536585366%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAMBBAX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAFCNNZJZD//xAAcEAACAgIDAAAAAAAAAAAAAAACAwAEARMREhT/2gAIAQEAAQUCaw9mxkrmWQOryfkiq/Qf/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAHxAAAQMDBQAAAAAAAAAAAAAAAAECERIyUSExQZGh/9oACAEBAAY/AnQ9d8l7uxZcq6irXzgv8IqP/8QAHBAAAgICAwAAAAAAAAAAAAAAAAERIRAxQVFx/9oACAEBAAE/IUEI25djKMj0BopLPDTFlzo//9oADAMBAAIAAwAAABBIz//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABsQAQADAAMBAAAAAAAAAAAAAAEAESFBYXHw/9oACAEBAAE/EBsQYBVqCcH1xeNcFbwQrdiNVb7EvL77AEd9s8HfU//Z&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -8601,6 +8641,7 @@ test&lt;/em&gt;runner.py 파일에서 정의한 TestRunner 클래스를 테스�
 /static/20e0e94af467efc50489bd7db2816fe6/c739e/5.jpg 590w,
 /static/20e0e94af467efc50489bd7db2816fe6/1b844/5.jpg 820w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -8621,7 +8662,7 @@ test&lt;/em&gt;runner.py 파일에서 정의한 TestRunner 클래스를 테스�
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 62.80487804878049%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAEDBP/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHK6pKlRf/EABkQAAMBAQEAAAAAAAAAAAAAAAADEwECEf/aAAgBAQABBQKrCrBTO9yBAWnzn//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABsQAAICAwEAAAAAAAAAAAAAAAAyApEBIaEx/9oACAEBAAY/AnlY8rNyyNwbh6f/xAAbEAACAwADAAAAAAAAAAAAAAAAEQEhURAxYf/aAAgBAQABPyGGV0a45IW70cnJx7w//9oADAMBAAIAAwAAABCfD//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EAB0QAQACAgIDAAAAAAAAAAAAAAEAETFBYfAhcaH/2gAIAQEAAT8QvIh4B+iLahW1uiJYGOszh9+4xEt310cz/9k=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 62.80487804878049%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAEDBP/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHK6pKlRf/EABkQAAMBAQEAAAAAAAAAAAAAAAADEwECEf/aAAgBAQABBQKrCrBTO9yBAWrzn//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABsQAAICAwEAAAAAAAAAAAAAAAAyApEBIaEx/9oACAEBAAY/AnlY8rNyyNwbh6f/xAAbEAACAwADAAAAAAAAAAAAAAAAAREhURAxYf/aAAgBAQABPyFSV0a44wy70blMpz3h/9oADAMBAAIAAwAAABCfD//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EAB0QAQACAgIDAAAAAAAAAAAAAAEAETFBYfAhcaH/2gAIAQEAAT8QvIx4B+iLahW1uiCwMdZnD79xyJbvro5n/9k=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -8633,6 +8674,7 @@ test&lt;/em&gt;runner.py 파일에서 정의한 TestRunner 클래스를 테스�
 /static/1598cafe7d9bf8802d4289fbee53668f/c739e/6.jpg 590w,
 /static/1598cafe7d9bf8802d4289fbee53668f/1b844/6.jpg 820w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -8654,7 +8696,7 @@ test&lt;/em&gt;runner.py 파일에서 정의한 TestRunner 클래스를 테스�
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 63.53658536585366%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAMCBAX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAFCNJZIsh//xAAbEAABBQEBAAAAAAAAAAAAAAACAAMEEhMBFP/aAAgBAQABBQJ1w9NTUcy6BxbF401HoP8A/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAIRAAAgAEBwEAAAAAAAAAAAAAAAECERJRISIxMjNBkaH/2gAIAQEABj8CizvW5yRejnE3iN192N/wlUf/xAAbEAACAwADAAAAAAAAAAAAAAAAAREhMUFxof/aAAgBAQABPyFJCTb0PhAyOwGbJZiJTFlzh//aAAwDAQACAAMAAAAQoM//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAcEAEAAgIDAQAAAAAAAAAAAAABABEhYUFxsfD/2gAIAQEAAT8QJVBhYDKWfRi8a4K3ghWzCMqt7mx97gCO7tjwb1P/2Q==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 63.53658536585366%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAGAAAAgMAAAAAAAAAAAAAAAAAAAMCBAX/xAAVAQEBAAAAAAAAAAAAAAAAAAAAAf/aAAwDAQACEAMQAAABQjSWkiyL/8QAGxAAAQUBAQAAAAAAAAAAAAAAAgADBBITART/2gAIAQEAAQUCdcPTU1HMugcWx+NNR6D/AP/EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EACEQAAIABAcBAAAAAAAAAAAAAAABAhESUSEiMTIzQZGh/9oACAEBAAY/Aos71uckXo5xN4jdfdjf8JVH/8QAGxAAAgMAAwAAAAAAAAAAAAAAAAERITFBcaH/2gAIAQEAAT8hSQk29D4QMjsBmSWYiUxZc4f/2gAMAwEAAgADAAAAEKTP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAHBABAAICAwEAAAAAAAAAAAAAAQARIWFBcbHw/9oACAEBAAE/ECVQYWAyxLPoxeNcFbwQrJhGVW9zY+9wBHd2x4N6n//Z&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -8666,6 +8708,7 @@ test&lt;/em&gt;runner.py 파일에서 정의한 TestRunner 클래스를 테스�
 /static/8633f5941803ba92d41166b17fb53d28/c739e/7.jpg 590w,
 /static/8633f5941803ba92d41166b17fb53d28/1b844/7.jpg 820w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[django] 커스텀 템플릿태그(templatetags) 활용하기]]></title><description><![CDATA[웹 개발을 하다보면, html 코드 상에서 다양한 연산을 해야하는 경우가 발생합니다.
@@ -8938,6 +8981,7 @@ set 이라는 자료구조가 머리속에 그림으로 그려져서 더하고 �
 /static/6814302319fa5bec7f532b017cc76c89/c739e/django-setting-01.jpg 590w,
 /static/6814302319fa5bec7f532b017cc76c89/1b844/django-setting-01.jpg 820w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -8967,6 +9011,7 @@ set 이라는 자료구조가 머리속에 그림으로 그려져서 더하고 �
 /static/739e4d85ea9dc192281398a44916f438/c739e/django-setting-02.jpg 590w,
 /static/739e4d85ea9dc192281398a44916f438/1b844/django-setting-02.jpg 820w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -8986,7 +9031,7 @@ set 이라는 자료구조가 머리속에 그림으로 그려져서 더하고 �
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 77.5609756097561%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAQABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIFBP/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHO9CelYQX/xAAcEAACAgIDAAAAAAAAAAAAAAACAwABBBMREhT/2gAIAQEAAQUC3Mm8+MZnZXiGEllXiiQr/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAHBAAAgICAwAAAAAAAAAAAAAAAAECIREyIjOR/9oACAEBAAY/AuyRvL0u7N2NKLOSxZ//xAAaEAEAAgMBAAAAAAAAAAAAAAABABEhUcEx/9oACAEBAAE/IW/pDYYa6yEWszcSKVg4a9jkVbT/2gAMAwEAAgADAAAAEMcP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAHBABAAIDAAMAAAAAAAAAAAAAAQARITFBUWHx/9oACAEBAAE/ED1KrgWa238y/GZCXT49xa3aC6unEvDF+VoDlE//2Q==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 77.5609756097561%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAQABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIFBP/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHO9CelYQX/xAAcEAACAgIDAAAAAAAAAAAAAAACAwABBBMREhT/2gAIAQEAAQUC3Mm8+MZnZXiGEllXiiQr/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAHBAAAgICAwAAAAAAAAAAAAAAAAECIREyIjOR/9oACAEBAAY/AuyRvL0u7N2NKLwcliz/xAAcEAEAAgEFAAAAAAAAAAAAAAABABEhMVFhwfH/2gAIAQEAAT8hb+ychhrrIRazySKRhw1rHIq3T//aAAwDAQACAAMAAAAQxw//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAcEAEAAgMAAwAAAAAAAAAAAAABABEhMUFRYfH/2gAIAQEAAT8QPUquAs1tv5l+cyEunx7izfaC7snEvDF+VoDlE//Z&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -8998,6 +9043,7 @@ set 이라는 자료구조가 머리속에 그림으로 그려져서 더하고 �
 /static/3bb043539be9912d0464f87bc830fc03/c739e/django-setting-03.jpg 590w,
 /static/3bb043539be9912d0464f87bc830fc03/1b844/django-setting-03.jpg 820w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -9029,6 +9075,7 @@ set 이라는 자료구조가 머리속에 그림으로 그려져서 더하고 �
 /static/7ade71526b61a64f1a948305dd8f310c/c739e/django-setting-04.jpg 590w,
 /static/7ade71526b61a64f1a948305dd8f310c/1b844/django-setting-04.jpg 820w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -9051,7 +9098,7 @@ set 이라는 자료구조가 머리속에 그림으로 그려져서 더하고 �
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 62.4390243902439%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIEAQX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAGOznIMYH//xAAaEAACAgMAAAAAAAAAAAAAAAABAgASBBAR/9oACAEBAAEFAg7WymIW7w65P//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABwQAAIABwAAAAAAAAAAAAAAAAABAhEgIjEykf/aAAgBAQAGPwJXPJDJs2faP//EABwQAAICAgMAAAAAAAAAAAAAAAABESEQMUFRYf/aAAgBAQABPyFrpHJFCt6eLJRHrIH/2gAMAwEAAgADAAAAENAP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAHBABAAEEAwAAAAAAAAAAAAAAAQARITFBcdHx/9oACAEBAAE/EAtopJXe8cWbyhqe27hO2Y15Tlgxln//2Q==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 62.4390243902439%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIEAQX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAGOznIMYH//xAAaEAACAgMAAAAAAAAAAAAAAAABAgASBBAR/9oACAEBAAEFAg7WymIW7w65P//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABwQAAIABwAAAAAAAAAAAAAAAAABAhEgIjEykf/aAAgBAQAGPwJXPJDJs2faP//EABwQAAICAgMAAAAAAAAAAAAAAAABESEQMUFRYf/aAAgBAQABPyFvpHJFCt6eLJRHrIH/2gAMAwEAAgADAAAAENAP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAHBABAAEEAwAAAAAAAAAAAAAAAQARITFBcdHx/9oACAEBAAE/EANooJXe8cWbyhqe27hO2Y15Tlgxln//2Q==&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -9063,6 +9110,7 @@ set 이라는 자료구조가 머리속에 그림으로 그려져서 더하고 �
 /static/4968949a125ed8728f21364b477c3510/c739e/django-setting-05.jpg 590w,
 /static/4968949a125ed8728f21364b477c3510/1b844/django-setting-05.jpg 820w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -9081,7 +9129,7 @@ set 이라는 자료구조가 머리속에 그림으로 그려져서 더하고 �
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 62.80487804878049%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAMBBP/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHlVJq5f//EABkQAAMBAQEAAAAAAAAAAAAAAAADEwIBEf/aAAgBAQABBQKzCzBLN9zAgKR5n//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABwQAAIBBQEAAAAAAAAAAAAAAAAyAQIhMVGhkf/aAAgBAQAGPwJ59HkvXOdjcG4Mf//EABwQAAMAAQUAAAAAAAAAAAAAAAABIREQUWFxwf/aAAgBAQABPyFIUFP3GHJ5aJ1DJKrsf//aAAwDAQACAAMAAAAQ/wDP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAHRABAAMAAQUAAAAAAAAAAAAAAQARQfAhUWFxsf/aAAgBAQABPxCmD3qmNrsy8pFLRwizPHuKeT7NqL5w8z//2Q==&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 62.80487804878049%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAMBBP/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHlVJq5f//EABkQAAMBAQEAAAAAAAAAAAAAAAADEwIBEf/aAAgBAQABBQKzCzBLN9zAgKR5n//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABwQAAIBBQEAAAAAAAAAAAAAAAAyAQIhMVGhkf/aAAgBAQAGPwJ59HkvXOdjcG4Mf//EABwQAAMAAQUAAAAAAAAAAAAAAAABIREQUWFxwf/aAAgBAQABPyFIUFP3GHJ5aJ1DJKrsf//aAAwDAQACAAMAAAAQ/wDP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAHRABAAICAgMAAAAAAAAAAAAAAQARIUFR8GFxsf/aAAgBAQABPxCmD3lMbXDLykUtHRFlY9e4p7Ps3cX10eZ//9k=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -9093,6 +9141,7 @@ set 이라는 자료구조가 머리속에 그림으로 그려져서 더하고 �
 /static/0d662a0bb7633a254bd9453e9c8b8b73/c739e/django-setting-06.jpg 590w,
 /static/0d662a0bb7633a254bd9453e9c8b8b73/1b844/django-setting-06.jpg 820w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -9116,7 +9165,7 @@ Python interpreter 에서 자신이 실행하고자 하는 파이썬 버전을 �
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 62.80487804878049%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAEDBP/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHK6CMuL//EABkQAAMBAQEAAAAAAAAAAAAAAAADEwIBEf/aAAgBAQABBQKzCzBLN9zAgKR5n//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABwQAAICAgMAAAAAAAAAAAAAAAAyAQIhoTFRkf/aAAgBAQAGPwJ7ejyZvPPY2htDH//EAB0QAAICAQUAAAAAAAAAAAAAAAABESFREGFxwfD/2gAIAQEAAT8hQRwd44yd2jSw85JJWvB//9oADAMBAAIAAwAAABDvz//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EAB0QAQADAAEFAAAAAAAAAAAAAAEAEUFxITFRYfD/2gAIAQEAAT8QKgAcmER1a84spFLRwijsPnMuKkbUXzh7n//Z&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 62.80487804878049%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAEDBP/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHK6CMuL//EABkQAAMBAQEAAAAAAAAAAAAAAAADEwIBEf/aAAgBAQABBQKzCzBLN9zAgKR5n//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABwQAAICAgMAAAAAAAAAAAAAAAAyAQIhoTFRkf/aAAgBAQAGPwJ7ejyZvPPY2htDH//EAB0QAAICAQUAAAAAAAAAAAAAAAABESFREGFxwfD/2gAIAQEAAT8hQRwd44yd2jSw85JJWvB//9oADAMBAAIAAwAAABDvz//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EAB0QAQACAgIDAAAAAAAAAAAAAAEAESFBMXFRYfD/2gAIAQEAAT8QKgAdmERlrziykUtHRFHA+dy7EjdxfXR7n//Z&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -9128,6 +9177,7 @@ Python interpreter 에서 자신이 실행하고자 하는 파이썬 버전을 �
 /static/a9dc9adf7baf48ecd5e79f6499e8625c/c739e/django-setting-07.jpg 590w,
 /static/a9dc9adf7baf48ecd5e79f6499e8625c/1b844/django-setting-07.jpg 820w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -9150,7 +9200,7 @@ Python interpreter 에서 자신이 실행하고자 하는 파이썬 버전을 �
   &gt;
     &lt;span
     class=&quot;gatsby-resp-image-background-image&quot;
-    style=&quot;padding-bottom: 62.4390243902439%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAEEAgX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAGO3m5GIP/EABoQAAICAwAAAAAAAAAAAAAAAAECABIEEBH/2gAIAQEAAQUCDtbLYhbvDrk//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAHBAAAQMFAAAAAAAAAAAAAAAAAQAQMQIRIjKR/9oACAEBAAY/AhkZVNiQtj1pb//EABsQAQACAgMAAAAAAAAAAAAAAAEAMRARQVGB/9oACAEBAAE/IU9I5lkA04sI7bT7NJ//2gAMAwEAAgADAAAAEJAP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAGxABAAIDAQEAAAAAAAAAAAAAAQAhETFBUfH/2gAIAQEAAT8QE6UEzu5o9LKHJ9tKNpfIONe5QY2z/9k=&apos;); background-size: cover; display: block;&quot;
+    style=&quot;padding-bottom: 62.4390243902439%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAMABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAEEAgX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAGOznZGIP/EABoQAAICAwAAAAAAAAAAAAAAAAECABIEEBH/2gAIAQEAAQUCDtbLYhbvDrk//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAHBAAAQMFAAAAAAAAAAAAAAAAAQAQMQIRIjKR/9oACAEBAAY/AhkZVNiQtj1pb//EABsQAQACAgMAAAAAAAAAAAAAAAEAMRARQVGB/9oACAEBAAE/IU9I5lkA04sI7bT7NJ//2gAMAwEAAgADAAAAENAP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAGxABAAIDAQEAAAAAAAAAAAAAAQAhETFBUfH/2gAIAQEAAT8QE6UEzu5odLKHJ9tKNpfIONe5QY2z/9k=&apos;); background-size: cover; display: block;&quot;
   &gt;&lt;/span&gt;
   &lt;img
         class=&quot;gatsby-resp-image-image&quot;
@@ -9162,6 +9212,7 @@ Python interpreter 에서 자신이 실행하고자 하는 파이썬 버전을 �
 /static/f75aca90777f4d002e99e1d92779a6ff/c739e/django-setting-08.jpg 590w,
 /static/f75aca90777f4d002e99e1d92779a6ff/1b844/django-setting-08.jpg 820w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -9191,6 +9242,7 @@ Python interpreter 에서 자신이 실행하고자 하는 파이썬 버전을 �
 /static/d26447a49eee13ec5d67e2f0ea0ff109/c739e/django-setting-09.jpg 590w,
 /static/d26447a49eee13ec5d67e2f0ea0ff109/1b844/django-setting-09.jpg 820w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
@@ -9221,6 +9273,7 @@ Python interpreter 에서 자신이 실행하고자 하는 파이썬 버전을 �
 /static/f5fe43c830905afccb20844d56e44044/c739e/django-setting-10.jpg 590w,
 /static/f5fe43c830905afccb20844d56e44044/1b844/django-setting-10.jpg 820w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
       /&gt;
   &lt;/a&gt;
     &lt;/span&gt;&lt;/p&gt;
