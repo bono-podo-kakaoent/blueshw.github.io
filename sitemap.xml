@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>https://blueshw.github.io/2019/12/14/upgrade-css-roulette/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/2019/12/09/usa-vs-europe/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/2019/11/30/bonjour-tristesse/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/2019/11/25/jakarta/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -132,6 +133,12 @@
 <url> <loc>https://blueshw.github.io/2011/04/29/role-of-social-venture/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/2011/04/13/learning-from-mountain/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/2011/03/12/where-is-the-your-youth/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blueshw.github.io/tag/css</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blueshw.github.io/tag/roulette</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blueshw.github.io/tag/뽑기</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blueshw.github.io/tag/gotcha</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blueshw.github.io/tag/룰렛</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blueshw.github.io/tag/clip-path</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/미국</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/유럽</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/문화</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -171,7 +178,6 @@
 <url> <loc>https://blueshw.github.io/tag/github-page</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/jekyll</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/gatsby</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://blueshw.github.io/tag/css</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/scss</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/sass</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/사스</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -209,7 +215,6 @@
 <url> <loc>https://blueshw.github.io/tag/카카오-컨퍼런스</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/gif</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/svg</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://blueshw.github.io/tag/clip-path</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/카카오페이지</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/카카오뱅크</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/규칙</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -264,10 +269,6 @@
 <url> <loc>https://blueshw.github.io/tag/한스-로슬링</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/input</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/tutoring</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://blueshw.github.io/tag/roulette</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://blueshw.github.io/tag/뽑기</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://blueshw.github.io/tag/gotcha</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://blueshw.github.io/tag/룰렛</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/pure-css</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/list</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/expandable-list</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>

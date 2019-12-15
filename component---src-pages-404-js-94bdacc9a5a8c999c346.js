@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[4],{223:function(e,t,n){"use strict";n.r(t),function(e){n(0);t.default=function(){return e.createElement("div",null,e.createElement("h1",null,"NOT FOUND"),e.createElement("p",null,"You just hit a route that doesn't exist... the sadness."))}}.call(this,n(133))}}]);
+//# sourceMappingURL=component---src-pages-404-js-94bdacc9a5a8c999c346.js.map
