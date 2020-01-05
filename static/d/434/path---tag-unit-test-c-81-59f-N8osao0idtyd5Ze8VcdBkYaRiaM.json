@@ -1,1 +1,0 @@
-{"data":{"allMarkdownRemark":{"totalCount":2,"edges":[{"node":{"frontmatter":{"title":"[Jest] mock 함수를 이용하여 함수 호출 테스트 하기"}}},{"node":{"frontmatter":{"title":"[django] 테스트DB 없이 유닛테스트(unit test)하기"}}}]}},"pageContext":{"tag":"unit test"}}
