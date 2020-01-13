@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[9],{227:function(n,t,e){"use strict";e.r(t),function(n){e.d(t,"default",function(){return u}),e.d(t,"pageQuery",function(){return c});e(0);var r=e(248);function u(t){return n.createElement(r.a,t)}var c="3830525331"}.call(this,e(133))}}]);
-//# sourceMappingURL=component---src-pages-review-js-e621a43249bbe96efd05.js.map
