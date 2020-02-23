@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url> <loc>https://blueshw.github.io/2020/02/24/character-in-fiction/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/2020/02/16/hobby-in-lifetime/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/2020/02/08/memories-and-records/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/2020/02/03/the-paper-menagerie/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -142,6 +143,13 @@
 <url> <loc>https://blueshw.github.io/2011/04/29/role-of-social-venture/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/2011/04/13/learning-from-mountain/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/2011/03/12/where-is-the-your-youth/</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blueshw.github.io/tag/소설</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blueshw.github.io/tag/재미</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blueshw.github.io/tag/옥상에서-만나요</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blueshw.github.io/tag/정세랑</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blueshw.github.io/tag/저주토끼</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blueshw.github.io/tag/정보라</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
+<url> <loc>https://blueshw.github.io/tag/캐릭터</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/취미</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/우울</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/일</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
@@ -170,7 +178,6 @@
 <url> <loc>https://blueshw.github.io/tag/고양이</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/반려동물</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/사랑</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
-<url> <loc>https://blueshw.github.io/tag/소설</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/곽재식</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/2019-회고</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
 <url> <loc>https://blueshw.github.io/tag/회고</loc> <changefreq>daily</changefreq> <priority>0.7</priority> </url>
