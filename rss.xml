@@ -1,4 +1,241 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[bono's blog]]></title><description><![CDATA[글을 씁니다.]]></description><link>https://blueshw.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Fri, 08 May 2020 06:58:34 GMT</lastBuildDate><item><title><![CDATA[Frontend 바로 알기]]></title><description><![CDATA[의 영역이 점점 커지고 있다. 과거의 프론트엔드는 HTML과 CSS와 약간의 Javascript(이하 JS)를 다루는 영역이었다. 흔히 웹 퍼블리셔의 역할인 UI…]]></description><link>https://blueshw.github.io/2020/05/05/know-front-end-right-away/</link><guid isPermaLink="false">https://blueshw.github.io/2020/05/05/know-front-end-right-away/</guid><pubDate>Tue, 05 May 2020 18:28:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;프론트엔드(Frontend)&lt;/code&gt;의 영역이 점점 커지고 있다. 과거의 프론트엔드는 HTML과 CSS와 약간의 Javascript(이하 JS)를 다루는 영역이었다. 흔히 웹 퍼블리셔의 역할인 UI개발이 주된 업무였다. 하지만, 웹의 기능이 복잡해지고 동적 요구사항이 늘어나면서 과거 방식은 한계에 이르렀다. JS가 다루어야 할 영역은 점점 커졌고, 백엔드의 비즈니스 로직 일부는 프론트로 이전되었다. 이제는 더 이상 서버에서 View를 담당하지 않는다. 서버는 핵심 비즈니스 로직을 작성하고, 필요한 데이터를 프론트에 제공한다.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[bono's blog]]></title><description><![CDATA[글을 씁니다.]]></description><link>https://blueshw.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sat, 09 May 2020 18:01:23 GMT</lastBuildDate><item><title><![CDATA[[HTML 바로 알기] Semantic Web을 위한 Semantic Elements]]></title><description><![CDATA[은 웹에서 를 담당한다. 웹페이지의 뼈대를 만들고 레이아웃을 구성한다. 웹사이트마다 구성은 다르지만, 대체로 헤더(Header), 내비게이션(nav), 콘텐츠(main), 그리고 푸터(footer…]]></description><link>https://blueshw.github.io/2020/05/09/know-html-semantic-elements/</link><guid isPermaLink="false">https://blueshw.github.io/2020/05/09/know-html-semantic-elements/</guid><pubDate>Sun, 10 May 2020 03:00:20 GMT</pubDate><content:encoded>&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;HTML(Hyper Text Markup Language)&lt;/code&gt;은 웹에서 &lt;code class=&quot;language-text&quot;&gt;의미&lt;/code&gt;를 담당한다. 웹페이지의 뼈대를 만들고 레이아웃을 구성한다. 웹사이트마다 구성은 다르지만, 대체로 헤더(Header), 내비게이션(nav), 콘텐츠(main), 그리고 푸터(footer)의 조합으로 만들어진다. 각 영역은 기능에 따라 구분한다. 헤더에 사이트 이름이나 로고 등을 넣는다. 일종의 간판이다. 내비게이션 영역은 페이지 전환, 로그인 등 사이트의 공통 기능이 들어간다. 글 목록이나 본문 등 실제 내용은 콘텐츠 영역에 들어가고, 푸터에는 회사 정보나 약관 등의 부가정보가 배치된다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;시맨틱 요소(Semantic Elements)&lt;/code&gt;는 웹을 의미 있게 만드는 역할을 한다. HTML4에서 &lt;code class=&quot;language-text&quot;&gt;HTML5&lt;/code&gt;로 넘어오면서 시맨틱 요소가 많이 추가되었다. HTML4 환경이라면, &lt;code class=&quot;language-text&quot;&gt;&amp;lt;div id=&amp;quot;main&amp;quot;&amp;gt;&lt;/code&gt;으로 작성할 코드를 HTML5에서는 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;main&amp;gt;&lt;/code&gt;으로 작성할 수 있다. 많이 간단해졌다. 내비게이션은 &amp;#x3C;nav&gt;를 사용한다. 글의 제목은 &amp;#x3C;h1&gt;~&amp;#x3C;h6&gt;를 사용하고, 헤더 영역은 &amp;#x3C;header&gt;를 사용한다. 본문은 &amp;#x3C;article&gt;과 &amp;#x3C;section&gt;으로 적절히 구분하고, 각 문단은 &amp;#x3C;p&gt;(paragraph)를 사용한다. 버튼은 &amp;#x3C;button&gt;을 사용하고, 사진에 대한 설명은 &amp;#x3C;figure&gt;와 &amp;#x3C;figcaption&gt;을 사용한다. 그 밖에도 의미에 맞춰 사용해야 할 요소가 수 없이 많다. 일부는 HTML4에도 존재했고, 일부는 HTML5에 추가되었다. &lt;/p&gt;
+&lt;h2&gt;웹 접근성&lt;/h2&gt;
+&lt;p&gt;많은 웹사이트가 의미를 가진 요소 사용을 간과한 채 잘못된 방향으로 만들어진다. &lt;code class=&quot;language-text&quot;&gt;영역과 기능에 따라&lt;/code&gt; 적절한 tag를 사용하지 않고 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;div&amp;gt;와 &amp;lt;span&amp;gt;&lt;/code&gt;만으로 웹페이지를 구성한다. 물론, 이 두 가지 tag만 나열해도 웹페이지를 만들 수 있다. 어차피 디자인은 CSS 영역이기 때문이다. HTML 노드에 어떤 태그가 있더라도 CSS만 제대로 작성하면 디자이너가 그린 것과 똑같은 화면을 만들 수 있다. 일반적 경우라면 아무 문제없다. 다만, &lt;code class=&quot;language-text&quot;&gt;웹 접근성(web accessibility)&lt;/code&gt; 차원에서는 문제가 된다. 웹페이지에 일반적인 방법으로 접근할 수 없는 사람들, 특히 시각장애인의 경우는 볼 수 없기 때문에 스크린 리더와 같이 문서를 소리로 바꿔주는 특수한 장치를 이용해야 한다. 웹사이트를 눈이 아닌 귀로 듣는 경험은 어떨지 상상하기 어렵다. 아마 많이 불편할 것이다. 우리가 상상할 수 없다고 간과해서는 안된다. 웹을 만드는 사람이라면 조금이라도 이 불편함을 해소할 수 있도록 도와야 할 의무가 있다. 구현하기 편하다고, 자기 눈에는 아무 이상 없다고 그냥 지나치면 안 된다. 최소한 요소의 의미와 쓰임새를 알고 제대로 사용해야 한다.&lt;/p&gt;
+&lt;p&gt;(웹접근성에 관해서는 별도로 쓸 예정이라 이 글에서는 더 이상 다루지 않겠다)&lt;/p&gt;
+&lt;h2&gt;SEO(검색엔진 최적화)&lt;/h2&gt;
+&lt;p&gt;시맨틱 요소는 접근성 뿐 아니라 &lt;code class=&quot;language-text&quot;&gt;검색엔진 최적화(SEO: Search Engine Optimization)&lt;/code&gt;에도 영향을 준다. 관련 키워드로 검색했을 때 검색 결과 상위에 문서를 노출하려면 SEO 최적화는 필수다. 구글 같은 검색 사이트는 주기적으로 전 세계에 공개된 웹을 &lt;code class=&quot;language-text&quot;&gt;수집(Crawling)&lt;/code&gt;하고 &lt;code class=&quot;language-text&quot;&gt;분석(또는 색인: Indexing)&lt;/code&gt;한다. 구글 검색엔진이 웹사이트에 방문하 때, 미리 제공한 &lt;code class=&quot;language-text&quot;&gt;sitemap.xml&lt;/code&gt; 파일이나 &lt;code class=&quot;language-text&quot;&gt;robots.txt&lt;/code&gt; 파일을 이용해 수집 방법을 결정한다. 소유자 입맛에 맞게 수집 방법을 결정할 수 있도록 &lt;code class=&quot;language-text&quot;&gt;Google Search Console&lt;/code&gt;과 같은 서비스도 제공한다. &lt;/p&gt;
+&lt;p&gt;검색엔진이 웹사이트를 방문하면 문서에 포함된 링크를 따라가며 관련 페이지를 모두 방문하고 수집한다. 수집된 문서는 구글 시스템에서 분석 과정을 거친다. 웹사이트에 사용된 태그와 단어의 빈도 등 검색엔진 자체 알고리즘에 따라 주요 키워드를 추출한다. &amp;#x3C;div&gt;와 &amp;#x3C;span&gt;만 사용한 문서는 어떤 부분이 중요한 영역인지 구분이 어렵다. 문서의 제목에 해당하는 &amp;#x3C;title&gt;, 본문 영역 표시 &amp;#x3C;main&gt;, 글 제목 &amp;#x3C;h1&gt; 등 주요 항목을 별도의 태그로 구분한 문서가 더 좋은 점수(실제 점수가 있는 건 아니다)를 획득한다. 즉, 검색 결과 상위에 노출된다. 물론, 검색엔진마다 알고리즘이 다르기 때문에(우리는 알 수 없다) 무엇이 정답이다 말할 수는 없다. 하지만, 상식적으로 생각해도 영역 구분이 확실한 문서가 그렇지 않은 문서보다 더 적절한 키워드를 추출할 것이라 예상할 수 있다. 우리가 웹문서를 의미에 맞게 구성해야 하는 이유다. &lt;/p&gt;
+&lt;h2&gt;주요 Semantic Elements&lt;/h2&gt;
+&lt;p&gt;간과하기 쉽지만 꼭 알아야 할 몇 가지 중요한 Semanctic 요소에 대해 알아보자.&lt;/p&gt;
+&lt;h3&gt;&lt;u&gt;&amp;#x3C;header&gt;와 &amp;#x3C;footer&gt;&lt;/u&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;header&amp;gt;와 &amp;lt;footer&amp;gt;&lt;/code&gt; 모두 문서(전체 웹페이지 또는 특정 영역)의 부가정보를 표기하는 데 사용한다. &amp;#x3C;header&gt;에 문서의 제목, 로고, 작성자, 작성일과 같은 메타 정보를 배치한다. 그리고 &amp;#x3C;footer&gt;에는 회사 정보나 소유자의 소셜미디어 정보, 약관 등 문서와 관련이 적은 부가정보를 배치한다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/bdeb249f2720f93032e1f2e0321f80fd/95204/1.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 70.34529451591062%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAIDBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAddKKXAP/8QAGxAAAgEFAAAAAAAAAAAAAAAAAQIAEhMhIjH/2gAIAQEAAQUCcbUxeMjE23i4H//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EAB4QAAEEAQUAAAAAAAAAAAAAAAABAhEhMjNRcYGh/9oACAEBAAY/AsnJwZvNynx0anhayf/EABwQAAMAAQUAAAAAAAAAAAAAAAABEVEhYZHR8P/aAAgBAQABPyGvCMU+4SKq9zLODGo8FEaVRmH/2gAMAwEAAgADAAAAEOPP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAIBABAAIBAgcAAAAAAAAAAAAAAQARITFRYXGBobHR8P/aAAgBAQABPxBrjHMAPEGUYuH1HecGra85V9UGHugehPreU3EzivpP/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;header, footer&quot;
+        title=&quot;header, footer&quot;
+        src=&quot;/static/bdeb249f2720f93032e1f2e0321f80fd/c739e/1.jpg&quot;
+        srcset=&quot;/static/bdeb249f2720f93032e1f2e0321f80fd/8ee9c/1.jpg 148w,
+/static/bdeb249f2720f93032e1f2e0321f80fd/ebbe7/1.jpg 295w,
+/static/bdeb249f2720f93032e1f2e0321f80fd/c739e/1.jpg 590w,
+/static/bdeb249f2720f93032e1f2e0321f80fd/5413e/1.jpg 885w,
+/static/bdeb249f2720f93032e1f2e0321f80fd/4efde/1.jpg 1180w,
+/static/bdeb249f2720f93032e1f2e0321f80fd/95204/1.jpg 1477w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&amp;#x3C;header&gt;, &amp;#x3C;footer&gt; 모두 웹사이트 부가정보를 표기할 때 사용하지만, 아래처럼 본문(&amp;#x3C;article&gt; 또는 &amp;#x3C;section&gt;)내 부가정보를 표기할 때도 사용할 수 있다. &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;article&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;header&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;헤더 정보&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;header&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;본문내용&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;본문내용&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;footer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;푸터 정보&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;footer&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;article&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&amp;#x3C;header&gt; 와 &amp;#x3C;footer&gt;는 중첩해서 사용할 수 없다는 점에 주의해야 한다.&lt;/p&gt;
+&lt;h3&gt;&lt;u&gt;&amp;#x3C;nav&gt;&lt;/u&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;내비게이터(navigator)&lt;/code&gt;를 의미한다. 사이트 전체 흐름을 제어하는 기능을 담당한다. 페이지 이동 등의 주요 메뉴가 배치된다. 구조에 따라 문서 상단이나 측면에 위치하기도 한다. 전체 페이지의 흐름을 담당하기 때문에 문서의 변화와 상관없이 항상 노출하는 경우가 많다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/73b99a71abe7cf8e2fc388e2a9ecff2d/95204/2.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 70.34529451591062%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAECAwX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAHsTuihh//EABkQAAIDAQAAAAAAAAAAAAAAAAERAAISEP/aAAgBAQABBQK2m7wNEOZ5/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAGRAAAwADAAAAAAAAAAAAAAAAAAEhIDGR/9oACAEBAAY/Ao0bXC4f/8QAGRABAAMBAQAAAAAAAAAAAAAAAQARIWHR/9oACAEBAAE/IWcg6S33TLYXkFXKQwn/2gAMAwEAAgADAAAAELAP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAHRABAAIBBQEAAAAAAAAAAAAAAQARITFBUWGx8P/aAAgBAQABPxCs1wwq+wRR9nc2iOUUSwNYA4YKDif/2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;nav&quot;
+        title=&quot;nav&quot;
+        src=&quot;/static/73b99a71abe7cf8e2fc388e2a9ecff2d/c739e/2.jpg&quot;
+        srcset=&quot;/static/73b99a71abe7cf8e2fc388e2a9ecff2d/8ee9c/2.jpg 148w,
+/static/73b99a71abe7cf8e2fc388e2a9ecff2d/ebbe7/2.jpg 295w,
+/static/73b99a71abe7cf8e2fc388e2a9ecff2d/c739e/2.jpg 590w,
+/static/73b99a71abe7cf8e2fc388e2a9ecff2d/5413e/2.jpg 885w,
+/static/73b99a71abe7cf8e2fc388e2a9ecff2d/4efde/2.jpg 1180w,
+/static/73b99a71abe7cf8e2fc388e2a9ecff2d/95204/2.jpg 1477w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3&gt;&lt;u&gt;&amp;#x3C;main&gt;과 &amp;#x3C;article&gt;과 &amp;#x3C;section&gt; &lt;/u&gt;&lt;/h3&gt;
+&lt;p&gt;세 가지 태그는 본문 영역을 구획할 때 주로 사용한다. &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/fd881d1227059765d6d52ec66d4381e2/95204/3.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 70.34529451591062%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAFwABAQEBAAAAAAAAAAAAAAAAAAMBBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAeothYH/xAAYEAADAQEAAAAAAAAAAAAAAAABAgMAEv/aAAgBAQABBQKleXSvTZpqxElU7//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABcQAQADAAAAAAAAAAAAAAAAABEAARD/2gAIAQEABj8CCBjcaz//xAAZEAACAwEAAAAAAAAAAAAAAAAAAREhMYH/2gAIAQEAAT8h1t9G3CrZFhCSyIEMVI//2gAMAwEAAgADAAAAEJAP/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPxA//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPxA//8QAGRABAQEBAQEAAAAAAAAAAAAAAREAMSFR/9oACAEBAAE/EFYRg0J3MvPTQc6V192QtdyiJauED5v/2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;main, article, section&quot;
+        title=&quot;main, article, section&quot;
+        src=&quot;/static/fd881d1227059765d6d52ec66d4381e2/c739e/3.jpg&quot;
+        srcset=&quot;/static/fd881d1227059765d6d52ec66d4381e2/8ee9c/3.jpg 148w,
+/static/fd881d1227059765d6d52ec66d4381e2/ebbe7/3.jpg 295w,
+/static/fd881d1227059765d6d52ec66d4381e2/c739e/3.jpg 590w,
+/static/fd881d1227059765d6d52ec66d4381e2/5413e/3.jpg 885w,
+/static/fd881d1227059765d6d52ec66d4381e2/4efde/3.jpg 1180w,
+/static/fd881d1227059765d6d52ec66d4381e2/95204/3.jpg 1477w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;main&amp;gt;&lt;/code&gt;은 문서에서 오직 한 번만 사용한다. 본문을 뜻하며, 콘텐츠 내용 전체를 감싼다. 그에 비해 &amp;#x3C;article&gt;과 &amp;#x3C;section&gt;은 좀 더 자유롭다. 내가 사용할 때는 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;article&amp;gt;&lt;/code&gt;은 내용으로 나누고, &lt;code class=&quot;language-text&quot;&gt;&amp;lt;section&amp;gt;&lt;/code&gt;은 형식으로 나눈다. 하나의 &amp;#x3C;article&gt; 안에 여러 개의 &amp;#x3C;section&gt;이 있을 수 있고, 반대의 경우도 가능하다.&lt;/p&gt;
+&lt;p&gt;블로그 페이지를 예로 들어보자.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;article 내 여러 개의 section을 배치하는 경우&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;글 본문 페이지에서 사용할 수 있다. &lt;code class=&quot;language-text&quot;&gt;글 전체를 article&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;각 단락을 section&lt;/code&gt;으로 구분한다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;section 내 여러 개의 article을 배치하는 경우&lt;/li&gt;
+&lt;/ul&gt;
+&lt;blockquote&gt;
+&lt;p&gt;글 목록 페이지에서 사용할 수 있다. &lt;code class=&quot;language-text&quot;&gt;글 목록 전체를 section&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;목록 중 하나를 article&lt;/code&gt;로 구분한다.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3&gt;&lt;u&gt;&amp;#x3C;aside&gt;&lt;/u&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;aside&amp;gt;&lt;/code&gt;는 본문 옆에 구성한다. 보통은 본문과 직접적으로 관련 없는 내용이 배치된다. 블로그에서 측면의 카테고리 목록이나 태그 목록 등이 포함된 영역이 이에 해당한다. 하지만, &amp;#x3C;aside&gt;를 본문 내에서도 사용할 수 있다. &amp;#x3C;article&gt; 혹은 &amp;#x3C;section&gt;에 &amp;#x3C;aside&gt;가 위치하면, 본문 내용과 관련된 부가정보를 노출한다. 주석이나 각주 등이 이에 해당한다.&lt;/p&gt;
+&lt;h4&gt;&amp;#x3C;article&gt; 외부에 &amp;#x3C;aside&gt;를 사용한 경우&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;section&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;article&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;첫 번째 article 내용&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;article&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;article&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;두 번째 article 내용&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;article&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;section&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;aside&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;블로그 메뉴 / 사이트와 관련된 부가 정보&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;aside&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/cc87da8abee1eadb5e438f11529beeb2/95204/4.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 70.34529451591062%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAOABQDASIAAhEBAxEB/8QAGAAAAwEBAAAAAAAAAAAAAAAAAAIDAQX/xAAUAQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAHuRuhowf/EABoQAQEAAgMAAAAAAAAAAAAAAAIBAxIAESH/2gAIAQEAAQUCt9eTQ41uLO+LGVCYT//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8BP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8BP//EABoQAAICAwAAAAAAAAAAAAAAAAABETECEFH/2gAIAQEABj8CJsWXdQyFR//EABgQAAMBAQAAAAAAAAAAAAAAAAABESEx/9oACAEBAAE/IZQcy9SGKQJakU1CEuIf/9oADAMBAAIAAwAAABAjz//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQIBAT8QP//EABkQAQEBAQEBAAAAAAAAAAAAAAERACExQf/aAAgBAQABPxD1ic+Y7uJBnuAJAWLU7qB7uxijOndIYYF3/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;aside&quot;
+        title=&quot;aside&quot;
+        src=&quot;/static/cc87da8abee1eadb5e438f11529beeb2/c739e/4.jpg&quot;
+        srcset=&quot;/static/cc87da8abee1eadb5e438f11529beeb2/8ee9c/4.jpg 148w,
+/static/cc87da8abee1eadb5e438f11529beeb2/ebbe7/4.jpg 295w,
+/static/cc87da8abee1eadb5e438f11529beeb2/c739e/4.jpg 590w,
+/static/cc87da8abee1eadb5e438f11529beeb2/5413e/4.jpg 885w,
+/static/cc87da8abee1eadb5e438f11529beeb2/4efde/4.jpg 1180w,
+/static/cc87da8abee1eadb5e438f11529beeb2/95204/4.jpg 1477w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h4&gt;&amp;#x3C;article&gt; 내에 &amp;#x3C;aside&gt;를 사용한 경우&lt;/h4&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;article&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;본문 내용이 들어간다. 여기는 첫 번째 단락이다.&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;aside&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;첫 번째 단락 우측에 위치한다. 첫째 단락의 주석이나 각주가 표기된다.&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;aside&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;본문 내용이 들어간다. 여기는 두 번째 단락이다.&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;article&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/4d8c55cd1564d7ef7faede8ed2b0dafe/95204/5.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 42.38320920785375%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAIABQDASIAAhEBAxEB/8QAFwABAAMAAAAAAAAAAAAAAAAAAAIDBf/EABQBAQAAAAAAAAAAAAAAAAAAAAD/2gAMAwEAAhADEAAAAduAWg//xAAYEAEBAAMAAAAAAAAAAAAAAAARAQACEv/aAAgBAQABBQKre81T/8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFhABAQEAAAAAAAAAAAAAAAAAACEx/9oACAEBAAY/Aoi6/8QAGRAAAgMBAAAAAAAAAAAAAAAAAIEBIVFx/9oACAEBAAE/IeYY4ZRcf//aAAwDAQACAAMAAAAQg8//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAEDAQE/ED//xAAUEQEAAAAAAAAAAAAAAAAAAAAQ/9oACAECAQE/ED//xAAaEAACAwEBAAAAAAAAAAAAAAABEQAhUUGx/9oACAEBAAE/ENCnIYprXXkYsAlAWHP/2Q==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;aside&quot;
+        title=&quot;aside&quot;
+        src=&quot;/static/4d8c55cd1564d7ef7faede8ed2b0dafe/c739e/5.jpg&quot;
+        srcset=&quot;/static/4d8c55cd1564d7ef7faede8ed2b0dafe/8ee9c/5.jpg 148w,
+/static/4d8c55cd1564d7ef7faede8ed2b0dafe/ebbe7/5.jpg 295w,
+/static/4d8c55cd1564d7ef7faede8ed2b0dafe/c739e/5.jpg 590w,
+/static/4d8c55cd1564d7ef7faede8ed2b0dafe/5413e/5.jpg 885w,
+/static/4d8c55cd1564d7ef7faede8ed2b0dafe/4efde/5.jpg 1180w,
+/static/4d8c55cd1564d7ef7faede8ed2b0dafe/95204/5.jpg 1477w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;h3&gt;&lt;u&gt;&amp;#x3C;details&gt;와 &amp;#x3C;summary&gt;&lt;/u&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;details&amp;gt;와 &amp;lt;summary&amp;gt;&lt;/code&gt;는 대부분 같이 사용한다. 클릭했을 때, 상세 내용이 확장되는 UI에서 흔히 볼 수 있다. 모바일에서 공지사항이나 FAQ와 같은 페이지를 생각하면 된다. &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;details&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;summary&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;[긴급] 서비스를 종료합니다.&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;summary&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+      그 동안 성원해 주신 고객 여러분 감사합니다. 
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;ol&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;details&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;&lt;u&gt;&amp;#x3C;figure&gt;와 &amp;#x3C;figcaption&gt;&lt;/u&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;figure&amp;gt;&lt;/code&gt;는 독립적인 콘텐츠를 의미한다. 내부에 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;figcaption&amp;gt;&lt;/code&gt;을 사용해 부가 설명을 붙일 수 있다. 주로 인용문, 이미지, 소스코드에 설명을 쓸 때 사용한다.  &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;figure&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;img&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;src&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;“”&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;alt&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;“”&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;figcaption&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;사진에 대한 설명을 쓰자.&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;figcaption&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;figure&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;정리 (feat. Semantic Web)&lt;/h2&gt;
+&lt;p&gt;웹은 점점 규모가 커지고, 의미 있는 내용을 추리는데 더 많은 시간과 자원을 사용한다. 정확하고 가치 있는 정보를 탐색하기 위해서는 웹문서가 단순한 코드의 나열이 아니라 의미를 가진 하나의 구조로 작동해야 한다. 단순히 정보가 나열된 문서는 중요한 요소를 구분하기 어렵다. 자칫 크롤러가 엉뚱한 부분을 중요하다고 착각하는 요인이 될 수 있다. 우리가 웹페이지를 구성할 때 적절한 위치에 적합한 요소를 사용해야 이런 오해를 줄일 수 있다. 즉, 의미를 구분할 수 있는 문서를 만들어야 사용자에게 정확한 정보를 제공할 수 있다. &lt;/p&gt;
+&lt;h2&gt;참고자료&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://developers.google.com/web/fundamentals/accessibility?hl=ko&quot;&gt;Google 접근성 article&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://ko.wikipedia.org/wiki/%EC%8B%9C%EB%A7%A8%ED%8B%B1_%EC%9B%B9&quot;&gt;위키피디아 시멘틱웹&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.google.com/intl/ko/search/howsearchworks/crawling-indexing/&quot;&gt;검색에서 정보를 구성하는 방법&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[Frontend 바로 알기]]></title><description><![CDATA[의 영역이 점점 커지고 있다. 과거의 프론트엔드는 HTML과 CSS와 약간의 Javascript(이하 JS)를 다루는 영역이었다. 흔히 웹 퍼블리셔의 역할인 UI…]]></description><link>https://blueshw.github.io/2020/05/05/know-front-end-right-away/</link><guid isPermaLink="false">https://blueshw.github.io/2020/05/05/know-front-end-right-away/</guid><pubDate>Tue, 05 May 2020 18:28:00 GMT</pubDate><content:encoded>&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;프론트엔드(Frontend)&lt;/code&gt;의 영역이 점점 커지고 있다. 과거의 프론트엔드는 HTML과 CSS와 약간의 Javascript(이하 JS)를 다루는 영역이었다. 흔히 웹 퍼블리셔의 역할인 UI개발이 주된 업무였다. 하지만, 웹의 기능이 복잡해지고 동적 요구사항이 늘어나면서 과거 방식은 한계에 이르렀다. JS가 다루어야 할 영역은 점점 커졌고, 백엔드의 비즈니스 로직 일부는 프론트로 이전되었다. 이제는 더 이상 서버에서 View를 담당하지 않는다. 서버는 핵심 비즈니스 로직을 작성하고, 필요한 데이터를 프론트에 제공한다.&lt;/p&gt;
 &lt;p&gt;프론트에서 해야 할 일이 많아지면서 다양한 기술이 등장했다. 리로딩 없이 빠른 속도로 페이지를 전환하기 위한 &lt;code class=&quot;language-text&quot;&gt;SPA(Single Page Application)&lt;/code&gt;, 여러 JS파일을 하나의 파일로 번들링하기 위한 &lt;code class=&quot;language-text&quot;&gt;Webpack&lt;/code&gt;, 현재 브라우저에서 지원하지 않는 문법을 사용하도록 도와주는 &lt;code class=&quot;language-text&quot;&gt;Babel&lt;/code&gt; 등 다양한 기술이 쏟아졌다. &lt;code class=&quot;language-text&quot;&gt;React&lt;/code&gt;나 &lt;code class=&quot;language-text&quot;&gt;Vue&lt;/code&gt; 같은 프론드엔드 전용 프레임워크는 이제 선택이 아닌 필수다. &lt;/p&gt;
 &lt;p&gt;프론트엔드를 위한 다양한 기술이 나왔지만, 웹(또는 브라우저)의 동작 방식은 이전과 다르지 않다. 브라우저가 통신으로 요청한 HTML문서를 파싱해서 DOM트리를 만들고, 스타일 시트와 결합해서 렌더트리를 만들어 화면에 그린다. 이때, &lt;code class=&quot;language-text&quot;&gt;HTML(의미)&lt;/code&gt;은 뼈대를 만들고, &lt;code class=&quot;language-text&quot;&gt;CSS(표현)&lt;/code&gt;가 살을 붙이고 옷을 입힌다. 그리고 &lt;code class=&quot;language-text&quot;&gt;JS(동작)&lt;/code&gt;는 이를 살아있게 만든다. 브라우저는 이 세 가지의 상호작용으로 페이지를 그리고 갱신한다.&lt;/p&gt;
 &lt;p&gt;사실, 위에서 언급했던 새로운 기술 대부분은 개발 편의와 동작 효율을 위한 목적으로 만들어졌다. 최신 문법을 사용하게 해주거나, 컴포넌트 단위 개발을 도와준다. JS파일을 하나로 합쳐서 파일 크기를 줄이고 페이지 속도를 향상한다. 하지만, 기술에 너무 의존하면 기본을 간과할 수 있다. React를 익히고 Webpack 사용법을 익히면 프론트 개발은 가능하다. 하지만, React나 Webpack은 도구일 뿐 언제든 대체될 수 있다. HTML, CSS, JS가 어떻게 동작하는지 그 근본 원리를 이해하는 것이 훨씬 중요하다. 기본이 탄탄하면 도구가 바뀌어도 쉽게 이해하고 익힐 수 있다. &lt;/p&gt;
