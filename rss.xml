@@ -1,4 +1,403 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[bono's blog]]></title><description><![CDATA[글을 씁니다.]]></description><link>https://blueshw.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Mon, 11 May 2020 01:39:16 GMT</lastBuildDate><item><title><![CDATA[[HTML 바로 알기] Semantic Web을 위한 Semantic Elements]]></title><description><![CDATA[은 웹에서 를 담당한다. 웹페이지의 뼈대를 만들고 레이아웃을 구성한다. 웹사이트마다 구성은 다르지만, 대체로 헤더(Header), 내비게이션(nav), 콘텐츠(main), 그리고 푸터(footer…]]></description><link>https://blueshw.github.io/2020/05/09/know-html-semantic-elements/</link><guid isPermaLink="false">https://blueshw.github.io/2020/05/09/know-html-semantic-elements/</guid><pubDate>Sun, 10 May 2020 03:00:20 GMT</pubDate><content:encoded>&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;HTML(Hyper Text Markup Language)&lt;/code&gt;은 웹에서 &lt;code class=&quot;language-text&quot;&gt;의미&lt;/code&gt;를 담당한다. 웹페이지의 뼈대를 만들고 레이아웃을 구성한다. 웹사이트마다 구성은 다르지만, 대체로 헤더(Header), 내비게이션(nav), 콘텐츠(main), 그리고 푸터(footer)의 조합으로 만들어진다. 각 영역은 기능에 따라 구분한다. 헤더에 사이트 이름이나 로고 등을 넣는다. 일종의 간판이다. 내비게이션 영역은 페이지 전환, 로그인 등 사이트의 공통 기능이 들어간다. 글 목록이나 본문 등 실제 내용은 콘텐츠 영역에 들어가고, 푸터에는 회사 정보나 약관 등의 부가정보가 배치된다.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[bono's blog]]></title><description><![CDATA[글을 씁니다.]]></description><link>https://blueshw.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 17 May 2020 15:08:26 GMT</lastBuildDate><item><title><![CDATA[[CSS 바로 알기] Block Formatting Context]]></title><description><![CDATA[프론트엔드 개발에서 Block Formatting Context(이하 BFC)라는 용어는 그리 자주 사용하지 않는다. 아예 들어본 적 없는 사람도 많을 것 같다. 그러나, BFC…]]></description><link>https://blueshw.github.io/2020/05/17/knwo-css-block-formatting-context/</link><guid isPermaLink="false">https://blueshw.github.io/2020/05/17/knwo-css-block-formatting-context/</guid><pubDate>Sun, 17 May 2020 23:58:00 GMT</pubDate><content:encoded>&lt;p&gt;프론트엔드 개발에서 Block Formatting Context(이하 BFC)라는 용어는 그리 자주 사용하지 않는다. 아예 들어본 적 없는 사람도 많을 것 같다. 그러나, BFC는 용어에 비해 어렵지 않다(용어가 많아 조금 헷갈리긴 하다). 누구나 이해할 수 있는 수준이다. 한 번이라도 HTML과 CSS로 layout을 작성해본 사람이라면 이미 경험적으로 알고 있는 내용이다. 하지만, 경험적으로 어렴풋이 아는 것과 용어와 동작 방식을 바로 아는 것은 차이가 있다. BFC가 무엇이고, 어떻게 동작하는지 살펴보자.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;div&amp;gt;&lt;/code&gt;태그를 하나 만들자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;block&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;하나의 block 레벨 요소(BFC가 아님에 주의)가 생성되었다. 최상위 block에 &lt;code class=&quot;language-text&quot;&gt;.container&lt;/code&gt; 클래스를 붙여주자. 그리고 자식 요소를 몇 개 만들어 보자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;style&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token style&quot;&gt;&lt;span class=&quot;token language-css&quot;&gt;
+  &lt;span class=&quot;token selector&quot;&gt;.container&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; #833ab4&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 5px dashed&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 20px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 10px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;border-radius&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 5px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token selector&quot;&gt;.float-left&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; left&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; #833ab450&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 15px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 100px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;style&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;container&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;float-left&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    나는 왼쪽에 떠 있다.
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  여기는 본문, 왼쪽에 떠 있는 요소 오른쪽에 위치한다. 떠 있는 요소의 영향을 받지만, 나만이 container의 높이를 결정한다.
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/be6734068b504cedb6a2e80aa4152e83/40920/0.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 26.40750670241287%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAABYlAAAWJQFJUiTwAAAA4klEQVQY042Q0U7CMBSG9/4PY8QLFWOi3nhB0IQpzMSoQNZtMFzZStdtSH/POZN4qU2+fO3f0/akgTMdtmndk9XQ5HLFtmLOzaZBlTuBs93n77paO+yKBiWdNbpGwAVPVwrjkzmxwOPZEg+DH04XCC9jqKnG+ygXx88FkkhDzfr5xzgX857ODILG7hHdppicxwiHCuFFLJewJ8T0OpEOzcbB6la6EVOXdttKzpnhdeUQeO/xRq/PblK83GVCdDQ99Hq/hj94/Gd0+66/sFw5FMpCJ8TRBGf8h4cvD677i7bt8A02HXbilXivUQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;floated child with non BFC&quot;
+        title=&quot;floated child with non BFC&quot;
+        src=&quot;/static/be6734068b504cedb6a2e80aa4152e83/b9e4f/0.png&quot;
+        srcset=&quot;/static/be6734068b504cedb6a2e80aa4152e83/cf440/0.png 148w,
+/static/be6734068b504cedb6a2e80aa4152e83/d2d38/0.png 295w,
+/static/be6734068b504cedb6a2e80aa4152e83/b9e4f/0.png 590w,
+/static/be6734068b504cedb6a2e80aa4152e83/f9b6a/0.png 885w,
+/static/be6734068b504cedb6a2e80aa4152e83/2d849/0.png 1180w,
+/static/be6734068b504cedb6a2e80aa4152e83/40920/0.png 1492w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;아마 이 상황을 겪어 봤겠지만, &lt;code class=&quot;language-text&quot;&gt;.float-left&lt;/code&gt; 영역이 container를 벗어난다(그렇지 않다면, viewport 너비를 조정해보자). block 레벨 요소(container)가 float 된 자식 요소를 포함하지 않기 때문에 발생한 현상이다. &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;요즘은 &lt;code class=&quot;language-text&quot;&gt;flexbox&lt;/code&gt;나 &lt;code class=&quot;language-text&quot;&gt;grid&lt;/code&gt;를 많이 사용하기 때문에 &lt;code class=&quot;language-text&quot;&gt;float&lt;/code&gt;의 존재가 잊혀진 것 같다. flexbox와 grid는 float에 비해 직관적이고 명확해서 레이아웃 구성에 용이하다. 하지만, 불과 십 년 전만 하더라도 레이아웃 구성에 float를 사용했다. 지금도 많은 웹문서가 float를 사용한다. float를 사용해 레이아웃을 구성해 본 사람은 알겠지만, 쉽지 않고 복잡하다. &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;.container&lt;/code&gt;에 &lt;code class=&quot;language-text&quot;&gt;overflow: hidden&lt;/code&gt;(auto도 마찬가지)을 넣어보자.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/16f624f0e1dcb0eb35ef36bf48e704c2/fdca4/1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 27.125506072874494%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAABYlAAAWJQFJUiTwAAAA1UlEQVQY042QWw/BQBCF+///DiHxIEEi3pAIGpeg2F51txeKtsfOtBE82eTbM3N2czIZ46ru8HYxAiuBv09Yg0OtNVKkCM81pxTKuWqv4qL72M/4jbKMyLth1jlh3LQwbliYto+YtLS2tGpv3hVw1grOJoIwJdxtxAP4+5hr8uyVYk0uGYw4yLDs24w5cN4107OxGrp43HLQKYoSJVGWXDN51T+zHKmsJ/wK+Qhf6MD1yMU/p3gW1YR0HWchxFLivND8qDAVfyTS8I4k+FBZKe2O9kr+C0NTdnNvhPyRAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;floated child with BFC&quot;
+        title=&quot;floated child with BFC&quot;
+        src=&quot;/static/16f624f0e1dcb0eb35ef36bf48e704c2/b9e4f/1.png&quot;
+        srcset=&quot;/static/16f624f0e1dcb0eb35ef36bf48e704c2/cf440/1.png 148w,
+/static/16f624f0e1dcb0eb35ef36bf48e704c2/d2d38/1.png 295w,
+/static/16f624f0e1dcb0eb35ef36bf48e704c2/b9e4f/1.png 590w,
+/static/16f624f0e1dcb0eb35ef36bf48e704c2/f9b6a/1.png 885w,
+/static/16f624f0e1dcb0eb35ef36bf48e704c2/2d849/1.png 1180w,
+/static/16f624f0e1dcb0eb35ef36bf48e704c2/fdca4/1.png 1482w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;container에 &lt;code class=&quot;language-text&quot;&gt;BFC(Block Formatting Context)&lt;/code&gt;가 생성 되었다. 이제는 float 요소의 높이가 container의 높이에 영향을 준다. BFC는 그 안에 만들어진 모든 요소를 포함하기 때문이다. 사실 container를 BFC로 만들지 않더라도, &lt;code class=&quot;language-text&quot;&gt;clearfix 방식&lt;/code&gt;을 사용해서 처리 할 수 있다. 하지만, 이 방법은 float 요소를 포함하기 위해 불필요한 요소를 삽입하기 때문에 가독성이 좋지 않다. &lt;/p&gt;
+&lt;p&gt;W3C에는 다음의 경우 BFC가 생성된다고 정의한다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Floats, absolutely positioned elements, inline-blocks, table-cells, table-captions, and elements with ‘overflow’ other than ‘visible’ (except when that value has been propagated to the viewport) establish new block formatting contexts.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;정리하면 다음과 같다(몇 가지 추가, 자세한 내역은 &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context&quot;&gt;이 문서&lt;/a&gt;를 확인하자).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;html root 태그 (body 태그는 만들어지지 않는다)&lt;/li&gt;
+&lt;li&gt;none을 제외한 float&lt;/li&gt;
+&lt;li&gt;position: fixed, absolute&lt;/li&gt;
+&lt;li&gt;display: inline-block, table, table-cell, table-caption&lt;/li&gt;
+&lt;li&gt;overflow: visible을 제외한 모든 값&lt;/li&gt;
+&lt;li&gt;display: flow-root (일부 브라우저만 동작함)&lt;/li&gt;
+&lt;li&gt;display: flex, inline-flex, grid, inline-grid&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;BFC는 레이아웃 안의 작은 레이아웃이라고 생각하면 된다. BFC 내부의 모든 요소는 이 블록 안에 속한다. 내부 요소가 float 상태라 하더라도 마찬가지다. 그래서 container에 &lt;code class=&quot;language-text&quot;&gt;overflow: hidden;&lt;/code&gt; 속성을 부여하면 float 요소는 container 높이에 영향을 준다. &lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;BFC의 특성&lt;/h2&gt;
+&lt;p&gt;BFC의 몇 가지 특성에 대해 알아보자.&lt;/p&gt;
+&lt;h3&gt;float는 BFC를 생성한다&lt;/h3&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;float&lt;/code&gt;는 BFC를 생성한다. 처음 예제에서 float-left의 높이 값을 제거하고 &lt;code class=&quot;language-text&quot;&gt;inner&lt;/code&gt; 요소를 추가했다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;style&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token style&quot;&gt;&lt;span class=&quot;token language-css&quot;&gt;
+  &lt;span class=&quot;token selector&quot;&gt;.float-left&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;float&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; left&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; #833ab450&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 15px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 150px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token selector&quot;&gt;.inner&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; #833ab450&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 200px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 80px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 2px solid #833ab4&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;style&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;container&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;float-left&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;    
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;float-left inner&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  여기는 본문, 왼쪽에 떠 있는 요소 옆에 위치한다. container가 BFC기 때문에 float 요소가 container 높이에 영향을 준다.
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 586px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/d4e1011c52b84a23f999557e3169ecd6/67f41/2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 55.2901023890785%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAALCAYAAAB/Ca1DAAAACXBIWXMAAAsSAAALEgHS3X78AAABlklEQVQoz6WSWU/CQBSF+/8TH9yNuyYmJr5oNMYFFzBETARXWgqoUGWnlAKlhS7HeweXqA9KnOTkTmZuv5x7OlKv66JZ7qJdd9Cq2lRJugOT9malC5PujIKFBskoWqKnVbNF5e/4nPt4zyzJbvfxFK/hcjOHxHYe8a08rnefkYlVoN3qqGttlDMmimoTL7IB7U5HKd1E5cFEQTFQoDPu6ZAJy3AgMTUbq+JwMomTuRSOZhSEF1Wo0TJyV3WUCPaSbAggO7OaPSE20rNdOB0X3VaP1BeSvL4P+aSI3ZE7HIwnsTd6j9C0gsSOJpwzRNc6wgWPxU44HhFRbRALVx6d4RJo5W90HEwkcbqg4nhWQWQ5Dfm0iOpTi6/hewECPxDV9/wf8lyqdM9LALXbBg6nZISXVDH22UoaSqSEWr4tmoJg0Pzb4r43oE4ZyiK7YwJGGBgmYO4T+Fd9OAy9O5wnh6uZgcPccA4/RuYM98fuxbiht7/83eFQQH5fnNv5+gOia1lcbDwi9R+HLj2dvu19kWO54nxY4CtvTjrYWBHQYgAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;float makes a BFC&quot;
+        title=&quot;float makes a BFC&quot;
+        src=&quot;/static/d4e1011c52b84a23f999557e3169ecd6/67f41/2.png&quot;
+        srcset=&quot;/static/d4e1011c52b84a23f999557e3169ecd6/cf440/2.png 148w,
+/static/d4e1011c52b84a23f999557e3169ecd6/d2d38/2.png 295w,
+/static/d4e1011c52b84a23f999557e3169ecd6/67f41/2.png 586w&quot;
+        sizes=&quot;(max-width: 586px) 100vw, 586px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;.container&lt;/code&gt;가 BFC가 아니므로 &lt;code class=&quot;language-text&quot;&gt;.float-left&lt;/code&gt;의 높이는 container 크기와 무관하다. 그러나 BFC 생성 규칙에 따라 float 요소는 BFC를 생성하므로 &lt;code class=&quot;language-text&quot;&gt;.float-left&lt;/code&gt; 요소는 BFC가 된다. 그래서 그 내부에 &lt;code class=&quot;language-text&quot;&gt;.float-left.inner&lt;/code&gt;는 &lt;code class=&quot;language-text&quot;&gt;.float-left&lt;/code&gt;의 높이에 영향을 준다. &lt;/p&gt;
+&lt;h3&gt;BFC 자식의 자식은 어떻게 될까?&lt;/h3&gt;
+&lt;p&gt;BFC container 안에 &lt;code class=&quot;language-text&quot;&gt;non BFC container&lt;/code&gt;를 넣고, 그 안에 float 요소를 배치한다. 비교를 위해 두 번째 container 요소의 높이를 &lt;code class=&quot;language-text&quot;&gt;50px&lt;/code&gt;로 고정한다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;style&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token style&quot;&gt;&lt;span class=&quot;token language-css&quot;&gt;
+  &lt;span class=&quot;token selector&quot;&gt;.height-50&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;height&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 50px
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;style&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;container BFC&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;container height-50&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;float-left&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+      여기는 본문, 왼쪽에 떠 있는 요소 옆에 위치한다. container가 BFC기 때문에 float 요소가 container 높이에 영향을 준다.
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 584px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/ee2956a7afc582fb336d7f02cb37e005/3064a/3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 39.554794520547944%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsSAAALEgHS3X78AAABOklEQVQoz31S2U7DQAzM/38PSDzBAyAVeKgKFLWkBdqUHJvmvo9msJ2EqiCINNrYnp0d71orkhqRkyP1S8RugVgVsiZeeYI/a/tCEJgZ8qiCxqQ8qnvivielA4RMeT5MahSPeeYLL+j3RKoX1phcZg2MZx/bJ8Kj943NrIf1GsJ5i6EIzLOWIdT7MXY/Evi7FHlck6DXC/LG5a19ihsbqzsFSw+lJXeTwFnHsPUI9iqSQ/mfXXpGOrRM1qu8wfpeYXpuYHZxxPRsi/mliT0JsQsWY1csYpJLds5CoZ0j+MyQkbDGQXfo4FNifmViQa4W1xbBlpid//d1XSdrXbRyrxq/cF228KklfeJg/eASlKz6RGH3EuDQdmiqg6Ctf4Pr3K4Icrvx8EL8UnzAOB4jftbGURnBOb5jHsEvfkRbQN+1Rj0AAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;BFC includes grandchildren&quot;
+        title=&quot;BFC includes grandchildren&quot;
+        src=&quot;/static/ee2956a7afc582fb336d7f02cb37e005/3064a/3.png&quot;
+        srcset=&quot;/static/ee2956a7afc582fb336d7f02cb37e005/cf440/3.png 148w,
+/static/ee2956a7afc582fb336d7f02cb37e005/d2d38/3.png 295w,
+/static/ee2956a7afc582fb336d7f02cb37e005/3064a/3.png 584w&quot;
+        sizes=&quot;(max-width: 584px) 100vw, 584px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;.container.height-50&lt;/code&gt; 요소는 non BFC다. 그래서 그 안의 float 요소를 포함하지 않는다. 하지만, 가장 상위 요소가 BFC이기 때문에 자식의 자식인 float 요소까지 포함한다. 즉, float 요소가 &lt;code class=&quot;language-text&quot;&gt;.container.height-50&lt;/code&gt;의 높이에 영향을 준다.&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;.container.height-50&lt;/code&gt;를 BFC로 변경해보자.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;container BFC&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;container height-50 BFC&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;float-left&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+    &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+      여기는 본문, 왼쪽에 떠 있는 요소 옆에 위치한다. container가 BFC기 때문에 float 요소가 container 높이에 영향을 준다.
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 584px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/56bceb09e9a1ffad017c7df20cd37027/3064a/4.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 31.84931506849315%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsSAAALEgHS3X78AAAA9klEQVQY011RXVPDIBDM//9T6qMzvvjRjKNttalNGgI0BAK0ceZkD1NtH3aO5WBvWYownMi0npyOZGWgQSR0gayKl7jquau+3o10Ct9U4JA3x3xQ/gnxBRkvxee+/CesM/q9J5grQOI4UfWkE1SuzxmbR8V7+3dD7Wqgdmnoa6GZi/XAFVxtHR3qkY5+SoJpSnQTrR86Km9rKu+aMxY3NS3vBYvhSeJj4DWE6teeB8qNZYeqclkQ+cHhrjywm+2LPgMcDmRl+WKXBLtPy+6at54dwxliQw02PRl5YPocOgYAyIgx76WM+sZzVkb8flAC89THEAj+AGLPw/qtnMpFAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;BFC in BFC&quot;
+        title=&quot;BFC in BFC&quot;
+        src=&quot;/static/56bceb09e9a1ffad017c7df20cd37027/3064a/4.png&quot;
+        srcset=&quot;/static/56bceb09e9a1ffad017c7df20cd37027/cf440/4.png 148w,
+/static/56bceb09e9a1ffad017c7df20cd37027/d2d38/4.png 295w,
+/static/56bceb09e9a1ffad017c7df20cd37027/3064a/4.png 584w&quot;
+        sizes=&quot;(max-width: 584px) 100vw, 584px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;BFC 내부에 BFC가 존재하면, 내부 BFC의 자식 요소의 크기는 표현하지 않는다. 그래서 &lt;code class=&quot;language-text&quot;&gt;.container.height-50.BFC&lt;/code&gt; 요소의 높이인 50px만 늘어나게 된다. &lt;/p&gt;
+&lt;h3&gt;BFC는 margin collapse를 막는다.&lt;/h3&gt;
+&lt;p&gt;margin collapse는 요소의 margin 값이 겹칠 경우, 값이 더 큰 margin만 적용되는 현상을 말한다. &lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;style&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token style&quot;&gt;&lt;span class=&quot;token language-css&quot;&gt;
+&lt;span class=&quot;token selector&quot;&gt;.no-border-padding&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; none&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;background&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; #bbb&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 0&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token selector&quot;&gt;p&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; white&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; #833ab4&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 20px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;line-height&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 30px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;style&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;container no-border-padding&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;paragraph 영역&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;paragraph 영역&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 585px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/7a6a1063f21dc6665b1bc91bf42cbbd1/899a8/5.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 19.65811965811966%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAECAYAAACOXx+WAAAACXBIWXMAAAsSAAALEgHS3X78AAAAxElEQVQY043PT0vCcADG8b3UEqwIOkQQedHXMGTqQWTUTjp1mv9S1rGgrCEIbcIcbTm6tR9CkKLfBuK1dvjwXB4eeKT1doVrhUxuQ6aDkDfzk9dGwLjmM9YTqvpYvXeEEEjLb4FRGaFl79FyJurViOJpF+Wog3L8v8JJnOkuxQuDmTPbDdZKfcrnAyqXd6iZIfl0G/mwhZxK6KBN/kzHtm2k9eYH5znAai6wjA9e4guPmsfD9Ty2zz/cxB3V46nuEn1F/AIc2vgjoFV/2QAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;margin collapse with non BFC&quot;
+        title=&quot;margin collapse with non BFC&quot;
+        src=&quot;/static/7a6a1063f21dc6665b1bc91bf42cbbd1/899a8/5.png&quot;
+        srcset=&quot;/static/7a6a1063f21dc6665b1bc91bf42cbbd1/cf440/5.png 148w,
+/static/7a6a1063f21dc6665b1bc91bf42cbbd1/d2d38/5.png 295w,
+/static/7a6a1063f21dc6665b1bc91bf42cbbd1/899a8/5.png 585w&quot;
+        sizes=&quot;(max-width: 585px) 100vw, 585px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;container 영역이 non BFC기 때문에 div와 p 영역에 &lt;code class=&quot;language-text&quot;&gt;margin collapse 현상&lt;/code&gt;이 발생한다. margin은 background 영역에 포함되지 않기 때문에, 위아래가 회색으로 표현되지 않는다. 이때 가로 영역은 margin collapse가 발생하지 않음에 주의하자. 만약, div 영역에 &lt;code class=&quot;language-text&quot;&gt;border&lt;/code&gt;나 &lt;code class=&quot;language-text&quot;&gt;padding&lt;/code&gt; 값이 있다면, margin collapse 현상은 발생하지 않는다. 왜냐하면 div의 margin과 p의 margin 사이에 어떤 값이 존재하기 때문이다. 다시 한번 말하지만, margin collapse가 발생하기 위해서는 둘 사이에 아무것도(border, padding 포함) 없어야 한다. &lt;/p&gt;
+&lt;p&gt;container가 BFC가 되면 어떨까?&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt; &lt;span class=&quot;token attr-name&quot;&gt;class&lt;/span&gt;&lt;span class=&quot;token attr-value&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;container no-border-padding BFC&lt;span class=&quot;token punctuation&quot;&gt;&quot;&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;paragraph 영역&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;paragraph 영역&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;p&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;
+&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 587px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/514cafbda236903413f758f11e90de4a/6068f/6.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 27.086882453151617%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAFCAYAAABFA8wzAAAACXBIWXMAAAsSAAALEgHS3X78AAAAz0lEQVQY05XOy24BYQCGYZdoU20X6B20SRcEsRIJKWm7aCJxGES6aEjMkDB+Vq0mLa7Cb4SN4xhj8ZZIusXi2X158zls20aOJNIY/jMmEmN6mdFYsrN3OJbmnHJKJ+/rUAi0UXyC1zuNZ7fKi0c7zauRvFUpJeqY2+UhuKCqCArhFqWI4D0qUEJNlGDjPPtt1t+gktExrdUhOOPjTSf70CH3KEjft0jeaDxdqSRcZ7hWiTurFGO140Nzs+a3O+Bb7LUHfOn9yzV7/Hz2sawNfyUBOJi0zai8AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;margin collapse with BFC&quot;
+        title=&quot;margin collapse with BFC&quot;
+        src=&quot;/static/514cafbda236903413f758f11e90de4a/6068f/6.png&quot;
+        srcset=&quot;/static/514cafbda236903413f758f11e90de4a/cf440/6.png 148w,
+/static/514cafbda236903413f758f11e90de4a/d2d38/6.png 295w,
+/static/514cafbda236903413f758f11e90de4a/6068f/6.png 587w&quot;
+        sizes=&quot;(max-width: 587px) 100vw, 587px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;BFC는 margin collapse를 방지&lt;/code&gt;한다. 그래서 p와 div의 margin이 서로 상쇄되지 않는다. &lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;정리&lt;/h2&gt;
+&lt;p&gt;overflow뿐만 아니라, display의 여러 요소와 position의 fixed, absolute 속성으로도 BFC가 만들어진다. 하지만, BFC라는 개념과 앞서 나열한 여러 속성 간의 관계가 직관적이지 않다. 그리고 각 요소의 성격에 따라 예상치 못한 문제가 발생할 수 있다. 그래서 대안으로 &lt;code class=&quot;language-text&quot;&gt;display: flow-root&lt;/code&gt;라는 속성이 등장했다. 아직 일부 브라우저에서만 동작하지만, 직관적이고 예상치 못한 문제를 예방할 수 있다. 예를 들어, overflow 속성을 사용하여 BFC를 생성한 경우와 flow-root를 사용한 경우에는 결과물이 달라질 수 있다. &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 584px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/56bceb09e9a1ffad017c7df20cd37027/3064a/4.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 31.84931506849315%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsSAAALEgHS3X78AAAA9klEQVQY011RXVPDIBDM//9T6qMzvvjRjKNttalNGgI0BAK0ceZkD1NtH3aO5WBvWYownMi0npyOZGWgQSR0gayKl7jquau+3o10Ct9U4JA3x3xQ/gnxBRkvxee+/CesM/q9J5grQOI4UfWkE1SuzxmbR8V7+3dD7Wqgdmnoa6GZi/XAFVxtHR3qkY5+SoJpSnQTrR86Km9rKu+aMxY3NS3vBYvhSeJj4DWE6teeB8qNZYeqclkQ+cHhrjywm+2LPgMcDmRl+WKXBLtPy+6at54dwxliQw02PRl5YPocOgYAyIgx76WM+sZzVkb8flAC89THEAj+AGLPw/qtnMpFAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;overflow&quot;
+        title=&quot;overflow&quot;
+        src=&quot;/static/56bceb09e9a1ffad017c7df20cd37027/3064a/4.png&quot;
+        srcset=&quot;/static/56bceb09e9a1ffad017c7df20cd37027/cf440/4.png 148w,
+/static/56bceb09e9a1ffad017c7df20cd37027/d2d38/4.png 295w,
+/static/56bceb09e9a1ffad017c7df20cd37027/3064a/4.png 584w&quot;
+        sizes=&quot;(max-width: 584px) 100vw, 584px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;font-style: italic; margin-top: -30px;&quot;&gt;
+  &amp;#60; overflow를 사용해서 BFC를 만든 경우 &amp;#62;
+&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto;  max-width: 590px;&quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/76abf8e3fbc0cfce3607d9c9ccee26fe/448d4/7.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 36.43926788685524%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAHCAYAAAAIy204AAAACXBIWXMAAAsSAAALEgHS3X78AAABHUlEQVQoz52RW0+DQBCF+f//xgc1+mB81aQRqzVRqZWLtAWWyy6w3I87y7Y8+SLJyXAG+GbOYjVljyKSKLMGZfo/VVmL4liDWBbB6qJFFlZ/Kv1RCkjlLOWz/fKMKkG5YlmCNejkAP81hbdm8F7SRcqH77n+OPEEElcg/hZgBhp9cRy3HNGOQ4pOb3sGbh8jbO5CvN0vIu88RNh/5GoAQ7BJ4T4z7FYxHPU+wSgqDaKUdGwWjyX6doRrMzxdeljfBLNuA+1pS5FI5Pv6HJP5pa7UrxSEGE3ZKa+AmqxW9VXE1YUL+9qHfeXrSp76jYlD56SVz5V6lPD0UyTvYMFcNIXO6+AUOHwWupLnaotpmjD0I0ajwWgcjOh+nDTnFzPLDrzaRAD1AAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;flow-root&quot;
+        title=&quot;flow-root&quot;
+        src=&quot;/static/76abf8e3fbc0cfce3607d9c9ccee26fe/b9e4f/7.png&quot;
+        srcset=&quot;/static/76abf8e3fbc0cfce3607d9c9ccee26fe/cf440/7.png 148w,
+/static/76abf8e3fbc0cfce3607d9c9ccee26fe/d2d38/7.png 295w,
+/static/76abf8e3fbc0cfce3607d9c9ccee26fe/b9e4f/7.png 590w,
+/static/76abf8e3fbc0cfce3607d9c9ccee26fe/448d4/7.png 601w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p align=&quot;center&quot; style=&quot;font-style: italic; margin-top: -30px;&quot;&gt;
+  &amp;#60; display: flow-root를 사용해서 BFC를 만든 경우 &amp;#62;
+&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://codepen.io/blueshw/pen/MWaPBym&quot;&gt;Codepen&lt;/a&gt;에서 직접 테스트해 보자.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;참고자료&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/Guide/CSS/Block_formatting_context&quot;&gt;MDN Block formatting context&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS/Visual_formatting_model&quot;&gt;MDN Visual Formatting Model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.smashingmagazine.com/2017/12/understanding-css-layout-block-formatting-context/&quot;&gt;Understanding CSS Layout And The Block Formatting Context&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.sitepoint.com/understanding-block-formatting-contexts-in-css/&quot;&gt;Understanding Block Formatting Contexts in CSS&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[[HTML 바로 알기] Semantic Web을 위한 Semantic Elements]]></title><description><![CDATA[은 웹에서 를 담당한다. 웹페이지의 뼈대를 만들고 레이아웃을 구성한다. 웹사이트마다 구성은 다르지만, 대체로 헤더(Header), 내비게이션(nav), 콘텐츠(main), 그리고 푸터(footer…]]></description><link>https://blueshw.github.io/2020/05/09/know-html-semantic-elements/</link><guid isPermaLink="false">https://blueshw.github.io/2020/05/09/know-html-semantic-elements/</guid><pubDate>Sun, 10 May 2020 03:00:20 GMT</pubDate><content:encoded>&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;HTML(Hyper Text Markup Language)&lt;/code&gt;은 웹에서 &lt;code class=&quot;language-text&quot;&gt;의미&lt;/code&gt;를 담당한다. 웹페이지의 뼈대를 만들고 레이아웃을 구성한다. 웹사이트마다 구성은 다르지만, 대체로 헤더(Header), 내비게이션(nav), 콘텐츠(main), 그리고 푸터(footer)의 조합으로 만들어진다. 각 영역은 기능에 따라 구분한다. 헤더에 사이트 이름이나 로고 등을 넣는다. 일종의 간판이다. 내비게이션 영역은 페이지 전환, 로그인 등 사이트의 공통 기능이 들어간다. 글 목록이나 본문 등 실제 내용은 콘텐츠 영역에 들어가고, 푸터에는 회사 정보나 약관 등의 부가정보가 배치된다.&lt;/p&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;시맨틱 요소(Semantic Elements)&lt;/code&gt;는 웹을 의미 있게 만드는 역할을 한다. HTML4에서 &lt;code class=&quot;language-text&quot;&gt;HTML5&lt;/code&gt;로 넘어오면서 시맨틱 요소가 많이 추가되었다. HTML4 환경이라면, &lt;code class=&quot;language-text&quot;&gt;&amp;lt;div id=&amp;quot;main&amp;quot;&amp;gt;&lt;/code&gt;으로 작성할 코드를 HTML5에서는 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;main&amp;gt;&lt;/code&gt;으로 작성할 수 있다. 많이 간단해졌다. 내비게이션은 &amp;#x3C;nav&gt;를 사용한다. 글의 제목은 &amp;#x3C;h1&gt;~&amp;#x3C;h6&gt;를 사용하고, 헤더 영역은 &amp;#x3C;header&gt;를 사용한다. 본문은 &amp;#x3C;article&gt;과 &amp;#x3C;section&gt;으로 적절히 구분하고, 각 문단은 &amp;#x3C;p&gt;(paragraph)를 사용한다. 버튼은 &amp;#x3C;button&gt;을 사용하고, 사진에 대한 설명은 &amp;#x3C;figure&gt;와 &amp;#x3C;figcaption&gt;을 사용한다. 그 밖에도 의미에 맞춰 사용해야 할 요소가 수 없이 많다. 일부는 HTML4에도 존재했고, 일부는 HTML5에 추가되었다. &lt;/p&gt;
 &lt;h2&gt;웹 접근성&lt;/h2&gt;
 &lt;p&gt;많은 웹사이트가 의미를 가진 요소 사용을 간과한 채 잘못된 방향으로 만들어진다. &lt;code class=&quot;language-text&quot;&gt;영역과 기능에 따라&lt;/code&gt; 적절한 tag를 사용하지 않고 &lt;code class=&quot;language-text&quot;&gt;&amp;lt;div&amp;gt;와 &amp;lt;span&amp;gt;&lt;/code&gt;만으로 웹페이지를 구성한다. 물론, 이 두 가지 tag만 나열해도 웹페이지를 만들 수 있다. 어차피 디자인은 CSS 영역이기 때문이다. HTML 노드에 어떤 태그가 있더라도 CSS만 제대로 작성하면 디자이너가 그린 것과 똑같은 화면을 만들 수 있다. 일반적 경우라면 아무 문제없다. 다만, &lt;code class=&quot;language-text&quot;&gt;웹 접근성(web accessibility)&lt;/code&gt; 차원에서는 문제가 된다. 웹페이지에 일반적인 방법으로 접근할 수 없는 사람들, 특히 시각장애인의 경우는 볼 수 없기 때문에 스크린 리더와 같이 문서를 소리로 바꿔주는 특수한 장치를 이용해야 한다. 웹사이트를 눈이 아닌 귀로 듣는 경험은 어떨지 상상하기 어렵다. 아마 많이 불편할 것이다. 우리가 상상할 수 없다고 간과해서는 안된다. 웹을 만드는 사람이라면 조금이라도 이 불편함을 해소할 수 있도록 도와야 할 의무가 있다. 구현하기 편하다고, 자기 눈에는 아무 이상 없다고 그냥 지나치면 안 된다. 최소한 요소의 의미와 쓰임새를 알고 제대로 사용해야 한다.&lt;/p&gt;
