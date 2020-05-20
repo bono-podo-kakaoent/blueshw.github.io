@@ -1,4 +1,174 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[bono's blog]]></title><description><![CDATA[글을 씁니다.]]></description><link>https://blueshw.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Tue, 19 May 2020 15:02:28 GMT</lastBuildDate><item><title><![CDATA[[CSS 바로 알기] Block Formatting Context]]></title><description><![CDATA[프론트엔드 개발에서 Block Formatting Context(이하 BFC)라는 용어는 그리 자주 사용하지 않는다. 아예 들어본 적 없는 사람도 많을 것 같다. 그러나, BFC…]]></description><link>https://blueshw.github.io/2020/05/17/know-css-block-formatting-context/</link><guid isPermaLink="false">https://blueshw.github.io/2020/05/17/know-css-block-formatting-context/</guid><pubDate>Sun, 17 May 2020 23:58:00 GMT</pubDate><content:encoded>&lt;p&gt;프론트엔드 개발에서 Block Formatting Context(이하 BFC)라는 용어는 그리 자주 사용하지 않는다. 아예 들어본 적 없는 사람도 많을 것 같다. 그러나, BFC는 용어에 비해 어렵지 않다(용어가 많아 조금 헷갈리긴 하다). 누구나 이해할 수 있는 수준이다. 한 번이라도 HTML과 CSS로 layout을 작성해본 사람이라면 이미 경험적으로 알고 있는 내용이다. 하지만, 경험적으로 어렴풋이 아는 것과 용어와 동작 방식을 바로 아는 것은 차이가 있다. BFC가 무엇이고, 어떻게 동작하는지 살펴보자.&lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[bono's blog]]></title><description><![CDATA[글을 씁니다.]]></description><link>https://blueshw.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Wed, 20 May 2020 03:04:01 GMT</lastBuildDate><item><title><![CDATA[disqus를 버리자 (feat. utterances)]]></title><description><![CDATA[disqus는 왜 이렇게 무거울까? 블로그의 구글 서치 콘솔(Google Search Console)을 살펴보다가 블로그가 그리 빠르지 않다는 것을 발견했다.  
+<url이 왜 118개 밖에 없는거지?? 글은 150개쯤 되는데..> gatsby…]]></description><link>https://blueshw.github.io/2020/05/20/disqus-to-utterances/</link><guid isPermaLink="false">https://blueshw.github.io/2020/05/20/disqus-to-utterances/</guid><pubDate>Wed, 20 May 2020 23:58:00 GMT</pubDate><content:encoded>&lt;h2&gt;disqus는 왜 이렇게 무거울까?&lt;/h2&gt;
+&lt;p&gt;블로그의 구글 서치 콘솔(Google Search Console)을 살펴보다가 블로그가 그리 빠르지 않다는 것을 발견했다. &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/66fe8af56e8510cd13d83902a12348e6/8b69f/0.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 38.513513513513516%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAICAYAAAD5nd/tAAAACXBIWXMAAAsSAAALEgHS3X78AAAA6UlEQVQoz3VR0XLEIAj0/3+1zUMmwagg25V4Nr25OrOzwAIKpm3b8DqOt+P+5vpHnBdRHGqOJCIotULV0LuhlBKojHUmt9bo18j5r+FoxHLWs2G5Ms5jRy0Z1jIkZxzHgUw2axA5Qh9w7/h8OIlrcHKrgGb6RBPaEj6Wnxd6PW+0AZk2uexhj9emMZbP/QW6xksCz/hrh0Pnav7gkZu6MWAauG2KwS/o4vFJvnL6w/7Vk5YLloUTCTlzYgk/YjJjtNt5Yv/+gl23v7TJTThy72yoGk9V3oLJYw09fs+WNrjMnzcWPrVVx/gPfqF2vzHgfhYAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;speed is not satisfied&quot;
+        title=&quot;speed is not satisfied&quot;
+        src=&quot;/static/66fe8af56e8510cd13d83902a12348e6/fcda8/0.png&quot;
+        srcset=&quot;/static/66fe8af56e8510cd13d83902a12348e6/12f09/0.png 148w,
+/static/66fe8af56e8510cd13d83902a12348e6/e4a3f/0.png 295w,
+/static/66fe8af56e8510cd13d83902a12348e6/fcda8/0.png 590w,
+/static/66fe8af56e8510cd13d83902a12348e6/efc66/0.png 885w,
+/static/66fe8af56e8510cd13d83902a12348e6/8b69f/0.png 912w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;
+&amp;#x3C;url이 왜 118개 밖에 없는거지?? 글은 150개쯤 되는데..&gt;&lt;/p&gt;
+&lt;p&gt;gatsby를 사용하는 정적 페이지 사이트인데, 속도는 보통으로 나오고 있었다. 뭔가 이상하다. 혹시 몰라서, 구글에서 제공하는 &lt;a href=&quot;https://developers.google.com/speed/pagespeed/insights/&quot;&gt;PageSpeed Insight&lt;/a&gt; 서비스를 이용하여 퍼포먼스를 측정해보았다. &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e5944886be9c8698791fae404a93b5af/1b19f/1.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 78.37837837837837%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAAsSAAALEgHS3X78AAACHklEQVQ4y31T267TMBDM/38Qf8ATQkLn6PCCEAhVbdpcGifxNbaHWacpOdASaWLHXo93didVzhnPkC414tsrcgjIwMMY3Na3p8KzJyXkH9+RvnwG+vZp2J6sEMYYsSwLnHOw1sIJOJfRdC0sSZ0xcN6v+1scx4cZNk2Dl5cXHA4HtG2D8/mMrus479C0LYZxQt9fcb1ecblcyp6cEewJN1SruvROqmdGaWFWRsMuDtpq6HnG/56NvBK5nnJkFAQ2wFOO926V7hdYF2Cs514sl2/YN2YjrbTWRY4QSW0EcoGQGbdAu0wkzDbxO+0kAlJ/QzUSLxCOSgikHkIqixIgl1hLQkrW2mIyEaOOUHodgTUriZezwiFnAr8ryWQYhnvX9pIEURDzHUI2sJzHht5MC9dSybRAJBtt0LGjgfV75Kv3hS9v/KyBT181YjA4nGr0g8I063J5ZXPAOE/FDiJhI11447xYjG7GwHL0fV+att2XEeBYM82zMVjk6IuiKrKbHeswTfMfP4l7WII0KphpKt6s6xqGddpsFqgqO4NfrcOHV4eP39aGVplZDbxdjeNdV6kUCUHveZJ03JcMh+vA0kTImUSTR8ZMbFqvDK6jLgrLrxdvHhTId0r/Ij9ay/nW8RXFh2KTkdkppe4Gl9vG2UBNBgOhbnO1zec1o5jSrlm3f1mITqcTjsdj8ZLUR2lPIwf6b8Wj+cgYsczf//JvSajhzlcOUagAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;performance with disqus&quot;
+        title=&quot;performance with disqus&quot;
+        src=&quot;/static/e5944886be9c8698791fae404a93b5af/fcda8/1.png&quot;
+        srcset=&quot;/static/e5944886be9c8698791fae404a93b5af/12f09/1.png 148w,
+/static/e5944886be9c8698791fae404a93b5af/e4a3f/1.png 295w,
+/static/e5944886be9c8698791fae404a93b5af/fcda8/1.png 590w,
+/static/e5944886be9c8698791fae404a93b5af/efc66/1.png 885w,
+/static/e5944886be9c8698791fae404a93b5af/1b19f/1.png 991w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Google Search Console이나 PageSpeed Insight 모두 html부터 시작해서 js 로딩이 끝나는 시점까지 속도와 퍼포먼스를 측정하는 것 같았다(당연한가?).&lt;/p&gt;
+&lt;p&gt;45점은 너무하다. 데스크탑은 그나마 나은데, 모바일은 생각보다 너무 낮게 나왔다. 페이지 로딩 속도를 느리게 만드는 다양한 요인이 있다. 그 중 내가 해결할 수 있는 부분이 있나 찾아보았다. 블로그에서 사용하는 부가 서비스에서 꽤 많은 리소스를 사용하고 있었고, 전부 합치면 대략 1.5MB정도. 여기만 줄여도 속도가 훨씬 빨라질 것 같았다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/520a9c3f57dcf33e190525934d3cf701/2ad15/2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 91.21621621621621%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAAsSAAALEgHS3X78AAACSUlEQVQ4y3VUiZKkIBTr///JrdraaQ9QvBUUswlqjz0HVRF5YMi7fKzrCtc0GMcRXde9zX3fY5omDEOPcRhoG+DaCaWb0LTHWvvYd1zjoUVXVciLEpazsRbGWL7XKEoDWzsUXBtbYYsRa9xPRGzblhC51t5Orse6RnSWHxFZbvDn7wca1yHULRZTY/7IMGcl3ysEW2PhGf8s4Hl+3YAQkeZpiYn4IbV9P1KhoSKLf888zRmJnkSZ5TAkKfIKGYkcicqsgC3lhWO4OtTENIfTZY5lWVDXNZw7oBhWdYWKIVB8XTchr0dUjF+Uq/FwVfHftgP7Hg/C/RbQa4QQ8NOI8SC5hvc+JU+QqBTDpNCvyG2XjIGHNOvwHcvimSyDtm0T6X3PMpHy6uVyYFQzO8CwHISqnZNNN8Yze5r14cDyOdQedsE597KfCj2eDP40L5hnn2bdLNcvaF0UxZvCa+9S/qbQuhG2OdRp9uFT4aWmYYLuCgUNNYDwIvRhxUfZkWhMN8+Lf1Nwvctlkd5jqHfZvinMqwEFS6Ppl1QC+6ngrkQfXkru9qM9bzH0JHyanpkeGM+QaixIxQ9KviqUcl3Std1nL3uyq3dV3Cpm9XTgoY2IqVcPNZ+9G79B9qMO+Zh4q4iMKVGWx09iVV313auI9684S+bClbhEOLcNfwzsT6ZfpaE/Tk20hKPqTnGbZ+y8JPKyyIu+kr4RDg3/NlQml0WobGqWTUUrKCwj7XNlsYv8N0I9lltPKmMXtFYCUisy+BOJlrPPf3P5P7fDdx8aMP+pAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;performance with disqus detail&quot;
+        title=&quot;performance with disqus detail&quot;
+        src=&quot;/static/520a9c3f57dcf33e190525934d3cf701/fcda8/2.png&quot;
+        srcset=&quot;/static/520a9c3f57dcf33e190525934d3cf701/12f09/2.png 148w,
+/static/520a9c3f57dcf33e190525934d3cf701/e4a3f/2.png 295w,
+/static/520a9c3f57dcf33e190525934d3cf701/fcda8/2.png 590w,
+/static/520a9c3f57dcf33e190525934d3cf701/2ad15/2.png 801w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;Disqus, Adsense 순으로 리소스를 많이 사용하고 있었는데, 이 중 Disqus는 516KB의 리소스를 사용하고 있었다. 크롬 dev tool에서 확인해보면 더 많은 리소스를 사용한는걸 확인할 수 있다. 900KB가 넘는 리소스가 Disqus 하나만을 위해 사용된다. 댓글 하나 추가하는데 너무 많은 리소스가 사용되는게 아닌가 싶었다. 요즘들어 Disqus에 댓글이 하나 둘 늘어나면서 나름 재미를 느끼고 있었지만, 속도는 포기하고 싶지 않았다. 그래서 과감히 Disqus를 제거하기로 결정했다. &lt;/p&gt;
+&lt;p&gt;Disqus의 대안이 필요했다. 가벼우면서 사용성이 편리해야 했다. 두 가지 대안을 찾았다. 하나는 facebook comments, 또 하나는 utterances다. facebook이야 말할 필요도 없다. 믿을 만한 회사에서 만든 plugin이니 마음 놓고 쓸 수 있다. utterances는 가볍고 github 이슈를 이용한 오픈소스다. facebook도 충분히 괜찮은 선택이긴 하지만, 어차피 블로그도 github page를 쓰고 있으니 댓글 관리도 github으로 하면 괜찮겠다 싶었다. 그래서 utterances를 선택했다. &lt;/p&gt;
+&lt;h2&gt;utterances 설치하기&lt;/h2&gt;
+&lt;p&gt;utterances를 적용하는 방법은 간단하다.&lt;/p&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;text&quot;&gt;&lt;pre class=&quot;language-text&quot;&gt;&lt;code class=&quot;language-text&quot;&gt;0.	public repo를 준비한다(블로그 코드 저장소 사용)
+0.	[사용방법](https://utteranc.es/)을 따라 하나씩 작성한다.
+0.	GitHub repo에 utterances 앱을 설치한다(앱 설치 방법은 따로 설명하지 않는다).
+0.	노출을 원하는 위치에 만들어진 script를 붙인다.&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;그럼 아래와 같이 댓글 창이 나온다. 정말 쉽다.&lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/00081901f54546e69e8f6f6f3727cf93/63ec5/3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 32.43243243243243%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAGCAYAAADDl76dAAAACXBIWXMAAAsSAAALEgHS3X78AAAAsUlEQVQY051Ruw7CMAzs//8MMzsb34AYEBuidZzUebQ5HKtVGXgJKycncXw52x3Uaq0gchgUIYxwzHCOzZdpwvrmF3REpMlOkz16JbzdB/WMIBF+FIwxQWL+jpQxN8KUEgy5BSJYFYqSNGW5LMhF/WukvMEIsdikBCv+NSt5rb2pKKqmPP3ezp/6BV2xJPSRQJE3hTYU7aP3Aew9fAi2F5G3A5nrbLEzXbA77XG4Hu3+AQYc1qD7N1+sAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;utterances comments window&quot;
+        title=&quot;utterances comments window&quot;
+        src=&quot;/static/00081901f54546e69e8f6f6f3727cf93/fcda8/3.png&quot;
+        srcset=&quot;/static/00081901f54546e69e8f6f6f3727cf93/12f09/3.png 148w,
+/static/00081901f54546e69e8f6f6f3727cf93/e4a3f/3.png 295w,
+/static/00081901f54546e69e8f6f6f3727cf93/fcda8/3.png 590w,
+/static/00081901f54546e69e8f6f6f3727cf93/63ec5/3.png 812w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;같은 페이지의 퍼포먼스를 측정해보자. 무려 18점이나 향상되었다. 단지 댓글 라이브러리 하나 바꿨을 뿐인데 거의 대부분의 항목이 향상되었다. disqus가 얼마나 무거운 라이브러리인지 알 수 있다. &lt;/p&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/8068635e834fb6fc031354a220204216/1b19f/4.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 79.05405405405406%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAQCAYAAAAWGF8bAAAACXBIWXMAAAsSAAALEgHS3X78AAACU0lEQVQ4y5VTyY7TQBD1F3Hhc/IFcEAjjvwGv4AQSHNEhAM3hmUymRFCowQSJoNEJouXxI57sXvxo7ptD9k40FK52u3yq6pXr4OqqnDUAFi+gI36qKz278fi0Jy3K8C/llWokmvYxRnAp81hdRC2DeYBrbVwprWGUsqb1gaq4Chmn1EuLqBKufO9jtHHK1ytVhgOh5hOp4iiCMvlEskqQRSThQus6ftqnXrvvidJgjAMEcfxDmBrgTEGQgg47xdlFpucKswhWA6uJDZ8g5zOjDUH7e7zGewfWgJ27RijyVNr5FXTrkt6DGQ7QcA5922UZQkppa+2KAq/51KByYrMUpXUSWG3KoNP6v538c5cUg/oeSNQD0LvjDEP7DzjEikzyMjWufbA7bSLooSbQSmpAIp3nQXu4UAcum+5qqfu940CrK28GevVSKBAlGqUgiGOQiSSIRPEOeEEgguaZugBj+lql6Nai7dzoD8Q4HmCu6uvkK+7uOu+x3w2JUBTIt1kSEgmjocWVNMAmBLIZE6SWXtKau3VoKoi3lSBt69eovPgIZ51Ovg9mZCwFZWbrqhtsUO4JcINtVEQj05zToNtQksBhs418fau+waPTh7j6ZMTnD5/QbJRRCxlX6fpfV/uB0tTr/INZJ6TyGMP6qp0ErI0PDOfQ5EvaTBusZTiZmF99Uyjvdb+Z7Xavb96Th5ZlnnQFvj64yf8uLzC4LyHwZdzfO9fNvue3w97F/j24Qx5mh1ePdZw9FciFjejEX7dTDAZj73t72/HPzGi+8/oOu4r4w9izs/WkzbRVwAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;utterances comments window&quot;
+        title=&quot;utterances comments window&quot;
+        src=&quot;/static/8068635e834fb6fc031354a220204216/fcda8/4.png&quot;
+        srcset=&quot;/static/8068635e834fb6fc031354a220204216/12f09/4.png 148w,
+/static/8068635e834fb6fc031354a220204216/e4a3f/4.png 295w,
+/static/8068635e834fb6fc031354a220204216/fcda8/4.png 590w,
+/static/8068635e834fb6fc031354a220204216/efc66/4.png 885w,
+/static/8068635e834fb6fc031354a220204216/1b19f/4.png 991w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://lazywinadmin.com/2019/04/moving_blog_comments.html&quot;&gt;disqus 댓글을 GitHub 이슈로 옮기는 방법&lt;/a&gt;은 있지만, 간단해 보이진 않는다. 만약 disqus에 댓글이 많다면 고려해볼 만 하지만, 나는 50개도 안된다.  이 정도면 처음부터 시작해도 될 것 같다(댓글 써주신 분들께 죄송)&lt;/p&gt;</content:encoded></item><item><title><![CDATA[[CSS 바로 알기] Block Formatting Context]]></title><description><![CDATA[프론트엔드 개발에서 Block Formatting Context(이하 BFC)라는 용어는 그리 자주 사용하지 않는다. 아예 들어본 적 없는 사람도 많을 것 같다. 그러나, BFC…]]></description><link>https://blueshw.github.io/2020/05/17/know-css-block-formatting-context/</link><guid isPermaLink="false">https://blueshw.github.io/2020/05/17/know-css-block-formatting-context/</guid><pubDate>Sun, 17 May 2020 23:58:00 GMT</pubDate><content:encoded>&lt;p&gt;프론트엔드 개발에서 Block Formatting Context(이하 BFC)라는 용어는 그리 자주 사용하지 않는다. 아예 들어본 적 없는 사람도 많을 것 같다. 그러나, BFC는 용어에 비해 어렵지 않다(용어가 많아 조금 헷갈리긴 하다). 누구나 이해할 수 있는 수준이다. 한 번이라도 HTML과 CSS로 layout을 작성해본 사람이라면 이미 경험적으로 알고 있는 내용이다. 하지만, 경험적으로 어렴풋이 아는 것과 용어와 동작 방식을 바로 아는 것은 차이가 있다. BFC가 무엇이고, 어떻게 동작하는지 살펴보자.&lt;/p&gt;
 &lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;&amp;lt;div&amp;gt;&lt;/code&gt;태그를 하나 만들자.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;html&quot;&gt;&lt;pre class=&quot;language-html&quot;&gt;&lt;code class=&quot;language-html&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;block&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token tag&quot;&gt;&lt;span class=&quot;token punctuation&quot;&gt;&amp;lt;/&lt;/span&gt;div&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;하나의 block 레벨 요소(BFC가 아님에 주의)가 생성되었다. 최상위 block에 &lt;code class=&quot;language-text&quot;&gt;.container&lt;/code&gt; 클래스를 붙여주자. 그리고 자식 요소를 몇 개 만들어 보자.&lt;/p&gt;
