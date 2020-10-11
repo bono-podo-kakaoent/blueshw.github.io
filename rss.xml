@@ -1,4 +1,321 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[bono blog]]></title><description><![CDATA[프론트엔드 엔지니어. 글을 씁니다.]]></description><link>https://blueshw.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 11 Oct 2020 07:35:10 GMT</lastBuildDate><item><title><![CDATA[CSS-in-JS(Styled Components) vs CSS-inCSS(CSS Modules) 성능 비교]]></title><description><![CDATA[지난번 포스팅(CSS-in-JS에서 CSS-in-CSS로 바꿔야 하는 이유)에는 CSS-in-JS에서 CSS-in-CSS…]]></description><link>https://blueshw.github.io/2020/09/27/css-in-js-vs-css-modules/</link><guid isPermaLink="false">https://blueshw.github.io/2020/09/27/css-in-js-vs-css-modules/</guid><pubDate>Sun, 27 Sep 2020 12:40:30 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;https://blueshw.github.io/2020/09/14/why-css-in-css/&quot;&gt;지난번 포스팅(CSS-in-JS에서 CSS-in-CSS로 바꿔야 하는 이유)&lt;/a&gt;에는 CSS-in-JS에서 CSS-in-CSS 방식으로 변경해야 하는 이유에 대해 설명했다. 요약해보면, 다음과 같다. &lt;/p&gt;
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[bono blog]]></title><description><![CDATA[프론트엔드 엔지니어. 글을 씁니다.]]></description><link>https://blueshw.github.io</link><generator>GatsbyJS</generator><lastBuildDate>Sun, 11 Oct 2020 11:58:53 GMT</lastBuildDate><item><title><![CDATA[gatsby 블로그에 CSS Modules 적용하기]]></title><description><![CDATA[지금껏, 이 블로그는 로 CSS를 작성하고 있었다. 대표적인 CSS-in-JS 방식이다. 블로그는 스타일 코드가 많지 않기 때문에 CSS-in-JS로 만들어도 충분하다. 하지만, 조금이라도 빠르게 만들어보기 위해 CSS Modules…]]></description><link>https://blueshw.github.io/2020/10/11/gatsby-blog-to-css-modules/</link><guid isPermaLink="false">https://blueshw.github.io/2020/10/11/gatsby-blog-to-css-modules/</guid><pubDate>Sun, 11 Oct 2020 20:59:23 GMT</pubDate><content:encoded>&lt;p&gt;지금껏, 이 블로그는 &lt;code class=&quot;language-text&quot;&gt;styled components + rebass&lt;/code&gt;로 CSS를 작성하고 있었다. 대표적인 CSS-in-JS 방식이다. 블로그는 스타일 코드가 많지 않기 때문에 CSS-in-JS로 만들어도 충분하다. 하지만, 조금이라도 빠르게 만들어보기 위해 CSS Modules 방식으로 변경해 보았다. &lt;/p&gt;
+&lt;p&gt;이번 포스팅에서는 실제 서비스에서 CSS-in-CSS 방식으로 변경했을 때, 어느 정도 성능이 변했는지 확인해보자.&lt;/p&gt;
+&lt;p&gt;확인하려는 항목은 다음과 같다.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;번들 사이즈&lt;/li&gt;
+&lt;li&gt;페이지 로딩 속도(with &lt;a href=&quot;https://developers.google.com/speed/pagespeed/insights/?hl=ko&quot;&gt;Google Page Speed Insights&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;페이지 전환 속도&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&quot;기존-방식-styled-components--rebass&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B8%B0%EC%A1%B4-%EB%B0%A9%EC%8B%9D-styled-components--rebass&quot; aria-label=&quot;기존 방식 styled components  rebass permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;기존 방식 (styled components + rebass)&lt;/h2&gt;
+&lt;p&gt;대표적인 CSS-in-JS 방식인 &lt;a href=&quot;https://styled-components.com/&quot;&gt;styled components&lt;/a&gt;와 styled system 기반의 react 기본 구성 요소를 제공하는 &lt;a href=&quot;https://rebassjs.org/&quot;&gt;rebass&lt;/a&gt;를 사용하였다. &lt;/p&gt;
+&lt;h3 id=&quot;번들-사이즈&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B2%88%EB%93%A4-%EC%82%AC%EC%9D%B4%EC%A6%88&quot; aria-label=&quot;번들 사이즈 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;번들 사이즈&lt;/h3&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/5c656e8aad4d910b452e846c59826a02/569c6/0.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 13.513513513513512%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAyUlEQVQI1x2KW1OCQABG+R2VNxrNme40prsIOFmoLLAslDXmFNVYTv///bTx9F3OcUbFF8H6h9nLL+F6z7ja079/5UBoDmVBOyi5VG8c+WWzu2GFqHbIx2+8rOY6rS0zjX+62OJMdE30tGNafuKbDzy1pSNzen5uM8Odai7iZ9oipTVRuPYX+h1p3Ztkg7faWKYsSxhEBkerJWr5gMkSKp1RpCuK/y+eY2wP5ZhA3DI87jLotTgb9hu3zBWL+Yz4LuLE7TRsdHXOH9McacD2nwuXAAAAAElFTkSuQmCC&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;bundle size of CSS-in-JS&quot;
+        title=&quot;bundle size of CSS-in-JS&quot;
+        src=&quot;/static/5c656e8aad4d910b452e846c59826a02/fcda8/0.png&quot;
+        srcset=&quot;/static/5c656e8aad4d910b452e846c59826a02/12f09/0.png 148w,
+/static/5c656e8aad4d910b452e846c59826a02/e4a3f/0.png 295w,
+/static/5c656e8aad4d910b452e846c59826a02/fcda8/0.png 590w,
+/static/5c656e8aad4d910b452e846c59826a02/efc66/0.png 885w,
+/static/5c656e8aad4d910b452e846c59826a02/c83ae/0.png 1180w,
+/static/5c656e8aad4d910b452e846c59826a02/569c6/0.png 1674w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;gatsby build&lt;/code&gt; 명령으로 만들어지는 번들 파일은 여러 개지만(캐싱 등의 이유로), &lt;code class=&quot;language-text&quot;&gt;app-[contenthash].js&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;[name(abd~)]-[contenthash].js&lt;/code&gt; 두 가지 파일만 확인하면 된다. &lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;참고로 gatsby build로 만들어지는 파일에 대해서 알아보자 (&lt;a href=&quot;https://www.gatsbyjs.com/docs/production-app/&quot;&gt;gatsby 공식문서 참고&lt;/a&gt;)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;app-[contenthash].js: 웹팩 entry 포인트(production-app.js)의 결과물. 애플리케이션 코드가 들어감.&lt;/li&gt;
+&lt;li&gt;webpack-runtime-[contenthash].js: 웹팩 runtime에 필요한 번들.&lt;/li&gt;
+&lt;li&gt;framework-[contenthash].js: React를 포함한 프레임웍을 포함한 번들.&lt;/li&gt;
+&lt;li&gt;commons(최신버전에서는 name인듯)-[contenthash].js: 모든 페이지에서 사용하는 라이브러리가 번들된 파일 (최신 버전에는 commons가 붙지 않는 것 같다). 최초 접근에 한 번 다운로드.&lt;/li&gt;
+&lt;li&gt;component--[name]-[contenthash].js: 각 페이지에 대한 분리된 번들. 페이지 전환 시마다 해당 페이지의 번들을 다운로드.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;app-[contenthash].js&lt;/code&gt; 파일은 &lt;code class=&quot;language-text&quot;&gt;36kB&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;[name]-[contenthash].js&lt;/code&gt; 파일은 &lt;code class=&quot;language-text&quot;&gt;35.6kB&lt;/code&gt;다. 큰 사이즈는 아니지만, 빠른 로딩을 위해서 조금이라도 번들 사이즈를 줄여야한다.&lt;/p&gt;
+&lt;h3 id=&quot;페이지-로딩-속도&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%A1%9C%EB%94%A9-%EC%86%8D%EB%8F%84&quot; aria-label=&quot;페이지 로딩 속도 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;페이지 로딩 속도&lt;/h3&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/1b886cf9edb6ecd91907859631dd0645/16baf/1.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 118.24324324324324%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAYABQDASIAAhEBAxEB/8QAGQABAAIDAAAAAAAAAAAAAAAAAAECAwQF/8QAFgEBAQEAAAAAAAAAAAAAAAAAAQAC/9oADAMBAAIQAxAAAAHrxsRrNGUMAbCv/8QAHBAAAgAHAAAAAAAAAAAAAAAAAQIAAxAREyAh/9oACAEBAAEFAjL7jMKltDX/xAAXEQADAQAAAAAAAAAAAAAAAAAAAREQ/9oACAEDAQE/AYib/8QAGBEAAgMAAAAAAAAAAAAAAAAAAAEQERL/2gAIAQIBAT8B0y5//8QAGhAAAgIDAAAAAAAAAAAAAAAAAAECMhESIP/aAAgBAQAGPwLO8i8izff/xAAbEAEAAgIDAAAAAAAAAAAAAAABABARQSExgf/aAAgBAQABPyFV9jUzaopx7o0cFCv/2gAMAwEAAgADAAAAEDQfAP/EABYRAQEBAAAAAAAAAAAAAAAAAAEAEP/aAAgBAwEBPxCgG//EABgRAAIDAAAAAAAAAAAAAAAAAAABECFh/9oACAECAQE/ENhu7n//xAAaEAEAAwEBAQAAAAAAAAAAAAABABEhMUEQ/9oACAEBAAE/EDGVlo2EQ11dMiNWG7ezkcx9l74HiQtDEgJLPefP/9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;page speed of CSS-in-JS&quot;
+        title=&quot;page speed of CSS-in-JS&quot;
+        src=&quot;/static/1b886cf9edb6ecd91907859631dd0645/1c72d/1.jpg&quot;
+        srcset=&quot;/static/1b886cf9edb6ecd91907859631dd0645/a80bd/1.jpg 148w,
+/static/1b886cf9edb6ecd91907859631dd0645/1c91a/1.jpg 295w,
+/static/1b886cf9edb6ecd91907859631dd0645/1c72d/1.jpg 590w,
+/static/1b886cf9edb6ecd91907859631dd0645/a8a14/1.jpg 885w,
+/static/1b886cf9edb6ecd91907859631dd0645/fbd2c/1.jpg 1180w,
+/static/1b886cf9edb6ecd91907859631dd0645/16baf/1.jpg 1239w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;나쁜 점수&lt;code class=&quot;language-text&quot;&gt;(72점)&lt;/code&gt;는 아니지만(mobile, PC는 거의 100점에 가깝다), 정적 페이지 블로그인걸 생각하면 개선이 필요하다. &lt;/p&gt;
+&lt;h3 id=&quot;페이지-전환-속도&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%8E%98%EC%9D%B4%EC%A7%80-%EC%A0%84%ED%99%98-%EC%86%8D%EB%8F%84&quot; aria-label=&quot;페이지 전환 속도 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;페이지 전환 속도&lt;/h3&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/535fedc5de383b377bfcaaa93b989b11/4b39a/2.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 63.51351351351351%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAABYlAAAWJQFJUiTwAAADZ0lEQVQ4y5WTy28bVRjFR6oS2ooQ7HRBkdrO2J7xa+zxc/wYe2wTv+o6SWM7jexJnIQ0pGqUpGkqVSpKG9QMJJbVAHaTqighpLQhCBYFjIRYwQ6xYM8/Aprac5i0vJaw+OnqnnOP9F3pfERG4O3haHCdDwhrUTEhR8W4HIu9wO3iZL8/ICdTGTmdzsqRiCiHw1E5LIiynw/KPl9A9mm+3xe8KwixuhASJMLp5KaisQRisX6EwlG4PDw4lxdeXwBmCwuzjYPd4YGN9cLtDWoE4HB6YLZqntUBxmKH1eaEU9PsFtuPhMVqq/h8fvj9/O8XcnllYqysjAwmleLABaVaziuVQlqpFLPK5GhKuSwNKoXBjJJKppTS4IAyNnpRuVQqKgPns7/lsjlk0umviKnJCWl5+ToWFuY7t1dW1GZjE9vNGnZ3H+LRp9v47MlH2Nu9j4PHW/j8cA8HB59g+8EW9vf3sP/oY2xu3kOj8X670byP2sZ6i/DxISkWT8Dl9nQ4p1MNh0IojBQw8eYYLs/OYH5xGaOVMorlIhauLWJh8Rqq1TKWlqYxPTMNl8uJROKNdjweR0QIt4heQ0zSmTM4SSU7klRQ67eqaKxdxeqtOdTfuYoPVmdw7/YNHNZXsVObRXWqimR+GHduXsGl8SmE0yWwkXz7tCMLhz/aIk5QSambyqGLzHZeIvtVki/iyfeHuLP9IVbW3sWW9v36agM/Pf0ZP/z6HfKTN5Een8d7Ow/gzb6FM94iDEKl3WMZgt6gTXj8bEw6YcjiZfp8p5vMqKdsQ2h+sYvljXWkSlcwObuE63N3sdP8Et/88hT+3Az6pTncqG3gNfsQznqHcZq72NZpuVPGUIt4/QwpnTPaYGa9HQvrVq1aRTy8H5zHB4udA+t0g+O0Gml14cPB5zWyHWmab2BY0BYHTGZHm7ZyMDG2FsE6OGm8Mgzea22zLKsKQkilKEqlSFI1GgyqwUC9uFOkSp470qg/NVI1GQ2qUUM7n9G0EQxDt4jhkTGpJr+NaimiHpU6k0mDphmYTPTf0PQ//FszmUx/0WaY55lvCdpsq2TTaXjcXNvl9na0VVMZs1U1/w+098+s2ubQjOVrorf3lb5j3cdFgjgmdnV1iT09vaJO3ye+qtOLOl3ff0Qf1TIJvb7P+gdleqrSPInqOQAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;page transition speed of CSS-in-JS&quot;
+        title=&quot;page transition speed of CSS-in-JS&quot;
+        src=&quot;/static/535fedc5de383b377bfcaaa93b989b11/fcda8/2.png&quot;
+        srcset=&quot;/static/535fedc5de383b377bfcaaa93b989b11/12f09/2.png 148w,
+/static/535fedc5de383b377bfcaaa93b989b11/e4a3f/2.png 295w,
+/static/535fedc5de383b377bfcaaa93b989b11/fcda8/2.png 590w,
+/static/535fedc5de383b377bfcaaa93b989b11/efc66/2.png 885w,
+/static/535fedc5de383b377bfcaaa93b989b11/c83ae/2.png 1180w,
+/static/535fedc5de383b377bfcaaa93b989b11/4b39a/2.png 3104w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;index 페이지를 열고 리스트 항목을 선택했을 때, 이동하는 속도를 측정한다. 번들 파일에서 CSS를 추출하고, style 태그에 삽입하기까지 대략 &lt;code class=&quot;language-text&quot;&gt;372.5ms&lt;/code&gt;의 시간이 소요되었다. 그리고 뒤로가기 버튼을 누른 후, 다시 같은 항목을 선택했을 때 &lt;code class=&quot;language-text&quot;&gt;223.3ms&lt;/code&gt;의 시간이 소요되었다.
+(참고로, 차이 확인을 위해 CPU를 4x slowdown한 뒤 테스트하였다)&lt;/p&gt;
+&lt;h2 id=&quot;개선한-방식-css-modules&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B0%9C%EC%84%A0%ED%95%9C-%EB%B0%A9%EC%8B%9D-css-modules&quot; aria-label=&quot;개선한 방식 css modules permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;개선한 방식 (CSS Modules)&lt;/h2&gt;
+&lt;p&gt;이번에는 CSS Modules로 변경한 결과를 살펴보자.&lt;/p&gt;
+&lt;h3 id=&quot;번들-사이즈-1&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EB%B2%88%EB%93%A4-%EC%82%AC%EC%9D%B4%EC%A6%88-1&quot; aria-label=&quot;번들 사이즈 1 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;번들 사이즈&lt;/h3&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/8560953ce762ccf9659719ab76df9b2b/668c6/3.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 14.18918918918919%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAADCAYAAACTWi8uAAAACXBIWXMAABYlAAAWJQFJUiTwAAAAyklEQVQI1x3K207CQACE4T6HJLQgGlTgQu0xdZUUsdt2u9BFxWgV4yHq+9//rL2YTCbfOL7+IN18c7P9Qzz+EpgfRtkTvVhzYOOJhpls6SWrbh/N70nMF1HzyYV643T53H3//Vy94wTVC2mzI13viHXL9PYBL6kY2LhxyShVTBcb+pGkH0qORU2iX4nrlku5ZZJZC/POzjKDI8s1i6WiqBpKZSht51Jzl9fIQhNEAj+8wjs8wR2Mmcx8qtqQFyvmmbQmcIfjzoLomj2a5ml5pXmoJAAAAABJRU5ErkJggg==&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;bundle size of CSS-in-CSS&quot;
+        title=&quot;bundle size of CSS-in-CSS&quot;
+        src=&quot;/static/8560953ce762ccf9659719ab76df9b2b/fcda8/3.png&quot;
+        srcset=&quot;/static/8560953ce762ccf9659719ab76df9b2b/12f09/3.png 148w,
+/static/8560953ce762ccf9659719ab76df9b2b/e4a3f/3.png 295w,
+/static/8560953ce762ccf9659719ab76df9b2b/fcda8/3.png 590w,
+/static/8560953ce762ccf9659719ab76df9b2b/efc66/3.png 885w,
+/static/8560953ce762ccf9659719ab76df9b2b/c83ae/3.png 1180w,
+/static/8560953ce762ccf9659719ab76df9b2b/668c6/3.png 1692w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code class=&quot;language-text&quot;&gt;app-[contenthash].js&lt;/code&gt;는 &lt;code class=&quot;language-text&quot;&gt;17.7kB&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;[name(abd~)]-[contenthash].js&lt;/code&gt;는 &lt;code class=&quot;language-text&quot;&gt;9.6kB&lt;/code&gt;로 상당부분 사이즈가 줄었음을 확인할 수 있다. 두 패키지를 합치면 대략, &lt;code class=&quot;language-text&quot;&gt;45kB&lt;/code&gt; 가 작아졌다. styled components, rebass 등 CSS를 위한 라이브러리가 삭제되었고, CSS 코드는 번들에서 별도로 분리되었기 때문이다.&lt;/p&gt;
+&lt;h3 id=&quot;페이지-로딩-속도-1&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%8E%98%EC%9D%B4%EC%A7%80-%EB%A1%9C%EB%94%A9-%EC%86%8D%EB%8F%84-1&quot; aria-label=&quot;페이지 로딩 속도 1 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;페이지 로딩 속도&lt;/h3&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/e7d2f9978d68bef7a3a5e573a39960fb/16baf/4.jpg&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 118.91891891891892%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAAYABQDASIAAhEBAxEB/8QAGQABAAIDAAAAAAAAAAAAAAAAAAEDAgQF/8QAFgEBAQEAAAAAAAAAAAAAAAAAAQAC/9oADAMBAAIQAxAAAAHrxsNZrWhgDkK//8QAGxABAAEFAQAAAAAAAAAAAAAAAQIAAxAREyD/2gAIAQEAAQUCbbvm1GCeHP8A/8QAFhEBAQEAAAAAAAAAAAAAAAAAEQAQ/9oACAEDAQE/ASN//8QAGBEAAgMAAAAAAAAAAAAAAAAAAAEQERL/2gAIAQIBAT8B0y5//8QAGhAAAgIDAAAAAAAAAAAAAAAAAAECMhESIP/aAAgBAQAGPwLO7LyLN9//xAAaEAABBQEAAAAAAAAAAAAAAAABABARMUFx/9oACAEBAAE/IZG3ilyQGD3IsKYG/9oADAMBAAIAAwAAABAkGAD/xAAXEQADAQAAAAAAAAAAAAAAAAAAAREQ/9oACAEDAQE/EJIW/wD/xAAXEQEAAwAAAAAAAAAAAAAAAAABABAh/9oACAECAQE/EJLdv//EABwQAQACAgMBAAAAAAAAAAAAAAEAETFRECFBcf/aAAgBAQABPxB4jEvsIjrMyFRSlW7Xc8/ZfetMKUYqBNyzmq4//9k=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;page speed of CSS-in-CSS&quot;
+        title=&quot;page speed of CSS-in-CSS&quot;
+        src=&quot;/static/e7d2f9978d68bef7a3a5e573a39960fb/1c72d/4.jpg&quot;
+        srcset=&quot;/static/e7d2f9978d68bef7a3a5e573a39960fb/a80bd/4.jpg 148w,
+/static/e7d2f9978d68bef7a3a5e573a39960fb/1c91a/4.jpg 295w,
+/static/e7d2f9978d68bef7a3a5e573a39960fb/1c72d/4.jpg 590w,
+/static/e7d2f9978d68bef7a3a5e573a39960fb/a8a14/4.jpg 885w,
+/static/e7d2f9978d68bef7a3a5e573a39960fb/fbd2c/4.jpg 1180w,
+/static/e7d2f9978d68bef7a3a5e573a39960fb/16baf/4.jpg 1239w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;72점에서 &lt;code class=&quot;language-text&quot;&gt;88점&lt;/code&gt;으로 점수가 대폭 향상되였다. 큰 점수 차이가 아니라 체감할 정도는 아니겠지만, 네트웍 상황이 안 좋다면 얘기는 달라진다. &lt;/p&gt;
+&lt;h3 id=&quot;페이지-전환-속도-1&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%ED%8E%98%EC%9D%B4%EC%A7%80-%EC%A0%84%ED%99%98-%EC%86%8D%EB%8F%84-1&quot; aria-label=&quot;페이지 전환 속도 1 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;페이지 전환 속도&lt;/h3&gt;
+&lt;p&gt;&lt;span
+      class=&quot;gatsby-resp-image-wrapper&quot;
+      style=&quot;position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 590px; &quot;
+    &gt;
+      &lt;a
+    class=&quot;gatsby-resp-image-link&quot;
+    href=&quot;/static/0611ad103e44ff876498cb2315872efb/4b39a/5.png&quot;
+    style=&quot;display: block&quot;
+    target=&quot;_blank&quot;
+    rel=&quot;noopener&quot;
+  &gt;
+    &lt;span
+    class=&quot;gatsby-resp-image-background-image&quot;
+    style=&quot;padding-bottom: 63.51351351351351%; position: relative; bottom: 0; left: 0; background-image: url(&apos;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAANCAYAAACpUE5eAAAACXBIWXMAABYlAAAWJQFJUiTwAAADUElEQVQ4y5WT7U9aZxjGT6tza1o7gTZbmmgFzjlwDgeBAxxexMOLUNAebItaQNTpGjqqnURr0rfQLqEYbbtss63Wl8al2tgPy5ZtYdm+7p/acgrn2jOWLd237cMv1/1cz30n95NcD5Xsl2zBAd+q3x96IIdjNVmO1sLhSAuX01HzeqVaIpEkpGr9IbkWCIRa6vb4WngIkhSoBoPhx37JX6D67H2zciSGYCgMry8IpyjB6RQhuv2wcAKsvBO84IK9T4TH628h2J2wCQ5yZ2/1sBYbHA43bBb+V4q3CRMul4iR9MjvM9PT6pWZvJpRhtRcJqFOjqfUqbG/dPyioqaSw6oyrKiD0UF1MBZX00MpNT+WUXPZy7+lz6cRH4z/QM3OzhTK5QXcu1dprq6taZubX2Fz4wleH+7gYH8b+3vreHWwjcPDV9h6voHd3RfY2t7B7os97JB6f/8Az7e3Gk+ePkO1Wq1TXvLucCQKySM2g16ndl4ZwsR0HqVr13B1bg6Xc+PIk/P1hetYXChieXkJS0s3cPPmLZRvlIk/hwsjSkOSJASDwTqloyOF4+YE5ORos/TxlFZZLOLh7RJWPyth/f4n2LxfwXqlhOxYDh3dIZw0htBlHgD1gQ9XP8pheb4IKXapcYpP4QzrrVPHjPFCh2kYbT3nmtSHYW2+9Bgv17/HfOUuvlh7hO++/AXfbvwMJXsL75pTOG3P4HRfBkfOJrBy92tcKa4QP9HotF7EKbq/Tr3XEy4cM6XQyQw323oGtcnJB3i68g1i+SLmP72NSvkZ9h7VEVUW0WGMQ88pMPBpHO2O4M7iDkazd3Ccjje6uAswmAN16kx3b6GX5mEV3E2LzamJYgBu0QeORMNB4mO3u+ER/eBsLphYAWaLvYWRsZF4SbDZRZhZocFwDtAsX6cEwVGYzF+Cz803BEHQAgG/ZjT2aiaTkaixpb3Gs5qZKG02/Yu/+0j9hmHMYFmmTmXz04XPH1YxNTqguUiok8lzYBgWNE0TZf6BppmW9zZv+Q2W/XOG+YmycvxEKqWQ9Z0Nl8vd9Hp9GmvhNMv/gPS/4ciPYVjrj9SJEycNbe3tMnXkqNze/o7c2fm+rNMb5C6dXtbpDP8R/QCZier1Bu4PmgWkPSa+SewAAAAASUVORK5CYII=&apos;); background-size: cover; display: block;&quot;
+  &gt;&lt;/span&gt;
+  &lt;img
+        class=&quot;gatsby-resp-image-image&quot;
+        alt=&quot;page transition speed of CSS-in-CSS&quot;
+        title=&quot;page transition speed of CSS-in-CSS&quot;
+        src=&quot;/static/0611ad103e44ff876498cb2315872efb/fcda8/5.png&quot;
+        srcset=&quot;/static/0611ad103e44ff876498cb2315872efb/12f09/5.png 148w,
+/static/0611ad103e44ff876498cb2315872efb/e4a3f/5.png 295w,
+/static/0611ad103e44ff876498cb2315872efb/fcda8/5.png 590w,
+/static/0611ad103e44ff876498cb2315872efb/efc66/5.png 885w,
+/static/0611ad103e44ff876498cb2315872efb/c83ae/5.png 1180w,
+/static/0611ad103e44ff876498cb2315872efb/4b39a/5.png 3104w&quot;
+        sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
+        style=&quot;width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;&quot;
+        loading=&quot;lazy&quot;
+      /&gt;
+  &lt;/a&gt;
+    &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;마지막으로 페이지 전환속도를 비교해 보자. 첫 번째 전환 시에는 &lt;code class=&quot;language-text&quot;&gt;240.6ms&lt;/code&gt;, 두 번째는 &lt;code class=&quot;language-text&quot;&gt;217.0ms&lt;/code&gt;가 소요되었다. 번들 사이즈나 페이지 로딩 속도에 비해서는 드라마틱할 정도의 차이는 아니지만, 그래도 어느 정도 빨라진 모습을 보인다. &lt;/p&gt;
+&lt;h2 id=&quot;코드-수정&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%BD%94%EB%93%9C-%EC%88%98%EC%A0%95&quot; aria-label=&quot;코드 수정 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;코드 수정&lt;/h2&gt;
+&lt;p&gt;마지막으로 수정한 코드를 살펴보자. CSS-in-JS 방식에 비해서 불편한 것은 사실이다. jsx(or tsx) 파일 하나에서 마크업, 스타일, 로직을 작성할 수 있었다. 반면에 CSS-in-CSS 방식은 여러 파일(js, css 등)을 열어놓고 작업해야 하는 번거로움이 있다.&lt;/p&gt;
+&lt;p&gt;예제를 살펴보자.&lt;/p&gt;
+&lt;h3 id=&quot;기존-코드&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B8%B0%EC%A1%B4-%EC%BD%94%EB%93%9C&quot; aria-label=&quot;기존 코드 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;기존 코드&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// List.js 코드 일부&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt; Flex&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt; Button &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;rebass/styled-components&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; styled &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;styled-components&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;Flex mt&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;70px&quot;&lt;/span&gt; width&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;100%&quot;&lt;/span&gt; justifyContent&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;center&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+      &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;StyledShowMoreButton
+        fontSize&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;18px&quot;&lt;/span&gt;
+        fontWeight&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;400&quot;&lt;/span&gt;
+        color&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;#999&quot;&lt;/span&gt;
+        p&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;5px 10px&quot;&lt;/span&gt;
+        bg&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;transparent&quot;&lt;/span&gt;
+        onClick&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setShowCount&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;showCount &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+        show more
+      &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;StyledShowMoreButton&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;Flex&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;const&lt;/span&gt; StyledShowMoreButton &lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;styled&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;Button&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token template-string&quot;&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;
+  border-radius: 4px;
+  border: 1px solid #dedede;
+  cursor: pointer;
+  transition: all 0.7s;
+  outline: none;
+  &amp;amp;:hover {
+    background-color: #bbb;
+    color: #fff;
+    border: 1px solid transparent;
+  }
+&lt;/span&gt;&lt;span class=&quot;token template-punctuation string&quot;&gt;`&lt;/span&gt;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3 id=&quot;수정된-코드&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%88%98%EC%A0%95%EB%90%9C-%EC%BD%94%EB%93%9C&quot; aria-label=&quot;수정된 코드 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;수정된 코드&lt;/h3&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;js&quot;&gt;&lt;pre class=&quot;language-js&quot;&gt;&lt;code class=&quot;language-js&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// List.js 코드 일부&lt;/span&gt;
+&lt;span class=&quot;token keyword&quot;&gt;import&lt;/span&gt; s &lt;span class=&quot;token keyword&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;token string&quot;&gt;&apos;./css/List.module.scss&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;token keyword&quot;&gt;export&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;default&lt;/span&gt; &lt;span class=&quot;token keyword&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;List&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;div className&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;s&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;moreWrapper&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+      &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;button
+        className&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;s&lt;span class=&quot;token punctuation&quot;&gt;.&lt;/span&gt;moreButton&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+        onClick&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;token operator&quot;&gt;=&gt;&lt;/span&gt; &lt;span class=&quot;token function&quot;&gt;setShowCount&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;showCount &lt;span class=&quot;token operator&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;token number&quot;&gt;25&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+      &lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+        show more
+      &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;button&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;/&lt;/span&gt;div&lt;span class=&quot;token operator&quot;&gt;&gt;&lt;/span&gt;
+    &lt;span class=&quot;token operator&quot;&gt;...&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;scss&quot;&gt;&lt;pre class=&quot;language-scss&quot;&gt;&lt;code class=&quot;language-scss&quot;&gt;&lt;span class=&quot;token comment&quot;&gt;// List.module.scss 코드 일부&lt;/span&gt;
+&lt;span class=&quot;token selector&quot;&gt;.moreWrapper &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;display&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; flex&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;justify-content&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; center&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;width&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 100%&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token property&quot;&gt;margin-top&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 70px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;token selector&quot;&gt;.moreButton &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;font-size&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 18px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;font-weight&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 400&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; color.&lt;span class=&quot;token function&quot;&gt;getColor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;grey04&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;padding&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 5px 10px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; transparent&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;border-radius&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 4px&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 1px solid #dedede&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;cursor&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; pointer&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;transition&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; all 0.7s&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token property&quot;&gt;outline&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; none&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token selector&quot;&gt;&lt;span class=&quot;token parent important&quot;&gt;&amp;amp;&lt;/span&gt;:hover &lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;token property&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; #bbb&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;token property&quot;&gt;color&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; #fff&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;token property&quot;&gt;border&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;:&lt;/span&gt; 1px solid transparent&lt;span class=&quot;token punctuation&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;token punctuation&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;이전 코드는 &lt;code class=&quot;language-text&quot;&gt;List.js&lt;/code&gt; 파일 하나만 보면서 작업할 수 있었지만, 이제는 &lt;code class=&quot;language-text&quot;&gt;List.js&lt;/code&gt;와 &lt;code class=&quot;language-text&quot;&gt;List.module.scss&lt;/code&gt;를 같이 보며 작업해야 한다. 확실히 불편해졌다. 현재 프로젝트에는 typescript가 적용되어 있지 않지만, 만약 typescript를 사용한다면 타입이 적용되지 않기 때문에 실수할 가능성이 커진다.&lt;/p&gt;
+&lt;h2 id=&quot;결론&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EA%B2%B0%EB%A1%A0&quot; aria-label=&quot;결론 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;결론&lt;/h2&gt;
+&lt;p&gt;이전 몇 번의 포스팅에서 재차 언급했지만, &lt;code class=&quot;language-text&quot;&gt;CSS-in-CSS&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;CSS-in-JS&lt;/code&gt; 두 가지 방식 중 어느 것이 더 낫다고 단정 지을 수는 없다. CSS-in-CSS 방식은 퍼포먼스에서 CSS-in-JS보다 뛰어나다(이 간극은 점점 좁혀지고 있다). 반면에 CSS-in-JS는 개발 효율이나 타입 정의 등에 장점이 있기 때문에 생산성 측면에서 장점이 있다. 중요한 것은 개발하는 프로젝트의 성격이 어떠냐에 달려있다. 백오피스 프로젝트나 퍼포먼스가 크게 중요하지 않다면, &lt;code class=&quot;language-text&quot;&gt;CSS-in-JS&lt;/code&gt;를 사용하는 편이 낫다. 반면에 유저 대상으로 하는 서비스의 경우 퍼포먼스가 중요하기 때문에(대부분은), 가능하다면(여유가 된다면) &lt;code class=&quot;language-text&quot;&gt;CSS-in-CSS&lt;/code&gt; 방식이 더 나은 선택이다.&lt;/p&gt;
+&lt;p&gt;성능이 확실히 좋아졌다. 다만, 유지보수는 좀 더 신경 써야 할 것 같다.&lt;/p&gt;
+&lt;h2 id=&quot;참고자료&quot; style=&quot;position:relative;&quot;&gt;&lt;a href=&quot;#%EC%B0%B8%EA%B3%A0%EC%9E%90%EB%A3%8C&quot; aria-label=&quot;참고자료 permalink&quot; class=&quot;anchor-header before&quot;&gt;&lt;svg aria-hidden=&quot;true&quot; focusable=&quot;false&quot; height=&quot;16&quot; version=&quot;1.1&quot; viewBox=&quot;0 0 16 16&quot; width=&quot;16&quot;&gt;&lt;path fill-rule=&quot;evenodd&quot; d=&quot;M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z&quot;&gt;&lt;/path&gt;&lt;/svg&gt;&lt;/a&gt;참고자료&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.gatsbyjs.com/docs/production-app/#commons-contenthashjs&quot;&gt;Building the JavaScript App (Gatsby 공식 문서)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content:encoded></item><item><title><![CDATA[CSS-in-JS(Styled Components) vs CSS-inCSS(CSS Modules) 성능 비교]]></title><description><![CDATA[지난번 포스팅(CSS-in-JS에서 CSS-in-CSS로 바꿔야 하는 이유)에는 CSS-in-JS에서 CSS-in-CSS…]]></description><link>https://blueshw.github.io/2020/09/27/css-in-js-vs-css-modules/</link><guid isPermaLink="false">https://blueshw.github.io/2020/09/27/css-in-js-vs-css-modules/</guid><pubDate>Sun, 27 Sep 2020 12:40:30 GMT</pubDate><content:encoded>&lt;p&gt;&lt;a href=&quot;https://blueshw.github.io/2020/09/14/why-css-in-css/&quot;&gt;지난번 포스팅(CSS-in-JS에서 CSS-in-CSS로 바꿔야 하는 이유)&lt;/a&gt;에는 CSS-in-JS에서 CSS-in-CSS 방식으로 변경해야 하는 이유에 대해 설명했다. 요약해보면, 다음과 같다. &lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;성능에 초점을 맞춘다면 &lt;code class=&quot;language-text&quot;&gt;CSS-in-CSS&lt;/code&gt;, 개발 생산성에 초점을 맞춘다면 &lt;code class=&quot;language-text&quot;&gt;CSS-in-JS&lt;/code&gt;를 사용하는 편이 낫다. 어떤 방식이 더 낫다고 단정할 수는 없으며, 서비스의 용도와 목적에 따라 적절한 선택이 필요하다.&lt;/p&gt;
 &lt;/blockquote&gt;
